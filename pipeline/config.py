@@ -70,23 +70,6 @@ VIEWPORTS = {
 MAX_GENERATION_ITERATIONS = 10  # Keep iterating until all judges give 10/10
 BROKEN_WEBSITE_PROBABILITY = 0.25  # 25% of generated sites have defects
 
-# Grading weights (Mode A - Standard)
-GRADING_WEIGHTS = {
-    "clip": 0.20,
-    "ssim": 0.10,
-    "color": 0.10,
-    "llm_judge": 0.40,
-    "responsive": 0.10,
-    "structural": 0.10,
-}
-
-# Grading weights (Mode B - Broken)
-BROKEN_GRADING_WEIGHTS = {
-    "visual_fidelity": 0.60,
-    "defect_replication": 0.20,
-    "defect_identification": 0.20,
-}
-
 # API Keys — loaded from project .env file, NOT system env
 def _load_project_env() -> dict[str, str]:
     """Load .env from project root."""
