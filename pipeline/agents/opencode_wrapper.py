@@ -4,17 +4,51 @@ Uses `opencode run` CLI directly — no SDK server needed.
 API keys are loaded from the project's .env file and passed via env vars.
 """
 
+import atexit
 import json
+import logging
 import os
 import signal
 import subprocess
-import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-from pipeline.config import PROJECT_ROOT
+from pipeline.config import PROJECT_ROOT, log
+
+# Track active opencode process groups so we can kill them on exit
+_active_pgids: set[int] = set()
+
+
+def _cleanup_opencode_processes():
+    """Kill any active opencode process groups."""
+    for pgid in list(_active_pgids):
+        try:
+            os.killpg(pgid, signal.SIGTERM)
+        except (ProcessLookupError, PermissionError):
+            pass
+    time.sleep(1)
+    for pgid in list(_active_pgids):
+        try:
+            os.killpg(pgid, signal.SIGKILL)
+        except (ProcessLookupError, PermissionError):
+            pass
+    _active_pgids.clear()
+
+
+def _signal_handler(signum, frame):
+    """Handle SIGINT/SIGTERM by cleaning up opencode processes then exiting."""
+    _cleanup_opencode_processes()
+    raise SystemExit(128 + signum)
+
+
+# Register cleanup for normal exit and signals
+atexit.register(_cleanup_opencode_processes)
+signal.signal(signal.SIGINT, _signal_handler)
+signal.signal(signal.SIGTERM, _signal_handler)
+
+logger = logging.getLogger("pipeline.opencode")
 
 
 def _load_dotenv() -> dict[str, str]:
@@ -58,9 +92,8 @@ class OpenCodeAgent:
     _DATA_DIR = _OPENCODE_DIR / "data"
     _CONFIG_DIR = _OPENCODE_DIR / "config" / "opencode"
 
-    def __init__(self, timeout_sec: int = 300, verbose: bool = True):
+    def __init__(self, timeout_sec: int = 300):
         self.timeout_sec = timeout_sec
-        self.verbose = verbose
         self._dotenv = _load_dotenv()
         self._DATA_DIR.mkdir(parents=True, exist_ok=True)
         self._CONFIG_DIR.mkdir(parents=True, exist_ok=True)
@@ -77,10 +110,6 @@ class OpenCodeAgent:
                     }
                 },
             }, indent=2))
-
-    def _log(self, msg: str) -> None:
-        if self.verbose:
-            print(f"      [opencode] {msg}", flush=True)
 
     def run(
         self,
@@ -107,14 +136,12 @@ class OpenCodeAgent:
             "XDG_CONFIG_HOME": str(self._CONFIG_DIR.parent),
         }
 
-        self._log(f"Starting: model={model} dir={working_dir}")
-        self._log(f"Prompt length: {len(prompt)} chars")
+        logger.info(f"[opencode] Starting: model={model} dir={working_dir}")
+        logger.debug(f"[opencode] Prompt ({len(prompt)} chars): {prompt[:200]}...")
         start_time = time.time()
 
+        pgid = None
         try:
-            # Stream output in real-time for visibility
-            # start_new_session=True creates a new process group so we can
-            # kill opencode AND all its children (Playwright, etc.) on timeout
             proc = subprocess.Popen(
                 cmd,
                 stdout=subprocess.PIPE,
@@ -123,13 +150,14 @@ class OpenCodeAgent:
                 env=env,
                 start_new_session=True,
             )
+            pgid = os.getpgid(proc.pid)
+            _active_pgids.add(pgid)
 
             stdout_lines: list[str] = []
             events: list[dict] = []
             has_error = False
             error_msg = ""
 
-            # Read stdout line by line as it comes
             while True:
                 line = proc.stdout.readline()
                 if not line and proc.poll() is not None:
@@ -147,42 +175,60 @@ class OpenCodeAgent:
                     event = json.loads(line)
                     events.append(event)
                     etype = event.get("type", "")
+                    part = event.get("part", {})
 
-                    # Log meaningful events
                     if etype == "text":
-                        text = event.get("part", {}).get("text", "")
+                        text = part.get("text", "")
                         if text:
-                            preview = text[:80].replace("\n", " ")
-                            self._log(f"text: {preview}...")
-                    elif etype == "tool_call":
-                        tool = event.get("part", {}).get("name", "?")
-                        self._log(f"tool_call: {tool}")
-                    elif etype == "tool_result":
-                        self._log("tool_result received")
+                            preview = text[:120].replace("\n", " ")
+                            logger.info(f"[opencode] assistant: {preview}")
+                            logger.debug(f"[opencode] assistant (full):\n{text}")
+
+                    elif etype == "tool_use":
+                        tool = part.get("tool", "?")
+                        state = part.get("state", {})
+                        tool_input = state.get("input", {})
+                        tool_output = state.get("output", "")
+                        status = state.get("status", "?")
+
+                        # Log tool call with input
+                        input_summary = json.dumps(tool_input, indent=2) if tool_input else ""
+                        logger.info(f"[opencode] tool: {tool} ({status})")
+                        if input_summary:
+                            logger.debug(f"[opencode] tool input:\n{input_summary}")
+                        if tool_output:
+                            output_str = str(tool_output)
+                            logger.debug(f"[opencode] tool output:\n{output_str[:2000]}")
+
                     elif etype == "step_start":
-                        self._log("step started")
+                        logger.debug("[opencode] --- step start ---")
+
                     elif etype == "step_finish":
-                        tokens = event.get("part", {}).get("tokens", {})
-                        cost = event.get("part", {}).get("cost", 0)
-                        self._log(
-                            f"step finished — tokens: {tokens.get('total', '?')}, "
-                            f"cost: ${cost:.4f}"
+                        tokens = part.get("tokens", {})
+                        cost = part.get("cost", 0)
+                        reason = part.get("reason", "?")
+                        logger.info(
+                            f"[opencode] step done ({reason}) — "
+                            f"tokens: {tokens.get('total', '?')}, cost: ${cost:.4f}"
                         )
+
                     elif etype == "error":
                         has_error = True
                         error_data = event.get("error", {})
                         error_msg = error_data.get("data", {}).get(
                             "message", error_data.get("name", "Unknown error")
                         )
-                        self._log(f"ERROR: {error_msg}")
-                except json.JSONDecodeError:
-                    # Non-JSON line (e.g., migration messages)
-                    self._log(f"stderr/info: {line[:100]}")
+                        logger.error(f"[opencode] ERROR: {error_msg}")
+                        logger.debug(f"[opencode] error detail: {json.dumps(error_data, indent=2)}")
 
-                # Check timeout
+                    else:
+                        logger.debug(f"[opencode] event({etype}): {line[:300]}")
+
+                except json.JSONDecodeError:
+                    logger.debug(f"[opencode] non-json: {line[:200]}")
+
                 elapsed = time.time() - start_time
                 if elapsed > self.timeout_sec:
-                    # Kill entire process group (opencode + children)
                     os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
                     time.sleep(2)
                     try:
@@ -191,7 +237,7 @@ class OpenCodeAgent:
                         pass
                     proc.wait()
                     duration = time.time() - start_time
-                    self._log(f"TIMEOUT after {duration:.1f}s")
+                    logger.warning(f"[opencode] TIMEOUT after {duration:.1f}s")
                     return AgentResult(
                         success=False,
                         raw_output="\n".join(stdout_lines),
@@ -200,16 +246,16 @@ class OpenCodeAgent:
                         events=events,
                     )
 
-            # Wait for process to finish
             proc.wait()
             stderr = proc.stderr.read().strip()
             duration = time.time() - start_time
 
             stdout = "\n".join(stdout_lines)
 
-            self._log(f"Finished in {duration:.1f}s (exit code: {proc.returncode})")
+            logger.info(f"[opencode] Finished in {duration:.1f}s (exit code: {proc.returncode})")
 
             if proc.returncode != 0 and not stdout:
+                logger.error(f"[opencode] Failed: {stderr[:500]}")
                 return AgentResult(
                     success=False,
                     error=f"opencode exited {proc.returncode}: {stderr[:500]}",
@@ -235,19 +281,19 @@ class OpenCodeAgent:
 
         except Exception as e:
             duration = time.time() - start_time
-            self._log(f"EXCEPTION after {duration:.1f}s: {e}")
+            logger.exception(f"[opencode] EXCEPTION after {duration:.1f}s: {e}")
             return AgentResult(
                 success=False,
                 error=str(e),
                 duration_sec=duration,
             )
+        finally:
+            if pgid is not None:
+                _active_pgids.discard(pgid)
 
 
 def parse_model_string(model_string: str) -> tuple[str, str]:
-    """Parse 'provider/model' string into (provider, model) tuple.
-
-    Example: 'anthropic/claude-sonnet-4-6' -> ('anthropic', 'claude-sonnet-4-6')
-    """
+    """Parse 'provider/model' string into (provider, model) tuple."""
     parts = model_string.split("/", 1)
     if len(parts) != 2:
         raise ValueError(

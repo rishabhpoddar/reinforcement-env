@@ -1,6 +1,8 @@
 """Pipeline configuration."""
 
+import logging
 import os
+import uuid
 from pathlib import Path
 
 
@@ -9,8 +11,43 @@ PIPELINE_ROOT = Path(__file__).parent
 PROJECT_ROOT = PIPELINE_ROOT.parent
 TASKS_DIR = PROJECT_ROOT / "tasks"
 GENERATED_DIR = PROJECT_ROOT / "generated"  # Intermediate generated websites
+LOGS_DIR = PROJECT_ROOT / "logs"
+
+
+# ── Shared logger ──
+# Single log file per pipeline run, stored in logs/ at the repo root
+def setup_logger() -> logging.Logger:
+    LOGS_DIR.mkdir(parents=True, exist_ok=True)
+    log_file = LOGS_DIR / f"pipeline-{uuid.uuid4().hex[:8]}.log"
+
+    logger = logging.getLogger("pipeline")
+    if logger.handlers:
+        return logger  # Already set up
+
+    logger.setLevel(logging.DEBUG)
+
+    # File handler — everything goes to the log file
+    fh = logging.FileHandler(log_file)
+    fh.setLevel(logging.DEBUG)
+    fh.setFormatter(logging.Formatter(
+        "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    ))
+    logger.addHandler(fh)
+
+    # Console handler — INFO and above to stdout
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.INFO)
+    ch.setFormatter(logging.Formatter("%(message)s"))
+    logger.addHandler(ch)
+
+    logger.info(f"Log file: {log_file}")
+    return logger
+
+
+log = setup_logger()
 SEED_SPECS_PATH = PIPELINE_ROOT / "generate" / "seed_specs.json"
-SPEC_HISTORY_PATH = PIPELINE_ROOT / "generate" / "spec_history.json"
+SPEC_HISTORY_PATH = GENERATED_DIR / "spec_history.json"
 
 # LLM Models available for generation (provider/model format for OpenCode)
 # Always use latest models for each provider

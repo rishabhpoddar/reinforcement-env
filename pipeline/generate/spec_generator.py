@@ -15,6 +15,7 @@ from pipeline.config import (
     SEED_SPECS_PATH,
     SPEC_HISTORY_PATH,
     get_anthropic_key,
+    log,
 )
 
 
@@ -267,20 +268,20 @@ def generate_specs_batch(
         try:
             spec = generate_spec(model=model, force_broken=force_broken)
             specs.append(spec)
-            print(
+            log.info(
                 f"  [{i+1}/{count}] Generated: {spec['site_name']} "
                 f"({spec['category']}) "
                 f"{'[BROKEN]' if spec.get('is_broken') else '[CLEAN]'}"
             )
         except Exception as e:
-            print(f"  [{i+1}/{count}] Failed: {e}, retrying...")
+            log.info(f"  [{i+1}/{count}] Failed: {e}, retrying...")
             try:
                 spec = generate_spec(model=model, force_broken=force_broken)
                 specs.append(spec)
-                print(
+                log.info(
                     f"  [{i+1}/{count}] Retry succeeded: {spec['site_name']}"
                 )
             except Exception as e2:
-                print(f"  [{i+1}/{count}] Retry also failed: {e2}, skipping")
+                log.info(f"  [{i+1}/{count}] Retry also failed: {e2}, skipping")
 
     return specs

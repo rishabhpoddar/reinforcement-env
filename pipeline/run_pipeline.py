@@ -15,7 +15,7 @@ from pathlib import Path
 # Ensure project root is in path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from pipeline.config import MODELS, TASKS_DIR, GENERATED_DIR
+from pipeline.config import MODELS, TASKS_DIR, GENERATED_DIR, log
 from pipeline.generate.spec_generator import generate_spec, generate_specs_batch
 from pipeline.generate.generation_loop import generate_website
 from pipeline.generate.screenshot import capture_screenshots_sync
@@ -27,19 +27,16 @@ def generate_single_task(
     models: list[str] | None = None,
     max_iterations: int = 5,
 ) -> Path | None:
-    """Generate a single Harbor task from a website spec.
-
-    Returns the task directory path, or None on failure.
-    """
+    """Generate a single Harbor task from a website spec."""
     models = models or MODELS
     site_name = spec.get("site_name", "unknown")
     category = spec.get("category", "unknown")
 
-    print(f"\n{'='*60}")
-    print(f"Generating: {site_name} ({category})")
-    print(f"  Pages: {', '.join(spec.get('pages', []))}")
-    print(f"  Broken: {spec.get('is_broken', False)}")
-    print(f"{'='*60}")
+    log.info(f"{'='*60}")
+    log.info(f"Generating: {site_name} ({category})")
+    log.info(f"  Pages: {', '.join(spec.get('pages', []))}")
+    log.info(f"  Broken: {spec.get('is_broken', False)}")
+    log.info(f"{'='*60}")
 
     # Use a persistent directory under generated/ so files are inspectable
     slug = f"{category}-{site_name}".replace(" ", "-").lower()[:50]
@@ -53,7 +50,7 @@ def generate_single_task(
     (gen_dir / "spec.json").write_text(json.dumps(spec, indent=2))
 
     # Step 1: Generate website via builder+judge loop
-    print("\n[1/3] Running builder + judge generation loop...")
+    log.info("[1/3] Running builder + judge generation loop...")
     gen_metadata = generate_website(
         spec=spec,
         output_dir=site_dir,
@@ -64,24 +61,24 @@ def generate_single_task(
     # Verify we got some HTML files
     html_files = list(site_dir.glob("*.html"))
     if not html_files:
-        print(f"  ERROR: No HTML files generated. Skipping.")
+        log.error("No HTML files generated. Skipping.")
         return None
 
     css_files = list(site_dir.glob("*.css"))
-    print(f"  Generated {len(html_files)} HTML files + {len(css_files)} CSS file(s)")
+    log.info(f"  Generated {len(html_files)} HTML files + {len(css_files)} CSS file(s)")
 
     # Step 2: Capture reference screenshots
-    print("\n[2/3] Capturing reference screenshots...")
+    log.info("[2/3] Capturing reference screenshots...")
     try:
         screenshots = capture_screenshots_sync(site_dir, screenshots_dir)
         total = sum(len(v) for v in screenshots.values())
-        print(f"  Captured {total} screenshots across {len(screenshots)} pages")
+        log.info(f"  Captured {total} screenshots across {len(screenshots)} pages")
     except Exception as e:
-        print(f"  ERROR capturing screenshots: {e}")
+        log.error(f"Error capturing screenshots: {e}")
         return None
 
     # Step 3: Package as Harbor task
-    print("\n[3/3] Packaging Harbor task...")
+    log.info("[3/3] Packaging Harbor task...")
     try:
         task_dir = package_task(
             spec=spec,
@@ -89,10 +86,10 @@ def generate_single_task(
             screenshots_dir=screenshots_dir,
             generation_metadata=gen_metadata,
         )
-        print(f"  Task created: {task_dir}")
+        log.info(f"  Task created: {task_dir}")
         return task_dir
     except Exception as e:
-        print(f"  ERROR packaging task: {e}")
+        log.error(f"Error packaging task: {e}")
         return None
 
 
@@ -125,7 +122,7 @@ def main():
         help="Max builder-judge iterations per task",
     )
     parser.add_argument(
-        "--spec-model", type=str, default="claude-sonnet-4-6",
+        "--spec-model", type=str, default="claude-opus-4-7",
         help="Anthropic model for spec generation",
     )
     args = parser.parse_args()
@@ -133,16 +130,16 @@ def main():
     models = args.models or MODELS
     TASKS_DIR.mkdir(parents=True, exist_ok=True)
 
-    print(f"Pipeline Configuration:")
-    print(f"  Tasks to generate: {args.count}")
-    print(f"  Models: {models}")
-    print(f"  Max iterations: {args.max_iterations}")
-    print(f"  Output: {TASKS_DIR}")
+    log.info("Pipeline Configuration:")
+    log.info(f"  Tasks to generate: {args.count}")
+    log.info(f"  Models: {models}")
+    log.info(f"  Max iterations: {args.max_iterations}")
+    log.info(f"  Output: {TASKS_DIR}")
 
     # Step 1: Generate specs
-    print(f"\n{'='*60}")
-    print(f"Phase 1: Generating {args.count} website specifications...")
-    print(f"{'='*60}")
+    log.info(f"{'='*60}")
+    log.info(f"Phase 1: Generating {args.count} website specifications...")
+    log.info(f"{'='*60}")
 
     if args.broken:
         force_broken = True
@@ -167,19 +164,19 @@ def main():
             broken_count=broken_count,
         )
 
-    print(f"\nGenerated {len(specs)} specs")
+    log.info(f"Generated {len(specs)} specs")
     for i, s in enumerate(specs):
-        print(f"  {i+1}. {s['site_name']} ({s['category']}) "
-              f"{'[BROKEN]' if s.get('is_broken') else '[CLEAN]'}")
+        log.info(f"  {i+1}. {s['site_name']} ({s['category']}) "
+                 f"{'[BROKEN]' if s.get('is_broken') else '[CLEAN]'}")
 
     # Step 2: Generate websites and package tasks
-    print(f"\n{'='*60}")
-    print(f"Phase 2: Generating websites and packaging tasks...")
-    print(f"{'='*60}")
+    log.info(f"{'='*60}")
+    log.info(f"Phase 2: Generating websites and packaging tasks...")
+    log.info(f"{'='*60}")
 
     successful_tasks = []
     for i, spec in enumerate(specs):
-        print(f"\n--- Task {i+1}/{len(specs)} ---")
+        log.info(f"--- Task {i+1}/{len(specs)} ---")
         task_dir = generate_single_task(
             spec=spec,
             models=models,
@@ -189,19 +186,19 @@ def main():
             successful_tasks.append(task_dir)
 
     # Summary
-    print(f"\n{'='*60}")
-    print(f"Pipeline Complete!")
-    print(f"{'='*60}")
-    print(f"  Attempted: {len(specs)}")
-    print(f"  Successful: {len(successful_tasks)}")
-    print(f"  Failed: {len(specs) - len(successful_tasks)}")
-    print(f"\nGenerated tasks:")
+    log.info(f"{'='*60}")
+    log.info("Pipeline Complete!")
+    log.info(f"{'='*60}")
+    log.info(f"  Attempted: {len(specs)}")
+    log.info(f"  Successful: {len(successful_tasks)}")
+    log.info(f"  Failed: {len(specs) - len(successful_tasks)}")
+    log.info("Generated tasks:")
     for t in successful_tasks:
-        print(f"  - {t}")
+        log.info(f"  - {t}")
 
-    print(f"\nTo run evaluation:")
-    print(f"  harbor run -p {TASKS_DIR} --agent claude-code "
-          f"--model anthropic/claude-opus-4-7 --n-concurrent 4")
+    log.info(f"To run evaluation:")
+    log.info(f"  harbor run -p {TASKS_DIR} --agent claude-code "
+             f"--model anthropic/claude-opus-4-7 --n-concurrent 4")
 
 
 if __name__ == "__main__":

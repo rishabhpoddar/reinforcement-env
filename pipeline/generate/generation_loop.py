@@ -16,7 +16,7 @@ import threading
 from pathlib import Path
 
 from pipeline.agents.opencode_wrapper import OpenCodeAgent
-from pipeline.config import MAX_GENERATION_ITERATIONS, MODELS
+from pipeline.config import MAX_GENERATION_ITERATIONS, MODELS, log
 
 
 # ──────────────────────────────────────────────────
@@ -256,7 +256,7 @@ def generate_website(
 
     # Start HTTP server so Playwright can access the files
     _, port = _start_http_server(output_dir)
-    print(f"  HTTP server on http://localhost:{port}/")
+    log.info(f"  HTTP server on http://localhost:{port}/")
 
     agent = OpenCodeAgent(timeout_sec=1800)  # 30 min per session
 
@@ -270,11 +270,11 @@ def generate_website(
     }
 
     for iteration in range(1, max_iterations + 1):
-        print(f"\n  Iteration {iteration}/{max_iterations}")
+        log.info(f"\n  Iteration {iteration}/{max_iterations}")
 
         # --- BUILDER ---
         builder_model = random.choice(models)
-        print(f"    Builder: {builder_model}")
+        log.info(f"    Builder: {builder_model}")
 
         builder_prompt = _build_builder_prompt(spec, port, feedback)
         builder_result = agent.run(
@@ -286,7 +286,7 @@ def generate_website(
         _cleanup_agent_screenshots(output_dir)
 
         if not builder_result.success:
-            print(f"    Builder failed: {builder_result.error}")
+            log.info(f"    Builder failed: {builder_result.error}")
             metadata["iterations"].append({
                 "iteration": iteration,
                 "builder_model": builder_model,
@@ -298,7 +298,7 @@ def generate_website(
         # --- JUDGES (each LLM in pool) ---
         verdicts = []
         for judge_model in models:
-            print(f"    Judge: {judge_model}")
+            log.info(f"    Judge: {judge_model}")
 
             judge_prompt = _build_judge_prompt(spec, port)
             judge_result = agent.run(
@@ -313,12 +313,12 @@ def generate_website(
                 verdict = _parse_judge_verdict(judge_result.raw_output)
                 verdict["model"] = judge_model
                 verdicts.append(verdict)
-                print(
+                log.info(
                     f"      → score={verdict['score']}/10: "
                     f"{verdict.get('feedback', '')[:100]}"
                 )
             else:
-                print(f"      → Judge failed: {judge_result.error}")
+                log.info(f"      → Judge failed: {judge_result.error}")
                 verdicts.append({
                     "model": judge_model,
                     "score": 0,
@@ -342,7 +342,7 @@ def generate_website(
             "avg_score": avg_score,
         })
 
-        print(
+        log.info(
             f"    Scores: {[v.get('score', 0) for v in verdicts]} "
             f"(avg: {avg_score:.1f}, min: {min_score})"
         )
@@ -350,10 +350,10 @@ def generate_website(
         if all_perfect:
             metadata["converged"] = True
             metadata["final_scores"] = verdicts
-            print(f"  PERFECT 10/10 — finalized after {iteration} iteration(s)")
+            log.info(f"  PERFECT 10/10 — finalized after {iteration} iteration(s)")
             break
 
-        print(f"    Not yet perfect — iterating...")
+        log.info(f"    Not yet perfect — iterating...")
         feedback = _aggregate_judge_feedback(verdicts)
 
     if not metadata["converged"]:
@@ -361,7 +361,7 @@ def generate_website(
             (it["avg_score"] for it in metadata["iterations"] if it.get("builder_success")),
             default=0,
         )
-        print(
+        log.info(
             f"  Did not reach 10/10 after {max_iterations} iterations. "
             f"Best avg: {best_avg:.1f}/10. Using last version."
         )
