@@ -15,10 +15,8 @@ import socket
 import threading
 from pathlib import Path
 
-from anthropic import Anthropic
-
 from pipeline.agents.opencode_wrapper import OpenCodeAgent
-from pipeline.config import MAX_GENERATION_ITERATIONS, MODELS, SPEC_GENERATOR_MODEL, get_anthropic_key, log
+from pipeline.config import MAX_GENERATION_ITERATIONS, MODELS, log
 
 
 # ──────────────────────────────────────────────────
@@ -52,6 +50,22 @@ def _start_http_server(directory: Path) -> tuple[threading.Thread, int]:
 # ──────────────────────────────────────────────────
 # Prompts
 # ──────────────────────────────────────────────────
+
+
+def _is_image_too_large_error(error: str | None) -> bool:
+    """Check if an error is the Anthropic many-image dimension limit."""
+    if not error:
+        return False
+    return "image dimensions exceed max allowed size" in error.lower() or \
+           "exceed max allowed size for many-image" in error.lower()
+
+
+SCREENSHOT_RESIZE_INSTRUCTION = (
+    "IMPORTANT: Before reading any screenshot PNG file, you MUST first resize it "
+    "so that neither dimension exceeds 1900 pixels. Use this command:\n"
+    "  sips --resampleHeightWidthMax 1900 <path-to-screenshot.png>\n"
+    "This avoids API errors with large images. Always resize BEFORE reading the file."
+)
 
 
 def _clear_screenshots(workspace_dir: Path) -> None:
@@ -162,7 +176,36 @@ The website source files are in the site/ subfolder. Read them from there.
 The file must contain exactly this JSON structure:
 {{"score": <number 0-10>, "feedback": "<specific actionable feedback>"}}
 
+If you give a score of 10, set feedback to an empty string "".
+
 You MUST create this file. This is the most important part of your task.
+"""
+
+
+def _build_judge_followup_prompt(verdict_path: str) -> str:
+    """Create the prompt for continuing a judge session after builder fixes."""
+    return f"""The builder has attempted to fix the issues you raised in your previous review.
+
+Re-check the website now:
+1. Re-read the spec from spec.json to refresh your memory of the requirements
+2. Use Playwright to navigate to each page again
+2. Take fresh screenshots at all viewport widths (1280, 768, 375)
+3. Save screenshots into the screenshots/ subfolder
+4. After saving each screenshot, use the read tool to open the PNG file and actually LOOK at it
+5. Compare what you see against the spec and your previous feedback
+
+If the issues are fixed, increase the score accordingly. If new issues appeared, note them.
+
+IMPORTANT: If you notice you have been raising the same core issues for more than 3 iterations
+and the builder is not making meaningful progress on them, the builder is stuck. In that case,
+set your feedback to an empty string "" to signal that further iteration won't help.
+
+OVERWRITE the existing verdict file at {verdict_path} with your updated scores.
+The file must contain exactly this JSON structure:
+{{"score": <number 0-10>, "feedback": "<specific actionable feedback>"}}
+
+If the score is 10 or the builder is stuck on the same issues, set feedback to "".
+You MUST overwrite this file.
 """
 
 
@@ -178,7 +221,6 @@ def _read_judge_verdict(verdict_path: str) -> dict:
         return {"score": 0, "feedback": "Judge did not write verdict file"}
 
     content = verdict_file.read_text().strip()
-    verdict_file.unlink()
 
     if not content:
         log.warning(f"Verdict file is empty: {verdict_path}")
@@ -200,42 +242,6 @@ def _read_judge_verdict(verdict_path: str) -> dict:
 # ──────────────────────────────────────────────────
 # Main generation loop
 # ──────────────────────────────────────────────────
-
-def _check_feedback_repetition(feedback_history: list[str]) -> bool:
-    """Check if judge feedback is repeating the same issues across iterations.
-
-    Uses a quick LLM call to compare recent feedback entries.
-    Returns True if feedback is repetitive (should exit loop early).
-    """
-    if len(feedback_history) < 3:
-        return False
-
-    # Only check the last 3 rounds
-    recent = feedback_history[-3:]
-    numbered = "\n\n".join(
-        f"--- Iteration {i+1} feedback ---\n{fb}"
-        for i, fb in enumerate(recent)
-    )
-
-    try:
-        client = Anthropic(api_key=get_anthropic_key())
-        response = client.messages.create(
-            model=SPEC_GENERATOR_MODEL,
-            max_tokens=100,
-            messages=[{
-                "role": "user",
-                "content": f"""Are these feedback entries from consecutive iterations raising the same issues repeatedly? If the core complaints are the same across iterations (even if worded differently), that means the builder is stuck and can't fix them.
-
-{numbered}
-
-Reply with ONLY "yes" or "no".""",
-            }],
-        )
-        answer = response.content[0].text.strip().lower()
-        return answer.startswith("yes")
-    except Exception as e:
-        log.warning(f"Repetition check failed: {e}")
-        return False
 
 
 def _aggregate_judge_feedback(verdicts: list[dict]) -> str:
@@ -286,8 +292,8 @@ def generate_website(
     log.info(f"  Builder model: {builder_model} (fixed for all iterations)")
 
     feedback = None
-    feedback_history: list[str] = []
     verdicts: list[dict] = []
+    judge_session_ids: dict[str, str | None] = {m: None for m in models}
     metadata = {
         "spec": spec,
         "iterations": [],
@@ -320,6 +326,7 @@ def generate_website(
             model=builder_model,
             working_dir=workspace_dir,
             session_id=builder_session_id,
+            label=f"iter{iteration}/builder",
         )
         _clear_screenshots(workspace_dir)
 
@@ -328,22 +335,44 @@ def generate_website(
             builder_session_id = builder_result.session_id
 
         if not builder_result.success:
-            log.info(f"    Builder failed: {builder_result.error}")
-            metadata["iterations"].append({
-                "iteration": iteration,
-                "builder_model": builder_model,
-                "builder_success": False,
-                "builder_error": builder_result.error,
-            })
-            continue
+            # If the error is due to oversized images in the session history,
+            # drop the session and retry with a fresh one that includes
+            # resize instructions so future screenshots stay under the limit.
+            if _is_image_too_large_error(builder_result.error):
+                log.info(f"    Builder hit image size limit — retrying with fresh session + resize instructions")
+                builder_session_id = None
+                builder_prompt = _build_builder_prompt(spec, port, feedback)
+                builder_prompt += f"\n\n{SCREENSHOT_RESIZE_INSTRUCTION}"
+                builder_result = agent.run(
+                    prompt=builder_prompt,
+                    model=builder_model,
+                    working_dir=workspace_dir,
+                    session_id=None,
+                    label=f"iter{iteration}/builder-retry",
+                )
+                _clear_screenshots(workspace_dir)
+                if builder_result.session_id:
+                    builder_session_id = builder_result.session_id
+
+            if not builder_result.success:
+                log.info(f"    Builder failed: {builder_result.error}")
+                metadata["iterations"].append({
+                    "iteration": iteration,
+                    "builder_model": builder_model,
+                    "builder_success": False,
+                    "builder_error": builder_result.error,
+                })
+                continue
 
         # --- JUDGES ---
-        verdicts = judge_website(
+        verdicts, judge_session_ids = judge_website(
             workspace_dir=workspace_dir,
             spec=spec,
             models=models,
             port=port,
             agent=agent,
+            iteration=iteration,
+            judge_session_ids=judge_session_ids,
         )
 
         # --- CONSENSUS ---
@@ -374,15 +403,19 @@ def generate_website(
             log.info(f"  PERFECT 10/10 — finalized after {iteration} iteration(s)")
             break
 
+        # Check if all judges signaled "stuck" via empty feedback
+        all_stuck = all(
+            not v.get("feedback", "").strip()
+            for v in verdicts
+            if v.get("score", 0) < 10
+        )
+        if all_stuck and verdicts:
+            log.info(f"  All judges signaled stuck — builder cannot fix remaining issues. Exiting loop early.")
+            metadata["early_exit"] = "judges_signaled_stuck"
+            break
+
         log.info(f"    Not yet perfect — iterating...")
         feedback = _aggregate_judge_feedback(verdicts)
-        feedback_history.append(feedback)
-
-        # Check if feedback is stuck in a loop
-        if _check_feedback_repetition(feedback_history):
-            log.info(f"  Feedback is repeating — builder is stuck. Exiting loop early.")
-            metadata["early_exit"] = "repetitive_feedback"
-            break
 
     if not metadata["converged"]:
         best_avg = max(
@@ -404,10 +437,12 @@ def judge_website(
     models: list[str] | None = None,
     port: int | None = None,
     agent: OpenCodeAgent | None = None,
-) -> list[dict]:
+    iteration: int | None = None,
+    judge_session_ids: dict[str, str | None] | None = None,
+) -> tuple[list[dict], dict[str, str | None]]:
     """Run the judge phase on a website.
 
-    Used both standalone (--judge-only) and from within generate_website().
+    Used both standalone (--step judge) and from within generate_website().
 
     Args:
         workspace_dir: The generation workspace (must have site/ with HTML+CSS).
@@ -415,17 +450,23 @@ def judge_website(
         models: List of model strings. Defaults to config MODELS.
         port: HTTP server port serving site/. If None, starts a new one.
         agent: OpenCodeAgent instance. If None, creates a new one.
+        iteration: Current iteration number (for log labels).
+        judge_session_ids: Dict mapping model name to session ID for continuing
+            judge sessions. If None, all judges start fresh.
 
     Returns:
-        List of verdict dicts from each judge.
+        Tuple of (list of verdict dicts, updated judge_session_ids dict).
     """
     models = models or MODELS
     workspace_dir = Path(workspace_dir)
     site_dir = workspace_dir / "site"
 
+    if judge_session_ids is None:
+        judge_session_ids = {m: None for m in models}
+
     if not site_dir.exists() or not list(site_dir.glob("*.html")):
         log.error(f"No HTML files found in {site_dir}")
-        return []
+        return [], judge_session_ids
 
     # Load spec if not provided
     if spec is None:
@@ -449,15 +490,44 @@ def judge_website(
     for judge_idx, judge_model in enumerate(models):
         verdict_filename = f".verdict-{judge_idx}.json"
         verdict_path = str(workspace_dir / verdict_filename)
-        log.info(f"    Judge: {judge_model} → {verdict_filename}")
+        session_id = judge_session_ids.get(judge_model)
+        log.info(f"    Judge: {judge_model} → {verdict_filename}" +
+                 (f" (continuing session {session_id})" if session_id else " (new session)"))
 
-        judge_prompt = _build_judge_prompt(spec, port, verdict_filename)
+        # First iteration: full prompt; subsequent: followup prompt
+        if session_id is None:
+            judge_prompt = _build_judge_prompt(spec, port, verdict_filename)
+        else:
+            judge_prompt = _build_judge_followup_prompt(verdict_filename)
+
+        iter_prefix = f"iter{iteration}/" if iteration else ""
         judge_result = agent.run(
             prompt=judge_prompt,
             model=judge_model,
             working_dir=workspace_dir,
+            session_id=session_id,
+            label=f"{iter_prefix}judge-{judge_idx}",
         )
         _clear_screenshots(workspace_dir)
+
+        # If image-too-large error, drop session and retry fresh with resize instructions
+        if not judge_result.success and _is_image_too_large_error(judge_result.error):
+            log.info(f"      → Judge hit image size limit — retrying with fresh session + resize instructions")
+            judge_session_ids[judge_model] = None
+            judge_prompt_retry = _build_judge_prompt(spec, port, verdict_filename)
+            judge_prompt_retry += f"\n\n{SCREENSHOT_RESIZE_INSTRUCTION}"
+            judge_result = agent.run(
+                prompt=judge_prompt_retry,
+                model=judge_model,
+                working_dir=workspace_dir,
+                session_id=None,
+                label=f"{iter_prefix}judge-{judge_idx}-retry",
+            )
+            _clear_screenshots(workspace_dir)
+
+        # Capture session ID for continuation
+        if judge_result.session_id:
+            judge_session_ids[judge_model] = judge_result.session_id
 
         if judge_result.success:
             verdict = _read_judge_verdict(verdict_path)
@@ -475,4 +545,4 @@ def judge_website(
                 "feedback": f"Judge failed: {judge_result.error}",
             })
 
-    return verdicts
+    return verdicts, judge_session_ids

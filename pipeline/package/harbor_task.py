@@ -7,7 +7,7 @@ import json
 import shutil
 from pathlib import Path
 
-from pipeline.config import TASKS_DIR, VIEWPORTS
+from pipeline.config import TASKS_DIR, VIEWPORTS, slugify
 
 
 def package_task(
@@ -34,10 +34,8 @@ def package_task(
 
     # Generate task ID
     if not task_id:
-        category = spec.get("category", "unknown").replace(" ", "-").lower()
-        site_name = (
-            spec.get("site_name", "site").replace(" ", "-").lower()[:30]
-        )
+        category = slugify(spec.get("category", "unknown"))
+        site_name = slugify(spec.get("site_name", "site"), max_len=30)
         task_id = f"{category}-{site_name}"
 
     task_dir = TASKS_DIR / f"web-design-{task_id}"
@@ -123,33 +121,60 @@ def _build_instruction(spec: dict, screenshots_dir: Path) -> str:
 You are given screenshots of a **{n_pages}-page {category} website** at three viewport sizes
 (desktop 1280px, tablet 768px, mobile 375px).
 
-Your task is to replicate this website's visual design as closely as possible using HTML and CSS.
+Your task is to create a **pixel-perfect replication** of this website using HTML and CSS.
 
-## Requirements
+## CRITICAL: What "pixel-perfect" means
 
-- Create these HTML files: {page_list}
-- Create a shared stylesheet: `styles.css`
+This is NOT about creating a "similar looking" website. You must reproduce the EXACT layout, structure, and visual design shown in the screenshots:
+
+- **Study each screenshot carefully** before writing any code
+- **Count the exact number of columns, cards, sections** on each page
+- **Match the precise layout structure** — if the hero has a 2-column split with text left and image right, yours must too
+- **Reproduce specific design elements** — drop caps, sidebars, decorative dividers, card styles, badges, overlays
+- **Match the color palette exactly** — extract colors from the screenshots and use them
+- **Match the typography hierarchy** — heading sizes, font weights, italic vs regular, serif vs sans-serif
+- **Match spacing and proportions** — margins, padding, gaps between elements
+- **Match the responsive behavior** — compare desktop vs tablet vs mobile screenshots to understand how the layout adapts
+
+Do NOT take creative liberties. Do NOT simplify the design. Do NOT substitute your own layout ideas. Your output should look identical to the screenshots when rendered in a browser.
+
+## Files to Create
+
+- HTML files: {page_list}
+- Shared stylesheet: `styles.css`
 - Place all files in `/app/`
-- The design **must be responsive** — match the reference at all three viewport sizes
-- Use placeholder content for images (CSS gradients, colored boxes, or inline SVG)
+
+## Constraints
+
 - Navigation between pages must work via relative links (e.g., `href="about.html"`)
 - No external dependencies — no CDN links, no JavaScript libraries, no external fonts
-- Focus on **visual design fidelity**, not functionality
+- Use system font stacks that match the visual style (serif, sans-serif, monospace as appropriate)
+- Use placeholder content for images (CSS gradients, colored boxes, or inline SVG that match the shapes/colors in the screenshots)
+- Focus entirely on visual fidelity — functionality is not required
 
 ## Reference Screenshots
 
 {screenshots_section}
 
+## How to Approach This
+
+1. **Start by examining ALL screenshots** — understand the full site design before writing code
+2. **Identify the design system** — colors, fonts, spacing scale, shared components (nav, footer)
+3. **Build the shared CSS first** — variables, resets, typography, layout utilities, component styles
+4. **Build each page** — match the exact structure shown in the desktop screenshot
+5. **Add responsive styles** — compare tablet and mobile screenshots to understand breakpoint behavior
+6. **Review your work** — compare your output against each screenshot and fix discrepancies
+
 ## Grading
 
-Your submission will be scored on a continuous 0-1 scale based on:
-- **Visual similarity** to the reference screenshots at each viewport
-- **Layout fidelity** — correct positioning of sections, columns, and elements
-- **Color accuracy** — matching the color scheme
-- **Typography** — similar font sizes, weights, and hierarchy
-- **Spacing and proportions** — correct margins, padding, whitespace
-- **Responsiveness** — proper adaptation across desktop, tablet, and mobile
-- **Cross-page consistency** — shared design language across all pages
+You will be graded by an LLM judge that compares your rendered pages against the reference screenshots side by side. The judge scores:
+- **Layout** (0-10) — are sections, columns, and elements positioned exactly as shown?
+- **Color** (0-10) — does the color scheme match precisely?
+- **Typography** (0-10) — are font sizes, weights, and styles correct?
+- **Spacing** (0-10) — are margins, padding, and whitespace proportions right?
+- **Components** (0-10) — are UI elements (cards, buttons, nav, badges, dividers) visually accurate?
+
+A score of 10 means your page is visually indistinguishable from the reference. Aim for 10/10 on every criterion.
 """
 
     # Add broken website section if applicable
@@ -180,7 +205,10 @@ def _build_task_toml(spec: dict, task_id: str) -> str:
     if spec.get("is_broken"):
         keywords_extra = ', "broken-design", "defect-analysis"'
 
-    return f"""[task]
+    return f"""schema_version = "1.2"
+artifacts = ["/app"]
+
+[task]
 name = "web-design-replication/{task_id}"
 description = "Replicate the {site_name} ({category}) website design from screenshots"
 authors = [{{ name = "RL Pipeline", email = "pipeline@example.com" }}]
@@ -190,7 +218,7 @@ keywords = ["web-design", "html", "css", "responsive", "{category}"{keywords_ext
 cpus = 2
 memory_mb = 4096
 storage_mb = 2048
-allow_internet = false
+allow_internet = true
 
 [agent]
 timeout_sec = 900
@@ -207,7 +235,7 @@ def _build_dockerfile() -> str:
     """Build the Dockerfile for the task environment."""
     return """FROM node:20-slim
 
-# Install Python, Chromium, and grader dependencies
+# Install Python and Chromium
 RUN apt-get update && apt-get install -y --no-install-recommends \\
     python3 python3-pip python3-venv chromium \\
     && rm -rf /var/lib/apt/lists/*
@@ -215,10 +243,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \\
 # Create grader virtual environment
 RUN python3 -m venv /opt/grader-venv
 
-# Install grader Python packages
+# Install grader Python packages (lightweight — no torch/CLIP)
 RUN /opt/grader-venv/bin/pip install --no-cache-dir \\
-    playwright anthropic Pillow scikit-image \\
-    numpy open-clip-torch torch torchvision
+    playwright anthropic Pillow
 
 # Install Playwright browsers
 RUN /opt/grader-venv/bin/python -m playwright install --with-deps chromium
@@ -250,116 +277,46 @@ cat /logs/verifier/reward.json
 
 
 def _write_grader(tests_dir: Path) -> None:
-    """Write the grader.py stub that imports from the grade module.
-
-    The actual grading logic lives in pipeline/grade/. This stub is
-    a self-contained version that gets copied into the Harbor task.
-    """
-    # We'll write the full grader inline since it needs to be self-contained
-    # inside the Docker container (no access to pipeline/ module)
+    """Write the self-contained grader.py for the Harbor task."""
     grader_code = '''#!/usr/bin/env python3
 """Harbor task grader — evaluates design replication quality.
 
-This is a self-contained grader that runs inside the Harbor verifier container.
-It compares the agent's submission against reference screenshots using:
-1. Visual metrics (CLIP similarity, SSIM, color histogram)
-2. LLM judge (multi-criteria rubric)
-3. Structural checks
-4. Responsiveness evaluation
-5. Defect grading (for broken website tasks)
+Self-contained grader that runs inside the Harbor verifier container.
+Compares the agent's submission against reference screenshots using:
+1. LLM judge (multi-criteria visual comparison)
+2. Structural checks (pages exist, nav links, stylesheet)
+3. Defect replication check (for broken tasks)
+4. Defect identification check (for broken tasks)
 """
 
 import argparse
 import asyncio
+import base64
 import json
 import os
 import sys
 from pathlib import Path
 
-import numpy as np
-from PIL import Image
-from skimage.metrics import structural_similarity as ssim
-
-
-# ──────────────────────────────────────────────────
-# Visual Metrics
-# ──────────────────────────────────────────────────
-
-def compute_ssim(img1_path: str, img2_path: str) -> float:
-    """Compute SSIM between two images."""
-    img1 = Image.open(img1_path).convert("L")
-    img2 = Image.open(img2_path).convert("L")
-
-    # Resize to common size
-    target_size = (min(img1.width, img2.width), min(img1.height, img2.height))
-    img1 = img1.resize(target_size, Image.LANCZOS)
-    img2 = img2.resize(target_size, Image.LANCZOS)
-
-    arr1 = np.array(img1)
-    arr2 = np.array(img2)
-
-    score, _ = ssim(arr1, arr2, full=True)
-    return float(max(0.0, min(1.0, score)))
-
-
-def compute_color_histogram_similarity(img1_path: str, img2_path: str) -> float:
-    """Compute color histogram intersection similarity."""
-    img1 = Image.open(img1_path).convert("RGB")
-    img2 = Image.open(img2_path).convert("RGB")
-
-    def get_histogram(img: Image.Image) -> np.ndarray:
-        arr = np.array(img)
-        hist = np.zeros(768)  # 256 * 3 channels
-        for c in range(3):
-            channel_hist, _ = np.histogram(arr[:, :, c], bins=256, range=(0, 256))
-            hist[c * 256 : (c + 1) * 256] = channel_hist
-        # Normalize
-        total = hist.sum()
-        if total > 0:
-            hist = hist / total
-        return hist
-
-    h1 = get_histogram(img1)
-    h2 = get_histogram(img2)
-
-    # Histogram intersection
-    intersection = np.minimum(h1, h2).sum()
-    return float(max(0.0, min(1.0, intersection)))
-
-
-def compute_clip_similarity(img1_path: str, img2_path: str) -> float:
-    """Compute CLIP cosine similarity between two images.
-
-    Falls back to 0.5 if CLIP model fails to load.
-    """
-    try:
-        import open_clip
-        import torch
-
-        model, _, preprocess = open_clip.create_model_and_transforms(
-            "ViT-B-32", pretrained="openai"
-        )
-        model.eval()
-
-        img1 = preprocess(Image.open(img1_path).convert("RGB")).unsqueeze(0)
-        img2 = preprocess(Image.open(img2_path).convert("RGB")).unsqueeze(0)
-
-        with torch.no_grad():
-            feat1 = model.encode_image(img1)
-            feat2 = model.encode_image(img2)
-            feat1 = feat1 / feat1.norm(dim=-1, keepdim=True)
-            feat2 = feat2 / feat2.norm(dim=-1, keepdim=True)
-            similarity = (feat1 @ feat2.T).item()
-
-        return float(max(0.0, min(1.0, similarity)))
-    except Exception as e:
-        print(f"CLIP failed ({e}), using fallback score 0.5", file=sys.stderr)
-        return 0.5
-
 
 # ──────────────────────────────────────────────────
 # LLM Judge
 # ──────────────────────────────────────────────────
+
+def _resize_image_for_api(image_path: str, max_height: int = 7000) -> bytes:
+    """Read an image and resize if taller than max_height (Claude API limit is 8000px)."""
+    from PIL import Image
+    import io
+
+    img = Image.open(image_path)
+    if img.height > max_height:
+        ratio = max_height / img.height
+        new_width = int(img.width * ratio)
+        img = img.resize((new_width, max_height), Image.LANCZOS)
+
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    return buf.getvalue()
+
 
 def llm_judge_score(
     ref_screenshot: str,
@@ -367,15 +324,16 @@ def llm_judge_score(
     page_name: str,
     viewport: str,
 ) -> dict:
-    """Score a single page/viewport pair using Claude as judge."""
+    """Score a single page/viewport pair using Claude as judge with structured output."""
     try:
         import anthropic
-        import base64
 
         client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
 
-        ref_b64 = base64.b64encode(open(ref_screenshot, "rb").read()).decode()
-        sub_b64 = base64.b64encode(open(sub_screenshot, "rb").read()).decode()
+        ref_bytes = _resize_image_for_api(ref_screenshot)
+        sub_bytes = _resize_image_for_api(sub_screenshot)
+        ref_b64 = base64.b64encode(ref_bytes).decode()
+        sub_b64 = base64.b64encode(sub_bytes).decode()
 
         response = client.messages.create(
             model="claude-haiku-4-5-20251001",
@@ -383,22 +341,38 @@ def llm_judge_score(
             messages=[{
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": f"Compare these two website screenshots ({page_name} page, {viewport} viewport). The first is the REFERENCE design, the second is the SUBMISSION that attempts to replicate it.\\n\\nScore each criterion 0-10:\\n1. Layout Fidelity (sections, columns, element positioning)\\n2. Color Accuracy (color scheme match)\\n3. Typography (font sizes, weights, hierarchy)\\n4. Spacing & Proportions (margins, padding, whitespace)\\n5. Component Accuracy (buttons, cards, nav, etc.)\\n\\nReturn ONLY JSON: {{\\\"layout\\\": N, \\\"color\\\": N, \\\"typography\\\": N, \\\"spacing\\\": N, \\\"components\\\": N}}"},
+                    {"type": "text", "text": f"Compare these two website screenshots ({page_name} page, {viewport} viewport). The first is the REFERENCE design, the second is the SUBMISSION that attempts to replicate it. Score each criterion 0-10."},
                     {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": ref_b64}},
                     {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": sub_b64}},
                 ],
             }],
+            tool_choice={"type": "tool", "name": "score_design"},
+            tools=[{
+                "name": "score_design",
+                "description": "Score the design replication quality",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "layout": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Layout fidelity: sections, columns, element positioning"},
+                        "color": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Color accuracy: color scheme match"},
+                        "typography": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Typography: font sizes, weights, hierarchy"},
+                        "spacing": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Spacing and proportions: margins, padding, whitespace"},
+                        "components": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Component accuracy: buttons, cards, nav, etc."},
+                    },
+                    "required": ["layout", "color", "typography", "spacing", "components"],
+                },
+            }],
         )
 
-        text = response.content[0].text.strip()
-        if text.startswith("```"):
-            text = text.split("\\n", 1)[1]
-            if text.endswith("```"):
-                text = text[:text.rfind("```")]
-            text = text.strip()
+        # Extract tool use result
+        for block in response.content:
+            if block.type == "tool_use":
+                scores = block.input
+                return {k: float(v) / 10.0 for k, v in scores.items()}
 
-        scores = json.loads(text)
-        return {k: float(v) / 10.0 for k, v in scores.items()}
+        # Fallback if no tool use
+        print(f"LLM judge did not use tool, falling back", file=sys.stderr)
+        return {"layout": 0.5, "color": 0.5, "typography": 0.5, "spacing": 0.5, "components": 0.5}
 
     except Exception as e:
         print(f"LLM judge failed ({e}), using fallback scores", file=sys.stderr)
@@ -414,26 +388,20 @@ def check_structural(submission_dir: Path, expected_pages: list[str]) -> float:
     score = 0.0
     total_checks = 0
 
-    # Check each expected page exists
     for page in expected_pages:
         total_checks += 1
         html_file = submission_dir / f"{page}.html"
         if html_file.exists():
             score += 1.0
-
-            # Check for stylesheet link
             content = html_file.read_text()
             if "styles.css" in content:
                 score += 0.5
                 total_checks += 0.5
-
-            # Check for nav links to other pages
             nav_links = sum(1 for p in expected_pages if f"{p}.html" in content)
             if nav_links >= len(expected_pages) - 1:
                 score += 0.5
                 total_checks += 0.5
 
-    # Check styles.css exists
     total_checks += 1
     if (submission_dir / "styles.css").exists():
         score += 1.0
@@ -445,22 +413,90 @@ def check_structural(submission_dir: Path, expected_pages: list[str]) -> float:
 # Defect Grading
 # ──────────────────────────────────────────────────
 
+def grade_defect_replication(
+    reference_dir: Path,
+    sub_screenshots: dict[str, dict[str, str]],
+    expected_defects: list[dict],
+) -> dict:
+    """Grade whether the agent replicated each defect by comparing screenshots."""
+    try:
+        import anthropic
+
+        client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
+        scores = []
+
+        for defect in expected_defects:
+            page = defect.get("page", "")
+            viewport = defect.get("viewport", "all")
+            description = defect.get("description", "")
+
+            viewports_to_check = ["desktop", "tablet", "mobile"] if viewport == "all" else [viewport]
+
+            defect_found = False
+            for vp in viewports_to_check:
+                ref_path = reference_dir / f"{page}-{vp}.png"
+                sub_path = sub_screenshots.get(page, {}).get(vp)
+
+                if not ref_path.exists() or not sub_path or not Path(sub_path).exists():
+                    continue
+
+                ref_b64 = base64.b64encode(open(str(ref_path), "rb").read()).decode()
+                sub_b64 = base64.b64encode(open(sub_path, "rb").read()).decode()
+
+                response = client.messages.create(
+                    model="claude-haiku-4-5-20251001",
+                    max_tokens=256,
+                    messages=[{
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": f"The reference website has this intentional defect: \\"{description}\\"\\n\\nImage 1 is the REFERENCE (has the defect). Image 2 is the SUBMISSION (should also have the defect).\\n\\nIs the defect present in the submission? Reply ONLY with JSON: {{\\\"present\\\": true/false, \\\"reason\\\": \\\"...\\\"}}"},
+                            {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": ref_b64}},
+                            {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": sub_b64}},
+                        ],
+                    }],
+                )
+
+                text = response.content[0].text.strip()
+                if text.startswith("```"):
+                    text = text.split("\\n", 1)[1]
+                    if text.endswith("```"):
+                        text = text[:text.rfind("```")]
+                    text = text.strip()
+
+                try:
+                    result = json.loads(text)
+                    if result.get("present", False):
+                        defect_found = True
+                        break
+                except json.JSONDecodeError:
+                    if "true" in text.lower():
+                        defect_found = True
+                        break
+
+            scores.append(1.0 if defect_found else 0.0)
+
+        avg_score = sum(scores) / len(scores) if scores else 0.0
+        return {"defect_replication": avg_score, "per_defect": scores}
+
+    except Exception as e:
+        print(f"Defect replication grading failed ({e}), using 0.5", file=sys.stderr)
+        return {"defect_replication": 0.5, "per_defect": []}
+
+
 def grade_defect_identification(
     submission_dir: Path,
     expected_defects: list[dict],
 ) -> dict:
-    """Grade the agent's defect identification (for broken tasks)."""
+    """Grade the agent's defect report."""
     report_path = submission_dir / "defects_report.md"
 
     if not report_path.exists():
         return {"defect_identification": 0.0, "report_found": False}
 
     report_text = report_path.read_text()
-
     if not report_text.strip():
         return {"defect_identification": 0.0, "report_found": True, "report_empty": True}
 
-    # Use LLM to evaluate the defect report
     try:
         import anthropic
         client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
@@ -554,20 +590,21 @@ def grade(
 ) -> dict:
     """Run the full grading pipeline."""
     pages = meta.get("pages", [])
-    viewports = meta.get("viewports", {"desktop": {"width": 1280, "height": 900}, "tablet": {"width": 768, "height": 1024}, "mobile": {"width": 375, "height": 812}})
+    viewports = meta.get("viewports", {
+        "desktop": {"width": 1280, "height": 900},
+        "tablet": {"width": 768, "height": 1024},
+        "mobile": {"width": 375, "height": 812},
+    })
     is_broken = meta.get("is_broken", False)
     defects = meta.get("defects", [])
 
     # Capture submission screenshots
-    sub_screenshots_dir = Path("/tmp/submission_screenshots")
+    sub_screenshots_dir = Path("/logs/verifier/screenshots")
     sub_screenshots = asyncio.run(
         capture_submission_screenshots(submission_dir, sub_screenshots_dir, viewports)
     )
 
-    # Collect per-page, per-viewport scores
-    all_clip = []
-    all_ssim = []
-    all_color = []
+    # Collect per-page, per-viewport LLM judge scores
     all_llm = []
     per_page_scores = {}
 
@@ -579,88 +616,57 @@ def grade(
 
             if not ref_path.exists() or not sub_path or not Path(sub_path).exists():
                 per_page_scores[page][vp_name] = 0.0
-                all_clip.append(0.0)
-                all_ssim.append(0.0)
-                all_color.append(0.0)
                 all_llm.append({"layout": 0, "color": 0, "typography": 0, "spacing": 0, "components": 0})
                 continue
 
-            # Visual metrics
-            clip_score = compute_clip_similarity(str(ref_path), sub_path)
-            ssim_score = compute_ssim(str(ref_path), sub_path)
-            color_score = compute_color_histogram_similarity(str(ref_path), sub_path)
-
-            all_clip.append(clip_score)
-            all_ssim.append(ssim_score)
-            all_color.append(color_score)
-
-            # LLM judge
             judge_scores = llm_judge_score(str(ref_path), sub_path, page, vp_name)
             all_llm.append(judge_scores)
 
-            # Per-page score (simple average for now)
-            page_vp_score = (clip_score * 0.3 + ssim_score * 0.2 + color_score * 0.15 +
-                           np.mean(list(judge_scores.values())) * 0.35)
+            page_vp_score = sum(judge_scores.values()) / len(judge_scores) if judge_scores else 0.0
             per_page_scores[page][vp_name] = round(float(page_vp_score), 3)
 
-    # Aggregate
-    avg_clip = float(np.mean(all_clip)) if all_clip else 0.0
-    avg_ssim = float(np.mean(all_ssim)) if all_ssim else 0.0
-    avg_color = float(np.mean(all_color)) if all_color else 0.0
-
+    # Aggregate LLM scores
     llm_agg = {}
     if all_llm:
         for key in ["layout", "color", "typography", "spacing", "components"]:
-            llm_agg[key] = float(np.mean([s.get(key, 0) for s in all_llm]))
-    avg_llm = float(np.mean(list(llm_agg.values()))) if llm_agg else 0.0
+            llm_agg[key] = float(sum(s.get(key, 0) for s in all_llm) / len(all_llm))
+    avg_llm = float(sum(llm_agg.values()) / len(llm_agg)) if llm_agg else 0.0
 
     # Structural score
     structural = check_structural(submission_dir, pages)
 
-    # Responsiveness score (compare how scores differ across viewports)
-    responsive_score = 0.7  # Default
-    if per_page_scores:
-        vp_scores = {vp: [] for vp in viewports}
-        for page_scores in per_page_scores.values():
-            for vp, score in page_scores.items():
-                vp_scores[vp].append(score)
-        vp_means = [float(np.mean(scores)) for scores in vp_scores.values() if scores]
-        if len(vp_means) >= 2:
-            # Low variance across viewports = good responsiveness
-            variance = float(np.var(vp_means))
-            responsive_score = max(0.0, min(1.0, 1.0 - variance * 10))
-
     # Final score
     if is_broken:
-        visual_fidelity = (0.20 * avg_clip + 0.10 * avg_ssim + 0.10 * avg_color +
-                          0.40 * avg_llm + 0.10 * responsive_score + 0.10 * structural)
+        visual_fidelity = 0.85 * avg_llm + 0.15 * structural
+        defect_rep = grade_defect_replication(reference_dir, sub_screenshots, defects)
         defect_id = grade_defect_identification(submission_dir, defects)
-        overall = (0.60 * visual_fidelity +
-                  0.20 * visual_fidelity +  # defect replication approximated by visual fidelity
-                  0.20 * defect_id.get("defect_identification", 0.0))
+        overall = (0.50 * visual_fidelity +
+                  0.25 * defect_rep.get("defect_replication", 0.0) +
+                  0.25 * defect_id.get("defect_identification", 0.0))
     else:
-        overall = (0.20 * avg_clip + 0.10 * avg_ssim + 0.10 * avg_color +
-                  0.40 * avg_llm + 0.10 * responsive_score + 0.10 * structural)
+        overall = 0.85 * avg_llm + 0.15 * structural
+        defect_rep = {}
         defect_id = {}
 
+    # Harbor expects flat float/int values in reward.json — no nested dicts
     result = {
         "overall": round(float(overall), 3),
-        "visual_metrics": {
-            "clip": round(avg_clip, 3),
-            "ssim": round(avg_ssim, 3),
-            "color": round(avg_color, 3),
-        },
-        "llm_judge": {k: round(v, 3) for k, v in llm_agg.items()},
-        "responsiveness": round(responsive_score, 3),
         "structural": round(structural, 3),
-        "per_page": per_page_scores,
+        "llm_layout": round(llm_agg.get("layout", 0), 3),
+        "llm_color": round(llm_agg.get("color", 0), 3),
+        "llm_typography": round(llm_agg.get("typography", 0), 3),
+        "llm_spacing": round(llm_agg.get("spacing", 0), 3),
+        "llm_components": round(llm_agg.get("components", 0), 3),
+        "llm_avg": round(avg_llm, 3),
     }
 
     if is_broken:
+        result["defect_replication"] = round(
+            defect_rep.get("defect_replication", 0.0), 3
+        )
         result["defect_identification"] = round(
             defect_id.get("defect_identification", 0.0), 3
         )
-        result["defect_report_found"] = defect_id.get("report_found", False)
 
     # Write output
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -687,7 +693,7 @@ if __name__ == "__main__":
         output_path=Path(args.output),
     )
 
-    print(f"Overall score: {result['overall']}")
+    print(f"Overall score: {result[\'overall\']}")
 '''
     (tests_dir / "grader.py").write_text(grader_code)
 
@@ -695,13 +701,8 @@ if __name__ == "__main__":
 def _write_grader_requirements(tests_dir: Path) -> None:
     """Write requirements.txt for the grader."""
     reqs = """anthropic>=0.40.0
-Pillow>=10.0.0
-numpy>=1.26.0
-scikit-image>=0.22.0
-open-clip-torch>=2.26.0
-torch>=2.1.0
-torchvision>=0.16.0
 playwright>=1.40.0
+Pillow>=10.0.0
 """
     (tests_dir / "requirements.txt").write_text(reqs)
 

@@ -186,6 +186,24 @@ python -m pipeline.run_pipeline --step package generated/my-site/
 Requires: `spec.json` + `site/*.html` + `screenshots/*.png` in workspace
 Output: `tasks/web-design-<slug>/` with full Harbor task structure
 
+#### 6. `eval` — Run Harbor evaluation on a packaged task
+
+Runs the packaged Harbor task using Claude Code as the evaluation agent. Supports local Docker or Modal cloud.
+
+```bash
+# Run on Modal (default)
+python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/
+
+# Run locally with Docker
+python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-env docker
+
+# Use a different model for the evaluation agent
+python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-model anthropic/claude-sonnet-4-6
+```
+
+Requires: A packaged task directory with `task.toml`
+Output: Results in `jobs/<timestamp>/` with agent trajectory, artifacts (source code), verifier screenshots, and `reward.json`
+
 ### Full Pipeline Arguments Reference
 
 | Argument | Default | Description |
@@ -197,8 +215,10 @@ Output: `tasks/web-design-<slug>/` with full Harbor task structure
 | `--models M [M...]` | `claude-opus-4-7 gpt-5.5` | LLM models for building and judging |
 | `--max-iterations N` | 5 | Max builder-judge iterations per task |
 | `--spec-model M` | `claude-opus-4-7` | Anthropic model for spec generation |
-| `--step STEP` | — | Run a single step: `spec`, `build`, `judge`, `screenshot`, `package` |
-| `workspace` | — | Workspace directory (required for all steps except `spec`) |
+| `--step STEP` | — | Run a single step: `spec`, `build`, `judge`, `screenshot`, `package`, `eval` |
+| `workspace` | — | Workspace or task directory (required for all steps except `spec`) |
+| `--eval-env` | `modal` | Environment for eval step: `docker` or `modal` |
+| `--eval-model` | `claude-opus-4-7` | Model for the evaluation agent |
 
 ## Project Structure
 

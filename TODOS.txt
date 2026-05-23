@@ -1,0 +1,11 @@
+- for the website builder, start with starter repos
+- add proper images using gpt-image-2 (make it an opencode tool)
+- full pipeline on broken setup
+	- make sure judge is able to correctly judge intentionally wrong websites as well
+ - go through entire code base and refactor properly
+- go through all the prompts and criteria once the full pipeline is working as expected.
+- make the full pipeline config based - should be easy to add more types of websites (even give reference images), should be easy to add more llm, change prompts slightly etc.
+- should we add CLIP + SSIM + color to grader visual fidelity step? (we need this cause we also want pixel perfect signal)
+- websites in different languages too?
+	- especially things like arabic
+- need to confirm grader works well by giving it extreme screenshots to compare with

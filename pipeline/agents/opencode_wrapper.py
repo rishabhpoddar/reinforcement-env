@@ -118,11 +118,13 @@ class OpenCodeAgent:
         model: str,
         working_dir: str | Path,
         session_id: Optional[str] = None,
+        label: str = "opencode",
     ) -> AgentResult:
         """Run an OpenCode agent and return the result.
 
         Args:
             session_id: If provided, continues an existing session (preserves conversation history).
+            label: Prefix for log messages (e.g., "iter1/builder", "iter1/judge-0").
         """
         working_dir = Path(working_dir)
         working_dir.mkdir(parents=True, exist_ok=True)
@@ -144,8 +146,8 @@ class OpenCodeAgent:
             "XDG_CONFIG_HOME": str(self._CONFIG_DIR.parent),
         }
 
-        logger.info(f"[opencode] Starting: model={model} dir={working_dir}")
-        logger.debug(f"[opencode] Prompt ({len(prompt)} chars): {prompt[:200]}...")
+        logger.info(f"[{label}] Starting: model={model} dir={working_dir}")
+        logger.debug(f"[{label}] Prompt ({len(prompt)} chars): {prompt[:200]}...")
         start_time = time.time()
 
         pgid = None
@@ -194,8 +196,8 @@ class OpenCodeAgent:
                         text = part.get("text", "")
                         if text:
                             preview = text[:120].replace("\n", " ")
-                            logger.info(f"[opencode] assistant: {preview}")
-                            logger.debug(f"[opencode] assistant (full):\n{text}")
+                            logger.info(f"[{label}] assistant: {preview}")
+                            logger.debug(f"[{label}] assistant (full):\n{text}")
 
                     elif etype == "tool_use":
                         tool = part.get("tool", "?")
@@ -206,22 +208,22 @@ class OpenCodeAgent:
 
                         # Log tool call with input
                         input_summary = json.dumps(tool_input, indent=2) if tool_input else ""
-                        logger.info(f"[opencode] tool: {tool} ({status})")
+                        logger.info(f"[{label}] tool: {tool} ({status})")
                         if input_summary:
-                            logger.debug(f"[opencode] tool input:\n{input_summary}")
+                            logger.debug(f"[{label}] tool input:\n{input_summary}")
                         if tool_output:
                             output_str = str(tool_output)
-                            logger.debug(f"[opencode] tool output:\n{output_str[:2000]}")
+                            logger.debug(f"[{label}] tool output:\n{output_str[:2000]}")
 
                     elif etype == "step_start":
-                        logger.debug("[opencode] --- step start ---")
+                        logger.debug("[{label}] --- step start ---")
 
                     elif etype == "step_finish":
                         tokens = part.get("tokens", {})
                         cost = part.get("cost", 0)
                         reason = part.get("reason", "?")
                         logger.info(
-                            f"[opencode] step done ({reason}) — "
+                            f"[{label}] step done ({reason}) — "
                             f"tokens: {tokens.get('total', '?')}, cost: ${cost:.4f}"
                         )
 
@@ -231,14 +233,14 @@ class OpenCodeAgent:
                         error_msg = error_data.get("data", {}).get(
                             "message", error_data.get("name", "Unknown error")
                         )
-                        logger.error(f"[opencode] ERROR: {error_msg}")
-                        logger.debug(f"[opencode] error detail: {json.dumps(error_data, indent=2)}")
+                        logger.error(f"[{label}] ERROR: {error_msg}")
+                        logger.debug(f"[{label}] error detail: {json.dumps(error_data, indent=2)}")
 
                     else:
-                        logger.debug(f"[opencode] event({etype}): {line[:300]}")
+                        logger.debug(f"[{label}] event({etype}): {line[:300]}")
 
                 except json.JSONDecodeError:
-                    logger.debug(f"[opencode] non-json: {line[:200]}")
+                    logger.debug(f"[{label}] non-json: {line[:200]}")
 
                 elapsed = time.time() - start_time
                 if elapsed > self.timeout_sec:
@@ -250,7 +252,7 @@ class OpenCodeAgent:
                         pass
                     proc.wait()
                     duration = time.time() - start_time
-                    logger.warning(f"[opencode] TIMEOUT after {duration:.1f}s")
+                    logger.warning(f"[{label}] TIMEOUT after {duration:.1f}s")
                     return AgentResult(
                         success=False,
                         raw_output="\n".join(stdout_lines),
@@ -266,10 +268,10 @@ class OpenCodeAgent:
 
             stdout = "\n".join(stdout_lines)
 
-            logger.info(f"[opencode] Finished in {duration:.1f}s (exit code: {proc.returncode})")
+            logger.info(f"[{label}] Finished in {duration:.1f}s (exit code: {proc.returncode})")
 
             if proc.returncode != 0 and not stdout:
-                logger.error(f"[opencode] Failed: {stderr[:500]}")
+                logger.error(f"[{label}] Failed: {stderr[:500]}")
                 return AgentResult(
                     success=False,
                     error=f"opencode exited {proc.returncode}: {stderr[:500]}",
@@ -298,7 +300,7 @@ class OpenCodeAgent:
 
         except Exception as e:
             duration = time.time() - start_time
-            logger.exception(f"[opencode] EXCEPTION after {duration:.1f}s: {e}")
+            logger.exception(f"[{label}] EXCEPTION after {duration:.1f}s: {e}")
             return AgentResult(
                 success=False,
                 error=str(e),

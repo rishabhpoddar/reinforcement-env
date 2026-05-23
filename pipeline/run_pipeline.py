@@ -8,10 +8,16 @@ Usage:
     python -m pipeline.run_pipeline --count 10 --broken-count 3
 
     # Run a single step on an existing workspace
+    python -m pipeline.run_pipeline --step spec --clean
+    python -m pipeline.run_pipeline --step build generated/my-site/
     python -m pipeline.run_pipeline --step judge generated/my-site/
     python -m pipeline.run_pipeline --step screenshot generated/my-site/
     python -m pipeline.run_pipeline --step package generated/my-site/
-    python -m pipeline.run_pipeline --step build generated/my-site/  # re-run builder loop
+
+    # Run Harbor evaluation on a packaged task
+    python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/
+    python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-env docker
+    python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-model anthropic/claude-sonnet-4-6
 
     # Override models for any step
     python -m pipeline.run_pipeline --step judge generated/my-site/ --models openai/gpt-5.4-mini
@@ -25,7 +31,7 @@ from pathlib import Path
 # Ensure project root is in path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from pipeline.config import MODELS, TASKS_DIR, GENERATED_DIR, log
+from pipeline.config import MODELS, TASKS_DIR, GENERATED_DIR, PROJECT_ROOT, log, slugify
 from pipeline.generate.spec_generator import generate_spec, generate_specs_batch
 from pipeline.generate.generation_loop import generate_website, judge_website
 from pipeline.generate.screenshot import capture_screenshots_sync
@@ -44,7 +50,7 @@ def step_spec(
 
     site_name = spec.get("site_name", "unknown")
     category = spec.get("category", "unknown")
-    slug = f"{category}-{site_name}".replace(" ", "-").lower()[:50]
+    slug = slugify(f"{category}-{site_name}")
     workspace_dir = GENERATED_DIR / slug
     workspace_dir.mkdir(parents=True, exist_ok=True)
     (workspace_dir / "site").mkdir(exist_ok=True)
@@ -77,7 +83,7 @@ def step_build(workspace_dir: Path, models: list[str], max_iterations: int):
 
 def step_judge(workspace_dir: Path, models: list[str]):
     """Run judges on an existing site."""
-    verdicts = judge_website(workspace_dir=workspace_dir, models=models)
+    verdicts, _ = judge_website(workspace_dir=workspace_dir, models=models)
     log.info(f"{'='*60}")
     log.info("Results:")
     for v in verdicts:
@@ -98,6 +104,49 @@ def step_screenshot(workspace_dir: Path):
     screenshots = capture_screenshots_sync(site_dir, screenshots_dir)
     total = sum(len(v) for v in screenshots.values())
     log.info(f"  Captured {total} screenshots across {len(screenshots)} pages")
+
+
+def step_eval(task_dir: Path, model: str = "anthropic/claude-opus-4-7", env: str = "modal"):
+    """Run a Harbor evaluation on a packaged task."""
+    import subprocess
+
+    if not (task_dir / "task.toml").exists():
+        log.error(f"No task.toml in {task_dir} — run --step package first")
+        return
+
+    env_file = PROJECT_ROOT / ".env"
+    cmd = [
+        "harbor", "run",
+        "-p", str(task_dir),
+        "--agent", "claude-code",
+        "--model", model,
+        "-e", env,
+        "--env-file", str(env_file),
+    ]
+
+    log.info(f"Running Harbor eval: {' '.join(cmd)}")
+    result = subprocess.run(cmd, cwd=str(PROJECT_ROOT))
+
+    if result.returncode != 0:
+        log.error(f"Harbor run failed with exit code {result.returncode}")
+    else:
+        # Find latest job and show results
+        jobs_dir = PROJECT_ROOT / "jobs"
+        if jobs_dir.exists():
+            latest_job = sorted(jobs_dir.iterdir())[-1]
+            result_file = latest_job / "result.json"
+            if result_file.exists():
+                r = json.loads(result_file.read_text())
+                log.info(f"Job: {latest_job.name}")
+                log.info(f"Finished: {r.get('finished_at')}")
+                for eval_name, eval_data in r.get("stats", {}).get("evals", {}).items():
+                    for m in eval_data.get("metrics", []):
+                        log.info(f"Results: {json.dumps(m, indent=2)}")
+                    if eval_data.get("exception_stats"):
+                        log.info(f"Exceptions: {eval_data['exception_stats']}")
+                cost = r.get("stats", {}).get("cost_usd")
+                if cost:
+                    log.info(f"Cost: ${cost:.2f}")
 
 
 def step_package(workspace_dir: Path):
@@ -144,7 +193,7 @@ def generate_single_task(
     log.info(f"  Broken: {spec.get('is_broken', False)}")
     log.info(f"{'='*60}")
 
-    slug = f"{category}-{site_name}".replace(" ", "-").lower()[:50]
+    slug = slugify(f"{category}-{site_name}")
     gen_dir = GENERATED_DIR / slug
     site_dir = gen_dir / "site"
     screenshots_dir = gen_dir / "screenshots"
@@ -230,12 +279,21 @@ def main():
     )
     parser.add_argument(
         "--step", type=str, default=None,
-        choices=["spec", "build", "judge", "screenshot", "package"],
-        help="Run a single step. 'spec' creates a new workspace; others require a workspace arg.",
+        choices=["spec", "build", "judge", "screenshot", "package", "eval"],
+        help="Run a single step. 'spec' creates a new workspace; others require a workspace arg. 'eval' requires a task dir.",
     )
     parser.add_argument(
         "workspace", nargs="?", default=None,
-        help="Workspace directory (required for build/judge/screenshot/package steps)",
+        help="Workspace or task directory (required for all steps except 'spec')",
+    )
+    parser.add_argument(
+        "--eval-env", type=str, default="modal",
+        choices=["docker", "modal"],
+        help="Environment for eval step (default: modal)",
+    )
+    parser.add_argument(
+        "--eval-model", type=str, default="anthropic/claude-opus-4-7",
+        help="Model for the evaluation agent (default: claude-opus-4-7)",
     )
     args = parser.parse_args()
 
@@ -265,6 +323,8 @@ def main():
             step_screenshot(workspace)
         elif args.step == "package":
             step_package(workspace)
+        elif args.step == "eval":
+            step_eval(workspace, model=args.eval_model, env=args.eval_env)
         return
 
     # ── Full pipeline ──
