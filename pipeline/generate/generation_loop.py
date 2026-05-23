@@ -320,6 +320,7 @@ def generate_website(
             model=builder_model,
             working_dir=workspace_dir,
             session_id=builder_session_id,
+            label=f"iter{iteration}/builder",
         )
         _clear_screenshots(workspace_dir)
 
@@ -344,6 +345,7 @@ def generate_website(
             models=models,
             port=port,
             agent=agent,
+            iteration=iteration,
         )
 
         # --- CONSENSUS ---
@@ -404,10 +406,11 @@ def judge_website(
     models: list[str] | None = None,
     port: int | None = None,
     agent: OpenCodeAgent | None = None,
+    iteration: int | None = None,
 ) -> list[dict]:
     """Run the judge phase on a website.
 
-    Used both standalone (--judge-only) and from within generate_website().
+    Used both standalone (--step judge) and from within generate_website().
 
     Args:
         workspace_dir: The generation workspace (must have site/ with HTML+CSS).
@@ -415,6 +418,7 @@ def judge_website(
         models: List of model strings. Defaults to config MODELS.
         port: HTTP server port serving site/. If None, starts a new one.
         agent: OpenCodeAgent instance. If None, creates a new one.
+        iteration: Current iteration number (for log labels).
 
     Returns:
         List of verdict dicts from each judge.
@@ -452,10 +456,12 @@ def judge_website(
         log.info(f"    Judge: {judge_model} → {verdict_filename}")
 
         judge_prompt = _build_judge_prompt(spec, port, verdict_filename)
+        iter_prefix = f"iter{iteration}/" if iteration else ""
         judge_result = agent.run(
             prompt=judge_prompt,
             model=judge_model,
             working_dir=workspace_dir,
+            label=f"{iter_prefix}judge-{judge_idx}",
         )
         _clear_screenshots(workspace_dir)
 

@@ -2,6 +2,7 @@
 
 import logging
 import os
+import re
 import uuid
 from pathlib import Path
 
@@ -47,6 +48,14 @@ def setup_logger() -> logging.Logger:
 
 log = setup_logger()
 SEED_SPECS_PATH = PIPELINE_ROOT / "generate" / "seed_specs.json"
+
+
+def slugify(text: str, max_len: int = 50) -> str:
+    """Convert text to a filesystem-safe slug."""
+    slug = text.lower().replace(" ", "-")
+    slug = re.sub(r"[^a-z0-9\-]", "", slug)  # Remove anything that's not alphanumeric or dash
+    slug = re.sub(r"-+", "-", slug).strip("-")  # Collapse multiple dashes
+    return slug[:max_len]
 SPEC_HISTORY_PATH = GENERATED_DIR / "spec_history.json"
 
 # LLM Models available for generation (provider/model format for OpenCode)

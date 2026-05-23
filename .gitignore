@@ -9,3 +9,4 @@ tasks/
 generated/
 logs/
 *.pyc
+jobs

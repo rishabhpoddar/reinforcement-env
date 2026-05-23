@@ -25,7 +25,7 @@ from pathlib import Path
 # Ensure project root is in path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from pipeline.config import MODELS, TASKS_DIR, GENERATED_DIR, log
+from pipeline.config import MODELS, TASKS_DIR, GENERATED_DIR, log, slugify
 from pipeline.generate.spec_generator import generate_spec, generate_specs_batch
 from pipeline.generate.generation_loop import generate_website, judge_website
 from pipeline.generate.screenshot import capture_screenshots_sync
@@ -44,7 +44,7 @@ def step_spec(
 
     site_name = spec.get("site_name", "unknown")
     category = spec.get("category", "unknown")
-    slug = f"{category}-{site_name}".replace(" ", "-").lower()[:50]
+    slug = slugify(f"{category}-{site_name}")
     workspace_dir = GENERATED_DIR / slug
     workspace_dir.mkdir(parents=True, exist_ok=True)
     (workspace_dir / "site").mkdir(exist_ok=True)
@@ -144,7 +144,7 @@ def generate_single_task(
     log.info(f"  Broken: {spec.get('is_broken', False)}")
     log.info(f"{'='*60}")
 
-    slug = f"{category}-{site_name}".replace(" ", "-").lower()[:50]
+    slug = slugify(f"{category}-{site_name}")
     gen_dir = GENERATED_DIR / slug
     site_dir = gen_dir / "site"
     screenshots_dir = gen_dir / "screenshots"

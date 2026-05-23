@@ -7,7 +7,7 @@ import json
 import shutil
 from pathlib import Path
 
-from pipeline.config import TASKS_DIR, VIEWPORTS
+from pipeline.config import TASKS_DIR, VIEWPORTS, slugify
 
 
 def package_task(
@@ -34,10 +34,8 @@ def package_task(
 
     # Generate task ID
     if not task_id:
-        category = spec.get("category", "unknown").replace(" ", "-").lower()
-        site_name = (
-            spec.get("site_name", "site").replace(" ", "-").lower()[:30]
-        )
+        category = slugify(spec.get("category", "unknown"))
+        site_name = slugify(spec.get("site_name", "site"), max_len=30)
         task_id = f"{category}-{site_name}"
 
     task_dir = TASKS_DIR / f"web-design-{task_id}"
@@ -180,7 +178,9 @@ def _build_task_toml(spec: dict, task_id: str) -> str:
     if spec.get("is_broken"):
         keywords_extra = ', "broken-design", "defect-analysis"'
 
-    return f"""[task]
+    return f"""schema_version = "1.2"
+
+[task]
 name = "web-design-replication/{task_id}"
 description = "Replicate the {site_name} ({category}) website design from screenshots"
 authors = [{{ name = "RL Pipeline", email = "pipeline@example.com" }}]
