@@ -103,13 +103,14 @@ Implement these defects exactly. The rest of the site should be well-designed.
 - Use CSS custom properties for the color palette
 - Use CSS Grid and Flexbox
 {broken_note}
-## Playwright Verification
-A local server is running. After writing your files, use Playwright to verify:
-- Navigate to {page_urls}
-- Take screenshots at desktop (1280px), tablet (768px), and mobile (375px) widths
-- Save ALL screenshots into the screenshots/ subfolder (e.g., screenshots/home-desktop.png)
-- Check that colors, layout, and typography match the spec
-- Fix any issues you find
+## Visual Verification (IMPORTANT)
+A local server is running. After writing your files, you MUST visually verify your work:
+1. Use Playwright to navigate to each page: {page_urls}
+2. Take screenshots at desktop (1280px), tablet (768px), and mobile (375px) widths
+3. Save screenshots into the screenshots/ subfolder (e.g., screenshots/home-desktop.png)
+4. IMPORTANT: After saving each screenshot, use the read tool to open the PNG file and actually LOOK at it
+5. Compare what you see in the screenshot against the spec — check colors, layout, typography, spacing
+6. Fix any issues you find, then re-screenshot and re-verify
 {feedback_section}"""
 
 
@@ -144,8 +145,10 @@ The website source files are in the site/ subfolder. Read them from there.
 1. Read the HTML and CSS source files in site/
 2. Use Playwright to navigate to each page URL above
 3. For each page, take screenshots at these viewport widths: 1280, 768, 375
-4. Save ALL screenshots into the screenshots/ subfolder (e.g., screenshots/home-desktop.png)
-5. Evaluate: layout, colors, typography, responsiveness, components, consistency
+4. Save screenshots into the screenshots/ subfolder (e.g., screenshots/home-desktop.png)
+5. IMPORTANT: After saving each screenshot, use the read tool to open the PNG file and actually LOOK at it
+6. Base your scoring on what you VISUALLY SEE in the screenshots, not just the source code
+7. Evaluate: layout, colors, typography, responsiveness, components, consistency
 
 ## Scoring
 - 10 = perfect match to spec at all viewports
