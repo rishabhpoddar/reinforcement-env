@@ -77,6 +77,7 @@ class AgentResult:
     raw_output: str = ""
     error: Optional[str] = None
     duration_sec: float = 0.0
+    session_id: Optional[str] = None
     events: list[dict] = field(default_factory=list)
 
 
@@ -116,8 +117,13 @@ class OpenCodeAgent:
         prompt: str,
         model: str,
         working_dir: str | Path,
+        session_id: Optional[str] = None,
     ) -> AgentResult:
-        """Run an OpenCode agent and return the result."""
+        """Run an OpenCode agent and return the result.
+
+        Args:
+            session_id: If provided, continues an existing session (preserves conversation history).
+        """
         working_dir = Path(working_dir)
         working_dir.mkdir(parents=True, exist_ok=True)
 
@@ -126,8 +132,10 @@ class OpenCodeAgent:
             "--model", model,
             "--format", "json",
             "--dir", str(working_dir),
-            prompt,
         ]
+        if session_id:
+            cmd.extend(["--session", session_id])
+        cmd.append(prompt)
 
         env = {
             **os.environ,
@@ -157,6 +165,7 @@ class OpenCodeAgent:
             events: list[dict] = []
             has_error = False
             error_msg = ""
+            captured_session_id: Optional[str] = None
 
             while True:
                 line = proc.stdout.readline()
@@ -176,6 +185,10 @@ class OpenCodeAgent:
                     events.append(event)
                     etype = event.get("type", "")
                     part = event.get("part", {})
+
+                    # Capture session ID from first event
+                    if not captured_session_id and event.get("sessionID"):
+                        captured_session_id = event["sessionID"]
 
                     if etype == "text":
                         text = part.get("text", "")
@@ -243,6 +256,7 @@ class OpenCodeAgent:
                         raw_output="\n".join(stdout_lines),
                         error=f"Agent timed out after {duration:.1f}s",
                         duration_sec=duration,
+                        session_id=captured_session_id,
                         events=events,
                     )
 
@@ -260,6 +274,7 @@ class OpenCodeAgent:
                     success=False,
                     error=f"opencode exited {proc.returncode}: {stderr[:500]}",
                     duration_sec=duration,
+                    session_id=captured_session_id,
                     events=events,
                 )
 
@@ -269,6 +284,7 @@ class OpenCodeAgent:
                     raw_output=stdout,
                     error=error_msg,
                     duration_sec=duration,
+                    session_id=captured_session_id,
                     events=events,
                 )
 
@@ -276,6 +292,7 @@ class OpenCodeAgent:
                 success=True,
                 raw_output=stdout,
                 duration_sec=duration,
+                session_id=captured_session_id,
                 events=events,
             )
 

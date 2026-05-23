@@ -12,12 +12,13 @@ import json
 import random
 import shutil
 import socket
-import tempfile
 import threading
 from pathlib import Path
 
+from anthropic import Anthropic
+
 from pipeline.agents.opencode_wrapper import OpenCodeAgent
-from pipeline.config import MAX_GENERATION_ITERATIONS, MODELS, log
+from pipeline.config import MAX_GENERATION_ITERATIONS, MODELS, SPEC_GENERATOR_MODEL, get_anthropic_key, log
 
 
 # ──────────────────────────────────────────────────
@@ -200,6 +201,43 @@ def _read_judge_verdict(verdict_path: str) -> dict:
 # Main generation loop
 # ──────────────────────────────────────────────────
 
+def _check_feedback_repetition(feedback_history: list[str]) -> bool:
+    """Check if judge feedback is repeating the same issues across iterations.
+
+    Uses a quick LLM call to compare recent feedback entries.
+    Returns True if feedback is repetitive (should exit loop early).
+    """
+    if len(feedback_history) < 3:
+        return False
+
+    # Only check the last 3 rounds
+    recent = feedback_history[-3:]
+    numbered = "\n\n".join(
+        f"--- Iteration {i+1} feedback ---\n{fb}"
+        for i, fb in enumerate(recent)
+    )
+
+    try:
+        client = Anthropic(api_key=get_anthropic_key())
+        response = client.messages.create(
+            model=SPEC_GENERATOR_MODEL,
+            max_tokens=100,
+            messages=[{
+                "role": "user",
+                "content": f"""Are these feedback entries from consecutive iterations raising the same issues repeatedly? If the core complaints are the same across iterations (even if worded differently), that means the builder is stuck and can't fix them.
+
+{numbered}
+
+Reply with ONLY "yes" or "no".""",
+            }],
+        )
+        answer = response.content[0].text.strip().lower()
+        return answer.startswith("yes")
+    except Exception as e:
+        log.warning(f"Repetition check failed: {e}")
+        return False
+
+
 def _aggregate_judge_feedback(verdicts: list[dict]) -> str:
     """Combine feedback from multiple judges."""
     lines = []
@@ -241,7 +279,14 @@ def generate_website(
 
     agent = OpenCodeAgent(timeout_sec=1800)  # 30 min per session
 
+    # Pick the builder model once — same model across all iterations
+    # so we can preserve the session (conversation history)
+    builder_model = random.choice(models)
+    builder_session_id: str | None = None
+    log.info(f"  Builder model: {builder_model} (fixed for all iterations)")
+
     feedback = None
+    feedback_history: list[str] = []
     verdicts: list[dict] = []
     metadata = {
         "spec": spec,
@@ -254,16 +299,33 @@ def generate_website(
         log.info(f"\n  Iteration {iteration}/{max_iterations}")
 
         # --- BUILDER ---
-        builder_model = random.choice(models)
-        log.info(f"    Builder: {builder_model}")
+        log.info(f"    Builder: {builder_model}" +
+                 (f" (continuing session {builder_session_id})" if builder_session_id else " (new session)"))
 
-        builder_prompt = _build_builder_prompt(spec, port, feedback)
+        if builder_session_id is None:
+            # First iteration: full prompt with spec
+            builder_prompt = _build_builder_prompt(spec, port, feedback)
+        else:
+            # Subsequent iterations: continue session with feedback
+            builder_prompt = (
+                f"The judges reviewed your work and found issues. "
+                f"Re-read the spec in spec.json and fix the following:\n\n"
+                f"{feedback}\n\n"
+                f"After fixing, use Playwright to verify your changes visually — "
+                f"take screenshots, read them, and confirm the issues are resolved."
+            )
+
         builder_result = agent.run(
             prompt=builder_prompt,
             model=builder_model,
             working_dir=workspace_dir,
+            session_id=builder_session_id,
         )
         _clear_screenshots(workspace_dir)
+
+        # Capture session ID for continuation
+        if builder_result.session_id:
+            builder_session_id = builder_result.session_id
 
         if not builder_result.success:
             log.info(f"    Builder failed: {builder_result.error}")
@@ -314,6 +376,13 @@ def generate_website(
 
         log.info(f"    Not yet perfect — iterating...")
         feedback = _aggregate_judge_feedback(verdicts)
+        feedback_history.append(feedback)
+
+        # Check if feedback is stuck in a loop
+        if _check_feedback_repetition(feedback_history):
+            log.info(f"  Feedback is repeating — builder is stuck. Exiting loop early.")
+            metadata["early_exit"] = "repetitive_feedback"
+            break
 
     if not metadata["converged"]:
         best_avg = max(
