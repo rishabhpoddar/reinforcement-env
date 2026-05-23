@@ -3,8 +3,12 @@
 
 Usage:
     python -m pipeline.run_pipeline --count 10
-    python -m pipeline.run_pipeline --count 1 --broken  # Force broken website
-    python -m pipeline.run_pipeline --count 10 --broken-count 3  # 3 of 10 are broken
+    python -m pipeline.run_pipeline --count 1 --broken
+    python -m pipeline.run_pipeline --count 10 --broken-count 3
+
+    # Judge only — skip building, run judges on an existing generated site
+    python -m pipeline.run_pipeline --judge-only generated/my-site/
+    python -m pipeline.run_pipeline --judge-only generated/my-site/ --models openai/gpt-5.4-mini
 """
 
 import argparse
@@ -17,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from pipeline.config import MODELS, TASKS_DIR, GENERATED_DIR, log
 from pipeline.generate.spec_generator import generate_spec, generate_specs_batch
-from pipeline.generate.generation_loop import generate_website
+from pipeline.generate.generation_loop import generate_website, judge_website
 from pipeline.generate.screenshot import capture_screenshots_sync
 from pipeline.package.harbor_task import package_task
 
@@ -53,7 +57,7 @@ def generate_single_task(
     log.info("[1/3] Running builder + judge generation loop...")
     gen_metadata = generate_website(
         spec=spec,
-        output_dir=site_dir,
+        workspace_dir=gen_dir,
         models=models,
         max_iterations=max_iterations,
     )
@@ -125,9 +129,32 @@ def main():
         "--spec-model", type=str, default="claude-opus-4-7",
         help="Anthropic model for spec generation",
     )
+    parser.add_argument(
+        "--judge-only", type=str, default=None,
+        metavar="WORKSPACE_DIR",
+        help="Skip building — run judges on an existing generated site (e.g., generated/my-site/)",
+    )
     args = parser.parse_args()
 
     models = args.models or MODELS
+
+    # ── Judge-only mode ──
+    if args.judge_only:
+        workspace = Path(args.judge_only)
+        if not workspace.exists():
+            log.error(f"Workspace not found: {workspace}")
+            sys.exit(1)
+        log.info(f"Judge-only mode: {workspace}")
+        log.info(f"  Models: {models}")
+        verdicts = judge_website(workspace_dir=workspace, models=models)
+        log.info(f"{'='*60}")
+        log.info("Results:")
+        for v in verdicts:
+            log.info(f"  {v.get('model', '?')}: {v['score']}/10 — {v.get('feedback', '')[:150]}")
+        avg = sum(v["score"] for v in verdicts) / len(verdicts) if verdicts else 0
+        log.info(f"  Average: {avg:.1f}/10")
+        return
+
     TASKS_DIR.mkdir(parents=True, exist_ok=True)
 
     log.info("Pipeline Configuration:")

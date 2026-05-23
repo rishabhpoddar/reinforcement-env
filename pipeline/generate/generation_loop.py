@@ -12,6 +12,7 @@ import json
 import random
 import shutil
 import socket
+import tempfile
 import threading
 from pathlib import Path
 
@@ -51,22 +52,12 @@ def _start_http_server(directory: Path) -> tuple[threading.Thread, int]:
 # Prompts
 # ──────────────────────────────────────────────────
 
-def _cleanup_agent_screenshots(site_dir: Path) -> None:
-    """Remove screenshots/ subfolder and any stray .png files from the site dir.
 
-    Agents save screenshots for their own verification — we don't need them after.
-    The final reference screenshots are captured separately by the pipeline.
-    """
-    screenshots_dir = site_dir / "screenshots"
+def _clear_screenshots(workspace_dir: Path) -> None:
+    """Remove the screenshots/ folder from the workspace after an OpenCode session."""
+    screenshots_dir = workspace_dir / "screenshots"
     if screenshots_dir.exists():
         shutil.rmtree(screenshots_dir)
-    # Also remove any .png files the agent may have saved in the root
-    for png in site_dir.glob("*.png"):
-        png.unlink()
-    # Remove .playwright-mcp artifacts
-    playwright_dir = site_dir / ".playwright-mcp"
-    if playwright_dir.exists():
-        shutil.rmtree(playwright_dir)
 
 
 def _build_builder_prompt(
@@ -101,8 +92,9 @@ Implement these defects exactly. The rest of the site should be well-designed.
 {spec_json}
 
 ## Rules
+- Write ALL source files into the site/ subfolder (e.g., site/home.html, site/styles.css)
 - ONLY create .html files and ONE styles.css — nothing else
-- One HTML file per page (e.g., home.html, about.html)
+- One HTML file per page (e.g., site/home.html, site/about.html)
 - No external dependencies (no CDN, no Google Fonts, no JS)
 - System font stacks only
 - Images: CSS gradients, inline SVG, or colored placeholder divs
@@ -121,7 +113,7 @@ A local server is running. After writing your files, use Playwright to verify:
 {feedback_section}"""
 
 
-def _build_judge_prompt(spec: dict, port: int) -> str:
+def _build_judge_prompt(spec: dict, port: int, verdict_path: str) -> str:
     """Create the prompt for the judge coding agent."""
     spec_json = json.dumps(spec, indent=2)
     pages = spec.get("pages", [])
@@ -142,11 +134,14 @@ Only penalize if they are MISSING or wrong.
 ## Specification
 {spec_json}
 {broken_note}
-## Pages to Review
+## Source Files
+The website source files are in the site/ subfolder. Read them from there.
+
+## Pages to Review (via Playwright)
 {page_urls}
 
 ## Your Task
-1. Read the HTML and CSS source files in this directory
+1. Read the HTML and CSS source files in site/
 2. Use Playwright to navigate to each page URL above
 3. For each page, take screenshots at these viewport widths: 1280, 768, 375
 4. Save ALL screenshots into the screenshots/ subfolder (e.g., screenshots/home-desktop.png)
@@ -159,62 +154,43 @@ Only penalize if they are MISSING or wrong.
 - 4-5 = significant problems (missing pages, broken responsive)
 - 0-3 = fundamentally wrong or missing
 
-## CRITICAL: Your final message MUST be ONLY this JSON (nothing else):
-{{"score": <number>, "feedback": "<specific actionable feedback>"}}
+## CRITICAL: Write your verdict to the file {verdict_path}
+The file must contain exactly this JSON structure:
+{{"score": <number 0-10>, "feedback": "<specific actionable feedback>"}}
+
+You MUST create this file. This is the most important part of your task.
 """
 
 
-def _parse_judge_verdict(raw_output: str) -> dict:
-    """Extract score and feedback from judge's OpenCode output."""
-    import re
+def _read_judge_verdict(verdict_path: str) -> dict:
+    """Read the verdict file written by the judge agent.
 
-    # Extract all text content from JSON events
-    all_text = []
-    for line in raw_output.splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            event = json.loads(line)
-            text = event.get("part", {}).get("text", "")
-            if text:
-                all_text.append(text)
-        except json.JSONDecodeError:
-            all_text.append(line)
+    Returns {"score": 0-10, "feedback": "..."}.
+    Falls back to score 0 if file is missing or malformed.
+    """
+    verdict_file = Path(verdict_path)
+    if not verdict_file.exists():
+        log.warning(f"Judge did not write {verdict_path}")
+        return {"score": 0, "feedback": "Judge did not write verdict file"}
 
-    combined = "\n".join(all_text)
+    content = verdict_file.read_text().strip()
+    verdict_file.unlink()
 
-    # Try to find JSON with score+feedback anywhere in the text
-    # Look for the last JSON object containing "score"
-    matches = list(re.finditer(
-        r'\{[^{}]*"score"\s*:\s*(\d+)[^{}]*"feedback"\s*:\s*"([^"]*)"[^{}]*\}',
-        combined,
-    ))
-    if matches:
-        m = matches[-1]  # Take the last one (most likely the verdict)
-        try:
-            return json.loads(m.group())
-        except json.JSONDecodeError:
-            return {"score": int(m.group(1)), "feedback": m.group(2)}
+    if not content:
+        log.warning(f"Verdict file is empty: {verdict_path}")
+        return {"score": 0, "feedback": "Verdict file was empty"}
 
-    # Also try reversed key order: feedback before score
-    matches = list(re.finditer(
-        r'\{[^{}]*"feedback"\s*:\s*"([^"]*)"[^{}]*"score"\s*:\s*(\d+)[^{}]*\}',
-        combined,
-    ))
-    if matches:
-        m = matches[-1]
-        try:
-            return json.loads(m.group())
-        except json.JSONDecodeError:
-            return {"score": int(m.group(2)), "feedback": m.group(1)}
-
-    # Last resort: just find any "score": N
-    score_match = re.search(r'"score"\s*:\s*(\d+)', combined)
-    if score_match:
-        return {"score": int(score_match.group(1)), "feedback": combined[-500:]}
-
-    return {"score": 0, "feedback": f"Could not parse verdict. Last text: {combined[-300:]}"}
+    try:
+        verdict = json.loads(content)
+        score = int(verdict.get("score", 0))
+        score = max(0, min(10, score))  # Clamp to 0-10
+        return {
+            "score": score,
+            "feedback": str(verdict.get("feedback", "No feedback")),
+        }
+    except (json.JSONDecodeError, ValueError) as e:
+        log.warning(f"Failed to parse verdict: {e}, content: {content[:500]}")
+        return {"score": 0, "feedback": f"Invalid verdict file: {content[:300]}"}
 
 
 # ──────────────────────────────────────────────────
@@ -234,15 +210,16 @@ def _aggregate_judge_feedback(verdicts: list[dict]) -> str:
 
 def generate_website(
     spec: dict,
-    output_dir: str | Path,
+    workspace_dir: str | Path,
     models: list[str] | None = None,
     max_iterations: int | None = None,
 ) -> dict:
     """Generate a website from a spec using the builder+judge loop.
 
     Args:
-        spec: Website specification dict.
-        output_dir: Directory to write the website files to.
+        workspace_dir: The generation workspace (e.g., generated/<slug>/).
+            Source files go in workspace_dir/site/.
+            OpenCode artifacts stay in workspace_dir/.
         models: List of model strings (provider/model). Defaults to config MODELS.
         max_iterations: Max builder-judge iterations. Defaults to config.
 
@@ -251,12 +228,13 @@ def generate_website(
     """
     models = models or MODELS
     max_iterations = max_iterations or MAX_GENERATION_ITERATIONS
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
+    workspace_dir = Path(workspace_dir)
+    site_dir = workspace_dir / "site"
+    site_dir.mkdir(parents=True, exist_ok=True)
 
-    # Start HTTP server so Playwright can access the files
-    _, port = _start_http_server(output_dir)
-    log.info(f"  HTTP server on http://localhost:{port}/")
+    # Start HTTP server serving the site/ subfolder
+    _, port = _start_http_server(site_dir)
+    log.info(f"  HTTP server on http://localhost:{port}/ (serving {site_dir})")
 
     agent = OpenCodeAgent(timeout_sec=1800)  # 30 min per session
 
@@ -280,10 +258,9 @@ def generate_website(
         builder_result = agent.run(
             prompt=builder_prompt,
             model=builder_model,
-            working_dir=output_dir,
+            working_dir=workspace_dir,
         )
-        # Clean up agent screenshots — only the source code matters
-        _cleanup_agent_screenshots(output_dir)
+        _clear_screenshots(workspace_dir)
 
         if not builder_result.success:
             log.info(f"    Builder failed: {builder_result.error}")
@@ -297,20 +274,21 @@ def generate_website(
 
         # --- JUDGES (each LLM in pool) ---
         verdicts = []
-        for judge_model in models:
-            log.info(f"    Judge: {judge_model}")
+        for judge_idx, judge_model in enumerate(models):
+            verdict_filename = f".verdict-{judge_idx}.json"
+            verdict_path = str(workspace_dir / verdict_filename)
+            log.info(f"    Judge: {judge_model} → {verdict_filename}")
 
-            judge_prompt = _build_judge_prompt(spec, port)
+            judge_prompt = _build_judge_prompt(spec, port, verdict_filename)
             judge_result = agent.run(
                 prompt=judge_prompt,
                 model=judge_model,
-                working_dir=output_dir,
+                working_dir=workspace_dir,
             )
-            # Clean up judge screenshots
-            _cleanup_agent_screenshots(output_dir)
+            _clear_screenshots(workspace_dir)
 
             if judge_result.success:
-                verdict = _parse_judge_verdict(judge_result.raw_output)
+                verdict = _read_judge_verdict(verdict_path)
                 verdict["model"] = judge_model
                 verdicts.append(verdict)
                 log.info(
@@ -368,3 +346,72 @@ def generate_website(
         metadata["final_scores"] = verdicts
 
     return metadata
+
+
+def judge_website(
+    workspace_dir: str | Path,
+    models: list[str] | None = None,
+) -> list[dict]:
+    """Run only the judge phase on an already-generated website.
+
+    Args:
+        workspace_dir: The generation workspace (must have site/ with HTML+CSS).
+        models: List of model strings. Defaults to config MODELS.
+
+    Returns:
+        List of verdict dicts from each judge.
+    """
+    models = models or MODELS
+    workspace_dir = Path(workspace_dir)
+    site_dir = workspace_dir / "site"
+
+    if not site_dir.exists() or not list(site_dir.glob("*.html")):
+        log.error(f"No HTML files found in {site_dir}")
+        return []
+
+    # Load spec if available
+    spec_path = workspace_dir / "spec.json"
+    if spec_path.exists():
+        spec = json.loads(spec_path.read_text())
+    else:
+        # Minimal spec from file list
+        pages = [f.stem for f in sorted(site_dir.glob("*.html"))]
+        spec = {"pages": pages, "site_name": workspace_dir.name, "is_broken": False}
+        log.warning(f"No spec.json found, using minimal spec with pages: {pages}")
+
+    _, port = _start_http_server(site_dir)
+    log.info(f"  HTTP server on http://localhost:{port}/ (serving {site_dir})")
+
+    agent = OpenCodeAgent(timeout_sec=1800)
+    verdicts = []
+
+    for judge_idx, judge_model in enumerate(models):
+        verdict_filename = f".verdict-{judge_idx}.json"
+        verdict_path = str(workspace_dir / verdict_filename)
+        log.info(f"  Judge: {judge_model} → {verdict_filename}")
+
+        judge_prompt = _build_judge_prompt(spec, port, verdict_filename)
+        judge_result = agent.run(
+            prompt=judge_prompt,
+            model=judge_model,
+            working_dir=workspace_dir,
+        )
+        _clear_screenshots(workspace_dir)
+
+        if judge_result.success:
+            verdict = _read_judge_verdict(verdict_path)
+            verdict["model"] = judge_model
+            verdicts.append(verdict)
+            log.info(
+                f"    → score={verdict['score']}/10: "
+                f"{verdict.get('feedback', '')[:100]}"
+            )
+        else:
+            log.info(f"    → Judge failed: {judge_result.error}")
+            verdicts.append({
+                "model": judge_model,
+                "score": 0,
+                "feedback": f"Judge failed: {judge_result.error}",
+            })
+
+    return verdicts
