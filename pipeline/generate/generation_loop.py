@@ -272,36 +272,14 @@ def generate_website(
             })
             continue
 
-        # --- JUDGES (each LLM in pool) ---
-        verdicts = []
-        for judge_idx, judge_model in enumerate(models):
-            verdict_filename = f".verdict-{judge_idx}.json"
-            verdict_path = str(workspace_dir / verdict_filename)
-            log.info(f"    Judge: {judge_model} → {verdict_filename}")
-
-            judge_prompt = _build_judge_prompt(spec, port, verdict_filename)
-            judge_result = agent.run(
-                prompt=judge_prompt,
-                model=judge_model,
-                working_dir=workspace_dir,
-            )
-            _clear_screenshots(workspace_dir)
-
-            if judge_result.success:
-                verdict = _read_judge_verdict(verdict_path)
-                verdict["model"] = judge_model
-                verdicts.append(verdict)
-                log.info(
-                    f"      → score={verdict['score']}/10: "
-                    f"{verdict.get('feedback', '')[:100]}"
-                )
-            else:
-                log.info(f"      → Judge failed: {judge_result.error}")
-                verdicts.append({
-                    "model": judge_model,
-                    "score": 0,
-                    "feedback": f"Judge failed: {judge_result.error}",
-                })
+        # --- JUDGES ---
+        verdicts = judge_website(
+            workspace_dir=workspace_dir,
+            spec=spec,
+            models=models,
+            port=port,
+            agent=agent,
+        )
 
         # --- CONSENSUS ---
         all_perfect = all(v.get("score", 0) == 10 for v in verdicts)
@@ -350,13 +328,21 @@ def generate_website(
 
 def judge_website(
     workspace_dir: str | Path,
+    spec: dict | None = None,
     models: list[str] | None = None,
+    port: int | None = None,
+    agent: OpenCodeAgent | None = None,
 ) -> list[dict]:
-    """Run only the judge phase on an already-generated website.
+    """Run the judge phase on a website.
+
+    Used both standalone (--judge-only) and from within generate_website().
 
     Args:
         workspace_dir: The generation workspace (must have site/ with HTML+CSS).
+        spec: Website spec. If None, loaded from workspace_dir/spec.json.
         models: List of model strings. Defaults to config MODELS.
+        port: HTTP server port serving site/. If None, starts a new one.
+        agent: OpenCodeAgent instance. If None, creates a new one.
 
     Returns:
         List of verdict dicts from each judge.
@@ -369,26 +355,29 @@ def judge_website(
         log.error(f"No HTML files found in {site_dir}")
         return []
 
-    # Load spec if available
-    spec_path = workspace_dir / "spec.json"
-    if spec_path.exists():
-        spec = json.loads(spec_path.read_text())
-    else:
-        # Minimal spec from file list
-        pages = [f.stem for f in sorted(site_dir.glob("*.html"))]
-        spec = {"pages": pages, "site_name": workspace_dir.name, "is_broken": False}
-        log.warning(f"No spec.json found, using minimal spec with pages: {pages}")
+    # Load spec if not provided
+    if spec is None:
+        spec_path = workspace_dir / "spec.json"
+        if spec_path.exists():
+            spec = json.loads(spec_path.read_text())
+        else:
+            pages = [f.stem for f in sorted(site_dir.glob("*.html"))]
+            spec = {"pages": pages, "site_name": workspace_dir.name, "is_broken": False}
+            log.warning(f"No spec.json found, using minimal spec with pages: {pages}")
 
-    _, port = _start_http_server(site_dir)
-    log.info(f"  HTTP server on http://localhost:{port}/ (serving {site_dir})")
+    # Start HTTP server if not provided
+    if port is None:
+        _, port = _start_http_server(site_dir)
+        log.info(f"  HTTP server on http://localhost:{port}/ (serving {site_dir})")
 
-    agent = OpenCodeAgent(timeout_sec=1800)
+    if agent is None:
+        agent = OpenCodeAgent(timeout_sec=1800)
+
     verdicts = []
-
     for judge_idx, judge_model in enumerate(models):
         verdict_filename = f".verdict-{judge_idx}.json"
         verdict_path = str(workspace_dir / verdict_filename)
-        log.info(f"  Judge: {judge_model} → {verdict_filename}")
+        log.info(f"    Judge: {judge_model} → {verdict_filename}")
 
         judge_prompt = _build_judge_prompt(spec, port, verdict_filename)
         judge_result = agent.run(
@@ -403,11 +392,11 @@ def judge_website(
             verdict["model"] = judge_model
             verdicts.append(verdict)
             log.info(
-                f"    → score={verdict['score']}/10: "
+                f"      → score={verdict['score']}/10: "
                 f"{verdict.get('feedback', '')[:100]}"
             )
         else:
-            log.info(f"    → Judge failed: {judge_result.error}")
+            log.info(f"      → Judge failed: {judge_result.error}")
             verdicts.append({
                 "model": judge_model,
                 "score": 0,
