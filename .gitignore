@@ -1,0 +1,11 @@
+.env
+venv/
+.venv
+__pycache__
+node_modules/
+pipeline/node_modules/
+pipeline/generate/spec_history.json
+.opencode/
+tasks/
+generated/
+*.pyc

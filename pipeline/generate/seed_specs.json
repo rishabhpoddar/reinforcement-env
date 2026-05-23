@@ -1,0 +1,361 @@
+[
+  {
+    "site_name": "NovaBuy Electronics",
+    "category": "e-commerce",
+    "niche": "consumer electronics store with product comparison features",
+    "pages": ["home", "products", "product-detail", "cart", "about", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#1A1A2E", "secondary": "#16213E", "accent": "#E94560", "bg": "#F5F5F5", "text": "#1A1A2E"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.2 modular"},
+      "layout_style": "grid-heavy with sidebar filters on product pages",
+      "mood": "modern, tech-forward, clean"
+    },
+    "page_descriptions": {
+      "home": "Hero banner with rotating deal highlight, category cards grid (6 items), trending products carousel-style row, newsletter signup section",
+      "products": "Left sidebar with filter checkboxes (price, brand, rating), main area 3-column product card grid with pagination, sort dropdown",
+      "product-detail": "Large product image area left, specs and price right, tabbed section below (description, specs table, reviews), related products row",
+      "cart": "Table layout with product rows (image, name, quantity, price), order summary sidebar, promo code input, checkout CTA button",
+      "about": "Company story with timeline layout, team member cards grid, mission statement hero",
+      "contact": "Split layout: contact form left, store info + map placeholder right"
+    },
+    "complexity": "complex",
+    "special_elements": ["sticky header with cart icon badge", "product card hover zoom effect", "star rating display", "price comparison table"],
+    "responsive_notes": "Mobile: hamburger nav, full-width cards stacked, sidebar filters collapse to accordion. Tablet: 2-col product grid",
+    "is_broken": false
+  },
+  {
+    "site_name": "Elena Vasquez Portfolio",
+    "category": "portfolio",
+    "niche": "UI/UX designer personal portfolio with case studies",
+    "pages": ["home", "work", "case-study", "about", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#2D2D2D", "secondary": "#FFFFFF", "accent": "#FF6B35", "bg": "#FAFAFA", "text": "#333333"},
+      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.333 perfect fourth"},
+      "layout_style": "minimal whitespace-heavy with large imagery",
+      "mood": "elegant, professional, creative"
+    },
+    "page_descriptions": {
+      "home": "Full-viewport hero with name and title, scrolling project thumbnails in masonry grid, brief intro paragraph, client logos row",
+      "work": "Filterable masonry grid of project cards with category tags, each card shows project image + title + brief description overlay on hover",
+      "case-study": "Large hero image, project overview section, process timeline (research→wireframe→design→test), outcome metrics, image gallery",
+      "about": "Split layout: large portrait photo left, bio text right, skills/tools icon grid, education timeline",
+      "contact": "Centered minimal form (name, email, message), social links row, availability status indicator"
+    },
+    "complexity": "minimal",
+    "special_elements": ["masonry image grid", "smooth scroll navigation", "project card hover overlays", "skills icon grid"],
+    "responsive_notes": "Mobile: single column throughout, hero text smaller, masonry becomes stacked. Tablet: 2-col masonry",
+    "is_broken": false
+  },
+  {
+    "site_name": "The Daily Dispatch",
+    "category": "blog-magazine",
+    "niche": "online magazine covering technology and culture",
+    "pages": ["home", "article", "category", "about", "archive", "subscribe"],
+    "design_system": {
+      "color_palette": {"primary": "#1B1B1B", "secondary": "#C5283D", "accent": "#FFB400", "bg": "#FFFFFF", "text": "#2C2C2C"},
+      "typography": {"heading_font": "serif", "body_font": "serif", "scale": "1.25 major third"},
+      "layout_style": "traditional magazine grid with featured article prominence",
+      "mood": "editorial, authoritative, refined"
+    },
+    "page_descriptions": {
+      "home": "Featured article hero (full-width image + headline overlay), 3-column grid of latest articles below, sidebar with popular posts + newsletter CTA, category quick-links bar",
+      "article": "Full-width header image, article title + author byline + date, long-form text with pull quotes and inline images, author bio card, related articles grid",
+      "category": "Category header with description, article list (image left, text right), pagination, sidebar with trending in category",
+      "about": "Magazine history section, editorial team grid with photos and bios, submission guidelines",
+      "archive": "Searchable list grouped by month/year, filter by category dropdown, minimal card layout",
+      "subscribe": "Pricing tiers (free, premium, annual) in card layout, feature comparison table, testimonials"
+    },
+    "complexity": "moderate",
+    "special_elements": ["pull quotes in articles", "author byline cards", "category tag pills", "reading time estimate"],
+    "responsive_notes": "Mobile: single column, featured article stacks, sidebar moves below main. Tablet: 2-col grid, sidebar remains",
+    "is_broken": false
+  },
+  {
+    "site_name": "CloudMetrics Pro",
+    "category": "saas-landing",
+    "niche": "analytics dashboard SaaS for small businesses",
+    "pages": ["home", "features", "pricing", "integrations", "about", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#4F46E5", "secondary": "#7C3AED", "accent": "#06D6A0", "bg": "#F9FAFB", "text": "#111827"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.2 minor third"},
+      "layout_style": "alternating left-right sections with illustrations",
+      "mood": "professional, trustworthy, modern SaaS"
+    },
+    "page_descriptions": {
+      "home": "Hero with headline + subtext + CTA + dashboard mockup image area, social proof logos row, 3 feature highlight cards with icons, testimonial section with quote cards, final CTA section",
+      "features": "Feature grid (3x3) with icon + title + description per card, detailed feature sections alternating image-left/text-right, comparison table vs competitors",
+      "pricing": "3-tier pricing cards (starter, pro, enterprise) with feature checklist, toggle for monthly/annual, FAQ accordion below",
+      "integrations": "Grid of integration logos/cards with names, filterable by category, detailed integration page for each",
+      "about": "Team section with photo cards, company values icons, office photo placeholder, hiring CTA",
+      "contact": "Contact form, office address with map placeholder, support hours, live chat placeholder"
+    },
+    "complexity": "moderate",
+    "special_elements": ["pricing toggle (monthly/annual)", "feature comparison table", "social proof logo bar", "gradient CTA sections"],
+    "responsive_notes": "Mobile: features stack single-column, pricing cards stack, hero image below text. Tablet: 2-col feature grid",
+    "is_broken": false
+  },
+  {
+    "site_name": "Sakura Ramen House",
+    "category": "restaurant",
+    "niche": "authentic Japanese ramen restaurant with multiple locations",
+    "pages": ["home", "menu", "locations", "story", "gallery", "reservations"],
+    "design_system": {
+      "color_palette": {"primary": "#1A0F0A", "secondary": "#D4A574", "accent": "#C0392B", "bg": "#FDF6EC", "text": "#2C1810"},
+      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.25 modular"},
+      "layout_style": "warm with large food imagery and textured backgrounds",
+      "mood": "authentic, warm, inviting, artisan"
+    },
+    "page_descriptions": {
+      "home": "Full-screen hero with steaming ramen image area, tagline overlay, scroll-down arrow. Brief story teaser, featured dishes row (3 items with images), location cards, reservation CTA",
+      "menu": "Categorized menu (Ramen, Appetizers, Drinks, Desserts) with section headers, each item: name in Japanese + English, description, price. Some items have image placeholders",
+      "locations": "Cards for each location with address, hours, map placeholder, photo. Contact info per location",
+      "story": "Long-form narrative with parallax-style image sections, founder photo, timeline of restaurant history",
+      "gallery": "Masonry grid of food and interior photo placeholders, lightbox-style overlay on click placeholder",
+      "reservations": "Date/time picker placeholder, party size selector, special requests textarea, contact fields"
+    },
+    "complexity": "complex",
+    "special_elements": ["parallax-style scrolling sections", "menu with Japanese characters", "textured paper background", "food photo grid"],
+    "responsive_notes": "Mobile: menu becomes scrollable list, gallery 2-col, reservation form full-width. Tablet: gallery 3-col",
+    "is_broken": false
+  },
+  {
+    "site_name": "Pinnacle Properties",
+    "category": "real-estate",
+    "niche": "luxury real estate agency for high-end residential properties",
+    "pages": ["home", "listings", "property-detail", "agents", "about", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#1C1C1C", "secondary": "#B8860B", "accent": "#FFFFFF", "bg": "#F8F6F3", "text": "#2C2C2C"},
+      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.333 perfect fourth"},
+      "layout_style": "luxury with large property photos and elegant spacing",
+      "mood": "luxurious, exclusive, sophisticated"
+    },
+    "page_descriptions": {
+      "home": "Full-viewport hero with property image and search overlay bar (location, type, price range), featured listings grid (3 cards), market stats counter section, testimonials carousel",
+      "listings": "Search filters bar (location, price, beds, baths, type), property card grid (image, price, address, beds/baths/sqft), map placeholder sidebar, pagination",
+      "property-detail": "Image gallery carousel placeholder, property title + price + address, details grid (beds, baths, sqft, year), description text, amenities list, agent card sidebar, similar listings row",
+      "agents": "Agent cards grid with photo, name, title, phone, email, listings count. Each card links to agent detail",
+      "about": "Company history narrative, awards/accolades section, office photos, core values",
+      "contact": "Split layout: form left, office info right with map placeholder"
+    },
+    "complexity": "complex",
+    "special_elements": ["property search bar overlay", "stat counter animations placeholder", "image gallery carousel", "agent cards with contact info"],
+    "responsive_notes": "Mobile: search filters stack vertically, property grid single-col, map hidden. Tablet: 2-col property grid, search bar wraps",
+    "is_broken": false
+  },
+  {
+    "site_name": "Wanderlust Voyages",
+    "category": "travel",
+    "niche": "boutique travel agency specializing in adventure and cultural tours",
+    "pages": ["home", "destinations", "tours", "tour-detail", "about", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#0B3D2E", "secondary": "#F4A261", "accent": "#E76F51", "bg": "#FFFDF7", "text": "#264653"},
+      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.25 modular"},
+      "layout_style": "immersive with full-width imagery and earthy tones",
+      "mood": "adventurous, inspiring, earthy"
+    },
+    "page_descriptions": {
+      "home": "Video/image hero with destination overlay text + search bar, featured destinations grid (image cards with gradient overlays), why-choose-us icons row, recent traveler testimonials, newsletter section",
+      "destinations": "Grid of destination cards (large image, country, brief description), continent filter tabs",
+      "tours": "Tour cards with image, duration, price, difficulty level badge, rating stars",
+      "tour-detail": "Hero image, itinerary timeline (day-by-day), included/excluded lists, pricing table, booking form placeholder, related tours",
+      "about": "Our story with founder photos, team grid, core values illustrated, partnerships logos",
+      "contact": "Contact form, office locations, phone/email, FAQ accordion"
+    },
+    "complexity": "moderate",
+    "special_elements": ["destination cards with gradient overlays", "itinerary timeline", "difficulty level badges", "continent filter tabs"],
+    "responsive_notes": "Mobile: destination grid single-col, itinerary timeline simplified, search bar stacks. Tablet: 2-col grid",
+    "is_broken": false
+  },
+  {
+    "site_name": "BrightPath Academy",
+    "category": "educational",
+    "niche": "online learning platform for professional development courses",
+    "pages": ["home", "courses", "course-detail", "instructors", "about", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#1E3A5F", "secondary": "#4A90D9", "accent": "#FF8C42", "bg": "#F7F9FC", "text": "#1E1E1E"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.2 minor third"},
+      "layout_style": "clean and structured with card-based layouts",
+      "mood": "professional, trustworthy, educational"
+    },
+    "page_descriptions": {
+      "home": "Hero with headline about career growth + CTA + illustration area, stats bar (students, courses, instructors), featured courses carousel, category grid with icons, testimonials section",
+      "courses": "Search bar + category filter sidebar, course cards grid (thumbnail, title, instructor, rating, price, duration badge), sort by dropdown",
+      "course-detail": "Course hero (image + title + instructor + rating + enroll CTA), curriculum accordion (modules → lessons), instructor bio card, student reviews, related courses",
+      "instructors": "Instructor cards grid (photo, name, expertise, course count, rating), bio expandable section",
+      "about": "Mission statement, platform stats, team photo grid, timeline of milestones",
+      "contact": "Support form, FAQ accordion, live chat placeholder, office info"
+    },
+    "complexity": "moderate",
+    "special_elements": ["curriculum accordion", "progress indicator placeholder", "rating stars", "category icon grid"],
+    "responsive_notes": "Mobile: course grid single-col, sidebar filters collapse, curriculum accordion full-width. Tablet: 2-col course grid",
+    "is_broken": false
+  },
+  {
+    "site_name": "GreenHope Foundation",
+    "category": "non-profit",
+    "niche": "environmental conservation non-profit focusing on reforestation",
+    "pages": ["home", "mission", "programs", "impact", "donate", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#2D6A4F", "secondary": "#40916C", "accent": "#D4A373", "bg": "#F0F7F4", "text": "#1B4332"},
+      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.25 modular"},
+      "layout_style": "nature-inspired with organic shapes and earthy tones",
+      "mood": "hopeful, natural, trustworthy"
+    },
+    "page_descriptions": {
+      "home": "Hero with forest image area and call to action, impact counter section (trees planted, acres restored, volunteers), program highlights cards, latest news section, donate CTA banner",
+      "mission": "Mission statement hero, core values with nature icons, founder message with photo, partner organization logos",
+      "programs": "Program cards (reforestation, education, advocacy) with images and descriptions, how to get involved section",
+      "impact": "Large stat counters, before/after image comparison placeholders, annual report highlights, interactive map placeholder showing project sites",
+      "donate": "Donation tiers (seed, sapling, forest) as cards with amounts, recurring/one-time toggle, dedication option, corporate matching info",
+      "contact": "Volunteer signup form, office info, social media links, press inquiry section"
+    },
+    "complexity": "simple",
+    "special_elements": ["impact counter animation placeholder", "donation tier cards", "before/after image slider placeholder", "organic shape decorators"],
+    "responsive_notes": "Mobile: stats stack vertically, program cards stack, donation tiers stack. Tablet: 2-col programs",
+    "is_broken": false
+  },
+  {
+    "site_name": "Prism Creative Studio",
+    "category": "creative-agency",
+    "niche": "digital design and branding agency for tech startups",
+    "pages": ["home", "work", "services", "process", "team", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#0D0D0D", "secondary": "#1A1A1A", "accent": "#FF3366", "bg": "#0D0D0D", "text": "#FFFFFF"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.414 augmented fourth"},
+      "layout_style": "dark theme with bold typography and full-width case studies",
+      "mood": "bold, creative, cutting-edge, dark"
+    },
+    "page_descriptions": {
+      "home": "Animated hero text (large bold type) with reel placeholder, selected work horizontal scroll section, services overview with icons, client quotes marquee, awards section",
+      "work": "Full-width case study cards (large image + project name + category), filterable by category",
+      "services": "Service blocks (branding, web, mobile, motion) with icon + description + example projects list",
+      "process": "4-step process timeline (discover, design, develop, deliver) with illustrations, FAQ accordion",
+      "team": "Team grid with creative hover effects (photo reveals role + bio), studio culture section",
+      "contact": "Minimal dark contact form, new business inquiries section, office location with map"
+    },
+    "complexity": "complex",
+    "special_elements": ["dark theme throughout", "horizontal scroll section", "bold oversized typography", "creative team hover effects"],
+    "responsive_notes": "Mobile: horizontal scroll becomes vertical stack, team grid 1-col, oversized type scales down. Tablet: 2-col team grid",
+    "is_broken": false
+  },
+  {
+    "site_name": "VitalFit Gym",
+    "category": "health-fitness",
+    "niche": "premium gym and wellness center with personal training",
+    "pages": ["home", "classes", "trainers", "membership", "about", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#1A1A1A", "secondary": "#FF4500", "accent": "#00D4FF", "bg": "#F5F5F5", "text": "#1A1A1A"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.2 minor third"},
+      "layout_style": "energetic with strong contrast and dynamic angles",
+      "mood": "energetic, motivating, strong"
+    },
+    "page_descriptions": {
+      "home": "Hero with gym action image area + bold headline + free trial CTA, class schedule preview, trainer spotlight cards, membership teaser, testimonials with before/after placeholder",
+      "classes": "Weekly schedule grid/table, class cards with type, duration, intensity level, trainer name. Filter by type",
+      "trainers": "Trainer cards (photo, name, specialization, certifications, bio), booking CTA per trainer",
+      "membership": "3-tier pricing cards (basic, premium, elite) with feature lists, comparison table, money-back guarantee badge",
+      "about": "Gym story, facility photo gallery placeholders, equipment highlights, location info",
+      "contact": "Contact form, trial booking form, location map placeholder, hours of operation"
+    },
+    "complexity": "moderate",
+    "special_elements": ["class schedule table/grid", "intensity level indicators", "pricing comparison table", "dynamic angled section dividers"],
+    "responsive_notes": "Mobile: schedule becomes list view, trainer cards stack, pricing cards stack with horizontal scroll option. Tablet: 2-col grid",
+    "is_broken": false
+  },
+  {
+    "site_name": "NeuralForge AI",
+    "category": "tech-startup",
+    "niche": "AI infrastructure startup providing model deployment platform",
+    "pages": ["home", "platform", "docs", "pricing", "blog", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#0F172A", "secondary": "#1E293B", "accent": "#38BDF8", "bg": "#0F172A", "text": "#E2E8F0"},
+      "typography": {"heading_font": "sans-serif", "body_font": "monospace", "scale": "1.2 minor third"},
+      "layout_style": "developer-focused dark theme with code snippets and terminal aesthetics",
+      "mood": "technical, innovative, developer-friendly"
+    },
+    "page_descriptions": {
+      "home": "Dark hero with animated code snippet placeholder + headline + get-started CTA, feature cards (deploy, scale, monitor) with terminal-style illustrations, architecture diagram placeholder, trusted-by logos, benchmark stats",
+      "platform": "Technical feature deep-dives with code examples, architecture overview, supported frameworks grid, performance benchmarks table",
+      "docs": "Documentation landing with search bar, quick-start guide cards, API reference sidebar navigation placeholder, code snippet blocks",
+      "pricing": "Usage-based pricing calculator placeholder, tier cards (free, team, enterprise), feature comparison table, FAQ",
+      "blog": "Blog post cards (title, date, author, tag, excerpt), category filter, featured post hero",
+      "contact": "Sales contact form, community Discord link, support options (docs, forum, enterprise)"
+    },
+    "complexity": "complex",
+    "special_elements": ["code snippet blocks with syntax highlighting placeholder", "terminal-style UI elements", "architecture diagram", "benchmark comparison charts placeholder"],
+    "responsive_notes": "Mobile: code blocks scroll horizontally, feature cards stack, sidebar navigation collapses. Tablet: 2-col feature grid",
+    "is_broken": false
+  },
+  {
+    "site_name": "Metro Pulse News",
+    "category": "news-media",
+    "niche": "local city news and investigative journalism outlet",
+    "pages": ["home", "article", "section", "opinion", "about", "subscribe"],
+    "design_system": {
+      "color_palette": {"primary": "#1A1A1A", "secondary": "#B22222", "accent": "#003366", "bg": "#FFFFFF", "text": "#333333"},
+      "typography": {"heading_font": "serif", "body_font": "serif", "scale": "1.2 newspaper-style"},
+      "layout_style": "classic newspaper grid with clear hierarchy",
+      "mood": "trustworthy, informative, classic news"
+    },
+    "page_descriptions": {
+      "home": "Breaking news banner, featured story (large image + headline), 3-col grid of top stories, sidebar with weather placeholder + market data + opinion preview, section quick-nav bar",
+      "article": "Article header (headline, byline, date, share buttons), featured image, body text with subheadings, related articles sidebar, comment section placeholder",
+      "section": "Section header (politics, business, sports, culture), article list with thumbnails, trending in section sidebar",
+      "opinion": "Editorial board picks, op-ed cards with author photos, letters to editor section",
+      "about": "Newsroom info, editorial standards, staff directory, contact for tips",
+      "subscribe": "Subscription tiers with pricing, digital/print options, student discount, gift subscription option"
+    },
+    "complexity": "moderate",
+    "special_elements": ["breaking news ticker bar", "newspaper-style column layout", "share buttons", "weather widget placeholder"],
+    "responsive_notes": "Mobile: single column, breaking news simplifies, sidebar below main content. Tablet: 2-col grid",
+    "is_broken": false
+  },
+  {
+    "site_name": "Nexus Summit 2026",
+    "category": "event-conference",
+    "niche": "annual tech conference on AI and the future of work",
+    "pages": ["home", "speakers", "schedule", "tickets", "venue", "sponsors"],
+    "design_system": {
+      "color_palette": {"primary": "#6C63FF", "secondary": "#3F3D56", "accent": "#FF6584", "bg": "#FFFFFF", "text": "#2F2E41"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.333 perfect fourth"},
+      "layout_style": "vibrant with geometric patterns and gradient backgrounds",
+      "mood": "exciting, innovative, community-driven"
+    },
+    "page_descriptions": {
+      "home": "Countdown timer placeholder, hero with event name + date + location + register CTA, keynote speaker spotlight cards, track overview (AI, Future of Work, Ethics), past event highlights, sponsor logos tier",
+      "speakers": "Speaker cards grid (photo, name, company, talk title), keynote section at top, filter by track",
+      "schedule": "Multi-day tabbed schedule, time slots with track columns, session cards (title, speaker, room, time), add-to-calendar placeholder",
+      "tickets": "Ticket tiers (early bird, regular, VIP, group) with pricing and perks list, FAQ, refund policy",
+      "venue": "Venue photo gallery placeholders, floor plan placeholder, travel info (airport, hotels, transit), accommodation partner section",
+      "sponsors": "Sponsor tiers (platinum, gold, silver, community) with logos and descriptions, become-a-sponsor CTA with packages"
+    },
+    "complexity": "moderate",
+    "special_elements": ["countdown timer placeholder", "multi-track schedule grid", "geometric decorative shapes", "gradient backgrounds"],
+    "responsive_notes": "Mobile: schedule becomes day-by-day list, speaker grid 1-col, countdown simplifies. Tablet: 2-col speaker grid, schedule still tabbed",
+    "is_broken": false
+  },
+  {
+    "site_name": "Artisan Bakehouse",
+    "category": "food-bakery",
+    "niche": "artisan sourdough bakery with café and baking classes",
+    "pages": ["home", "menu", "classes", "catering", "about", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#5C3D2E", "secondary": "#D4A373", "accent": "#E07A5F", "bg": "#FFF8F0", "text": "#3D2B1F"},
+      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.25 modular"},
+      "layout_style": "rustic warmth with handcrafted feel and texture overlays",
+      "mood": "warm, artisan, handcrafted, inviting"
+    },
+    "page_descriptions": {
+      "home": "Hero with fresh bread image area and daily special callout, our breads preview grid (3 signature items), baking class teaser with CTA, location and hours card, instagram-style photo grid placeholder",
+      "menu": "Categorized menu (Breads, Pastries, Sandwiches, Drinks) with descriptions and prices, daily specials highlighted section, allergen info note",
+      "classes": "Upcoming class cards (date, title, level, price, spots remaining), class descriptions, what to bring list, instructor bios",
+      "catering": "Catering packages (corporate, wedding, event) with sample menus, order form placeholder, photo gallery of past events",
+      "about": "Baker's story with photos, our process (mixing, proofing, baking) illustrated steps, sourcing philosophy",
+      "contact": "Bakery address + hours + phone, order form, map placeholder, social media links"
+    },
+    "complexity": "moderate",
+    "special_elements": ["daily special highlight card", "texture/grain overlay backgrounds", "class booking cards", "handwritten-style decorative elements placeholder"],
+    "responsive_notes": "Mobile: menu sections stack, class cards single-col, hero text over image. Tablet: 2-col menu sections",
+    "is_broken": false
+  }
+]
