@@ -207,7 +207,7 @@ def _build_dockerfile() -> str:
     """Build the Dockerfile for the task environment."""
     return """FROM node:20-slim
 
-# Install Python, Chromium, and grader dependencies
+# Install Python and Chromium
 RUN apt-get update && apt-get install -y --no-install-recommends \\
     python3 python3-pip python3-venv chromium \\
     && rm -rf /var/lib/apt/lists/*
@@ -215,10 +215,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \\
 # Create grader virtual environment
 RUN python3 -m venv /opt/grader-venv
 
-# Install grader Python packages
+# Install grader Python packages (lightweight — no torch/CLIP)
 RUN /opt/grader-venv/bin/pip install --no-cache-dir \\
-    playwright anthropic Pillow scikit-image \\
-    numpy open-clip-torch torch torchvision
+    playwright anthropic
 
 # Install Playwright browsers
 RUN /opt/grader-venv/bin/python -m playwright install --with-deps chromium
@@ -250,111 +249,25 @@ cat /logs/verifier/reward.json
 
 
 def _write_grader(tests_dir: Path) -> None:
-    """Write the grader.py stub that imports from the grade module.
-
-    The actual grading logic lives in pipeline/grade/. This stub is
-    a self-contained version that gets copied into the Harbor task.
-    """
-    # We'll write the full grader inline since it needs to be self-contained
-    # inside the Docker container (no access to pipeline/ module)
+    """Write the self-contained grader.py for the Harbor task."""
     grader_code = '''#!/usr/bin/env python3
 """Harbor task grader — evaluates design replication quality.
 
-This is a self-contained grader that runs inside the Harbor verifier container.
-It compares the agent's submission against reference screenshots using:
-1. Visual metrics (CLIP similarity, SSIM, color histogram)
-2. LLM judge (multi-criteria rubric)
-3. Structural checks
-4. Responsiveness evaluation
-5. Defect grading (for broken website tasks)
+Self-contained grader that runs inside the Harbor verifier container.
+Compares the agent's submission against reference screenshots using:
+1. LLM judge (multi-criteria visual comparison)
+2. Structural checks (pages exist, nav links, stylesheet)
+3. Defect replication check (for broken tasks)
+4. Defect identification check (for broken tasks)
 """
 
 import argparse
 import asyncio
+import base64
 import json
 import os
 import sys
 from pathlib import Path
-
-import numpy as np
-from PIL import Image
-from skimage.metrics import structural_similarity as ssim
-
-
-# ──────────────────────────────────────────────────
-# Visual Metrics
-# ──────────────────────────────────────────────────
-
-def compute_ssim(img1_path: str, img2_path: str) -> float:
-    """Compute SSIM between two images."""
-    img1 = Image.open(img1_path).convert("L")
-    img2 = Image.open(img2_path).convert("L")
-
-    # Resize to common size
-    target_size = (min(img1.width, img2.width), min(img1.height, img2.height))
-    img1 = img1.resize(target_size, Image.LANCZOS)
-    img2 = img2.resize(target_size, Image.LANCZOS)
-
-    arr1 = np.array(img1)
-    arr2 = np.array(img2)
-
-    score, _ = ssim(arr1, arr2, full=True)
-    return float(max(0.0, min(1.0, score)))
-
-
-def compute_color_histogram_similarity(img1_path: str, img2_path: str) -> float:
-    """Compute color histogram intersection similarity."""
-    img1 = Image.open(img1_path).convert("RGB")
-    img2 = Image.open(img2_path).convert("RGB")
-
-    def get_histogram(img: Image.Image) -> np.ndarray:
-        arr = np.array(img)
-        hist = np.zeros(768)  # 256 * 3 channels
-        for c in range(3):
-            channel_hist, _ = np.histogram(arr[:, :, c], bins=256, range=(0, 256))
-            hist[c * 256 : (c + 1) * 256] = channel_hist
-        # Normalize
-        total = hist.sum()
-        if total > 0:
-            hist = hist / total
-        return hist
-
-    h1 = get_histogram(img1)
-    h2 = get_histogram(img2)
-
-    # Histogram intersection
-    intersection = np.minimum(h1, h2).sum()
-    return float(max(0.0, min(1.0, intersection)))
-
-
-def compute_clip_similarity(img1_path: str, img2_path: str) -> float:
-    """Compute CLIP cosine similarity between two images.
-
-    Falls back to 0.5 if CLIP model fails to load.
-    """
-    try:
-        import open_clip
-        import torch
-
-        model, _, preprocess = open_clip.create_model_and_transforms(
-            "ViT-B-32", pretrained="openai"
-        )
-        model.eval()
-
-        img1 = preprocess(Image.open(img1_path).convert("RGB")).unsqueeze(0)
-        img2 = preprocess(Image.open(img2_path).convert("RGB")).unsqueeze(0)
-
-        with torch.no_grad():
-            feat1 = model.encode_image(img1)
-            feat2 = model.encode_image(img2)
-            feat1 = feat1 / feat1.norm(dim=-1, keepdim=True)
-            feat2 = feat2 / feat2.norm(dim=-1, keepdim=True)
-            similarity = (feat1 @ feat2.T).item()
-
-        return float(max(0.0, min(1.0, similarity)))
-    except Exception as e:
-        print(f"CLIP failed ({e}), using fallback score 0.5", file=sys.stderr)
-        return 0.5
 
 
 # ──────────────────────────────────────────────────
@@ -370,7 +283,6 @@ def llm_judge_score(
     """Score a single page/viewport pair using Claude as judge."""
     try:
         import anthropic
-        import base64
 
         client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
 
@@ -414,26 +326,20 @@ def check_structural(submission_dir: Path, expected_pages: list[str]) -> float:
     score = 0.0
     total_checks = 0
 
-    # Check each expected page exists
     for page in expected_pages:
         total_checks += 1
         html_file = submission_dir / f"{page}.html"
         if html_file.exists():
             score += 1.0
-
-            # Check for stylesheet link
             content = html_file.read_text()
             if "styles.css" in content:
                 score += 0.5
                 total_checks += 0.5
-
-            # Check for nav links to other pages
             nav_links = sum(1 for p in expected_pages if f"{p}.html" in content)
             if nav_links >= len(expected_pages) - 1:
                 score += 0.5
                 total_checks += 0.5
 
-    # Check styles.css exists
     total_checks += 1
     if (submission_dir / "styles.css").exists():
         score += 1.0
@@ -450,14 +356,9 @@ def grade_defect_replication(
     sub_screenshots: dict[str, dict[str, str]],
     expected_defects: list[dict],
 ) -> dict:
-    """Grade whether the agent replicated each defect by comparing screenshots.
-
-    For each defect, sends the reference and submission screenshots of the
-    specific page+viewport to an LLM and asks if the defect is present.
-    """
+    """Grade whether the agent replicated each defect by comparing screenshots."""
     try:
         import anthropic
-        import base64
 
         client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
         scores = []
@@ -467,7 +368,6 @@ def grade_defect_replication(
             viewport = defect.get("viewport", "all")
             description = defect.get("description", "")
 
-            # Pick which viewport(s) to check
             viewports_to_check = ["desktop", "tablet", "mobile"] if viewport == "all" else [viewport]
 
             defect_found = False
@@ -525,18 +425,16 @@ def grade_defect_identification(
     submission_dir: Path,
     expected_defects: list[dict],
 ) -> dict:
-    """Grade the agent's defect identification (for broken tasks)."""
+    """Grade the agent's defect report."""
     report_path = submission_dir / "defects_report.md"
 
     if not report_path.exists():
         return {"defect_identification": 0.0, "report_found": False}
 
     report_text = report_path.read_text()
-
     if not report_text.strip():
         return {"defect_identification": 0.0, "report_found": True, "report_empty": True}
 
-    # Use LLM to evaluate the defect report
     try:
         import anthropic
         client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
@@ -630,7 +528,11 @@ def grade(
 ) -> dict:
     """Run the full grading pipeline."""
     pages = meta.get("pages", [])
-    viewports = meta.get("viewports", {"desktop": {"width": 1280, "height": 900}, "tablet": {"width": 768, "height": 1024}, "mobile": {"width": 375, "height": 812}})
+    viewports = meta.get("viewports", {
+        "desktop": {"width": 1280, "height": 900},
+        "tablet": {"width": 768, "height": 1024},
+        "mobile": {"width": 375, "height": 812},
+    })
     is_broken = meta.get("is_broken", False)
     defects = meta.get("defects", [])
 
@@ -640,10 +542,7 @@ def grade(
         capture_submission_screenshots(submission_dir, sub_screenshots_dir, viewports)
     )
 
-    # Collect per-page, per-viewport scores
-    all_clip = []
-    all_ssim = []
-    all_color = []
+    # Collect per-page, per-viewport LLM judge scores
     all_llm = []
     per_page_scores = {}
 
@@ -655,65 +554,40 @@ def grade(
 
             if not ref_path.exists() or not sub_path or not Path(sub_path).exists():
                 per_page_scores[page][vp_name] = 0.0
-                all_clip.append(0.0)
-                all_ssim.append(0.0)
-                all_color.append(0.0)
                 all_llm.append({"layout": 0, "color": 0, "typography": 0, "spacing": 0, "components": 0})
                 continue
 
-            # Visual metrics
-            clip_score = compute_clip_similarity(str(ref_path), sub_path)
-            ssim_score = compute_ssim(str(ref_path), sub_path)
-            color_score = compute_color_histogram_similarity(str(ref_path), sub_path)
-
-            all_clip.append(clip_score)
-            all_ssim.append(ssim_score)
-            all_color.append(color_score)
-
-            # LLM judge
             judge_scores = llm_judge_score(str(ref_path), sub_path, page, vp_name)
             all_llm.append(judge_scores)
 
-            # Per-page score (simple average for now)
-            page_vp_score = (clip_score * 0.3 + ssim_score * 0.2 + color_score * 0.15 +
-                           np.mean(list(judge_scores.values())) * 0.35)
+            page_vp_score = sum(judge_scores.values()) / len(judge_scores) if judge_scores else 0.0
             per_page_scores[page][vp_name] = round(float(page_vp_score), 3)
 
-    # Aggregate
-    avg_clip = float(np.mean(all_clip)) if all_clip else 0.0
-    avg_ssim = float(np.mean(all_ssim)) if all_ssim else 0.0
-    avg_color = float(np.mean(all_color)) if all_color else 0.0
-
+    # Aggregate LLM scores
     llm_agg = {}
     if all_llm:
         for key in ["layout", "color", "typography", "spacing", "components"]:
-            llm_agg[key] = float(np.mean([s.get(key, 0) for s in all_llm]))
-    avg_llm = float(np.mean(list(llm_agg.values()))) if llm_agg else 0.0
+            llm_agg[key] = float(sum(s.get(key, 0) for s in all_llm) / len(all_llm))
+    avg_llm = float(sum(llm_agg.values()) / len(llm_agg)) if llm_agg else 0.0
 
     # Structural score
     structural = check_structural(submission_dir, pages)
 
     # Final score
     if is_broken:
-        visual_fidelity = (0.25 * avg_clip + 0.10 * avg_ssim + 0.10 * avg_color +
-                          0.45 * avg_llm + 0.10 * structural)
+        visual_fidelity = 0.85 * avg_llm + 0.15 * structural
         defect_rep = grade_defect_replication(reference_dir, sub_screenshots, defects)
         defect_id = grade_defect_identification(submission_dir, defects)
         overall = (0.50 * visual_fidelity +
                   0.25 * defect_rep.get("defect_replication", 0.0) +
                   0.25 * defect_id.get("defect_identification", 0.0))
     else:
-        overall = (0.25 * avg_clip + 0.10 * avg_ssim + 0.10 * avg_color +
-                  0.45 * avg_llm + 0.10 * structural)
+        overall = 0.85 * avg_llm + 0.15 * structural
+        defect_rep = {}
         defect_id = {}
 
     result = {
         "overall": round(float(overall), 3),
-        "visual_metrics": {
-            "clip": round(avg_clip, 3),
-            "ssim": round(avg_ssim, 3),
-            "color": round(avg_color, 3),
-        },
         "llm_judge": {k: round(v, 3) for k, v in llm_agg.items()},
         "structural": round(structural, 3),
         "per_page": per_page_scores,
@@ -754,7 +628,7 @@ if __name__ == "__main__":
         output_path=Path(args.output),
     )
 
-    print(f"Overall score: {result['overall']}")
+    print(f"Overall score: {result[\'overall\']}")
 '''
     (tests_dir / "grader.py").write_text(grader_code)
 
@@ -762,12 +636,6 @@ if __name__ == "__main__":
 def _write_grader_requirements(tests_dir: Path) -> None:
     """Write requirements.txt for the grader."""
     reqs = """anthropic>=0.40.0
-Pillow>=10.0.0
-numpy>=1.26.0
-scikit-image>=0.22.0
-open-clip-torch>=2.26.0
-torch>=2.1.0
-torchvision>=0.16.0
 playwright>=1.40.0
 """
     (tests_dir / "requirements.txt").write_text(reqs)
