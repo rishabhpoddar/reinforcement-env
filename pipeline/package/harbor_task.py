@@ -445,6 +445,82 @@ def check_structural(submission_dir: Path, expected_pages: list[str]) -> float:
 # Defect Grading
 # ──────────────────────────────────────────────────
 
+def grade_defect_replication(
+    reference_dir: Path,
+    sub_screenshots: dict[str, dict[str, str]],
+    expected_defects: list[dict],
+) -> dict:
+    """Grade whether the agent replicated each defect by comparing screenshots.
+
+    For each defect, sends the reference and submission screenshots of the
+    specific page+viewport to an LLM and asks if the defect is present.
+    """
+    try:
+        import anthropic
+        import base64
+
+        client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
+        scores = []
+
+        for defect in expected_defects:
+            page = defect.get("page", "")
+            viewport = defect.get("viewport", "all")
+            description = defect.get("description", "")
+
+            # Pick which viewport(s) to check
+            viewports_to_check = ["desktop", "tablet", "mobile"] if viewport == "all" else [viewport]
+
+            defect_found = False
+            for vp in viewports_to_check:
+                ref_path = reference_dir / f"{page}-{vp}.png"
+                sub_path = sub_screenshots.get(page, {}).get(vp)
+
+                if not ref_path.exists() or not sub_path or not Path(sub_path).exists():
+                    continue
+
+                ref_b64 = base64.b64encode(open(str(ref_path), "rb").read()).decode()
+                sub_b64 = base64.b64encode(open(sub_path, "rb").read()).decode()
+
+                response = client.messages.create(
+                    model="claude-haiku-4-5-20251001",
+                    max_tokens=256,
+                    messages=[{
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": f"The reference website has this intentional defect: \\"{description}\\"\\n\\nImage 1 is the REFERENCE (has the defect). Image 2 is the SUBMISSION (should also have the defect).\\n\\nIs the defect present in the submission? Reply ONLY with JSON: {{\\\"present\\\": true/false, \\\"reason\\\": \\\"...\\\"}}"},
+                            {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": ref_b64}},
+                            {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": sub_b64}},
+                        ],
+                    }],
+                )
+
+                text = response.content[0].text.strip()
+                if text.startswith("```"):
+                    text = text.split("\\n", 1)[1]
+                    if text.endswith("```"):
+                        text = text[:text.rfind("```")]
+                    text = text.strip()
+
+                try:
+                    result = json.loads(text)
+                    if result.get("present", False):
+                        defect_found = True
+                        break
+                except json.JSONDecodeError:
+                    if "true" in text.lower():
+                        defect_found = True
+                        break
+
+            scores.append(1.0 if defect_found else 0.0)
+
+        avg_score = sum(scores) / len(scores) if scores else 0.0
+        return {"defect_replication": avg_score, "per_defect": scores}
+
+    except Exception as e:
+        print(f"Defect replication grading failed ({e}), using 0.5", file=sys.stderr)
+        return {"defect_replication": 0.5, "per_defect": []}
+
+
 def grade_defect_identification(
     submission_dir: Path,
     expected_defects: list[dict],
@@ -617,30 +693,18 @@ def grade(
     # Structural score
     structural = check_structural(submission_dir, pages)
 
-    # Responsiveness score (compare how scores differ across viewports)
-    responsive_score = 0.7  # Default
-    if per_page_scores:
-        vp_scores = {vp: [] for vp in viewports}
-        for page_scores in per_page_scores.values():
-            for vp, score in page_scores.items():
-                vp_scores[vp].append(score)
-        vp_means = [float(np.mean(scores)) for scores in vp_scores.values() if scores]
-        if len(vp_means) >= 2:
-            # Low variance across viewports = good responsiveness
-            variance = float(np.var(vp_means))
-            responsive_score = max(0.0, min(1.0, 1.0 - variance * 10))
-
     # Final score
     if is_broken:
-        visual_fidelity = (0.20 * avg_clip + 0.10 * avg_ssim + 0.10 * avg_color +
-                          0.40 * avg_llm + 0.10 * responsive_score + 0.10 * structural)
+        visual_fidelity = (0.25 * avg_clip + 0.10 * avg_ssim + 0.10 * avg_color +
+                          0.45 * avg_llm + 0.10 * structural)
+        defect_rep = grade_defect_replication(reference_dir, sub_screenshots, defects)
         defect_id = grade_defect_identification(submission_dir, defects)
-        overall = (0.60 * visual_fidelity +
-                  0.20 * visual_fidelity +  # defect replication approximated by visual fidelity
-                  0.20 * defect_id.get("defect_identification", 0.0))
+        overall = (0.50 * visual_fidelity +
+                  0.25 * defect_rep.get("defect_replication", 0.0) +
+                  0.25 * defect_id.get("defect_identification", 0.0))
     else:
-        overall = (0.20 * avg_clip + 0.10 * avg_ssim + 0.10 * avg_color +
-                  0.40 * avg_llm + 0.10 * responsive_score + 0.10 * structural)
+        overall = (0.25 * avg_clip + 0.10 * avg_ssim + 0.10 * avg_color +
+                  0.45 * avg_llm + 0.10 * structural)
         defect_id = {}
 
     result = {
@@ -651,12 +715,15 @@ def grade(
             "color": round(avg_color, 3),
         },
         "llm_judge": {k: round(v, 3) for k, v in llm_agg.items()},
-        "responsiveness": round(responsive_score, 3),
         "structural": round(structural, 3),
         "per_page": per_page_scores,
     }
 
     if is_broken:
+        result["defect_replication"] = round(
+            defect_rep.get("defect_replication", 0.0), 3
+        )
+        result["defect_replication_per_defect"] = defect_rep.get("per_defect", [])
         result["defect_identification"] = round(
             defect_id.get("defect_identification", 0.0), 3
         )

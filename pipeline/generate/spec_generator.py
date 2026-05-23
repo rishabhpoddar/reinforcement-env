@@ -69,9 +69,10 @@ SPEC_SCHEMA = {
                 "properties": {
                     "type": {"type": "string"},
                     "page": {"type": "string"},
+                    "viewport": {"type": "string", "enum": ["desktop", "tablet", "mobile", "all"]},
                     "description": {"type": "string"},
                 },
-                "required": ["type", "page", "description"],
+                "required": ["type", "page", "viewport", "description"],
             },
         },
     },
@@ -147,10 +148,16 @@ def _build_generation_prompt(
 
 ## IMPORTANT: This website MUST have intentional defects
 Set "is_broken" to true and include a "defects" array with 2-4 defects.
-Defect types to choose from:
-- "broken_responsiveness": A specific element/section that breaks on mobile or tablet
-- "typo": A misspelled word in a prominent location (heading, nav, etc.)
-- "bad_design": A specific design choice that clashes (wrong color, bad contrast, etc.)
+Each defect MUST have these fields:
+- "type": one of "broken_responsiveness", "typo", "bad_design", "alignment", "overflow", "inconsistency"
+- "page": which page the defect is on (must match a page name from the pages array)
+- "viewport": which viewport the defect is most visible at — "desktop", "tablet", "mobile", or "all"
+- "description": specific description of the defect
+
+Defect types:
+- "broken_responsiveness": A specific element/section that breaks on mobile or tablet (viewport should be "mobile" or "tablet")
+- "typo": A misspelled word in a prominent location (viewport is usually "all")
+- "bad_design": A specific design choice that clashes — wrong color, bad contrast, etc. (viewport is usually "all")
 - "alignment": Elements that are visibly misaligned or inconsistently spaced
 - "overflow": Text or elements that overflow their containers
 - "inconsistency": A component styled differently than similar components on the site
