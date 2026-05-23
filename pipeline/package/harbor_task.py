@@ -179,6 +179,7 @@ def _build_task_toml(spec: dict, task_id: str) -> str:
         keywords_extra = ', "broken-design", "defect-analysis"'
 
     return f"""schema_version = "1.2"
+artifacts = ["/app", "/logs/artifacts/screenshots"]
 
 [task]
 name = "web-design-replication/{task_id}"
@@ -571,7 +572,7 @@ def grade(
     defects = meta.get("defects", [])
 
     # Capture submission screenshots
-    sub_screenshots_dir = Path("/tmp/submission_screenshots")
+    sub_screenshots_dir = Path("/logs/artifacts/screenshots")
     sub_screenshots = asyncio.run(
         capture_submission_screenshots(submission_dir, sub_screenshots_dir, viewports)
     )

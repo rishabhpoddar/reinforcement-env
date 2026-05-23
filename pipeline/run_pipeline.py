@@ -77,7 +77,7 @@ def step_build(workspace_dir: Path, models: list[str], max_iterations: int):
 
 def step_judge(workspace_dir: Path, models: list[str]):
     """Run judges on an existing site."""
-    verdicts = judge_website(workspace_dir=workspace_dir, models=models)
+    verdicts, _ = judge_website(workspace_dir=workspace_dir, models=models)
     log.info(f"{'='*60}")
     log.info("Results:")
     for v in verdicts:
