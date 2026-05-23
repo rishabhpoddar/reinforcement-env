@@ -61,10 +61,11 @@ def _is_image_too_large_error(error: str | None) -> bool:
 
 
 SCREENSHOT_RESIZE_INSTRUCTION = (
-    "IMPORTANT: Before reading any screenshot PNG file, you MUST first resize it "
-    "so that neither dimension exceeds 1900 pixels. Use this command:\n"
+    "IMPORTANT: Before reading any screenshot PNG file, you MUST first check its "
+    "dimensions using: sips -g pixelWidth -g pixelHeight <path-to-screenshot.png>\n"
+    "If EITHER dimension exceeds 1900 pixels, resize it first using:\n"
     "  sips --resampleHeightWidthMax 1900 <path-to-screenshot.png>\n"
-    "This avoids API errors with large images. Always resize BEFORE reading the file."
+    "This avoids API errors with large images. Always check and resize BEFORE reading the file."
 )
 
 
@@ -126,6 +127,8 @@ A local server is running. After writing your files, you MUST visually verify yo
 4. IMPORTANT: After saving each screenshot, use the read tool to open the PNG file and actually LOOK at it
 5. Compare what you see in the screenshot against the spec — check colors, layout, typography, spacing
 6. Fix any issues you find, then re-screenshot and re-verify
+
+{SCREENSHOT_RESIZE_INSTRUCTION}
 {feedback_section}"""
 
 
@@ -179,6 +182,8 @@ The file must contain exactly this JSON structure:
 If you give a score of 10, set feedback to an empty string "".
 
 You MUST create this file. This is the most important part of your task.
+
+{SCREENSHOT_RESIZE_INSTRUCTION}
 """
 
 
@@ -206,6 +211,8 @@ The file must contain exactly this JSON structure:
 
 If the score is 10 or the builder is stuck on the same issues, set feedback to "".
 You MUST overwrite this file.
+
+{SCREENSHOT_RESIZE_INSTRUCTION}
 """
 
 
@@ -318,7 +325,8 @@ def generate_website(
                 f"Re-read the spec in spec.json and fix the following:\n\n"
                 f"{feedback}\n\n"
                 f"After fixing, use Playwright to verify your changes visually — "
-                f"take screenshots, read them, and confirm the issues are resolved."
+                f"take screenshots, read them, and confirm the issues are resolved.\n\n"
+                f"{SCREENSHOT_RESIZE_INSTRUCTION}"
             )
 
         builder_result = agent.run(
