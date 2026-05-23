@@ -2,13 +2,19 @@
 """Pipeline orchestrator — generates web design replication tasks end-to-end.
 
 Usage:
+    # Full pipeline: spec → build → screenshot → package
     python -m pipeline.run_pipeline --count 10
     python -m pipeline.run_pipeline --count 1 --broken
     python -m pipeline.run_pipeline --count 10 --broken-count 3
 
-    # Judge only — skip building, run judges on an existing generated site
-    python -m pipeline.run_pipeline --judge-only generated/my-site/
-    python -m pipeline.run_pipeline --judge-only generated/my-site/ --models openai/gpt-5.4-mini
+    # Run a single step on an existing workspace
+    python -m pipeline.run_pipeline --step judge generated/my-site/
+    python -m pipeline.run_pipeline --step screenshot generated/my-site/
+    python -m pipeline.run_pipeline --step package generated/my-site/
+    python -m pipeline.run_pipeline --step build generated/my-site/  # re-run builder loop
+
+    # Override models for any step
+    python -m pipeline.run_pipeline --step judge generated/my-site/ --models openai/gpt-5.4-mini
 """
 
 import argparse
@@ -26,6 +32,102 @@ from pipeline.generate.screenshot import capture_screenshots_sync
 from pipeline.package.harbor_task import package_task
 
 
+# ── Individual step functions ──
+
+def step_spec(
+    spec_model: str,
+    force_broken: bool | None = None,
+) -> Path:
+    """Generate a single website spec and create its workspace directory."""
+    GENERATED_DIR.mkdir(parents=True, exist_ok=True)
+    spec = generate_spec(model=spec_model, force_broken=force_broken)
+
+    site_name = spec.get("site_name", "unknown")
+    category = spec.get("category", "unknown")
+    slug = f"{category}-{site_name}".replace(" ", "-").lower()[:50]
+    workspace_dir = GENERATED_DIR / slug
+    workspace_dir.mkdir(parents=True, exist_ok=True)
+    (workspace_dir / "site").mkdir(exist_ok=True)
+
+    (workspace_dir / "spec.json").write_text(json.dumps(spec, indent=2))
+    log.info(f"Spec created: {site_name} ({category})")
+    log.info(f"  Pages: {', '.join(spec.get('pages', []))}")
+    log.info(f"  Broken: {spec.get('is_broken', False)}")
+    log.info(f"  Workspace: {workspace_dir}")
+    return workspace_dir
+
+
+def step_build(workspace_dir: Path, models: list[str], max_iterations: int):
+    """Run the builder+judge loop on a workspace with an existing spec."""
+    spec_path = workspace_dir / "spec.json"
+    if not spec_path.exists():
+        log.error(f"No spec.json in {workspace_dir}")
+        return
+    spec = json.loads(spec_path.read_text())
+    log.info(f"Building: {spec.get('site_name', '?')} ({spec.get('category', '?')})")
+    generate_website(
+        spec=spec,
+        workspace_dir=workspace_dir,
+        models=models,
+        max_iterations=max_iterations,
+    )
+    html_files = list((workspace_dir / "site").glob("*.html"))
+    log.info(f"  {len(html_files)} HTML files in site/")
+
+
+def step_judge(workspace_dir: Path, models: list[str]):
+    """Run judges on an existing site."""
+    verdicts = judge_website(workspace_dir=workspace_dir, models=models)
+    log.info(f"{'='*60}")
+    log.info("Results:")
+    for v in verdicts:
+        log.info(f"  {v.get('model', '?')}: {v['score']}/10 — {v.get('feedback', '')[:150]}")
+    avg = sum(v["score"] for v in verdicts) / len(verdicts) if verdicts else 0
+    log.info(f"  Average: {avg:.1f}/10")
+    return verdicts
+
+
+def step_screenshot(workspace_dir: Path):
+    """Capture reference screenshots for an existing site."""
+    site_dir = workspace_dir / "site"
+    screenshots_dir = workspace_dir / "screenshots"
+    screenshots_dir.mkdir(parents=True, exist_ok=True)
+    if not list(site_dir.glob("*.html")):
+        log.error(f"No HTML files in {site_dir}")
+        return
+    screenshots = capture_screenshots_sync(site_dir, screenshots_dir)
+    total = sum(len(v) for v in screenshots.values())
+    log.info(f"  Captured {total} screenshots across {len(screenshots)} pages")
+
+
+def step_package(workspace_dir: Path):
+    """Package an existing site as a Harbor task."""
+    site_dir = workspace_dir / "site"
+    screenshots_dir = workspace_dir / "screenshots"
+    spec_path = workspace_dir / "spec.json"
+
+    if not spec_path.exists():
+        log.error(f"No spec.json in {workspace_dir}")
+        return
+    if not list(site_dir.glob("*.html")):
+        log.error(f"No HTML files in {site_dir}")
+        return
+    if not list(screenshots_dir.glob("*.png")):
+        log.error(f"No screenshots in {screenshots_dir} — run --step screenshot first")
+        return
+
+    spec = json.loads(spec_path.read_text())
+    task_dir = package_task(
+        spec=spec,
+        site_dir=site_dir,
+        screenshots_dir=screenshots_dir,
+        generation_metadata={"converged": False, "iterations": []},
+    )
+    log.info(f"  Task created: {task_dir}")
+
+
+# ── Full pipeline ──
+
 def generate_single_task(
     spec: dict,
     models: list[str] | None = None,
@@ -42,7 +144,6 @@ def generate_single_task(
     log.info(f"  Broken: {spec.get('is_broken', False)}")
     log.info(f"{'='*60}")
 
-    # Use a persistent directory under generated/ so files are inspectable
     slug = f"{category}-{site_name}".replace(" ", "-").lower()[:50]
     gen_dir = GENERATED_DIR / slug
     site_dir = gen_dir / "site"
@@ -50,10 +151,9 @@ def generate_single_task(
     site_dir.mkdir(parents=True, exist_ok=True)
     screenshots_dir.mkdir(parents=True, exist_ok=True)
 
-    # Save spec for reference
     (gen_dir / "spec.json").write_text(json.dumps(spec, indent=2))
 
-    # Step 1: Generate website via builder+judge loop
+    # Step 1: Build
     log.info("[1/3] Running builder + judge generation loop...")
     gen_metadata = generate_website(
         spec=spec,
@@ -62,7 +162,6 @@ def generate_single_task(
         max_iterations=max_iterations,
     )
 
-    # Verify we got some HTML files
     html_files = list(site_dir.glob("*.html"))
     if not html_files:
         log.error("No HTML files generated. Skipping.")
@@ -71,7 +170,7 @@ def generate_single_task(
     css_files = list(site_dir.glob("*.css"))
     log.info(f"  Generated {len(html_files)} HTML files + {len(css_files)} CSS file(s)")
 
-    # Step 2: Capture reference screenshots
+    # Step 2: Screenshots
     log.info("[2/3] Capturing reference screenshots...")
     try:
         screenshots = capture_screenshots_sync(site_dir, screenshots_dir)
@@ -81,7 +180,7 @@ def generate_single_task(
         log.error(f"Error capturing screenshots: {e}")
         return None
 
-    # Step 3: Package as Harbor task
+    # Step 3: Package
     log.info("[3/3] Packaging Harbor task...")
     try:
         task_dir = package_task(
@@ -130,31 +229,45 @@ def main():
         help="Anthropic model for spec generation",
     )
     parser.add_argument(
-        "--judge-only", type=str, default=None,
-        metavar="WORKSPACE_DIR",
-        help="Skip building — run judges on an existing generated site (e.g., generated/my-site/)",
+        "--step", type=str, default=None,
+        choices=["spec", "build", "judge", "screenshot", "package"],
+        help="Run a single step. 'spec' creates a new workspace; others require a workspace arg.",
+    )
+    parser.add_argument(
+        "workspace", nargs="?", default=None,
+        help="Workspace directory (required for build/judge/screenshot/package steps)",
     )
     args = parser.parse_args()
 
     models = args.models or MODELS
 
-    # ── Judge-only mode ──
-    if args.judge_only:
-        workspace = Path(args.judge_only)
+    # ── Single step mode ──
+    if args.step:
+        if args.step == "spec":
+            force_broken = True if args.broken else (False if args.clean else None)
+            step_spec(args.spec_model, force_broken)
+            return
+
+        if not args.workspace:
+            log.error(f"--step {args.step} requires a workspace directory argument")
+            sys.exit(1)
+        workspace = Path(args.workspace)
         if not workspace.exists():
             log.error(f"Workspace not found: {workspace}")
             sys.exit(1)
-        log.info(f"Judge-only mode: {workspace}")
-        log.info(f"  Models: {models}")
-        verdicts = judge_website(workspace_dir=workspace, models=models)
-        log.info(f"{'='*60}")
-        log.info("Results:")
-        for v in verdicts:
-            log.info(f"  {v.get('model', '?')}: {v['score']}/10 — {v.get('feedback', '')[:150]}")
-        avg = sum(v["score"] for v in verdicts) / len(verdicts) if verdicts else 0
-        log.info(f"  Average: {avg:.1f}/10")
+
+        log.info(f"Running step '{args.step}' on {workspace}")
+        if args.step == "build":
+            step_build(workspace, models, args.max_iterations)
+        elif args.step == "judge":
+            step_judge(workspace, models)
+        elif args.step == "screenshot":
+            step_screenshot(workspace)
+        elif args.step == "package":
+            step_package(workspace)
         return
 
+    # ── Full pipeline ──
     TASKS_DIR.mkdir(parents=True, exist_ok=True)
 
     log.info("Pipeline Configuration:")
@@ -163,7 +276,7 @@ def main():
     log.info(f"  Max iterations: {args.max_iterations}")
     log.info(f"  Output: {TASKS_DIR}")
 
-    # Step 1: Generate specs
+    # Phase 1: Generate specs
     log.info(f"{'='*60}")
     log.info(f"Phase 1: Generating {args.count} website specifications...")
     log.info(f"{'='*60}")
@@ -196,7 +309,7 @@ def main():
         log.info(f"  {i+1}. {s['site_name']} ({s['category']}) "
                  f"{'[BROKEN]' if s.get('is_broken') else '[CLEAN]'}")
 
-    # Step 2: Generate websites and package tasks
+    # Phase 2: Generate websites and package tasks
     log.info(f"{'='*60}")
     log.info(f"Phase 2: Generating websites and packaging tasks...")
     log.info(f"{'='*60}")
