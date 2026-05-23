@@ -9,3 +9,4 @@
 - websites in different languages too?
 	- especially things like arabic
 - need to confirm grader works well by giving it extreme screenshots to compare with
+- Task 2 and 3
