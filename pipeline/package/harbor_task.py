@@ -190,7 +190,7 @@ keywords = ["web-design", "html", "css", "responsive", "{category}"{keywords_ext
 cpus = 2
 memory_mb = 4096
 storage_mb = 2048
-allow_internet = false
+allow_internet = true
 
 [agent]
 timeout_sec = 900
@@ -217,7 +217,7 @@ RUN python3 -m venv /opt/grader-venv
 
 # Install grader Python packages (lightweight — no torch/CLIP)
 RUN /opt/grader-venv/bin/pip install --no-cache-dir \\
-    playwright anthropic
+    playwright anthropic Pillow
 
 # Install Playwright browsers
 RUN /opt/grader-venv/bin/python -m playwright install --with-deps chromium
@@ -274,20 +274,38 @@ from pathlib import Path
 # LLM Judge
 # ──────────────────────────────────────────────────
 
+def _resize_image_for_api(image_path: str, max_height: int = 7000) -> bytes:
+    """Read an image and resize if taller than max_height (Claude API limit is 8000px)."""
+    from PIL import Image
+    import io
+
+    img = Image.open(image_path)
+    if img.height > max_height:
+        ratio = max_height / img.height
+        new_width = int(img.width * ratio)
+        img = img.resize((new_width, max_height), Image.LANCZOS)
+
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    return buf.getvalue()
+
+
 def llm_judge_score(
     ref_screenshot: str,
     sub_screenshot: str,
     page_name: str,
     viewport: str,
 ) -> dict:
-    """Score a single page/viewport pair using Claude as judge."""
+    """Score a single page/viewport pair using Claude as judge with structured output."""
     try:
         import anthropic
 
         client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
 
-        ref_b64 = base64.b64encode(open(ref_screenshot, "rb").read()).decode()
-        sub_b64 = base64.b64encode(open(sub_screenshot, "rb").read()).decode()
+        ref_bytes = _resize_image_for_api(ref_screenshot)
+        sub_bytes = _resize_image_for_api(sub_screenshot)
+        ref_b64 = base64.b64encode(ref_bytes).decode()
+        sub_b64 = base64.b64encode(sub_bytes).decode()
 
         response = client.messages.create(
             model="claude-haiku-4-5-20251001",
@@ -295,22 +313,38 @@ def llm_judge_score(
             messages=[{
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": f"Compare these two website screenshots ({page_name} page, {viewport} viewport). The first is the REFERENCE design, the second is the SUBMISSION that attempts to replicate it.\\n\\nScore each criterion 0-10:\\n1. Layout Fidelity (sections, columns, element positioning)\\n2. Color Accuracy (color scheme match)\\n3. Typography (font sizes, weights, hierarchy)\\n4. Spacing & Proportions (margins, padding, whitespace)\\n5. Component Accuracy (buttons, cards, nav, etc.)\\n\\nReturn ONLY JSON: {{\\\"layout\\\": N, \\\"color\\\": N, \\\"typography\\\": N, \\\"spacing\\\": N, \\\"components\\\": N}}"},
+                    {"type": "text", "text": f"Compare these two website screenshots ({page_name} page, {viewport} viewport). The first is the REFERENCE design, the second is the SUBMISSION that attempts to replicate it. Score each criterion 0-10."},
                     {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": ref_b64}},
                     {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": sub_b64}},
                 ],
             }],
+            tool_choice={"type": "tool", "name": "score_design"},
+            tools=[{
+                "name": "score_design",
+                "description": "Score the design replication quality",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "layout": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Layout fidelity: sections, columns, element positioning"},
+                        "color": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Color accuracy: color scheme match"},
+                        "typography": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Typography: font sizes, weights, hierarchy"},
+                        "spacing": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Spacing and proportions: margins, padding, whitespace"},
+                        "components": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Component accuracy: buttons, cards, nav, etc."},
+                    },
+                    "required": ["layout", "color", "typography", "spacing", "components"],
+                },
+            }],
         )
 
-        text = response.content[0].text.strip()
-        if text.startswith("```"):
-            text = text.split("\\n", 1)[1]
-            if text.endswith("```"):
-                text = text[:text.rfind("```")]
-            text = text.strip()
+        # Extract tool use result
+        for block in response.content:
+            if block.type == "tool_use":
+                scores = block.input
+                return {k: float(v) / 10.0 for k, v in scores.items()}
 
-        scores = json.loads(text)
-        return {k: float(v) / 10.0 for k, v in scores.items()}
+        # Fallback if no tool use
+        print(f"LLM judge did not use tool, falling back", file=sys.stderr)
+        return {"layout": 0.5, "color": 0.5, "typography": 0.5, "spacing": 0.5, "components": 0.5}
 
     except Exception as e:
         print(f"LLM judge failed ({e}), using fallback scores", file=sys.stderr)
@@ -586,22 +620,25 @@ def grade(
         defect_rep = {}
         defect_id = {}
 
+    # Harbor expects flat float/int values in reward.json — no nested dicts
     result = {
         "overall": round(float(overall), 3),
-        "llm_judge": {k: round(v, 3) for k, v in llm_agg.items()},
         "structural": round(structural, 3),
-        "per_page": per_page_scores,
+        "llm_layout": round(llm_agg.get("layout", 0), 3),
+        "llm_color": round(llm_agg.get("color", 0), 3),
+        "llm_typography": round(llm_agg.get("typography", 0), 3),
+        "llm_spacing": round(llm_agg.get("spacing", 0), 3),
+        "llm_components": round(llm_agg.get("components", 0), 3),
+        "llm_avg": round(avg_llm, 3),
     }
 
     if is_broken:
         result["defect_replication"] = round(
             defect_rep.get("defect_replication", 0.0), 3
         )
-        result["defect_replication_per_defect"] = defect_rep.get("per_defect", [])
         result["defect_identification"] = round(
             defect_id.get("defect_identification", 0.0), 3
         )
-        result["defect_report_found"] = defect_id.get("report_found", False)
 
     # Write output
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -637,6 +674,7 @@ def _write_grader_requirements(tests_dir: Path) -> None:
     """Write requirements.txt for the grader."""
     reqs = """anthropic>=0.40.0
 playwright>=1.40.0
+Pillow>=10.0.0
 """
     (tests_dir / "requirements.txt").write_text(reqs)
 
