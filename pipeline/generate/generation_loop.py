@@ -200,12 +200,12 @@ IMPORTANT: If you notice you have been raising the same core issues for more tha
 and the builder is not making meaningful progress on them, the builder is stuck. In that case,
 set your feedback to an empty string "" to signal that further iteration won't help.
 
-Write your updated verdict to the file {verdict_path}
+OVERWRITE the existing verdict file at {verdict_path} with your updated scores.
 The file must contain exactly this JSON structure:
 {{"score": <number 0-10>, "feedback": "<specific actionable feedback>"}}
 
 If the score is 10 or the builder is stuck on the same issues, set feedback to "".
-You MUST create this file.
+You MUST overwrite this file.
 """
 
 
@@ -221,7 +221,6 @@ def _read_judge_verdict(verdict_path: str) -> dict:
         return {"score": 0, "feedback": "Judge did not write verdict file"}
 
     content = verdict_file.read_text().strip()
-    verdict_file.unlink()
 
     if not content:
         log.warning(f"Verdict file is empty: {verdict_path}")
