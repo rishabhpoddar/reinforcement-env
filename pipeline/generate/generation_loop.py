@@ -54,6 +54,22 @@ def _start_http_server(directory: Path) -> tuple[threading.Thread, int]:
 # ──────────────────────────────────────────────────
 
 
+def _is_image_too_large_error(error: str | None) -> bool:
+    """Check if an error is the Anthropic many-image dimension limit."""
+    if not error:
+        return False
+    return "image dimensions exceed max allowed size" in error.lower() or \
+           "exceed max allowed size for many-image" in error.lower()
+
+
+SCREENSHOT_RESIZE_INSTRUCTION = (
+    "IMPORTANT: Before reading any screenshot PNG file, you MUST first resize it "
+    "so that neither dimension exceeds 1900 pixels. Use this command:\n"
+    "  sips --resampleHeightWidthMax 1900 <path-to-screenshot.png>\n"
+    "This avoids API errors with large images. Always resize BEFORE reading the file."
+)
+
+
 def _clear_screenshots(workspace_dir: Path) -> None:
     """Remove the screenshots/ folder from the workspace after an OpenCode session."""
     screenshots_dir = workspace_dir / "screenshots"
@@ -329,14 +345,34 @@ def generate_website(
             builder_session_id = builder_result.session_id
 
         if not builder_result.success:
-            log.info(f"    Builder failed: {builder_result.error}")
-            metadata["iterations"].append({
-                "iteration": iteration,
-                "builder_model": builder_model,
-                "builder_success": False,
-                "builder_error": builder_result.error,
-            })
-            continue
+            # If the error is due to oversized images in the session history,
+            # drop the session and retry with a fresh one that includes
+            # resize instructions so future screenshots stay under the limit.
+            if _is_image_too_large_error(builder_result.error):
+                log.info(f"    Builder hit image size limit — retrying with fresh session + resize instructions")
+                builder_session_id = None
+                builder_prompt = _build_builder_prompt(spec, port, feedback)
+                builder_prompt += f"\n\n{SCREENSHOT_RESIZE_INSTRUCTION}"
+                builder_result = agent.run(
+                    prompt=builder_prompt,
+                    model=builder_model,
+                    working_dir=workspace_dir,
+                    session_id=None,
+                    label=f"iter{iteration}/builder-retry",
+                )
+                _clear_screenshots(workspace_dir)
+                if builder_result.session_id:
+                    builder_session_id = builder_result.session_id
+
+            if not builder_result.success:
+                log.info(f"    Builder failed: {builder_result.error}")
+                metadata["iterations"].append({
+                    "iteration": iteration,
+                    "builder_model": builder_model,
+                    "builder_success": False,
+                    "builder_error": builder_result.error,
+                })
+                continue
 
         # --- JUDGES ---
         verdicts = judge_website(
@@ -464,6 +500,17 @@ def judge_website(
             label=f"{iter_prefix}judge-{judge_idx}",
         )
         _clear_screenshots(workspace_dir)
+
+        if not judge_result.success and _is_image_too_large_error(judge_result.error):
+            log.info(f"      → Judge hit image size limit — retrying with resize instructions")
+            judge_prompt_retry = judge_prompt + f"\n\n{SCREENSHOT_RESIZE_INSTRUCTION}"
+            judge_result = agent.run(
+                prompt=judge_prompt_retry,
+                model=judge_model,
+                working_dir=workspace_dir,
+                label=f"{iter_prefix}judge-{judge_idx}-retry",
+            )
+            _clear_screenshots(workspace_dir)
 
         if judge_result.success:
             verdict = _read_judge_verdict(verdict_path)
