@@ -295,58 +295,117 @@
 <!-- ============ SLIDE 11: RESULTS TABLE ============ -->
 <section>
   <h2>Results &mdash; 10 Tasks &times; 10 Trials</h2>
-  <table style="font-size: 0.48em;">
-    <thead><tr><th>Task</th><th>Lang</th><th>Style</th><th>Overall</th><th>Layout</th><th>Color</th><th>Typography</th><th>Spacing</th><th>Components</th></tr></thead>
+  <table style="font-size: 0.42em;">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Overall</th>
+        <th>Min&ndash;Max</th>
+        <th style="min-width:90px;">Range</th>
+        <th title="Section positions, columns, grid structure, element arrangement">Layout</th>
+        <th title="Background colors, text colors, accent colors, gradients">Color</th>
+        <th title="Font families, sizes, weights, hierarchy">Typo</th>
+        <th title="Margins, padding, gaps, whitespace proportions">Space</th>
+        <th title="Nav bars, cards, buttons, badges, footers">Comps</th>
+        <th title="SSIM structural image similarity">SSIM</th>
+        <th title="Color histogram match">Px Color</th>
+        <th title="Files exist, nav links, viewport meta, semantic HTML">Struct</th>
+      </tr>
+    </thead>
     <tbody>
-      <tr><td>Childcare Enrollment</td><td>ar</td><td>playful</td><td class="green"><strong>0.640</strong></td><td>0.598</td><td>0.672</td><td>0.649</td><td>0.539</td><td>0.567</td></tr>
-      <tr><td>Archiv f. Typografische Praxis</td><td>de</td><td>swiss</td><td class="green"><strong>0.619</strong></td><td>0.630</td><td>0.719</td><td>0.613</td><td>0.558</td><td>0.597</td></tr>
-      <tr><td>NeonPulse Bioware</td><td>en/es</td><td>cyberpunk</td><td><strong>0.609</strong></td><td>0.628</td><td>0.685</td><td>0.658</td><td>0.574</td><td>0.585</td></tr>
-      <tr><td>The Pickle Periodical</td><td>en</td><td>maximalist</td><td><strong>0.593</strong></td><td>0.616</td><td>0.659</td><td>0.620</td><td>0.553</td><td>0.542</td></tr>
-      <tr><td>Tactile Sound Lab</td><td>en</td><td>neumorphism</td><td><strong>0.582</strong></td><td>0.590</td><td>0.658</td><td>0.557</td><td>0.525</td><td>0.553</td></tr>
-      <tr><td>PixelMétéo 95</td><td>fr</td><td>retro-90s</td><td><strong>0.575</strong></td><td>0.574</td><td>0.693</td><td>0.584</td><td>0.521</td><td>0.562</td></tr>
-      <tr><td>Classical Music Archive</td><td>hi</td><td>neumorphism</td><td><strong>0.571</strong></td><td>0.667</td><td>0.669</td><td>0.651</td><td>0.602</td><td>0.610</td></tr>
-      <tr><td>रेडियो तरंग 90</td><td>hi</td><td>retro-90s</td><td><strong>0.547</strong></td><td>0.565</td><td>0.559</td><td>0.542</td><td>0.503</td><td>0.513</td></tr>
-      <tr><td>Meridian Freight Index</td><td>en</td><td>swiss</td><td><strong>0.532</strong></td><td>0.667</td><td>0.765</td><td>0.666</td><td>0.585</td><td>0.630</td></tr>
-      <tr><td>Atelier Papier Buvard</td><td>fr</td><td>minimalist</td><td class="red"><strong>0.482</strong></td><td>0.632</td><td>0.753</td><td>0.701</td><td>0.578</td><td>0.611</td></tr>
+      <tr><td>Childcare Enrollment <span class="dim">(ar)</span></td><td class="green"><strong>0.640</strong></td><td>0.618&ndash;0.656</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:73%;width:13%;height:100%;background:#3fb950;border-radius:3px;"></div></div></td><td>0.60</td><td>0.67</td><td>0.65</td><td>0.54</td><td>0.57</td><td>0.74</td><td>0.65</td><td class="green">1.00</td></tr>
+      <tr><td>Typografische Praxis <span class="dim">(de)</span></td><td class="green"><strong>0.619</strong></td><td>0.576&ndash;0.709</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:59%;width:44%;height:100%;background:#58a6ff;border-radius:3px;"></div></div></td><td>0.63</td><td>0.72</td><td>0.61</td><td>0.56</td><td>0.60</td><td>0.47</td><td>0.47</td><td>0.99</td></tr>
+      <tr><td>NeonPulse Bioware <span class="dim">(en/es)</span></td><td><strong>0.609</strong></td><td>0.560&ndash;0.639</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:53%;width:26%;height:100%;background:#58a6ff;border-radius:3px;"></div></div></td><td>0.63</td><td>0.69</td><td>0.66</td><td>0.57</td><td>0.59</td><td>0.48</td><td>0.23</td><td class="green">1.00</td></tr>
+      <tr><td>Pickle Periodical <span class="dim">(en)</span></td><td><strong>0.593</strong></td><td>0.507&ndash;0.656</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:36%;width:50%;height:100%;background:#f85149;border-radius:3px;"></div></div></td><td>0.62</td><td>0.66</td><td>0.62</td><td>0.55</td><td>0.54</td><td>0.50</td><td>0.34</td><td class="green">1.00</td></tr>
+      <tr><td>Tactile Sound Lab <span class="dim">(en)</span></td><td><strong>0.582</strong></td><td>0.397&ndash;0.625</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:0%;width:76%;height:100%;background:#f85149;border-radius:3px;"></div></div></td><td>0.59</td><td>0.66</td><td>0.56</td><td>0.53</td><td>0.55</td><td>0.60</td><td>0.27</td><td class="green">1.00</td></tr>
+      <tr><td>PixelM&eacute;t&eacute;o 95 <span class="dim">(fr)</span></td><td><strong>0.575</strong></td><td>0.548&ndash;0.613</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:50%;width:22%;height:100%;background:#58a6ff;border-radius:3px;"></div></div></td><td>0.57</td><td>0.69</td><td>0.58</td><td>0.52</td><td>0.56</td><td>0.28</td><td>0.51</td><td>0.98</td></tr>
+      <tr><td>Classical Music Archive <span class="dim">(hi)</span></td><td><strong>0.571</strong></td><td>0.496&ndash;0.622</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:33%;width:42%;height:100%;background:#58a6ff;border-radius:3px;"></div></div></td><td>0.67</td><td>0.67</td><td>0.65</td><td>0.60</td><td>0.61</td><td>0.73</td><td>0.28</td><td class="green">1.00</td></tr>
+      <tr><td>Radio Tarang 90 <span class="dim">(hi)</span></td><td><strong>0.547</strong></td><td>0.535&ndash;0.561</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:46%;width:9%;height:100%;background:#3fb950;border-radius:3px;"></div></div></td><td>0.57</td><td>0.56</td><td>0.54</td><td>0.50</td><td>0.51</td><td>0.38</td><td>0.58</td><td>0.98</td></tr>
+      <tr><td>Meridian Freight <span class="dim">(en)</span></td><td><strong>0.532</strong></td><td>0.465&ndash;0.587</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:23%;width:41%;height:100%;background:#58a6ff;border-radius:3px;"></div></div></td><td>0.67</td><td>0.77</td><td>0.67</td><td>0.59</td><td>0.63</td><td>0.64</td><td>0.37</td><td class="green">1.00</td></tr>
+      <tr><td>Atelier Papier Buvard <span class="dim">(fr)</span></td><td class="red"><strong>0.482</strong></td><td>0.461&ndash;0.541</td><td><div style="position:relative;height:10px;background:#161b22;border-radius:3px;"><div style="position:absolute;left:22%;width:27%;height:100%;background:#58a6ff;border-radius:3px;"></div></div></td><td>0.63</td><td>0.75</td><td>0.70</td><td>0.58</td><td>0.61</td><td>0.58</td><td>0.28</td><td>0.82</td></tr>
     </tbody>
   </table>
-  <p class="small dim" style="margin-top: 12px;">96/100 trials completed (4 agent timeouts). Color consistently strongest (~0.68). Spacing weakest (~0.55). Structural ~1.0 across the board.</p>
+  <div style="font-size: 0.42em; margin-top: 10px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; color: #8b949e;">
+    <span><strong class="blue">LLM-judged (80%):</strong></span>
+    <span><strong>Layout</strong> = section positions, columns, grids</span>
+    <span><strong>Color</strong> = palette accuracy</span>
+    <span><strong>Typo</strong> = font family, sizes, weights</span>
+    <span><strong>Space</strong> = margins, padding, gaps</span>
+    <span><strong>Comps</strong> = nav, cards, buttons, badges</span>
+    <span style="margin-left:8px;"><strong class="blue">Pixel (15%):</strong></span>
+    <span><strong>SSIM</strong> = structural image similarity</span>
+    <span><strong>Px Color</strong> = color histogram match</span>
+    <span style="margin-left:8px;"><strong class="blue">Structural (5%):</strong></span>
+    <span><strong>Struct</strong> = files, nav links, semantic HTML</span>
+  </div>
+  <p class="small dim" style="margin-top: 8px;">
+    96/100 trials completed.
+    <span class="green">Green bars</span> = consistent across trials.
+    <span class="red">Red bars</span> = high variance. Trial-to-trial variance is a key challenge for RL.
+  </p>
 </section>
 
-<!-- ============ SLIDE 12: GOOD VS BAD ============ -->
+<!-- ============ SLIDE 12: HIGH SCORE ============ -->
 <section>
-  <h2>Good vs Bad &mdash; What Scores Mean</h2>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+  <h2><span class="green">High Score Task</span> &mdash; Typografische Praxis <span class="dim">(German, Swiss)</span></h2>
+  <p class="small dim">Mean: 0.619 | Range: 0.576&ndash;0.709 | 10/10 trials completed</p>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 12px;">
     <div>
-      <h3 style="color: #3fb950; font-size: 0.8em;">Best Trial: 0.709 &mdash; Typografische Praxis</h3>
-      <div class="compare-grid" style="grid-template-columns: 1fr 1fr; gap: 8px;">
-        <div>
-          <img src="screenshots/good-reference.png" alt="Reference">
-          <div class="label">Reference</div>
-        </div>
-        <div>
-          <img src="screenshots/good-submission.png" alt="Submission">
-          <div class="label">Agent Submission</div>
-        </div>
-      </div>
-      <p class="tiny dim" style="margin-top: 6px;">Correct palette, layout structure matches, typography hierarchy preserved, components recognizable</p>
+      <img src="screenshots/high-reference.png" alt="Reference" style="width:100%;border-radius:6px;border:2px solid #58a6ff;max-height:380px;object-fit:contain;object-position:top;">
+      <div class="small" style="text-align:center;margin-top:4px;"><span class="blue">Reference</span></div>
     </div>
     <div>
-      <h3 style="color: #f85149; font-size: 0.8em;">Worst Trial: 0.397 &mdash; Tactile Sound Lab</h3>
-      <div class="compare-grid" style="grid-template-columns: 1fr 1fr; gap: 8px;">
-        <div>
-          <img src="screenshots/bad-reference.png" alt="Reference">
-          <div class="label">Reference</div>
-        </div>
-        <div>
-          <img src="screenshots/bad-submission.png" alt="Submission">
-          <div class="label">Agent Submission</div>
-        </div>
-      </div>
-      <p class="tiny dim" style="margin-top: 6px;">Wrong background palette, missing neumorphic shadows, typography mismatch, spacing off</p>
+      <img src="screenshots/high-trial1.png" alt="Trial 1" style="width:100%;border-radius:6px;border:2px solid #3fb950;max-height:380px;object-fit:contain;object-position:top;">
+      <div class="small" style="text-align:center;margin-top:4px;"><span class="green">Trial 1: 0.709</span> (best)</div>
+    </div>
+    <div>
+      <img src="screenshots/high-trial2.png" alt="Trial 2" style="width:100%;border-radius:6px;border:2px solid #e8a87c;max-height:380px;object-fit:contain;object-position:top;">
+      <div class="small" style="text-align:center;margin-top:4px;"><span class="accent">Trial 2: 0.576</span> (worst of task)</div>
     </div>
   </div>
-  <p class="small" style="margin-top: 12px;">The grader correctly assigns higher scores to better visual matches &mdash; confirmed by calibration <em>and</em> visual inspection.</p>
+  <p class="tiny dim" style="margin-top: 8px;">Best trial nails the Swiss grid layout, color palette, and typography. Worst trial of this task still gets structure right but misses spacing details.</p>
+</section>
+
+<!-- ============ SLIDE 13: MEDIUM SCORE ============ -->
+<section>
+  <h2><span class="blue">Medium Score Task</span> &mdash; Childcare Enrollment <span class="dim">(Arabic RTL)</span></h2>
+  <p class="small dim">Mean: 0.640 | Range: 0.618&ndash;0.656 | 10/10 trials completed | Very consistent</p>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 12px;">
+    <div>
+      <img src="screenshots/med-reference.png" alt="Reference" style="width:100%;border-radius:6px;border:2px solid #58a6ff;max-height:380px;object-fit:contain;object-position:top;">
+      <div class="small" style="text-align:center;margin-top:4px;"><span class="blue">Reference</span></div>
+    </div>
+    <div>
+      <img src="screenshots/med-trial1.png" alt="Trial 1" style="width:100%;border-radius:6px;border:2px solid #3fb950;max-height:380px;object-fit:contain;object-position:top;">
+      <div class="small" style="text-align:center;margin-top:4px;"><span class="green">Trial 1: 0.656</span> (best)</div>
+    </div>
+    <div>
+      <img src="screenshots/med-trial2.png" alt="Trial 2" style="width:100%;border-radius:6px;border:2px solid #e8a87c;max-height:380px;object-fit:contain;object-position:top;">
+      <div class="small" style="text-align:center;margin-top:4px;"><span class="accent">Trial 2: 0.618</span> (worst)</div>
+    </div>
+  </div>
+  <p class="tiny dim" style="margin-top: 8px;">Tightest range of all tasks (0.038). Agent consistently handles RTL layout. Both trials capture the playful style but differ in spacing precision.</p>
+</section>
+
+<!-- ============ SLIDE 14: LOW SCORE ============ -->
+<section>
+  <h2><span class="red">Low Score Task</span> &mdash; Tactile Sound Lab <span class="dim">(English, Neumorphism)</span></h2>
+  <p class="small dim">Mean: 0.582 | Range: 0.397&ndash;0.625 | Widest variance of all tasks (0.228)</p>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 12px;">
+    <div>
+      <img src="screenshots/low-reference.png" alt="Reference" style="width:100%;border-radius:6px;border:2px solid #58a6ff;max-height:380px;object-fit:contain;object-position:top;">
+      <div class="small" style="text-align:center;margin-top:4px;"><span class="blue">Reference</span></div>
+    </div>
+    <div>
+      <img src="screenshots/low-trial1.png" alt="Trial 1" style="width:100%;border-radius:6px;border:2px solid #3fb950;max-height:380px;object-fit:contain;object-position:top;">
+      <div class="small" style="text-align:center;margin-top:4px;"><span class="green">Trial 1: 0.625</span> (best)</div>
+    </div>
+    <div>
+      <img src="screenshots/low-trial2.png" alt="Trial 2" style="width:100%;border-radius:6px;border:2px solid #f85149;max-height:380px;object-fit:contain;object-position:top;">
+      <div class="small" style="text-align:center;margin-top:4px;"><span class="red">Trial 2: 0.397</span> (worst overall)</div>
+    </div>
+  </div>
+  <p class="tiny dim" style="margin-top: 8px;">Neumorphic shadows are hard to replicate. Best trial gets the dark palette right but misses shadow details. Worst trial uses completely wrong colors (navy vs charcoal) and flat styling. The grader correctly reflects this gap.</p>
 </section>
 
 <!-- ============ SLIDE 13: OBSERVATIONS ============ -->
