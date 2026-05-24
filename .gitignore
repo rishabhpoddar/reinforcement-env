@@ -10,3 +10,4 @@ generated/
 logs/
 *.pyc
 jobs
+calibration/

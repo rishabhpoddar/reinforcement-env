@@ -1,6 +1,0 @@
-{
-  "tier": 1,
-  "name": "good",
-  "expected_score": 0.8,
-  "description": "Minor CSS tweaks (color shift, small spacing changes)"
-}

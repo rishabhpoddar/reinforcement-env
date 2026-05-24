@@ -240,16 +240,18 @@ def generate_calibration_set(workspace_dir: Path) -> Path:
     # Save metadata
     spec_path = workspace_dir / "spec.json"
     pages = [f.stem for f in sorted(site_dir.glob("*.html"))]
+    spec = {}
+    if spec_path.exists():
+        spec = json.loads(spec_path.read_text())
+
     meta = {
         "pages": pages,
         "viewports": {k: v for k, v in VIEWPORTS.items()},
-        "is_broken": False,
-        "defects": [],
+        "is_broken": spec.get("is_broken", False),
+        "defects": spec.get("defects", []),
         "source_workspace": str(workspace_dir),
+        "spec": spec,
     }
-    if spec_path.exists():
-        spec = json.loads(spec_path.read_text())
-        meta["spec"] = spec
     (cal_site_dir / "task_meta.json").write_text(json.dumps(meta, indent=2))
 
     # Generate each tier
