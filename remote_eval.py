@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run Harbor evaluations entirely on Modal — zero local resource usage.
 
-The Harbor orchestrator, agent processes, and Docker sandboxes all run in the cloud.
+The Harbor orchestrator, agent processes, and Modal sandboxes all run in the cloud.
 Your local machine only streams logs.
 
 Setup:
@@ -28,8 +28,6 @@ results_volume = modal.Volume.from_name("harbor-eval-results", create_if_missing
 harbor_image = (
     modal.Image.debian_slim(python_version="3.13")
     .apt_install("curl", "git", "nodejs", "npm")
-    # Docker engine for Harbor sandboxes
-    .apt_install("docker.io")
     .pip_install(
         "harbor",
         "anthropic",
@@ -50,13 +48,20 @@ harbor_image = (
     secrets=[
         modal.Secret.from_name("anthropic-api-key"),
         modal.Secret.from_name("openai-api-key"),
-        modal.Secret.from_name("modal-credentials"),
     ],
     volumes={"/root/results": results_volume},
 )
 async def run_eval(task_name: str):
     """Run Harbor eval for a single task on a dedicated cloud machine."""
+    import logging
     from pathlib import Path
+    from datetime import datetime, timezone
+
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
+    logging.getLogger("hpack").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("h2").setLevel(logging.WARNING)
 
     from harbor.job import Job
     from harbor.models.job.config import JobConfig
@@ -72,9 +77,7 @@ async def run_eval(task_name: str):
     results_dir = Path("/root/results") / "jobs"
     results_dir.mkdir(parents=True, exist_ok=True)
 
-    from datetime import datetime
-
-    timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
 
     print(
         f"Starting eval: {task_name} (trials={EVAL_TRIALS}, concurrent={EVAL_CONCURRENT})"
@@ -92,7 +95,7 @@ async def run_eval(task_name: str):
             )
         ],
         environment=EnvironmentConfig(
-            type=EnvironmentType.DOCKER,
+            type=EnvironmentType.MODAL,
         ),
         verifier=VerifierConfig(
             env={
@@ -114,7 +117,7 @@ async def run_eval(task_name: str):
         for m in eval_data.metrics:
             print(f"  Metrics: {m}")
 
-    results_volume.commit()
+    await results_volume.commit.aio()
     return {"task": task_name, "stats": result.stats.model_dump(mode="json")}
 
 
