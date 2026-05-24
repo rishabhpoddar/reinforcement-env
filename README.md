@@ -190,18 +190,23 @@ Output: `tasks/web-design-<slug>/` with full Harbor task structure
 
 Runs the packaged Harbor task using Claude Code as the evaluation agent. Supports local Docker or Modal cloud.
 
+**Important:** The Harbor orchestrator and agent processes run **locally on your machine** — only the sandbox environment (filesystem + verifier) runs remotely on Modal. High concurrency will exhaust local memory and cause `EnvironmentStartTimeoutError`. Use `--eval-concurrent` to control how many trials run simultaneously.
+
 ```bash
-# Run on Modal (default)
+# Run on Modal (default) — single trial
 python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/
+
+# Run 10 trials with low concurrency (2 at a time) to avoid OOM
+python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-trials 10 --eval-concurrent 2
+
+# Run eval on ALL packaged tasks sequentially
+python -m pipeline.run_pipeline --step eval --all --eval-trials 10 --eval-concurrent 2
 
 # Run locally with Docker
 python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-env docker
 
 # Use a different model for the evaluation agent
 python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-model anthropic/claude-sonnet-4-6
-
-# Run 5 parallel trials (5 agents on 5 separate containers)
-python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-trials 5
 ```
 
 Requires: A packaged task directory with `task.toml`
@@ -222,7 +227,9 @@ Output: Results in `jobs/<timestamp>/` with agent trajectory, artifacts (source 
 | `workspace` | — | Workspace or task directory (required for all steps except `spec`) |
 | `--eval-env` | `modal` | Environment for eval step: `docker` or `modal` |
 | `--eval-model` | `claude-opus-4-7` | Model for the evaluation agent |
-| `--eval-trials N` | 1 | Number of parallel eval trials (each gets its own container + agent) |
+| `--eval-trials N` | 1 | Total number of eval trials per task |
+| `--eval-concurrent N` | 2 | Max trials running simultaneously (keep low to avoid OOM) |
+| `--all` | — | Run eval on all tasks in `tasks/` sequentially |
 | `--language LANG` | random | Force website language (e.g. `en`, `es`, `fr`, `ja`, `ar`, `ko`, `de`, `pt`, `hi`, `zh`, `mixed-en-es`, `mixed-en-ja`) |
 
 ## Project Structure
@@ -345,12 +352,17 @@ After generating tasks:
 # Install Harbor
 pip install harbor
 
-# Run locally with Claude Code
-harbor run -p ./tasks --agent claude-code --model anthropic/claude-opus-4-7 --n-concurrent 4
+# Run all tasks via the pipeline (recommended — handles concurrency safely)
+python -m pipeline.run_pipeline --step eval --all --eval-trials 10 --eval-concurrent 2
 
-# Scale with Modal (cloud sandboxes)
-harbor run -p ./tasks --agent claude-code --model anthropic/claude-opus-4-7 -e modal -n 50
+# Or run a single task
+python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-trials 10 --eval-concurrent 2
+
+# Or use harbor CLI directly (careful with -n concurrency!)
+harbor run -p ./tasks --agent claude-code --model anthropic/claude-opus-4-7 -e modal -k 10 -n 2
 
 # View results
 harbor view jobs
 ```
+
+**Concurrency warning:** The Harbor orchestrator and all agent processes run locally — only the sandbox filesystem runs on Modal. Setting `-n` (concurrent trials) too high will exhaust local memory. Start with `-n 2` and increase if your machine handles it. For large-scale runs (many tasks × many trials), run from a cloud VM instead of a laptop.
