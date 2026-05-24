@@ -13,6 +13,7 @@ import random
 import shutil
 import socket
 import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from pipeline.agents.opencode_wrapper import OpenCodeAgent
@@ -69,9 +70,9 @@ SCREENSHOT_RESIZE_INSTRUCTION = (
 )
 
 
-def _clear_screenshots(workspace_dir: Path) -> None:
-    """Remove the screenshots/ folder from the workspace after an OpenCode session."""
-    screenshots_dir = workspace_dir / "screenshots"
+def _clear_screenshots(workspace_dir: Path, subdir: str = "screenshots") -> None:
+    """Remove a screenshots folder from the workspace after an OpenCode session."""
+    screenshots_dir = workspace_dir / subdir
     if screenshots_dir.exists():
         shutil.rmtree(screenshots_dir)
 
@@ -173,7 +174,7 @@ A local server is running. After writing your files, you MUST visually verify yo
 {feedback_section}"""
 
 
-def _build_judge_prompt(spec: dict, port: int, verdict_path: str) -> str:
+def _build_judge_prompt(spec: dict, port: int, verdict_path: str, screenshots_subdir: str = "screenshots") -> str:
     """Create the prompt for the judge coding agent."""
     spec_json = json.dumps(spec, indent=2)
     pages = spec.get("pages", [])
@@ -205,7 +206,7 @@ Images are in site/assets/ — check that images referenced in HTML actually exi
 1. Read the HTML and CSS source files in site/
 2. Use Playwright to navigate to each page URL above
 3. For each page, take screenshots at these viewport widths: 1280, 768, 375
-4. Save screenshots into the screenshots/ subfolder (e.g., screenshots/home-desktop.png)
+4. Save screenshots into the {screenshots_subdir}/ subfolder (e.g., {screenshots_subdir}/home-desktop.png)
 5. IMPORTANT: After saving each screenshot, use the read tool to open the PNG file and actually LOOK at it
 6. Base your scoring on what you VISUALLY SEE in the screenshots, not just the source code
 7. Evaluate: layout, colors, typography, responsiveness, components, consistency
@@ -229,7 +230,7 @@ You MUST create this file. This is the most important part of your task.
 """
 
 
-def _build_judge_followup_prompt(verdict_path: str) -> str:
+def _build_judge_followup_prompt(verdict_path: str, screenshots_subdir: str = "screenshots") -> str:
     """Create the prompt for continuing a judge session after builder fixes."""
     return f"""The builder has attempted to fix the issues you raised in your previous review.
 
@@ -237,7 +238,7 @@ Re-check the website now:
 1. Re-read the spec from spec.json to refresh your memory of the requirements
 2. Use Playwright to navigate to each page again
 2. Take fresh screenshots at all viewport widths (1280, 768, 375)
-3. Save screenshots into the screenshots/ subfolder
+3. Save screenshots into the {screenshots_subdir}/ subfolder
 4. After saving each screenshot, use the read tool to open the PNG file and actually LOOK at it
 5. Compare what you see against the spec and your previous feedback
 
@@ -536,8 +537,9 @@ def judge_website(
     if agent is None:
         agent = OpenCodeAgent(timeout_sec=1800)
 
-    verdicts = []
-    for judge_idx, judge_model in enumerate(models):
+    def _run_single_judge(judge_idx: int, judge_model: str) -> dict:
+        """Run a single judge. Returns a dict with verdict and updated session_id."""
+        screenshots_subdir = f"screenshots-{judge_idx}"
         verdict_filename = f".verdict-{judge_idx}.json"
         verdict_path = str(workspace_dir / verdict_filename)
         session_id = judge_session_ids.get(judge_model)
@@ -546,9 +548,9 @@ def judge_website(
 
         # First iteration: full prompt; subsequent: followup prompt
         if session_id is None:
-            judge_prompt = _build_judge_prompt(spec, port, verdict_filename)
+            judge_prompt = _build_judge_prompt(spec, port, verdict_filename, screenshots_subdir)
         else:
-            judge_prompt = _build_judge_followup_prompt(verdict_filename)
+            judge_prompt = _build_judge_followup_prompt(verdict_filename, screenshots_subdir)
 
         iter_prefix = f"iter{iteration}/" if iteration else ""
         judge_result = agent.run(
@@ -558,13 +560,12 @@ def judge_website(
             session_id=session_id,
             label=f"{iter_prefix}judge-{judge_idx}",
         )
-        _clear_screenshots(workspace_dir)
+        _clear_screenshots(workspace_dir, screenshots_subdir)
 
         # If image-too-large error, drop session and retry fresh with resize instructions
         if not judge_result.success and _is_image_too_large_error(judge_result.error):
             log.info(f"      → Judge hit image size limit — retrying with fresh session + resize instructions")
-            judge_session_ids[judge_model] = None
-            judge_prompt_retry = _build_judge_prompt(spec, port, verdict_filename)
+            judge_prompt_retry = _build_judge_prompt(spec, port, verdict_filename, screenshots_subdir)
             judge_prompt_retry += f"\n\n{SCREENSHOT_RESIZE_INSTRUCTION}"
             judge_result = agent.run(
                 prompt=judge_prompt_retry,
@@ -573,26 +574,50 @@ def judge_website(
                 session_id=None,
                 label=f"{iter_prefix}judge-{judge_idx}-retry",
             )
-            _clear_screenshots(workspace_dir)
+            _clear_screenshots(workspace_dir, screenshots_subdir)
 
-        # Capture session ID for continuation
-        if judge_result.session_id:
-            judge_session_ids[judge_model] = judge_result.session_id
-
+        # Build result
+        new_session_id = judge_result.session_id or session_id
         if judge_result.success:
             verdict = _read_judge_verdict(verdict_path)
             verdict["model"] = judge_model
-            verdicts.append(verdict)
             log.info(
                 f"      → score={verdict['score']}/10: "
                 f"{verdict.get('feedback', '')[:100]}"
             )
         else:
             log.info(f"      → Judge failed: {judge_result.error}")
-            verdicts.append({
+            verdict = {
                 "model": judge_model,
                 "score": 0,
                 "feedback": f"Judge failed: {judge_result.error}",
-            })
+            }
+            # Drop session on image-too-large so next iteration starts fresh
+            if _is_image_too_large_error(judge_result.error):
+                new_session_id = None
+
+        return {
+            "verdict": verdict,
+            "judge_model": judge_model,
+            "session_id": new_session_id,
+        }
+
+    # Run all judges in parallel
+    verdicts = []
+    with ThreadPoolExecutor(max_workers=len(models)) as executor:
+        futures = {
+            executor.submit(_run_single_judge, idx, model): (idx, model)
+            for idx, model in enumerate(models)
+        }
+        # Collect results in index order
+        results_by_idx = {}
+        for future in as_completed(futures):
+            idx, model = futures[future]
+            results_by_idx[idx] = future.result()
+
+    for idx in sorted(results_by_idx):
+        result = results_by_idx[idx]
+        verdicts.append(result["verdict"])
+        judge_session_ids[result["judge_model"]] = result["session_id"]
 
     return verdicts, judge_session_ids
