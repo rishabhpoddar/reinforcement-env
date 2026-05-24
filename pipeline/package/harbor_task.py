@@ -51,7 +51,9 @@ def package_task(
         d.mkdir(parents=True, exist_ok=True)
 
     # --- instruction.md ---
-    instruction = _build_instruction(spec, screenshots_dir)
+    assets_dir = site_dir / "assets"
+    has_assets = assets_dir.exists() and bool(list(assets_dir.glob("*")))
+    instruction = _build_instruction(spec, screenshots_dir, has_assets=has_assets)
     (task_dir / "instruction.md").write_text(instruction)
 
     # --- task.toml ---
@@ -59,7 +61,7 @@ def package_task(
     (task_dir / "task.toml").write_text(task_toml)
 
     # --- Dockerfile ---
-    dockerfile = _build_dockerfile()
+    dockerfile = _build_dockerfile(has_assets=has_assets)
     (env_dir / "Dockerfile").write_text(dockerfile)
 
     # --- Copy reference screenshots ---
@@ -80,6 +82,14 @@ def package_task(
     }
     (tests_dir / "task_meta.json").write_text(json.dumps(meta, indent=2))
 
+    # --- Copy image assets into environment ---
+    assets_dir = site_dir / "assets"
+    if assets_dir.exists() and list(assets_dir.glob("*")):
+        env_assets_dir = env_dir / "assets"
+        if env_assets_dir.exists():
+            shutil.rmtree(env_assets_dir)
+        shutil.copytree(assets_dir, env_assets_dir)
+
     # --- grader.py (copied at eval time) ---
     _write_grader(tests_dir)
 
@@ -95,7 +105,9 @@ def package_task(
     return task_dir
 
 
-def _build_instruction(spec: dict, screenshots_dir: Path) -> str:
+def _build_instruction(
+    spec: dict, screenshots_dir: Path, has_assets: bool = False
+) -> str:
     """Build the instruction.md content."""
     pages = spec.get("pages", [])
     page_list = ", ".join(f"`{p}.html`" for p in pages)
@@ -114,7 +126,11 @@ def _build_instruction(spec: dict, screenshots_dir: Path) -> str:
                     f"{page} page, {viewport} viewport"
                 )
 
-    screenshots_section = "\n".join(screenshot_refs) if screenshot_refs else "See reference_screenshots/ directory"
+    screenshots_section = (
+        "\n".join(screenshot_refs)
+        if screenshot_refs
+        else "See reference_screenshots/ directory"
+    )
 
     instruction = f"""# Web Design Replication Task: {site_name}
 
@@ -149,8 +165,17 @@ Do NOT take creative liberties. Do NOT simplify the design. Do NOT substitute yo
 - Navigation between pages must work via relative links (e.g., `href="about.html"`)
 - No external dependencies — no CDN links, no JavaScript libraries, no external fonts
 - Use system font stacks that match the visual style (serif, sans-serif, monospace as appropriate)
-- Use placeholder content for images (CSS gradients, colored boxes, or inline SVG that match the shapes/colors in the screenshots)
 - Focus entirely on visual fidelity — functionality is not required
+"""
+
+    if has_assets:
+        instruction += """
+## Image Assets
+
+The required media files for the website are provided in the `/app/assets/` folder. Use these images in your HTML with relative paths like `<img src="assets/filename.png">`. Do NOT generate or create new images — use only the provided assets.
+"""
+
+    instruction += f"""
 
 ## Reference Screenshots
 
@@ -231,9 +256,9 @@ ANTHROPIC_API_KEY = "${{ANTHROPIC_API_KEY}}"
 """
 
 
-def _build_dockerfile() -> str:
+def _build_dockerfile(has_assets: bool = False) -> str:
     """Build the Dockerfile for the task environment."""
-    return """FROM node:20-slim
+    base = """FROM node:20-slim
 
 # Install Python and Chromium
 RUN apt-get update && apt-get install -y --no-install-recommends \\
@@ -252,6 +277,12 @@ RUN /opt/grader-venv/bin/python -m playwright install --with-deps chromium
 
 WORKDIR /app
 """
+    if has_assets:
+        base += """
+# Copy image assets into the working directory
+COPY assets/ /app/assets/
+"""
+    return base
 
 
 def _write_test_sh(tests_dir: Path) -> None:
@@ -710,9 +741,13 @@ Pillow>=10.0.0
 def _write_solution(solution_dir: Path, site_dir: Path) -> None:
     """Write the solution script (copies original generated files)."""
     # Copy the original generated files as the reference solution
-    solve_sh = f"""#!/bin/bash
+    solve_sh = """#!/bin/bash
 # Reference solution: copy the original generated website files
 cp /solution/site_files/* /app/ 2>/dev/null || true
+# Copy assets if they exist in the solution
+if [ -d /solution/site_files/assets ]; then
+    cp -r /solution/site_files/assets /app/assets 2>/dev/null || true
+fi
 """
     (solution_dir / "solve.sh").write_text(solve_sh)
     (solution_dir / "solve.sh").chmod(0o755)
@@ -724,3 +759,10 @@ cp /solution/site_files/* /app/ 2>/dev/null || true
         shutil.copy2(f, site_files_dir / f.name)
     for f in site_dir.glob("*.css"):
         shutil.copy2(f, site_files_dir / f.name)
+    # Copy assets directory if it exists
+    assets_dir = site_dir / "assets"
+    if assets_dir.exists() and list(assets_dir.glob("*")):
+        dest_assets = site_files_dir / "assets"
+        if dest_assets.exists():
+            shutil.rmtree(dest_assets)
+        shutil.copytree(assets_dir, dest_assets)

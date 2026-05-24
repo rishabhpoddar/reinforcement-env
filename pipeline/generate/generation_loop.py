@@ -102,6 +102,28 @@ Implement these defects exactly. The rest of the site should be well-designed.
 {feedback}
 """
 
+    # Build image assets instruction if spec has them
+    image_assets = spec.get("image_assets", [])
+    image_section = ""
+    if image_assets:
+        image_lines = []
+        for img in image_assets:
+            image_lines.append(
+                f"  - {img['filename']}: \"{img['prompt']}\" (size: {img['size']}, "
+                f"used on: {img['used_on']}, purpose: {img['purpose']})"
+            )
+        image_list = "\n".join(image_lines)
+        image_section = f"""
+## Image Assets (IMPORTANT)
+You have a `generate_image` tool available. Use it to generate these images BEFORE writing HTML.
+Generate each image and save it to site/assets/. Then reference them in your HTML as src="assets/filename.png".
+
+Images to generate:
+{image_list}
+
+Generate ALL images first, then write your HTML and CSS files referencing them.
+"""
+
     return f"""You are an expert web developer. Build a website matching this specification.
 
 ## Specification
@@ -113,12 +135,12 @@ Implement these defects exactly. The rest of the site should be well-designed.
 - One HTML file per page (e.g., site/home.html, site/about.html)
 - No external dependencies (no CDN, no Google Fonts, no JS)
 - System font stacks only
-- Images: CSS gradients, inline SVG, or colored placeholder divs
+- For images: Use the `generate_image` tool to create AI-generated images. Save them to site/assets/ and reference as src="assets/filename.png". For decorative elements, you can still use CSS gradients or inline SVG.
 - All pages share navigation and footer
 - Responsive: desktop (1280px), tablet (768px), mobile (375px)
 - Use CSS custom properties for the color palette
 - Use CSS Grid and Flexbox
-{broken_note}
+{image_section}{broken_note}
 ## Visual Verification (IMPORTANT)
 A local server is running. After writing your files, you MUST visually verify your work:
 1. Use Playwright to navigate to each page: {page_urls}
@@ -155,6 +177,7 @@ Only penalize if they are MISSING or wrong.
 {broken_note}
 ## Source Files
 The website source files are in the site/ subfolder. Read them from there.
+Images are in site/assets/ — check that images referenced in HTML actually exist.
 
 ## Pages to Review (via Playwright)
 {page_urls}

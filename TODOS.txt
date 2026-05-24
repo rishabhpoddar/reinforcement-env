@@ -1,5 +1,4 @@
 - for the website builder, start with starter repos
-- add proper images using gpt-image-2 (make it an opencode tool)
 - full pipeline on broken setup
 	- make sure judge is able to correctly judge intentionally wrong websites as well
  - go through entire code base and refactor properly
@@ -9,3 +8,4 @@
 - websites in different languages too?
 	- especially things like arabic
 - need to confirm grader works well by giving it extreme screenshots to compare with
+- in grader, add llm call to make sure for each page the generated html is actually building the image and not that its some hack where the ai has just shown the input image in html.

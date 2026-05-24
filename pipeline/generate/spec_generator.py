@@ -60,6 +60,21 @@ SPEC_SCHEMA = {
         },
         "complexity": {"type": "string", "enum": ["simple", "moderate", "complex"]},
         "special_elements": {"type": "array", "items": {"type": "string"}},
+        "image_assets": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "filename": {"type": "string"},
+                    "prompt": {"type": "string"},
+                    "size": {"type": "string", "enum": ["1024x1024", "1024x1536", "1536x1024"]},
+                    "used_on": {"type": "string"},
+                    "purpose": {"type": "string"},
+                },
+                "required": ["filename", "prompt", "size", "used_on", "purpose"],
+            },
+            "minItems": 3,
+        },
         "responsive_notes": {"type": "string"},
         "is_broken": {"type": "boolean"},
         "defects": {
@@ -85,6 +100,7 @@ SPEC_SCHEMA = {
         "page_descriptions",
         "complexity",
         "special_elements",
+        "image_assets",
         "responsive_notes",
         "is_broken",
     ],
@@ -183,6 +199,16 @@ The rest of the site should be well-designed (the defects should stand out again
 - Special elements should include 3-5 distinctive design features
 - Complexity should match the design (simple sites have fewer components)
 {broken_instruction}
+
+## Image Assets
+Include an "image_assets" array with 3-8 images the site needs. Each entry must have:
+- "filename": e.g. "hero-bg.png", "team-photo.png" (must end in .png)
+- "prompt": Detailed description for AI image generation — describe subject, style, colors, mood, composition. Reference the site's color palette and mood for visual consistency.
+- "size": "1536x1024" for landscape/hero/banner images, "1024x1536" for portrait, "1024x1024" for square
+- "used_on": which page(s) will use this image (e.g. "home", "about, team")
+- "purpose": how it's used in the layout (e.g. "hero background", "team member photo", "section illustration")
+
+Think about what images would make the site look professional and complete: hero images, section backgrounds, feature illustrations, team photos, product images, etc.
 
 ## Diversity Guidelines
 - Vary color schemes: try dark themes, pastels, vibrant, monochrome, earthy, neon

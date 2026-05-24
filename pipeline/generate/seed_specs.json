@@ -19,6 +19,12 @@
       "contact": "Split layout: contact form left, store info + map placeholder right"
     },
     "complexity": "complex",
+    "image_assets": [
+      {"filename": "hero-electronics.png", "prompt": "Modern flat-lay of premium consumer electronics on a dark slate surface — wireless headphones, a sleek smartphone, a smartwatch, and a tablet arranged artfully with soft dramatic lighting, clean minimalist style, deep navy and red accent tones", "size": "1536x1024", "used_on": "home", "purpose": "hero banner background"},
+      {"filename": "category-audio.png", "prompt": "Close-up of high-end wireless headphones on a geometric display stand, studio lighting, modern tech aesthetic, dark background with subtle blue accent light", "size": "1024x1024", "used_on": "home, products", "purpose": "audio category card image"},
+      {"filename": "category-phones.png", "prompt": "Flagship smartphone floating at an angle with colorful abstract light trails behind it, modern tech product photography style, dark background", "size": "1024x1024", "used_on": "home, products", "purpose": "phones category card image"},
+      {"filename": "about-team.png", "prompt": "Diverse team of tech professionals collaborating around a modern conference table with laptops and gadgets, bright office space, candid professional photography style", "size": "1536x1024", "used_on": "about", "purpose": "team section photo"}
+    ],
     "special_elements": ["sticky header with cart icon badge", "product card hover zoom effect", "star rating display", "price comparison table"],
     "responsive_notes": "Mobile: hamburger nav, full-width cards stacked, sidebar filters collapse to accordion. Tablet: 2-col product grid",
     "is_broken": false
@@ -114,6 +120,13 @@
       "reservations": "Date/time picker placeholder, party size selector, special requests textarea, contact fields"
     },
     "complexity": "complex",
+    "image_assets": [
+      {"filename": "hero-ramen.png", "prompt": "Steaming bowl of authentic tonkotsu ramen with rich broth, chashu pork slices, soft-boiled egg, green onions, and nori, photographed from above on a dark wooden table, warm inviting food photography with steam visible, Japanese restaurant ambiance", "size": "1536x1024", "used_on": "home", "purpose": "hero background image"},
+      {"filename": "interior-restaurant.png", "prompt": "Warm interior of an authentic Japanese ramen restaurant with wooden counters, paper lanterns, noren curtains, and ambient warm lighting, cozy inviting atmosphere, architectural photography style", "size": "1536x1024", "used_on": "home, story", "purpose": "restaurant interior showcase"},
+      {"filename": "chef-preparing.png", "prompt": "Japanese ramen chef carefully preparing noodles in a traditional kitchen, pulling fresh noodles by hand, warm kitchen lighting, artisan craftsmanship, documentary photography style", "size": "1024x1536", "used_on": "story", "purpose": "founder/chef portrait for story page"},
+      {"filename": "spicy-miso-ramen.png", "prompt": "Bowl of spicy miso ramen with ground pork, bean sprouts, corn, and chili oil, vibrant red broth, overhead food photography on ceramic plate with chopsticks", "size": "1024x1024", "used_on": "menu, gallery", "purpose": "featured menu item photo"},
+      {"filename": "gyoza-appetizer.png", "prompt": "Plate of perfectly pan-fried gyoza dumplings with golden crispy bottoms, served with dipping sauce in a small ceramic bowl, Japanese food photography style, warm tones", "size": "1024x1024", "used_on": "menu, gallery", "purpose": "appetizer section photo"}
+    ],
     "special_elements": ["parallax-style scrolling sections", "menu with Japanese characters", "textured paper background", "food photo grid"],
     "responsive_notes": "Mobile: menu becomes scrollable list, gallery 2-col, reservation form full-width. Tablet: gallery 3-col",
     "is_broken": false
