@@ -636,6 +636,7 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
     # Weights: 80% LLM, 15% pixel, 5% structural
     visual_fidelity = 0.80 * avg_llm + 0.15 * avg_pixel + 0.05 * structural
 
+    # reward.json must be flat (all values numeric) for Harbor validation
     result = {
         "hack_detected": False,
         "structural": round(structural, 4),
@@ -649,8 +650,10 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
         "llm_components": round(llm_agg.get("components", 0), 4),
         "llm_avg": round(avg_llm, 4),
         "visual_fidelity": round(float(visual_fidelity), 4),
-        "per_page": per_page,
     }
+
+    # Detailed breakdown goes to a separate file (not parsed by Harbor)
+    details = {"per_page": per_page}
 
     if is_broken and defects:
         defect_rep, defect_id = await asyncio.gather(
@@ -661,11 +664,11 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
         id_score = defect_id.get("defect_identification", 0.0)
         overall = 0.50 * visual_fidelity + 0.25 * rep_score + 0.25 * id_score
         result["defect_replication"] = round(rep_score, 4)
-        result["defect_replication_per_defect"] = defect_rep.get("per_defect", [])
         result["defect_identification"] = round(id_score, 4)
         result["defect_id_recall"] = defect_id.get("recall", 0)
         result["defect_id_precision"] = defect_id.get("precision", 0)
         result["defect_id_detail"] = defect_id.get("detail", 0)
+        details["defect_replication_per_defect"] = defect_rep.get("per_defect", [])
     else:
         overall = visual_fidelity
 
@@ -674,6 +677,12 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
     if output_path:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(json.dumps(result, indent=2))
+        # Write detailed breakdown alongside reward.json
+        details_path = output_path.parent / "reward_details.json"
+        details_path.write_text(json.dumps(details, indent=2))
+
+    # Return both for local/calibration use
+    result["_details"] = details
     return result
 
 
