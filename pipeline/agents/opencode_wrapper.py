@@ -8,6 +8,7 @@ import atexit
 import json
 import logging
 import os
+import shutil
 import signal
 import subprocess
 import time
@@ -15,7 +16,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-from pipeline.config import PROJECT_ROOT, log
+from pipeline.config import PIPELINE_ROOT, PROJECT_ROOT, log
 
 # Track active opencode process groups so we can kill them on exit
 _active_pgids: set[int] = set()
@@ -92,6 +93,8 @@ class OpenCodeAgent:
     _OPENCODE_DIR = PROJECT_ROOT / ".opencode"
     _DATA_DIR = _OPENCODE_DIR / "data"
     _CONFIG_DIR = _OPENCODE_DIR / "config" / "opencode"
+    _PLUGINS_DIR = _OPENCODE_DIR / "plugins"
+    _PLUGINS_SOURCE_DIR = PIPELINE_ROOT / "plugins"
 
     def __init__(self, timeout_sec: int = 300):
         self.timeout_sec = timeout_sec
@@ -111,6 +114,49 @@ class OpenCodeAgent:
                     }
                 },
             }, indent=2))
+
+        # Set up plugins from pipeline/plugins/ into .opencode/plugins/
+        self._setup_plugins()
+
+        # Ensure plugin dependencies are installed
+        self._setup_plugin_deps()
+
+    def _setup_plugins(self):
+        """Copy plugin files from pipeline/plugins/ into .opencode/plugins/."""
+        if not self._PLUGINS_SOURCE_DIR.exists():
+            return
+        self._PLUGINS_DIR.mkdir(parents=True, exist_ok=True)
+        for src in self._PLUGINS_SOURCE_DIR.glob("*.js"):
+            dst = self._PLUGINS_DIR / src.name
+            if not dst.exists() or src.read_text() != dst.read_text():
+                shutil.copy2(src, dst)
+                logger.info(f"Installed plugin: {src.name}")
+
+    def _setup_plugin_deps(self):
+        """Ensure .opencode/package.json has plugin deps and they're installed."""
+        pkg_path = self._OPENCODE_DIR / "package.json"
+        required_deps = {
+            "@opencode-ai/plugin": "1.3.9",
+            "openai": "^4.0.0",
+        }
+        # Read or create package.json
+        if pkg_path.exists():
+            pkg = json.loads(pkg_path.read_text())
+        else:
+            pkg = {}
+        deps = pkg.get("dependencies", {})
+        needs_update = any(deps.get(k) != v for k, v in required_deps.items())
+        if needs_update:
+            deps.update(required_deps)
+            pkg["dependencies"] = deps
+            pkg_path.write_text(json.dumps(pkg, indent=2))
+            # Install dependencies
+            subprocess.run(
+                ["bun", "install"],
+                cwd=str(self._OPENCODE_DIR),
+                capture_output=True,
+            )
+            logger.info("Installed plugin dependencies")
 
     def run(
         self,
