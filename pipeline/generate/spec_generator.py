@@ -12,8 +12,8 @@ from anthropic import Anthropic
 
 from pipeline.config import (
     BROKEN_WEBSITE_PROBABILITY,
+    GENERATED_DIR,
     SEED_SPECS_PATH,
-    SPEC_HISTORY_PATH,
     get_anthropic_key,
     log,
 )
@@ -137,25 +137,24 @@ def load_seed_specs() -> list[dict]:
 
 
 def load_spec_history() -> list[dict]:
-    """Load previously generated specifications."""
-    if not SPEC_HISTORY_PATH.exists():
+    """Load specs from existing generated workspaces."""
+    if not GENERATED_DIR.exists():
         return []
-    with open(SPEC_HISTORY_PATH) as f:
-        return json.load(f)
-
-
-def save_spec_to_history(spec: dict) -> None:
-    """Append a spec to the history file."""
-    history = load_spec_history()
-    history.append(spec)
-    with open(SPEC_HISTORY_PATH, "w") as f:
-        json.dump(history, f, indent=2)
+    specs = []
+    for spec_file in sorted(GENERATED_DIR.glob("*/spec.json")):
+        try:
+            with open(spec_file) as f:
+                specs.append(json.load(f))
+        except (json.JSONDecodeError, OSError):
+            pass
+    return specs
 
 
 def _build_generation_prompt(
     seed_specs: list[dict],
     history: list[dict],
     force_broken: bool | None = None,
+    force_language: str | None = None,
 ) -> str:
     """Build the prompt for generating a new website spec."""
     # Show a sample of seed specs (not all, to save tokens)
@@ -211,23 +210,43 @@ The rest of the site should be well-designed (the defects should stand out again
         broken_instruction = '\n\nSet "is_broken" to false. Do not include a "defects" field.'
 
     # Randomly pick diversity hints to steer generation
-    language_hint = random.choice([
-        "Use English (en, ltr)",
-        "Use Spanish (es, ltr) — all content in Spanish",
-        "Use French (fr, ltr) — all content in French",
-        "Use Japanese (ja, ltr) — all content in Japanese",
-        "Use Arabic (ar, rtl) — all content in Arabic with RTL layout",
-        "Use Korean (ko, ltr) — all content in Korean",
-        "Use German (de, ltr) — all content in German",
-        "Use Portuguese (pt, ltr) — all content in Portuguese",
-        "Use Hindi (hi, ltr) — all content in Hindi",
-        "Use Chinese (zh, ltr) — all content in Chinese",
-        "Use a bilingual mix (mixed-en-es, ltr) — headings and nav in English, body content in Spanish",
-        "Use a bilingual mix (mixed-en-ja, ltr) — Japanese content with English navigation",
-        "Use English (en, ltr)",
-        "Use English (en, ltr)",
-        "Use English (en, ltr)",
-    ])
+    language_options = {
+        "en": "Use English (en, ltr)",
+        "es": "Use Spanish (es, ltr) — all content in Spanish",
+        "fr": "Use French (fr, ltr) — all content in French",
+        "ja": "Use Japanese (ja, ltr) — all content in Japanese",
+        "ar": "Use Arabic (ar, rtl) — all content in Arabic with RTL layout",
+        "ko": "Use Korean (ko, ltr) — all content in Korean",
+        "de": "Use German (de, ltr) — all content in German",
+        "pt": "Use Portuguese (pt, ltr) — all content in Portuguese",
+        "hi": "Use Hindi (hi, ltr) — all content in Hindi",
+        "zh": "Use Chinese (zh, ltr) — all content in Chinese",
+        "mixed-en-es": "Use a bilingual mix (mixed-en-es, ltr) — headings and nav in English, body content in Spanish",
+        "mixed-en-ja": "Use a bilingual mix (mixed-en-ja, ltr) — Japanese content with English navigation",
+    }
+
+    if force_language:
+        if force_language not in language_options:
+            raise ValueError(f"Unknown language '{force_language}'. Options: {', '.join(language_options.keys())}")
+        language_hint = language_options[force_language]
+    else:
+        language_hint = random.choice([
+            language_options["en"],
+            language_options["es"],
+            language_options["fr"],
+            language_options["ja"],
+            language_options["ar"],
+            language_options["ko"],
+            language_options["de"],
+            language_options["pt"],
+            language_options["hi"],
+            language_options["zh"],
+            language_options["mixed-en-es"],
+            language_options["mixed-en-ja"],
+            language_options["en"],
+            language_options["en"],
+            language_options["en"],
+        ])
 
     style_hint = random.choice([
         "minimalist — lots of whitespace, restrained color, clean lines",
@@ -358,12 +377,14 @@ Return ONLY the JSON spec, nothing else."""
 def generate_spec(
     model: str = "claude-sonnet-4-6",
     force_broken: bool | None = None,
+    force_language: str | None = None,
 ) -> dict:
     """Generate a new website specification using an LLM.
 
     Args:
         model: Anthropic model to use for generation.
         force_broken: If True/False, force broken/clean. If None, random based on probability.
+        force_language: If set, force the website to use this language (e.g. 'en', 'ja', 'ar').
 
     Returns:
         A website specification dict.
@@ -373,7 +394,7 @@ def generate_spec(
     seed_specs = load_seed_specs()
     history = load_spec_history()
 
-    prompt = _build_generation_prompt(seed_specs, history, force_broken)
+    prompt = _build_generation_prompt(seed_specs, history, force_broken, force_language)
 
     response = client.messages.create(
         model=model,
@@ -406,9 +427,6 @@ def generate_spec(
     spec.setdefault("dark_mode", False)
     spec.setdefault("nav_style", "top-bar")
 
-    # Save to history
-    save_spec_to_history(spec)
-
     return spec
 
 
@@ -416,6 +434,7 @@ def generate_specs_batch(
     count: int,
     model: str = "claude-sonnet-4-6",
     broken_count: int | None = None,
+    force_language: str | None = None,
 ) -> list[dict]:
     """Generate multiple specs, ensuring diversity.
 
@@ -423,6 +442,7 @@ def generate_specs_batch(
         count: Number of specs to generate.
         model: Anthropic model to use.
         broken_count: Exact number of broken specs. If None, uses probability.
+        force_language: If set, force all specs to use this language.
 
     Returns:
         List of website specifications.
@@ -441,7 +461,7 @@ def generate_specs_batch(
             force_broken = i in broken_indices
 
         try:
-            spec = generate_spec(model=model, force_broken=force_broken)
+            spec = generate_spec(model=model, force_broken=force_broken, force_language=force_language)
             specs.append(spec)
             log.info(
                 f"  [{i+1}/{count}] Generated: {spec['site_name']} "
@@ -453,7 +473,7 @@ def generate_specs_batch(
         except Exception as e:
             log.info(f"  [{i+1}/{count}] Failed: {e}, retrying...")
             try:
-                spec = generate_spec(model=model, force_broken=force_broken)
+                spec = generate_spec(model=model, force_broken=force_broken, force_language=force_language)
                 specs.append(spec)
                 log.info(
                     f"  [{i+1}/{count}] Retry succeeded: {spec['site_name']}"

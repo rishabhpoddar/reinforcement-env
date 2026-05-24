@@ -56,8 +56,6 @@ def slugify(text: str, max_len: int = 50) -> str:
     slug = re.sub(r"[^a-z0-9\-]", "", slug)  # Remove anything that's not alphanumeric or dash
     slug = re.sub(r"-+", "-", slug).strip("-")  # Collapse multiple dashes
     return slug[:max_len]
-SPEC_HISTORY_PATH = GENERATED_DIR / "spec_history.json"
-
 # LLM Models available for generation (provider/model format for OpenCode)
 # Always use latest models for each provider
 MODELS = [

@@ -43,10 +43,11 @@ from pipeline.package.harbor_task import package_task
 def step_spec(
     spec_model: str,
     force_broken: bool | None = None,
+    force_language: str | None = None,
 ) -> Path:
     """Generate a single website spec and create its workspace directory."""
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
-    spec = generate_spec(model=spec_model, force_broken=force_broken)
+    spec = generate_spec(model=spec_model, force_broken=force_broken, force_language=force_language)
 
     site_name = spec.get("site_name", "unknown")
     category = spec.get("category", "unknown")
@@ -106,7 +107,7 @@ def step_screenshot(workspace_dir: Path):
     log.info(f"  Captured {total} screenshots across {len(screenshots)} pages")
 
 
-def step_eval(task_dir: Path, model: str = "anthropic/claude-opus-4-7", env: str = "modal"):
+def step_eval(task_dir: Path, model: str = "anthropic/claude-opus-4-7", env: str = "modal", trials: int = 1):
     """Run a Harbor evaluation on a packaged task."""
     import subprocess
 
@@ -122,6 +123,8 @@ def step_eval(task_dir: Path, model: str = "anthropic/claude-opus-4-7", env: str
         "--model", model,
         "-e", env,
         "--env-file", str(env_file),
+        "-k", str(trials),
+        "-n", str(trials),
     ]
 
     log.info(f"Running Harbor eval: {' '.join(cmd)}")
@@ -278,6 +281,10 @@ def main():
         help="Anthropic model for spec generation",
     )
     parser.add_argument(
+        "--language", type=str, default=None,
+        help="Force website language (e.g. en, es, fr, ja, ar, ko, de, pt, hi, zh, mixed-en-es, mixed-en-ja)",
+    )
+    parser.add_argument(
         "--step", type=str, default=None,
         choices=["spec", "build", "judge", "screenshot", "package", "eval"],
         help="Run a single step. 'spec' creates a new workspace; others require a workspace arg. 'eval' requires a task dir.",
@@ -295,6 +302,10 @@ def main():
         "--eval-model", type=str, default="anthropic/claude-opus-4-7",
         help="Model for the evaluation agent (default: claude-opus-4-7)",
     )
+    parser.add_argument(
+        "--eval-trials", type=int, default=1,
+        help="Number of parallel eval trials to run (default: 1)",
+    )
     args = parser.parse_args()
 
     models = args.models or MODELS
@@ -303,7 +314,7 @@ def main():
     if args.step:
         if args.step == "spec":
             force_broken = True if args.broken else (False if args.clean else None)
-            step_spec(args.spec_model, force_broken)
+            step_spec(args.spec_model, force_broken, force_language=args.language)
             return
 
         if not args.workspace:
@@ -324,7 +335,7 @@ def main():
         elif args.step == "package":
             step_package(workspace)
         elif args.step == "eval":
-            step_eval(workspace, model=args.eval_model, env=args.eval_env)
+            step_eval(workspace, model=args.eval_model, env=args.eval_env, trials=args.eval_trials)
         return
 
     # ── Full pipeline ──
@@ -355,6 +366,7 @@ def main():
         spec = generate_spec(
             model=args.spec_model,
             force_broken=force_broken if force_broken is not None else None,
+            force_language=args.language,
         )
         specs = [spec]
     else:
@@ -362,6 +374,7 @@ def main():
             count=args.count,
             model=args.spec_model,
             broken_count=broken_count,
+            force_language=args.language,
         )
 
     log.info(f"Generated {len(specs)} specs")

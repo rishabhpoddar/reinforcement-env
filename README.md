@@ -199,6 +199,9 @@ python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-env
 
 # Use a different model for the evaluation agent
 python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-model anthropic/claude-sonnet-4-6
+
+# Run 5 parallel trials (5 agents on 5 separate containers)
+python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-trials 5
 ```
 
 Requires: A packaged task directory with `task.toml`
@@ -219,6 +222,8 @@ Output: Results in `jobs/<timestamp>/` with agent trajectory, artifacts (source 
 | `workspace` | — | Workspace or task directory (required for all steps except `spec`) |
 | `--eval-env` | `modal` | Environment for eval step: `docker` or `modal` |
 | `--eval-model` | `claude-opus-4-7` | Model for the evaluation agent |
+| `--eval-trials N` | 1 | Number of parallel eval trials (each gets its own container + agent) |
+| `--language LANG` | random | Force website language (e.g. `en`, `es`, `fr`, `ja`, `ar`, `ko`, `de`, `pt`, `hi`, `zh`, `mixed-en-es`, `mixed-en-ja`) |
 
 ## Project Structure
 
@@ -242,7 +247,6 @@ reinforcement-env/
 │   └── grade/
 │       └── grader.py             # Grading system (runs inside Harbor)
 ├── generated/                    # Generated workspaces (gitignored)
-│   ├── spec_history.json         # Rolling history of all generated specs
 │   └── <category>-<name>/        # One workspace per website
 │       ├── spec.json             # Website specification
 │       ├── site/                 # Source code (HTML + CSS only)
