@@ -18,7 +18,6 @@ import base64
 import io
 import json
 import os
-import re
 import sys
 from pathlib import Path
 
@@ -257,35 +256,6 @@ async def _score_single_pair(ref_path, sub_path, page_name, viewport, semaphore)
 # Defect grading (broken sites)
 # ──────────────────────────────────────────────────
 
-def _check_defect_in_source(submission_dir, defect):
-    """Check for text/typo defects by examining HTML source code directly."""
-    defect_type = defect.get("type", "")
-    description = defect.get("description", "")
-    page = defect.get("page", "")
-
-    if defect_type not in ("typo", "inconsistency"):
-        return None  # not a source-checkable defect
-
-    html_file = submission_dir / f"{page}.html"
-    if not html_file.exists():
-        return False
-
-    content = html_file.read_text()
-
-    # Extract quoted strings from the description that might be the defective text
-    quoted = re.findall(r"['\u2018\u2019\u201c\u201d\"](.*?)['\u2018\u2019\u201c\u201d\"]", description)
-
-    # For typo defects, look for the misspelled text in the source
-    if defect_type == "typo":
-        for q in quoted:
-            # Check if the misspelled version is in the source
-            if q in content:
-                return True
-        return False
-
-    return None  # couldn't determine from source
-
-
 async def _check_defect_replication_visual_async(ref_b64, sub_b64, defect_description, page_name, viewport, semaphore):
     import anthropic
     def _call():
@@ -313,7 +283,7 @@ async def _check_defect_replication_visual_async(ref_b64, sub_b64, defect_descri
     return await _retry_async(_call, f"Defect check {page_name}/{viewport}", semaphore)
 
 
-async def _grade_defect_replication(reference_dir, sub_screenshots_dir, submission_dir, defects, viewports, semaphore):
+async def _grade_defect_replication(reference_dir, sub_screenshots_dir, defects, viewports, semaphore):
     if not defects:
         return {"defect_replication": 1.0, "per_defect": []}
 
@@ -322,12 +292,6 @@ async def _grade_defect_replication(reference_dir, sub_screenshots_dir, submissi
         page = defect.get("page", "")
         viewport = defect.get("viewport", "all")
         description = defect.get("description", "")
-
-        # Try source-code check first (for typo/text defects)
-        source_result = _check_defect_in_source(submission_dir, defect)
-        if source_result is not None:
-            per_defect.append(1.0 if source_result else 0.0)
-            continue
 
         # Visual check — for "all" viewports, check all and take max
         vps_to_check = list(viewports.keys()) if viewport == "all" else [viewport]
@@ -690,7 +654,7 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
 
     if is_broken and defects:
         defect_rep, defect_id = await asyncio.gather(
-            _grade_defect_replication(reference_dir, sub_screenshots_dir, submission_dir, defects, viewports, semaphore),
+            _grade_defect_replication(reference_dir, sub_screenshots_dir, defects, viewports, semaphore),
             _grade_defect_identification(submission_dir, defects, semaphore),
         )
         rep_score = defect_rep.get("defect_replication", 0.0)
