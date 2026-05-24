@@ -349,27 +349,63 @@ Decision to ADD SSIM + color histogram (reversing earlier decision to drop them)
 10. ANTI-HACK MEASURES: PREVENTING REWARD GAMING
 ================================================================================
 
-Decision: Include checks that detect when an agent "cheats" by embedding reference
-screenshots as <img> tags instead of actually building HTML/CSS.
+Decision: Use an LLM (Claude Opus 4.7) to analyze the submission source code and
+detect any technique used to display a pre-existing image instead of building
+HTML/CSS.
 
 Why this matters:
 - In an RL setting, the agent will find the easiest path to maximize reward
-- The easiest hack: take the reference screenshot and embed it as an image.
-  The grader compares screenshots — if the submission IS the reference, it's a
+- The easiest hack: display the reference screenshot as the page content. The
+  grader compares screenshots — if the submission IS the reference, it's a
   perfect match.
 - This is a well-known problem in RL reward design. If the reward function can
   be gamed, the agent WILL game it.
 
-What I check for:
-- References to "reference_screenshot" or "_ref_imgs" in HTML
-- Large base64-encoded image blocks (>10000 chars) — suggests embedded screenshots
-- <img> tags pointing to files with "screenshot" or "reference" in the name
+Evolution of the hack detection approach:
 
-The fix after calibration caught a bug:
-- My original base64 check used a naive string split that false-positived on
-  legitimate HTML files
-- Switched to regex: `re.findall(r'base64,([A-Za-z0-9+/=]{10000,})', content)`
-- This only triggers when there's actual base64 data that's suspiciously large
+  v1 — String matching (initial):
+    Checked for "reference_screenshot" or "_ref_imgs" in HTML, large base64
+    blocks, and <img> tags with "screenshot" in the filename.
+    Problem: Only caught our specific hack tier naming. A real agent wouldn't
+    use those exact names.
+
+  v2 — SSIM-based image comparison:
+    Extracted all images from HTML (file refs, base64 data URIs, CSS url()),
+    loaded them, and compared each against reference screenshots via SSIM.
+    If SSIM > 0.85, flagged as hack.
+    Problem: Cat-and-mouse game. Agents can embed images via canvas JS,
+    SVG foreignObject, iframe, CSS background-image, or any other creative
+    method. We'd be patching extraction forever.
+
+  v3 — LLM-based code analysis (current):
+    Send all source files (*.html, *.css, *.js) to Claude Opus 4.7 and ask:
+    "Is this code legitimately building a website with HTML/CSS, or is it
+    using any technique to display a pre-existing image as the page?"
+    The LLM understands intent, not just patterns.
+
+Why LLM-based detection wins:
+- Catches ANY hack technique, including ones we haven't thought of
+- No cat-and-mouse — the LLM reasons about what the code DOES, not what
+  patterns it matches
+- Handles adversarial cases: legit HTML hidden with display:none/opacity:0/
+  offscreen positioning/z-index while a screenshot is shown on top
+- One LLM call (~3-4 seconds), no image processing needed
+- Tested against 21 cases (6 legitimate + 15 hack variants): 21/21 correct
+
+The hack detection prompt uses structured output (tool_use) returning
+{is_hack: boolean, reason: string}. The system prompt defines explicit
+criteria for legitimate vs hack submissions, with special attention to
+hidden-content tricks.
+
+What the LLM checks for (non-exhaustive — it reasons about any technique):
+- <img> as sole page content
+- CSS background-image covering viewport with empty HTML
+- Canvas/JS drawing or fetching an image
+- SVG with embedded full-page image
+- iframe/object embedding an image
+- Real HTML hidden (display:none, opacity:0, offscreen, z-index under image,
+  height:0/overflow:hidden) while a screenshot is displayed on top
+- Any other creative method where rendered output comes from an image
 
 
 ================================================================================
