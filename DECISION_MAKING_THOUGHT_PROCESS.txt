@@ -680,3 +680,66 @@ Why:
 
 Once all these were fixed locally, the Modal run worked on the first try.
 Local debugging, cloud deployment — in that order.
+
+
+================================================================================
+27. SPEC DIVERSITY: RANDOMIZED DIRECTIVES ACROSS 7 DIMENSIONS
+================================================================================
+
+Decision: Instead of relying on the LLM's creativity to produce diverse specs,
+randomly assign specific diversity directives for each generation across 7
+independent dimensions.
+
+The problem:
+- Left to its own devices, the LLM gravitates toward the same patterns: English,
+  light theme, corporate style, top-bar nav, standard responsive behavior
+- Even with "be creative and diverse" instructions, the output clusters around
+  safe, familiar designs
+- For RL training, this is actively harmful — the agent needs to encounter RTL
+  layouts, brutalist designs, dark themes, mega-menus, form-heavy pages, etc.
+
+The 7 dimensions I randomize:
+1. Language (en, es, fr, ja, ar, ko, de, pt, hi, zh, bilingual mixes) — weighted
+   toward English but with ~40% chance of non-English
+2. Design style (14 options: minimalist, brutalist, glassmorphism, neumorphism,
+   retro-90s, art-deco, corporate, editorial, playful, luxury, cyberpunk, organic,
+   swiss/international, maximalist)
+3. Dark/light theme
+4. Navigation pattern (top-bar, mega-menu, side-drawer, bottom-tabs, hamburger-only,
+   tab-navigation)
+5. Layout approach (symmetric, asymmetric, overlapping, split-screen, full-width
+   immersive, sticky sidebar, masonry)
+6. Content type (text-heavy, data-heavy, form-heavy, media-heavy, dashboard-like)
+7. Responsive strategy (standard, mobile-first, drastically different mobile,
+   tablet-optimized)
+
+Why randomized directives instead of a diversity scoring function:
+- A scoring function (e.g., "reject specs too similar to recent ones") adds
+  complexity and latency — you'd need to generate, score, possibly reject and
+  regenerate
+- Random directives steer the LLM upfront, so the first generation is already
+  diverse. No wasted API calls.
+- The history tracking ("previously generated: these languages, these styles")
+  provides a softer anti-repetition signal on top of the random steering
+
+Why I added new fields to the spec schema (language, text_direction, design_style,
+dark_mode, nav_style) instead of just relying on prompt instructions:
+- Explicit fields force the LLM to commit to a choice rather than hedging
+- The builder prompt can read these fields and add specific instructions (e.g.,
+  RTL direction attributes, dark mode contrast requirements)
+- The fields are preserved in the spec JSON, so the build and judge steps can
+  adapt their behavior accordingly
+- It makes the pipeline auditable — you can look at spec_history.json and
+  immediately see the distribution of languages, styles, themes, etc.
+
+Seed specs were expanded from 15 English-only examples to 12 diverse examples
+including Arabic (RTL), Japanese (bilingual), French, Spanish, Korean, plus
+brutalist, glassmorphism, retro-90s, luxury dark, Swiss, and neumorphism styles.
+These seeds teach the LLM the format for non-English content and unconventional
+design styles.
+
+JSON parse failure rate:
+- With max_tokens=4096, non-English specs frequently hit truncation (unterminated
+  strings). Increasing to 16384 fixed this — the specs with Arabic/Japanese/Korean
+  content are significantly larger due to UTF-8 encoding and verbose page
+  descriptions in those languages.
