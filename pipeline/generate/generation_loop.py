@@ -124,6 +124,25 @@ Images to generate:
 Generate ALL images first, then write your HTML and CSS files referencing them.
 """
 
+    # Build language/direction/dark mode notes
+    lang = spec.get("language", "en")
+    direction = spec.get("text_direction", "ltr")
+    dark_mode = spec.get("dark_mode", False)
+    design_style = spec.get("design_style", "")
+    nav_style = spec.get("nav_style", "top-bar")
+
+    lang_note = ""
+    if lang != "en":
+        lang_note = f"\n- Language: All text content must be in {lang}. Set the `lang` attribute on the `<html>` tag accordingly."
+    if direction == "rtl":
+        lang_note += "\n- RTL: Set `dir=\"rtl\"` on the `<html>` tag. Mirror all layouts — sidebars swap sides, text aligns right, flex/grid direction reverses. Use `margin-inline-start`/`end` instead of left/right where possible."
+    if dark_mode:
+        lang_note += "\n- Dark mode: Use dark backgrounds and light text throughout. Ensure sufficient contrast for readability."
+    if design_style:
+        lang_note += f"\n- Design style: {design_style} — follow this aesthetic consistently across all pages."
+    if nav_style:
+        lang_note += f"\n- Navigation: Use a {nav_style} navigation pattern as described in the spec."
+
     return f"""You are an expert web developer. Build a website matching this specification.
 
 ## Specification
@@ -135,7 +154,7 @@ Generate ALL images first, then write your HTML and CSS files referencing them.
 - One HTML file per page (e.g., site/home.html, site/about.html)
 - No external dependencies (no CDN, no Google Fonts, no JS)
 - System font stacks only
-- For images: Use the `generate_image` tool to create AI-generated images. Save them to site/assets/ and reference as src="assets/filename.png". For decorative elements, you can still use CSS gradients or inline SVG.
+- For images: Use the `generate_image` tool to create AI-generated images. Save them to site/assets/ and reference as src="assets/filename.png". For decorative elements, you can still use CSS gradients or inline SVG.{lang_note}
 - All pages share navigation and footer
 - Responsive: desktop (1280px), tablet (768px), mobile (375px)
 - Use CSS custom properties for the color palette

@@ -25,6 +25,24 @@ SPEC_SCHEMA = {
         "site_name": {"type": "string"},
         "category": {"type": "string"},
         "niche": {"type": "string"},
+        "language": {
+            "type": "string",
+            "description": "Primary language code, e.g. 'en', 'es', 'ja', 'ar', 'fr', 'de', 'ko', 'zh', 'hi', 'pt', 'mixed-en-fr'",
+        },
+        "text_direction": {
+            "type": "string",
+            "enum": ["ltr", "rtl"],
+            "description": "Text direction — 'rtl' for Arabic, Hebrew, etc.",
+        },
+        "design_style": {
+            "type": "string",
+            "description": "Visual design style, e.g. 'minimalist', 'brutalist', 'glassmorphism', 'neumorphism', 'retro-90s', 'art-deco', 'corporate', 'editorial', 'playful', 'luxury'",
+        },
+        "dark_mode": {"type": "boolean"},
+        "nav_style": {
+            "type": "string",
+            "description": "Navigation pattern, e.g. 'top-bar', 'mega-menu', 'side-drawer', 'bottom-tabs', 'hamburger-only', 'breadcrumbs-with-sidebar', 'tab-navigation'",
+        },
         "pages": {"type": "array", "items": {"type": "string"}, "minItems": 5},
         "design_system": {
             "type": "object",
@@ -95,6 +113,11 @@ SPEC_SCHEMA = {
         "site_name",
         "category",
         "niche",
+        "language",
+        "text_direction",
+        "design_style",
+        "dark_mode",
+        "nav_style",
         "pages",
         "design_system",
         "page_descriptions",
@@ -145,10 +168,14 @@ def _build_generation_prompt(
     if recent_history:
         categories_used = [s.get("category", "unknown") for s in recent_history]
         niches_used = [s.get("niche", "unknown") for s in recent_history]
+        languages_used = [s.get("language", "en") for s in recent_history]
+        styles_used = [s.get("design_style", "unknown") for s in recent_history]
         history_summary = (
             f"\n\n## Previously Generated (AVOID THESE)\n"
             f"Categories already used: {', '.join(categories_used)}\n"
             f"Niches already used: {', '.join(niches_used)}\n"
+            f"Languages already used: {', '.join(languages_used)}\n"
+            f"Design styles already used: {', '.join(styles_used)}\n"
             f"Total generated so far: {len(history)}\n"
         )
 
@@ -183,6 +210,90 @@ The rest of the site should be well-designed (the defects should stand out again
     else:
         broken_instruction = '\n\nSet "is_broken" to false. Do not include a "defects" field.'
 
+    # Randomly pick diversity hints to steer generation
+    language_hint = random.choice([
+        "Use English (en, ltr)",
+        "Use Spanish (es, ltr) — all content in Spanish",
+        "Use French (fr, ltr) — all content in French",
+        "Use Japanese (ja, ltr) — all content in Japanese",
+        "Use Arabic (ar, rtl) — all content in Arabic with RTL layout",
+        "Use Korean (ko, ltr) — all content in Korean",
+        "Use German (de, ltr) — all content in German",
+        "Use Portuguese (pt, ltr) — all content in Portuguese",
+        "Use Hindi (hi, ltr) — all content in Hindi",
+        "Use Chinese (zh, ltr) — all content in Chinese",
+        "Use a bilingual mix (mixed-en-es, ltr) — headings and nav in English, body content in Spanish",
+        "Use a bilingual mix (mixed-en-ja, ltr) — Japanese content with English navigation",
+        "Use English (en, ltr)",
+        "Use English (en, ltr)",
+        "Use English (en, ltr)",
+    ])
+
+    style_hint = random.choice([
+        "minimalist — lots of whitespace, restrained color, clean lines",
+        "brutalist — raw, bold, stark contrasts, unconventional layouts, exposed grid",
+        "glassmorphism — frosted glass cards, transparency, blur effects, subtle borders",
+        "neumorphism — soft shadows, extruded/inset elements, muted monochrome palette",
+        "retro-90s — pixel-ish fonts, bright clashing colors, visible borders, nostalgic web aesthetic",
+        "art-deco — geometric patterns, gold/black palette, ornate decorative elements, luxury feel",
+        "corporate — clean, professional, blue/gray tones, trustworthy and conventional",
+        "editorial — magazine-like, strong typography hierarchy, pull quotes, multi-column text",
+        "playful — rounded shapes, bright gradients, bouncy spacing, fun illustrations",
+        "luxury — dark backgrounds, gold accents, elegant serif fonts, generous spacing",
+        "cyberpunk — neon colors on dark, glitch effects, monospace fonts, tech dystopia aesthetic",
+        "organic — natural textures, earthy tones, flowing shapes, hand-drawn feel",
+        "swiss/international — grid-based, Helvetica-style, asymmetric layouts, strong alignment",
+        "maximalist — dense information, bold colors everywhere, layered elements, visual complexity",
+    ])
+
+    dark_hint = random.choice([
+        "Use a dark theme (dark_mode: true) — dark backgrounds with light text",
+        "Use a light theme (dark_mode: false)",
+        "Use a light theme (dark_mode: false)",
+        "Use a dark theme (dark_mode: true) — dark backgrounds with light text",
+        "Use a light theme (dark_mode: false)",
+    ])
+
+    nav_hint = random.choice([
+        "top-bar — standard horizontal navigation bar",
+        "mega-menu — top bar that expands to show categorized dropdown panels",
+        "side-drawer — permanent or collapsible sidebar navigation",
+        "bottom-tabs — mobile-app-style bottom tab bar (even on desktop)",
+        "hamburger-only — hidden navigation behind hamburger icon at all viewports",
+        "tab-navigation — tabbed interface for page sections",
+        "top-bar — standard horizontal navigation bar",
+        "top-bar — standard horizontal navigation bar",
+    ])
+
+    layout_hint = random.choice([
+        "Use conventional symmetric layouts",
+        "Use asymmetric grid layouts — unequal columns, off-center elements",
+        "Use overlapping sections — elements that cross section boundaries",
+        "Use a split-screen layout — two distinct halves for content",
+        "Use full-width immersive sections alternating with contained content",
+        "Use a sticky sidebar with scrolling main content",
+        "Use a masonry/pinterest-style grid layout for content",
+        "Use conventional symmetric layouts",
+    ])
+
+    content_hint = random.choice([
+        "Include text-heavy pages with long-form content, pull quotes, and multi-column text",
+        "Include data-heavy pages with comparison tables, stat counters, and pricing grids",
+        "Include form-heavy pages with multi-section forms, toggles, sliders, and input groups",
+        "Include media-heavy pages with photo galleries, video placeholders, and image grids",
+        "Include dashboard-like pages with cards, charts placeholder areas, and data tables",
+        "Include standard content density",
+        "Include standard content density",
+    ])
+
+    responsive_hint = random.choice([
+        "Standard responsive — desktop layout adapts progressively to tablet and mobile",
+        "Mobile-first design — mobile is the primary layout, desktop expands it",
+        "Drastically different mobile layout — completely rearranged sections, bottom nav on mobile, hidden elements",
+        "Tablet-optimized — tablet gets its own unique layout, not just between desktop and mobile",
+        "Standard responsive — desktop layout adapts progressively to tablet and mobile",
+    ])
+
     return f"""Generate a novel, detailed website specification for a multi-page website.
 
 ## Seed Examples (for format reference and inspiration)
@@ -192,13 +303,35 @@ The rest of the site should be well-designed (the defects should stand out again
 ## Requirements
 - Generate a UNIQUE website that is DIFFERENT from all examples above
 - Be creative with the niche — don't just pick obvious categories
-- The site MUST have at least 5 pages (preferably 5-7)
+- The site MUST have at least 5 pages (preferably 5-8)
 - Include detailed page descriptions that specify exact layout components
 - The design system should be cohesive and specific (exact hex colors, clear typography choices)
 - Responsive notes should describe specific adaptations per viewport
 - Special elements should include 3-5 distinctive design features
 - Complexity should match the design (simple sites have fewer components)
 {broken_instruction}
+
+## New Required Fields
+You MUST include these fields in your spec:
+- "language": language code (e.g. "en", "es", "ja", "ar", "mixed-en-fr")
+- "text_direction": "ltr" or "rtl" (use "rtl" for Arabic, Hebrew, Urdu, Persian)
+- "design_style": the visual design approach (e.g. "minimalist", "brutalist", "glassmorphism", etc.)
+- "dark_mode": true or false
+- "nav_style": navigation pattern (e.g. "top-bar", "mega-menu", "side-drawer", "bottom-tabs", "hamburger-only")
+
+All text content in page_descriptions should be described in the chosen language.
+If using a non-English language, specify that headings, body text, navigation labels, button text, etc. should all be in that language.
+If using RTL, note specific RTL layout requirements in responsive_notes.
+
+## Diversity Directives for THIS Spec
+Follow these specific directives to ensure variety:
+- **Language**: {language_hint}
+- **Design style**: {style_hint}
+- **Theme**: {dark_hint}
+- **Navigation**: {nav_hint}
+- **Layout approach**: {layout_hint}
+- **Content type**: {content_hint}
+- **Responsive strategy**: {responsive_hint}
 
 ## Image Assets
 Include an "image_assets" array with 3-8 images the site needs. Each entry must have:
@@ -211,11 +344,13 @@ Include an "image_assets" array with 3-8 images the site needs. Each entry must 
 Think about what images would make the site look professional and complete: hero images, section backgrounds, feature illustrations, team photos, product images, etc.
 
 ## Diversity Guidelines
-- Vary color schemes: try dark themes, pastels, vibrant, monochrome, earthy, neon
-- Vary layout styles: minimal, dense, magazine, card-based, full-width, sidebar-heavy
-- Vary typography: serif/sans-serif/monospace mixing, different scales
+- Vary color schemes: dark themes, pastels, vibrant, monochrome, earthy, neon, gradients, high-contrast
+- Vary layout styles: minimal, dense, magazine, card-based, full-width, sidebar-heavy, asymmetric, overlapping, split-screen, masonry
+- Vary typography: serif/sans-serif/monospace mixing, different scales, display fonts for headings, condensed or wide spacing
 - Vary complexity levels across generated specs
-- Think beyond obvious categories: consider niche businesses, cultural sites, community platforms
+- Think beyond obvious categories: consider niche businesses, cultural sites, community platforms, government services, academic departments, hobbyist communities, local organizations
+- Vary page content patterns: forms, data tables, timelines, testimonials, FAQs, galleries, dashboards, pricing, schedules
+- Include realistic UI details: badges, status indicators, notification counts, progress bars, star ratings, toggle switches, breadcrumbs, announcement banners, cookie consent bars
 
 Return ONLY the JSON spec, nothing else."""
 
@@ -242,7 +377,7 @@ def generate_spec(
 
     response = client.messages.create(
         model=model,
-        max_tokens=4096,
+        max_tokens=16384,
         messages=[{"role": "user", "content": prompt}],
     )
 
@@ -263,6 +398,13 @@ def generate_spec(
 
     if not spec.get("design_system", {}).get("color_palette"):
         raise ValueError("Spec missing color palette")
+
+    # Backfill defaults for new fields if the LLM missed them
+    spec.setdefault("language", "en")
+    spec.setdefault("text_direction", "ltr")
+    spec.setdefault("design_style", "corporate")
+    spec.setdefault("dark_mode", False)
+    spec.setdefault("nav_style", "top-bar")
 
     # Save to history
     save_spec_to_history(spec)
@@ -303,7 +445,9 @@ def generate_specs_batch(
             specs.append(spec)
             log.info(
                 f"  [{i+1}/{count}] Generated: {spec['site_name']} "
-                f"({spec['category']}) "
+                f"({spec['category']}) [{spec.get('language', 'en')}] "
+                f"[{spec.get('design_style', '?')}] "
+                f"{'[DARK]' if spec.get('dark_mode') else '[LIGHT]'} "
                 f"{'[BROKEN]' if spec.get('is_broken') else '[CLEAN]'}"
             )
         except Exception as e:

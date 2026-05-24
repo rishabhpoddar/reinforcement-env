@@ -1,0 +1,682 @@
+DECISION-MAKING THOUGHT PROCESS
+================================
+This document captures my reasoning and decision-making process while building this
+RL environment pipeline for web design replication tasks.
+
+
+================================================================================
+1. CHOOSING THE OVERALL ARCHITECTURE: PIPELINE WITH SEPARATE STAGES
+================================================================================
+
+Decision: Break the system into discrete, independently runnable stages:
+  spec -> build -> judge -> screenshot -> package -> eval
+
+Why I did it this way:
+- Each stage can fail independently, so I can rerun just the broken part instead of
+  starting from scratch (if building fails, I don't need to regenerate the spec)
+- I can iterate on any individual stage without touching the others. For example, I
+  rewrote the grader multiple times without touching the builder
+- It makes the system debuggable — I can run `--step judge` on an existing site to
+  test just the judging logic
+- It maps naturally to how I actually work: generate a few specs, look at them,
+  build one, check the output, tweak the judge, re-judge, etc.
+
+What I considered:
+- A monolithic "generate everything at once" script would be simpler but much harder
+  to debug when things go wrong halfway through a 30-minute build
+
+
+================================================================================
+2. USING OPENCODE AS THE AGENT RUNTIME (INSTEAD OF RAW API CALLS)
+================================================================================
+
+Decision: Wrap OpenCode CLI as the agent runtime for both building and judging,
+rather than calling the Anthropic/OpenAI APIs directly.
+
+Why:
+- OpenCode gives agents access to Playwright MCP (browser automation) out of the box.
+  This is critical — both the builder and judge need to take screenshots and visually
+  verify their work
+- It supports 75+ model providers through a single interface (provider/model format),
+  so I can test with Claude, GPT, etc. without changing any code
+- It handles tool use, file I/O, and session management — things I'd otherwise need
+  to build from scratch
+
+Tradeoff I accepted:
+- Less control over the agent's behavior (can't set temperature, can't control which
+  tools it calls first)
+- OpenCode is a black box — when it fails, I have to parse its event stream to
+  figure out what went wrong
+- I mitigated this by implementing detailed logging of every OpenCode event in the
+  wrapper (opencode_wrapper.py)
+
+
+================================================================================
+3. BUILDER + JUDGE LOOP DESIGN: WHY MULTIPLE JUDGES, SINGLE BUILDER
+================================================================================
+
+Decision: One builder model (fixed across iterations) but multiple judge models
+running in parallel on each iteration.
+
+Why multiple judges:
+- A single judge can have blind spots or biases. Using multiple models (e.g., Claude
+  + GPT) gives more robust feedback
+- If one judge is lenient and another is strict, the builder gets a fuller picture
+  of what needs fixing
+- The builder only "passes" when ALL judges give 10/10 — this raises the quality bar
+
+Why single builder (not rotating):
+- I want session continuity. The builder accumulates context about what it's already
+  tried and what feedback it received
+- Switching models mid-build would lose that context and potentially cause the new
+  model to redo work the previous one already completed
+- The builder model is randomly chosen at the start, which gives diversity across
+  different website generations
+
+
+================================================================================
+4. SESSION MANAGEMENT: REUSE VS. FRESH SESSIONS
+================================================================================
+
+Decision: Builder reuses the same session across iterations. Judges also reuse
+sessions (per model). But sessions are dropped and restarted on specific errors.
+
+The evolution of this decision:
+- Initially, both builder and judge started fresh sessions every iteration
+- I realized the judge was doing redundant work: re-reading the spec, re-taking
+  all screenshots from scratch each iteration, even though only the builder's
+  fixes changed between iterations
+- I added persistent judge sessions with a follow-up prompt that says "the builder
+  has attempted fixes, recheck"
+- This was more efficient AND gave judges memory of what they'd already flagged,
+  enabling the "stuck detection" feature
+
+The stuck detection insight:
+- Originally I had a separate LLM call (using Haiku) that compared recent feedback
+  entries to detect if the builder was stuck in a loop
+- I realized the judges themselves are in the best position to know if they're
+  repeating the same feedback — they have the full conversation history
+- So I moved stuck detection INTO the judge's follow-up prompt: "if you've raised
+  the same issues 3+ times, signal stuck by returning empty feedback"
+- This eliminated an extra API call per iteration AND was more accurate because
+  the judge has direct context
+
+
+================================================================================
+5. HANDLING THE IMAGE-TOO-LARGE ERROR: RESIZE VS. SMALLER SCREENSHOTS
+================================================================================
+
+Decision: Keep full-page screenshots but instruct agents to resize before reading.
+When a session gets poisoned with oversized images, drop it and start fresh.
+
+How I arrived here:
+- The bug: After several iterations, Playwright screenshots accumulated in the
+  OpenCode conversation history. When there were many images, the Anthropic API
+  enforced a 2000px max dimension per image. Full-page screenshots of tall pages
+  exceeded this, causing API rejection.
+
+- First attempt (rejected by me): Make agents take viewport-only screenshots
+  (not full-page). I rejected this because full-page screenshots are essential for
+  evaluation — you need to see the entire page, not just the viewport.
+
+- Second attempt (what I went with): Instruct agents to check image dimensions
+  with `sips` and resize if either dimension exceeds 1900px before reading the file.
+  This preserves the full-page capture while keeping the API happy.
+
+- The session poisoning problem: Once oversized images enter a session's conversation
+  history, EVERY subsequent API call re-sends them, causing the same error repeatedly.
+  The session is permanently broken. I confirmed this by observing that iterations 4
+  and 5 in the logs failed instantly (4-5 seconds) — they weren't even doing any work,
+  just hitting the same image size error.
+
+- Solution: Catch the specific error, drop the poisoned session ID, and start a fresh
+  session. The fresh session gets the full prompt + any accumulated feedback + resize
+  instructions. The actual work product (HTML/CSS files on disk) is preserved — only
+  the conversation history is lost.
+
+
+================================================================================
+6. SPEC GENERATION: ENSURING DIVERSITY WITHOUT MANUAL CURATION
+================================================================================
+
+Decision: Use randomized "diversity directives" that steer each spec generation
+toward a specific combination of language, design style, theme, navigation pattern,
+layout approach, content type, and responsive strategy.
+
+Why:
+- If you just ask an LLM to "generate a novel website spec," it gravitates toward
+  the same patterns: corporate sites, English, light theme, top nav, standard layout
+- I needed real diversity for the RL environment: RTL languages like Arabic, dark
+  themes, brutalist design, mega-menus, masonry layouts, etc.
+- The LLM won't explore these on its own — you have to explicitly steer it
+
+How it works:
+- Each spec generation randomly picks one option from each diversity dimension
+- The prompt also includes a "previously generated" section that lists recent
+  categories/niches/languages/styles to avoid repetition
+- Seeds (15 hand-written examples in seed_specs.json) provide format reference
+  and inspiration without constraining the output
+
+I also added image_assets to the spec so that generated websites would have real
+AI-generated images (via DALL-E) rather than placeholder divs. This makes the
+evaluation more realistic — the agent has to handle actual image assets.
+
+
+================================================================================
+7. GRADER DESIGN: MULTI-CRITERIA LLM JUDGE WITH STRUCTURED OUTPUT
+================================================================================
+
+Decision: Use Claude Haiku with forced tool_use for structured scoring on 5
+criteria (layout, color, typography, spacing, components), each 0-10.
+
+Why structured tool_use instead of free-text scoring:
+- Free-text responses require parsing ("I'd give this a 7" vs "Score: 7/10" vs
+  "seven out of ten") — fragile and error-prone
+- tool_use forces the model to output exact integers in a schema — no parsing needed
+- It also prevents the model from hedging or giving ranges
+
+Why 5 separate criteria instead of a single score:
+- A single 0-10 score gives no signal about WHAT is wrong
+- For RL training, the agent needs to know: is the layout right but colors wrong?
+  Are components good but spacing off?
+- Separate criteria enable more targeted feedback and finer reward signal
+
+Why Haiku instead of a bigger model:
+- The grader runs once per page per viewport per iteration — that's potentially
+  dozens of calls per website. Cost matters.
+- For this task (comparing two images side by side), Haiku is sufficient. The
+  comparison is relatively straightforward — it's not reasoning about abstract
+  concepts, it's looking at visual similarity.
+- I added score anchoring in the prompt (0=completely wrong, 5=broadly correct,
+  10=visually indistinguishable) to help Haiku calibrate.
+
+
+================================================================================
+8. BUILDING THE GRADER CALIBRATION PIPELINE
+================================================================================
+
+Decision: Before trusting the grader, build a systematic calibration pipeline
+that creates known-quality submissions and verifies the grader scores them correctly.
+
+Why this was the most important thing to build:
+- "Anyone can write an LLM-as-judge. Showing that you verified it's calibrated
+  is what separates good from great."
+- Without calibration, I have no idea if my grader is actually measuring what I
+  think it's measuring. A grader that gives 0.7 to everything is useless for RL
+  even if it "looks reasonable" on individual examples.
+- For RL specifically, grader noise IS training noise. If the grader can't
+  distinguish good from mediocre, the model can't learn.
+
+How the calibration works:
+- Take a reference website and programmatically create 6 tiers of degradation:
+  0 (perfect copy), 1 (minor CSS tweaks), 2 (wrong fonts + colors + spacing),
+  3 (HTML only, CSS stripped), 4 (screenshot hack — embedding ref image as <img>),
+  5 (empty stub)
+- Run the grader on each tier
+- Measure: Spearman rank correlation (does the ordering match?), tier separation
+  (are the scores well-separated?), hack rejection (does tier 4 score near 0?),
+  monotonicity (does each tier score lower than the one above?)
+
+Key results from initial calibration:
+- Spearman rho = 1.0 on the first site tested — perfect rank ordering
+- Tier 0 (perfect): 1.000, Tier 1 (good): 0.869, Tier 2 (mediocre): 0.621,
+  Tier 3 (bad): 0.312, Tier 4 (hack): 0.000, Tier 5 (empty): 0.027
+- The grader cleanly separates all tiers with good gaps between them
+
+A bug I caught through calibration:
+- On the 2nd and 3rd test sites, all tiers were scoring 0.0
+- Root cause: the anti-hack check was broken. It used `split('base64,')` on HTML
+  content, and when there's no `base64,` string, `split()` returns the entire
+  HTML as one element, which exceeds the 10000-char threshold
+- This would have silently classified every legitimate submission as a hack
+- I fixed it by using regex to find actual base64 data blocks instead of a naive
+  string split
+- This is exactly why calibration matters — without it, this bug would have gone
+  undetected and corrupted all RL training signal
+
+
+================================================================================
+9. RESEARCH-DRIVEN DECISIONS: GRADING METHODOLOGY
+================================================================================
+
+Before building the grader, I researched how other projects handle grading for
+RL training of LLM agents. Key findings that shaped my approach:
+
+Three major approaches in the field:
+a) Verifiable Rewards (RLVR) — binary pass/fail via tests (DeepSeek's approach)
+   - Too coarse for design evaluation. A website can be 80% right — binary doesn't
+     capture that.
+
+b) LLM-as-Judge with relative comparison (RULER/OpenPipe ART)
+   - "Which is better, A or B?" is more reliable than "Score A from 0-10"
+   - But requires multiple submissions to compare against each other
+   - I considered this for a multi-rollout setup but concluded it's premature:
+     the task is about building the environment and grader, not training the model
+
+c) Rubric-Based Rewards (RaR/VRBR) — multi-criteria structured scoring
+   - Formula: R_rubric(p,c) = sum of weighted binary propositions scored by LLM
+   - This is what I implemented, adapted for visual design evaluation
+
+Decision against relative grading (for now):
+- I explored whether spinning up 10 agents per task and grading relatively would
+  give better signal
+- Concluded it's a distraction for the current scope. The task description says
+  "there is nothing more important than showcasing research taste and good decisions"
+  — the calibration pipeline demonstrates this more than relative grading would
+- Relative grading adds cost (10x compute), complexity, and is useful only when
+  absolute scores are unreliable. My calibration shows absolute scores ARE reliable.
+
+Decision against CLIP/SSIM pixel metrics:
+- Considered adding programmatic pixel-level comparison (SSIM, CLIP embeddings)
+  as a complement to the LLM judge
+- On my TODO list but deprioritized because:
+  1. The LLM judge already achieves good rank correlation in calibration
+  2. SSIM is brittle for web pages (a single shifted element can tank the score
+     even if the overall design is good)
+  3. Adding it is straightforward once the pipeline works — it's an improvement,
+     not a prerequisite
+
+
+================================================================================
+10. ANTI-HACK MEASURES: PREVENTING REWARD GAMING
+================================================================================
+
+Decision: Include checks that detect when an agent "cheats" by embedding reference
+screenshots as <img> tags instead of actually building HTML/CSS.
+
+Why this matters:
+- In an RL setting, the agent will find the easiest path to maximize reward
+- The easiest hack: take the reference screenshot and embed it as an image.
+  The grader compares screenshots — if the submission IS the reference, it's a
+  perfect match.
+- This is a well-known problem in RL reward design. If the reward function can
+  be gamed, the agent WILL game it.
+
+What I check for:
+- References to "reference_screenshot" or "_ref_imgs" in HTML
+- Large base64-encoded image blocks (>10000 chars) — suggests embedded screenshots
+- <img> tags pointing to files with "screenshot" or "reference" in the name
+
+The fix after calibration caught a bug:
+- My original base64 check used a naive string split that false-positived on
+  legitimate HTML files
+- Switched to regex: `re.findall(r'base64,([A-Za-z0-9+/=]{10000,})', content)`
+- This only triggers when there's actual base64 data that's suspiciously large
+
+
+================================================================================
+11. SCREENSHOT RESIZE: PROACTIVE VS. REACTIVE
+================================================================================
+
+Decision: Always instruct agents to check image dimensions before reading them,
+not just as a retry after failure.
+
+Why proactive:
+- If I only resize after failure, the session is already poisoned (the oversized
+  image is in the conversation history)
+- By including the resize instruction in EVERY prompt (builder initial, builder
+  follow-up, judge initial, judge follow-up), agents resize before the image
+  enters the conversation
+- This is a defense-in-depth approach: the instruction prevents most failures,
+  and the session-drop retry handles the rest
+
+I chose `sips` (macOS built-in) over ImageMagick because:
+- No extra dependency to install
+- Simple command: `sips --resampleHeightWidthMax 1900 <file>`
+- Available on all macOS machines where this pipeline runs
+
+
+================================================================================
+12. HARBOR TASK PACKAGING: SELF-CONTAINED GRADER
+================================================================================
+
+Decision: Embed the entire grader as a string literal in harbor_task.py that gets
+written to grader.py in each task directory.
+
+Why not import from a shared module:
+- Harbor tasks run in isolated Docker containers. The grader needs to be
+  self-contained — it can't import from the pipeline package.
+- Each task directory must have everything needed to grade a submission:
+  test.sh, grader.py, reference screenshots, task metadata
+- This means the grader is duplicated across tasks, but that's by design —
+  each task is a standalone unit that can be run anywhere
+
+The Dockerfile installs only what the grader needs:
+- playwright (for capturing submission screenshots)
+- anthropic (for LLM judge calls)
+- Pillow (for image resizing)
+- No torch, no CLIP — keeps the container lightweight
+
+
+================================================================================
+13. CHOOSING WHAT TO PRIORITIZE: THE "RESEARCH TASTE" ANGLE
+================================================================================
+
+The task description explicitly said: "There is nothing more important than
+showcasing that you have research taste and can make good decisions."
+
+This shaped my prioritization:
+1. FIRST: Get the full pipeline working end-to-end (spec -> build -> judge ->
+   screenshot -> package). A working system is the baseline.
+2. SECOND: Build the grader calibration pipeline. This proves the grader works
+   and demonstrates systematic thinking about evaluation quality.
+3. THIRD: Expand diversity in spec generation (languages, styles, dark mode,
+   nav patterns). This shows thoughtfulness about what makes a good RL
+   environment — diverse, challenging tasks.
+4. FOURTH: Add image generation support. This makes the evaluation more
+   realistic.
+5. DEPRIORITIZED: Fancy ML techniques (CLIP/SSIM, relative grading, multiple
+   rollouts). These are nice-to-have but don't demonstrate "research taste" as
+   much as having a solid, calibrated, well-tested pipeline.
+
+The key insight: research taste isn't about using the most sophisticated technique.
+It's about knowing which technique is appropriate for the problem, and being able
+to verify that your approach actually works (calibration).
+
+
+================================================================================
+14. FOLLOW-UP PROMPT DESIGN: TELLING THE JUDGE TO RE-READ THE SPEC
+================================================================================
+
+Decision: In the judge's follow-up prompt, explicitly tell it to re-read spec.json
+before re-evaluating.
+
+Why this matters:
+- When judges continue their session, they have the spec in conversation history
+  from the first iteration
+- But conversation history can be compressed or details can be lost over many
+  iterations
+- Re-reading the spec ensures the judge is always evaluating against the full,
+  accurate specification
+- This is a cheap operation (reading a JSON file) with high upside (prevents
+  drift in what the judge is scoring against)
+
+
+================================================================================
+15. VERDICT FILE MANAGEMENT: SAME PATH, DELETE AFTER READ
+================================================================================
+
+Decision: Each judge writes to a fixed verdict file path (.verdict-0.json,
+.verdict-1.json, etc.) that gets deleted after reading.
+
+Why fixed paths (not timestamped):
+- The judge needs to know where to write. In a follow-up session, the judge
+  already knows the path from the first prompt, and we remind it in the follow-up.
+- Timestamped files would require the judge to figure out the new filename each
+  iteration, which is unnecessarily complex.
+
+Why delete after reading:
+- Prevents stale verdicts from being read on the next iteration if the judge
+  fails to write a new one
+- Makes failure detection clean: if the file doesn't exist, the judge failed
+
+Why keyed by judge index (not model name):
+- Judge indices are stable (0, 1, 2, ...) even if model names contain special
+  characters that might cause filesystem issues
+- Each model can only appear once in the judge pool, so there's no collision risk
+
+
+================================================================================
+16. OPENCODE CLI VS. SDK: CHOOSING THE SIMPLER APPROACH
+================================================================================
+
+Decision: Use the OpenCode CLI (`opencode run`) rather than the programmatic SDK
+(`createOpencode`).
+
+How I got here:
+- I first tried the SDK approach (importing `createOpencode` from the OpenCode
+  package and calling it programmatically from a TypeScript runner)
+- The SDK was overengineered for my use case — it started a full HTTP server,
+  caused port conflicts when running multiple agents in parallel, and had a
+  complex lifecycle to manage
+- The CLI approach is dead simple: spawn `opencode run --prompt "..." --model "..."`
+  as a subprocess, stream its JSONL event output, and parse the results
+- The CLI also naturally supports `--session <id>` for session continuation,
+  `--dir <path>` for working directory, and reads config from `.opencode/`
+
+The key learning: don't use a library's "advanced" API when the CLI does exactly
+what you need. The subprocess approach is more robust because it's a clean process
+boundary — if the agent crashes, it doesn't take down the pipeline.
+
+
+================================================================================
+17. CREDENTIAL ISOLATION: PREVENTING KEY LEAKAGE
+================================================================================
+
+Decision: Override XDG_DATA_HOME and XDG_CONFIG_HOME so OpenCode never reads
+system-level credentials from ~/.local/share/opencode/auth.json.
+
+Why this was important:
+- OpenCode stores API keys in its own auth file (~/.local/share/opencode/auth.json)
+- If I don't isolate this, the pipeline might accidentally use my personal keys
+  instead of the project's .env keys, or vice versa
+- Worse: in a CI/production environment, there would be NO system-level keys,
+  and the pipeline would silently fail
+
+How I verified it works:
+- Tested with real keys from .env → agent completed successfully
+- Tested with a fake key → got 401 auth error, confirming it's reading from .env
+  and not falling back to system credentials
+
+
+================================================================================
+18. JUDGE VERDICT: FILE-BASED OUTPUT VS. PARSING AGENT STREAM
+================================================================================
+
+Decision: Have the judge agent write its verdict to a JSON file on disk, rather
+than trying to parse structured output from the agent's message stream.
+
+The problem I hit:
+- Initially, I tried to have the judge include a "VERDICT_JSON" block in its
+  output that I'd parse from the OpenCode event stream
+- This was unreliable: the agent would do tool calls (take screenshots, read files)
+  and then sometimes stop without ever outputting the structured verdict text
+- Parsing the raw event stream for structured data is fragile — the agent's output
+  format isn't guaranteed
+
+Why file-based is better:
+- The judge is already a coding agent with file system access. Writing a JSON file
+  is a natural action for it.
+- The pipeline knows exactly where to look (.verdict-0.json, .verdict-1.json)
+- Failure is unambiguous: file exists and is valid JSON = success; anything else
+  = judge failed
+- I added fallback handling: if the file is missing or malformed, score defaults
+  to 0 with an explanatory message
+
+
+================================================================================
+19. WORKSPACE/SITE DIRECTORY SPLIT
+================================================================================
+
+Decision: Keep source code in generated/<slug>/site/ and let OpenCode's working
+directory be generated/<slug>/ (the parent).
+
+Why this split:
+- OpenCode creates various artifacts during its session — logs, temporary files,
+  screenshot directories, verdict files
+- Without the split, all of these would be mixed in with the actual HTML/CSS
+  source code
+- The site/ subdirectory stays clean: only .html files and styles.css
+- This matters for packaging — when I create the Harbor task, I copy only site/
+  contents as the reference solution
+
+The original problem that prompted this:
+- Early in development, the builder was writing HTML files alongside OpenCode's
+  own artifacts. The packager couldn't distinguish source files from tooling
+  artifacts. The split made this trivial.
+
+
+================================================================================
+20. PROVING AGENTS ACTUALLY SEE SCREENSHOTS (NOT JUST ACCESSIBILITY TREES)
+================================================================================
+
+Decision: Verify through testing that the coding agents actually process screenshot
+pixels, not just Playwright's accessibility tree.
+
+The concern:
+- Playwright MCP has multiple modes. By default, it can return accessibility trees
+  (text-based DOM representations) instead of actual rendered pixels
+- If the judge is only "seeing" the accessibility tree, it's comparing HTML
+  structure, not visual appearance — which defeats the entire purpose of
+  screenshot-based evaluation
+
+How I proved it:
+- Gave the agent an image file and asked it to describe what it sees
+- The agent returned a detailed visual description: specific colors, layout
+  structure, typography, card designs, exact text content
+- This confirmed the agent is reading the actual PNG pixels through the LLM's
+  vision capability, not just parsing DOM text
+
+I also discovered the judge wasn't actually READING its screenshots — it was
+taking them via Playwright but never using the read tool to visually inspect the
+PNG files. I added explicit instructions: "After saving each screenshot, use the
+read tool to open the PNG file and actually LOOK at it."
+
+
+================================================================================
+21. SIMPLIFYING THE GRADING FORMULA: DROPPING CLIP/SSIM/COLOR
+================================================================================
+
+Decision: Drop CLIP similarity, SSIM, and color histogram from the grading formula.
+Use only LLM judge (85%) + structural checks (15%).
+
+The original formula was:
+  CLIP (0.20) + SSIM (0.10) + Color histogram (0.10) + LLM judge (0.40) +
+  Responsiveness (0.10) + Structural (0.10)
+
+Why I simplified:
+- When I asked myself "why do we need CLIP + SSIM + color?", the honest answer was
+  "because it sounds sophisticated" — not because I had evidence they add signal
+- SSIM is brittle for web pages: a single shifted element tanks the score even when
+  the overall design is good
+- CLIP embeddings measure semantic similarity, not pixel fidelity — a blue website
+  and a green website might have similar CLIP scores if they have similar content
+- Color histogram comparison is redundant with what the LLM judge already evaluates
+  in its "color" criterion
+- Each additional metric adds a dependency (torch for CLIP, scipy for SSIM) and
+  makes the Docker container heavier
+- The LLM judge, properly calibrated, handles all of these dimensions
+
+The structural check (15%) stays because it's free (no API calls), deterministic,
+and catches basic failures: missing pages, no stylesheet link, broken navigation.
+
+
+================================================================================
+22. IMAGE GENERATION VIA OPENCODE PLUGIN
+================================================================================
+
+Decision: Add a custom OpenCode plugin that gives the builder agent a
+`generate_image` tool, powered by GPT image-2 (DALL-E).
+
+Why a plugin (not pre-generating images):
+- The builder agent should generate images itself during its session, not receive
+  pre-made images. This is more realistic — in the RL environment, the evaluation
+  agent will receive these images as assets, and the builder needs to know where
+  and how to use them.
+- The spec defines what images are needed (prompts, sizes, placement), but the
+  builder decides when to generate them during the build process.
+
+Plugin debugging journey:
+- First attempt: used `{ id, server }` export pattern → OpenCode error "Plugin
+  export is not a function"
+- Learned OpenCode expects a named function export, not an object
+- Also hit directory discovery issue: OpenCode looks for `.opencode/plugins/`
+  relative to the git repo root, and since the builder's --dir points to
+  `generated/<slug>/` (which is inside the repo), it walks up and finds the
+  plugin correctly
+- API key issue: the plugin needs OPENAI_API_KEY, which the pipeline wrapper
+  passes via environment variables. For manual CLI testing, added a fallback
+  that reads from the project's .env file.
+
+Making it reproducible:
+- The plugin source lives in `pipeline/plugins/image-gen.js` (tracked in git)
+- The OpenCodeAgent.__init__ copies it into `.opencode/plugins/` at runtime
+  and runs `bun install` for the openai dependency
+- This means `.opencode/` stays gitignored but gets set up automatically
+
+
+================================================================================
+23. PASSING IMAGE ASSETS TO THE RL EVALUATION AGENT
+================================================================================
+
+Decision: Copy generated images into the Harbor task's Docker environment at
+/app/assets/, and tell the evaluation agent to use them rather than generating
+its own.
+
+Why:
+- The website spec includes specific images (hero photos, team pictures, product
+  shots) that are integral to the design
+- The evaluation agent's job is to replicate the visual design, not to generate
+  new images
+- By providing the assets, we make the task about HTML/CSS skill, not about
+  image generation quality
+- The instruction says: "The required media files for the website are provided
+  in the /app/assets/ folder. Use these images in your HTML with relative paths.
+  Do NOT generate or create new images — use only the provided assets."
+
+I also removed the old instruction about using "CSS gradients, colored boxes, or
+inline SVG" as placeholder images — now that we have real generated images, the
+placeholder advice is misleading.
+
+
+================================================================================
+24. DEFECT SPECIFICATION: ADDING PAGE AND VIEWPORT FIELDS
+================================================================================
+
+Decision: Each defect in the spec includes which page it's on and which viewport
+it's most visible at (desktop, tablet, mobile, or all).
+
+Why:
+- The grader needs to know exactly WHICH screenshot pair to compare when checking
+  if a defect was replicated
+- Without page/viewport info, the grader would have to check every screenshot for
+  every defect — expensive and imprecise
+- Example: a "broken responsiveness" defect on the pricing page at mobile viewport
+  → the grader compares specifically `pricing-mobile.png` reference vs submission
+
+This also makes the defect descriptions more realistic and specific. Instead of
+vague "there's a typo somewhere," the spec says "typo on the home page, visible
+at all viewports: 'Wrold' instead of 'World' in the hero heading."
+
+
+================================================================================
+25. TESTING INCREMENTALLY: CHEAP MODELS FIRST, THEN SCALE UP
+================================================================================
+
+Decision: Always test pipeline changes with the cheapest, fastest models first
+(GPT-5.4-mini, 1 iteration) before running full builds with expensive models.
+
+Why:
+- A full pipeline run with Opus 4.7 + multiple iterations takes 30+ minutes and
+  costs several dollars
+- Most bugs show up regardless of model quality — if the prompt is malformed, the
+  verdict file path is wrong, or the session management is broken, a cheap model
+  will surface the same error
+- Once the cheap model test passes, I can be confident the pipeline mechanics work
+  and run the expensive model for quality validation
+
+This saved me significant time and cost during development. For example, when
+debugging the verdict file path issue (judge was trying to write outside its
+working directory), I caught it in a 2-minute GPT-5.4-mini run instead of a
+30-minute Opus run.
+
+
+================================================================================
+26. HARBOR + MODAL TESTING: LOCAL DOCKER FIRST
+================================================================================
+
+Decision: Test Harbor tasks locally with Docker before running on Modal (cloud).
+
+Why:
+- Modal runs cost money and have slower feedback loops
+- Docker runs are free, immediate, and I can inspect the container's filesystem
+  directly when things go wrong
+- I caught several issues in local Docker runs that would have been much harder
+  to debug on Modal:
+  - `allow_internet = false` was blocking the agent's setup (needed network access)
+  - The grader's reward.json had nested dicts (Harbor expects flat float values)
+  - Screenshots were too tall (>8000px) for the Claude API inside the grader
+  - Artifacts weren't being collected (needed explicit artifact paths in task.toml)
+
+Once all these were fixed locally, the Modal run worked on the first try.
+Local debugging, cloud deployment — in that order.

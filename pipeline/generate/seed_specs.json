@@ -3,6 +3,11 @@
     "site_name": "NovaBuy Electronics",
     "category": "e-commerce",
     "niche": "consumer electronics store with product comparison features",
+    "language": "en",
+    "text_direction": "ltr",
+    "design_style": "corporate",
+    "dark_mode": false,
+    "nav_style": "top-bar",
     "pages": ["home", "products", "product-detail", "cart", "about", "contact"],
     "design_system": {
       "color_palette": {"primary": "#1A1A2E", "secondary": "#16213E", "accent": "#E94560", "bg": "#F5F5F5", "text": "#1A1A2E"},
@@ -30,80 +35,48 @@
     "is_broken": false
   },
   {
-    "site_name": "Elena Vasquez Portfolio",
-    "category": "portfolio",
-    "niche": "UI/UX designer personal portfolio with case studies",
-    "pages": ["home", "work", "case-study", "about", "contact"],
+    "site_name": "مجلة الأفق",
+    "category": "news-magazine",
+    "niche": "Arabic cultural and literary magazine",
+    "language": "ar",
+    "text_direction": "rtl",
+    "design_style": "editorial",
+    "dark_mode": false,
+    "nav_style": "top-bar",
+    "pages": ["الرئيسية", "مقالات", "ثقافة", "أدب", "عن-المجلة", "اتصل-بنا"],
     "design_system": {
-      "color_palette": {"primary": "#2D2D2D", "secondary": "#FFFFFF", "accent": "#FF6B35", "bg": "#FAFAFA", "text": "#333333"},
-      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.333 perfect fourth"},
-      "layout_style": "minimal whitespace-heavy with large imagery",
-      "mood": "elegant, professional, creative"
+      "color_palette": {"primary": "#1B3A4B", "secondary": "#8B6914", "accent": "#C9A84C", "bg": "#FAF7F0", "text": "#1A1A1A"},
+      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.25 modular"},
+      "layout_style": "elegant RTL editorial with strong typography hierarchy and generous whitespace",
+      "mood": "intellectual, refined, culturally rich"
     },
     "page_descriptions": {
-      "home": "Full-viewport hero with name and title, scrolling project thumbnails in masonry grid, brief intro paragraph, client logos row",
-      "work": "Filterable masonry grid of project cards with category tags, each card shows project image + title + brief description overlay on hover",
-      "case-study": "Large hero image, project overview section, process timeline (research→wireframe→design→test), outcome metrics, image gallery",
-      "about": "Split layout: large portrait photo left, bio text right, skills/tools icon grid, education timeline",
-      "contact": "Centered minimal form (name, email, message), social links row, availability status indicator"
-    },
-    "complexity": "minimal",
-    "special_elements": ["masonry image grid", "smooth scroll navigation", "project card hover overlays", "skills icon grid"],
-    "responsive_notes": "Mobile: single column throughout, hero text smaller, masonry becomes stacked. Tablet: 2-col masonry",
-    "is_broken": false
-  },
-  {
-    "site_name": "The Daily Dispatch",
-    "category": "blog-magazine",
-    "niche": "online magazine covering technology and culture",
-    "pages": ["home", "article", "category", "about", "archive", "subscribe"],
-    "design_system": {
-      "color_palette": {"primary": "#1B1B1B", "secondary": "#C5283D", "accent": "#FFB400", "bg": "#FFFFFF", "text": "#2C2C2C"},
-      "typography": {"heading_font": "serif", "body_font": "serif", "scale": "1.25 major third"},
-      "layout_style": "traditional magazine grid with featured article prominence",
-      "mood": "editorial, authoritative, refined"
-    },
-    "page_descriptions": {
-      "home": "Featured article hero (full-width image + headline overlay), 3-column grid of latest articles below, sidebar with popular posts + newsletter CTA, category quick-links bar",
-      "article": "Full-width header image, article title + author byline + date, long-form text with pull quotes and inline images, author bio card, related articles grid",
-      "category": "Category header with description, article list (image left, text right), pagination, sidebar with trending in category",
-      "about": "Magazine history section, editorial team grid with photos and bios, submission guidelines",
-      "archive": "Searchable list grouped by month/year, filter by category dropdown, minimal card layout",
-      "subscribe": "Pricing tiers (free, premium, annual) in card layout, feature comparison table, testimonials"
+      "الرئيسية": "بطل كامل العرض مع عنوان المقال الرئيسي وصورة كبيرة، شبكة 3 أعمدة للمقالات الأخيرة (صورة مصغرة + عنوان + ملخص)، شريط جانبي بالمقالات الأكثر قراءة، قسم اشتراك في النشرة. All layout mirrors RTL — sidebar on left, text aligned right",
+      "مقالات": "قائمة المقالات مع صورة على اليمين ونص على اليسار، تصفية حسب الفئة، ترقيم الصفحات في الأسفل",
+      "ثقافة": "شبكة بطاقات للفعاليات الثقافية مع التاريخ والموقع، قسم مراجعات الكتب مع أغلفة، تقويم الفعاليات",
+      "أدب": "قصائد وقصص قصيرة بتنسيق نص طويل مع اقتباسات بارزة، بطاقات المؤلفين مع صور شخصية وسير ذاتية",
+      "عن-المجلة": "تاريخ المجلة مع جدول زمني، فريق التحرير مع صور وأدوار، رسالة المجلة",
+      "اتصل-بنا": "نموذج اتصال (الاسم، البريد، الرسالة)، عنوان المكتب، روابط وسائل التواصل"
     },
     "complexity": "moderate",
-    "special_elements": ["pull quotes in articles", "author byline cards", "category tag pills", "reading time estimate"],
-    "responsive_notes": "Mobile: single column, featured article stacks, sidebar moves below main. Tablet: 2-col grid, sidebar remains",
-    "is_broken": false
-  },
-  {
-    "site_name": "CloudMetrics Pro",
-    "category": "saas-landing",
-    "niche": "analytics dashboard SaaS for small businesses",
-    "pages": ["home", "features", "pricing", "integrations", "about", "contact"],
-    "design_system": {
-      "color_palette": {"primary": "#4F46E5", "secondary": "#7C3AED", "accent": "#06D6A0", "bg": "#F9FAFB", "text": "#111827"},
-      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.2 minor third"},
-      "layout_style": "alternating left-right sections with illustrations",
-      "mood": "professional, trustworthy, modern SaaS"
-    },
-    "page_descriptions": {
-      "home": "Hero with headline + subtext + CTA + dashboard mockup image area, social proof logos row, 3 feature highlight cards with icons, testimonial section with quote cards, final CTA section",
-      "features": "Feature grid (3x3) with icon + title + description per card, detailed feature sections alternating image-left/text-right, comparison table vs competitors",
-      "pricing": "3-tier pricing cards (starter, pro, enterprise) with feature checklist, toggle for monthly/annual, FAQ accordion below",
-      "integrations": "Grid of integration logos/cards with names, filterable by category, detailed integration page for each",
-      "about": "Team section with photo cards, company values icons, office photo placeholder, hiring CTA",
-      "contact": "Contact form, office address with map placeholder, support hours, live chat placeholder"
-    },
-    "complexity": "moderate",
-    "special_elements": ["pricing toggle (monthly/annual)", "feature comparison table", "social proof logo bar", "gradient CTA sections"],
-    "responsive_notes": "Mobile: features stack single-column, pricing cards stack, hero image below text. Tablet: 2-col feature grid",
+    "image_assets": [
+      {"filename": "hero-calligraphy.png", "prompt": "Elegant Arabic calligraphy art on aged parchment paper, gold and deep blue ink, intricate geometric Islamic patterns in the border, warm ambient lighting, artistic photography", "size": "1536x1024", "used_on": "الرئيسية", "purpose": "hero section background"},
+      {"filename": "culture-event.png", "prompt": "Traditional Arabic coffee setting with ornate dallah pot, small cups on brass tray, dates, warm ambient lighting, cultural still life photography, rich brown and gold tones", "size": "1024x1024", "used_on": "ثقافة", "purpose": "culture section card image"},
+      {"filename": "library-interior.png", "prompt": "Beautiful Islamic library interior with ornate arched bookshelves, geometric tile floor, warm golden lighting filtering through mashrabiya screens, architectural photography", "size": "1536x1024", "used_on": "أدب, عن-المجلة", "purpose": "literary section background"}
+    ],
+    "special_elements": ["RTL text alignment throughout", "Arabic decorative geometric borders", "pull quotes in ornate frames", "bilingual section headers (Arabic primary, English small)"],
+    "responsive_notes": "RTL layout at all viewports. Mobile: single column, nav becomes hamburger on left side, sidebar moves below. Tablet: 2-col grid with RTL flow. All margin/padding mirrors for RTL",
     "is_broken": false
   },
   {
     "site_name": "Sakura Ramen House",
     "category": "restaurant",
     "niche": "authentic Japanese ramen restaurant with multiple locations",
+    "language": "mixed-en-ja",
+    "text_direction": "ltr",
+    "design_style": "organic",
+    "dark_mode": false,
+    "nav_style": "top-bar",
     "pages": ["home", "menu", "locations", "story", "gallery", "reservations"],
     "design_system": {
       "color_palette": {"primary": "#1A0F0A", "secondary": "#D4A574", "accent": "#C0392B", "bg": "#FDF6EC", "text": "#2C1810"},
@@ -124,161 +97,21 @@
       {"filename": "hero-ramen.png", "prompt": "Steaming bowl of authentic tonkotsu ramen with rich broth, chashu pork slices, soft-boiled egg, green onions, and nori, photographed from above on a dark wooden table, warm inviting food photography with steam visible, Japanese restaurant ambiance", "size": "1536x1024", "used_on": "home", "purpose": "hero background image"},
       {"filename": "interior-restaurant.png", "prompt": "Warm interior of an authentic Japanese ramen restaurant with wooden counters, paper lanterns, noren curtains, and ambient warm lighting, cozy inviting atmosphere, architectural photography style", "size": "1536x1024", "used_on": "home, story", "purpose": "restaurant interior showcase"},
       {"filename": "chef-preparing.png", "prompt": "Japanese ramen chef carefully preparing noodles in a traditional kitchen, pulling fresh noodles by hand, warm kitchen lighting, artisan craftsmanship, documentary photography style", "size": "1024x1536", "used_on": "story", "purpose": "founder/chef portrait for story page"},
-      {"filename": "spicy-miso-ramen.png", "prompt": "Bowl of spicy miso ramen with ground pork, bean sprouts, corn, and chili oil, vibrant red broth, overhead food photography on ceramic plate with chopsticks", "size": "1024x1024", "used_on": "menu, gallery", "purpose": "featured menu item photo"},
-      {"filename": "gyoza-appetizer.png", "prompt": "Plate of perfectly pan-fried gyoza dumplings with golden crispy bottoms, served with dipping sauce in a small ceramic bowl, Japanese food photography style, warm tones", "size": "1024x1024", "used_on": "menu, gallery", "purpose": "appetizer section photo"}
+      {"filename": "spicy-miso-ramen.png", "prompt": "Bowl of spicy miso ramen with ground pork, bean sprouts, corn, and chili oil, vibrant red broth, overhead food photography on ceramic plate with chopsticks", "size": "1024x1024", "used_on": "menu, gallery", "purpose": "featured menu item photo"}
     ],
-    "special_elements": ["parallax-style scrolling sections", "menu with Japanese characters", "textured paper background", "food photo grid"],
+    "special_elements": ["parallax-style scrolling sections", "menu with Japanese characters alongside English", "textured paper background", "food photo grid"],
     "responsive_notes": "Mobile: menu becomes scrollable list, gallery 2-col, reservation form full-width. Tablet: gallery 3-col",
-    "is_broken": false
-  },
-  {
-    "site_name": "Pinnacle Properties",
-    "category": "real-estate",
-    "niche": "luxury real estate agency for high-end residential properties",
-    "pages": ["home", "listings", "property-detail", "agents", "about", "contact"],
-    "design_system": {
-      "color_palette": {"primary": "#1C1C1C", "secondary": "#B8860B", "accent": "#FFFFFF", "bg": "#F8F6F3", "text": "#2C2C2C"},
-      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.333 perfect fourth"},
-      "layout_style": "luxury with large property photos and elegant spacing",
-      "mood": "luxurious, exclusive, sophisticated"
-    },
-    "page_descriptions": {
-      "home": "Full-viewport hero with property image and search overlay bar (location, type, price range), featured listings grid (3 cards), market stats counter section, testimonials carousel",
-      "listings": "Search filters bar (location, price, beds, baths, type), property card grid (image, price, address, beds/baths/sqft), map placeholder sidebar, pagination",
-      "property-detail": "Image gallery carousel placeholder, property title + price + address, details grid (beds, baths, sqft, year), description text, amenities list, agent card sidebar, similar listings row",
-      "agents": "Agent cards grid with photo, name, title, phone, email, listings count. Each card links to agent detail",
-      "about": "Company history narrative, awards/accolades section, office photos, core values",
-      "contact": "Split layout: form left, office info right with map placeholder"
-    },
-    "complexity": "complex",
-    "special_elements": ["property search bar overlay", "stat counter animations placeholder", "image gallery carousel", "agent cards with contact info"],
-    "responsive_notes": "Mobile: search filters stack vertically, property grid single-col, map hidden. Tablet: 2-col property grid, search bar wraps",
-    "is_broken": false
-  },
-  {
-    "site_name": "Wanderlust Voyages",
-    "category": "travel",
-    "niche": "boutique travel agency specializing in adventure and cultural tours",
-    "pages": ["home", "destinations", "tours", "tour-detail", "about", "contact"],
-    "design_system": {
-      "color_palette": {"primary": "#0B3D2E", "secondary": "#F4A261", "accent": "#E76F51", "bg": "#FFFDF7", "text": "#264653"},
-      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.25 modular"},
-      "layout_style": "immersive with full-width imagery and earthy tones",
-      "mood": "adventurous, inspiring, earthy"
-    },
-    "page_descriptions": {
-      "home": "Video/image hero with destination overlay text + search bar, featured destinations grid (image cards with gradient overlays), why-choose-us icons row, recent traveler testimonials, newsletter section",
-      "destinations": "Grid of destination cards (large image, country, brief description), continent filter tabs",
-      "tours": "Tour cards with image, duration, price, difficulty level badge, rating stars",
-      "tour-detail": "Hero image, itinerary timeline (day-by-day), included/excluded lists, pricing table, booking form placeholder, related tours",
-      "about": "Our story with founder photos, team grid, core values illustrated, partnerships logos",
-      "contact": "Contact form, office locations, phone/email, FAQ accordion"
-    },
-    "complexity": "moderate",
-    "special_elements": ["destination cards with gradient overlays", "itinerary timeline", "difficulty level badges", "continent filter tabs"],
-    "responsive_notes": "Mobile: destination grid single-col, itinerary timeline simplified, search bar stacks. Tablet: 2-col grid",
-    "is_broken": false
-  },
-  {
-    "site_name": "BrightPath Academy",
-    "category": "educational",
-    "niche": "online learning platform for professional development courses",
-    "pages": ["home", "courses", "course-detail", "instructors", "about", "contact"],
-    "design_system": {
-      "color_palette": {"primary": "#1E3A5F", "secondary": "#4A90D9", "accent": "#FF8C42", "bg": "#F7F9FC", "text": "#1E1E1E"},
-      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.2 minor third"},
-      "layout_style": "clean and structured with card-based layouts",
-      "mood": "professional, trustworthy, educational"
-    },
-    "page_descriptions": {
-      "home": "Hero with headline about career growth + CTA + illustration area, stats bar (students, courses, instructors), featured courses carousel, category grid with icons, testimonials section",
-      "courses": "Search bar + category filter sidebar, course cards grid (thumbnail, title, instructor, rating, price, duration badge), sort by dropdown",
-      "course-detail": "Course hero (image + title + instructor + rating + enroll CTA), curriculum accordion (modules → lessons), instructor bio card, student reviews, related courses",
-      "instructors": "Instructor cards grid (photo, name, expertise, course count, rating), bio expandable section",
-      "about": "Mission statement, platform stats, team photo grid, timeline of milestones",
-      "contact": "Support form, FAQ accordion, live chat placeholder, office info"
-    },
-    "complexity": "moderate",
-    "special_elements": ["curriculum accordion", "progress indicator placeholder", "rating stars", "category icon grid"],
-    "responsive_notes": "Mobile: course grid single-col, sidebar filters collapse, curriculum accordion full-width. Tablet: 2-col course grid",
-    "is_broken": false
-  },
-  {
-    "site_name": "GreenHope Foundation",
-    "category": "non-profit",
-    "niche": "environmental conservation non-profit focusing on reforestation",
-    "pages": ["home", "mission", "programs", "impact", "donate", "contact"],
-    "design_system": {
-      "color_palette": {"primary": "#2D6A4F", "secondary": "#40916C", "accent": "#D4A373", "bg": "#F0F7F4", "text": "#1B4332"},
-      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.25 modular"},
-      "layout_style": "nature-inspired with organic shapes and earthy tones",
-      "mood": "hopeful, natural, trustworthy"
-    },
-    "page_descriptions": {
-      "home": "Hero with forest image area and call to action, impact counter section (trees planted, acres restored, volunteers), program highlights cards, latest news section, donate CTA banner",
-      "mission": "Mission statement hero, core values with nature icons, founder message with photo, partner organization logos",
-      "programs": "Program cards (reforestation, education, advocacy) with images and descriptions, how to get involved section",
-      "impact": "Large stat counters, before/after image comparison placeholders, annual report highlights, interactive map placeholder showing project sites",
-      "donate": "Donation tiers (seed, sapling, forest) as cards with amounts, recurring/one-time toggle, dedication option, corporate matching info",
-      "contact": "Volunteer signup form, office info, social media links, press inquiry section"
-    },
-    "complexity": "simple",
-    "special_elements": ["impact counter animation placeholder", "donation tier cards", "before/after image slider placeholder", "organic shape decorators"],
-    "responsive_notes": "Mobile: stats stack vertically, program cards stack, donation tiers stack. Tablet: 2-col programs",
-    "is_broken": false
-  },
-  {
-    "site_name": "Prism Creative Studio",
-    "category": "creative-agency",
-    "niche": "digital design and branding agency for tech startups",
-    "pages": ["home", "work", "services", "process", "team", "contact"],
-    "design_system": {
-      "color_palette": {"primary": "#0D0D0D", "secondary": "#1A1A1A", "accent": "#FF3366", "bg": "#0D0D0D", "text": "#FFFFFF"},
-      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.414 augmented fourth"},
-      "layout_style": "dark theme with bold typography and full-width case studies",
-      "mood": "bold, creative, cutting-edge, dark"
-    },
-    "page_descriptions": {
-      "home": "Animated hero text (large bold type) with reel placeholder, selected work horizontal scroll section, services overview with icons, client quotes marquee, awards section",
-      "work": "Full-width case study cards (large image + project name + category), filterable by category",
-      "services": "Service blocks (branding, web, mobile, motion) with icon + description + example projects list",
-      "process": "4-step process timeline (discover, design, develop, deliver) with illustrations, FAQ accordion",
-      "team": "Team grid with creative hover effects (photo reveals role + bio), studio culture section",
-      "contact": "Minimal dark contact form, new business inquiries section, office location with map"
-    },
-    "complexity": "complex",
-    "special_elements": ["dark theme throughout", "horizontal scroll section", "bold oversized typography", "creative team hover effects"],
-    "responsive_notes": "Mobile: horizontal scroll becomes vertical stack, team grid 1-col, oversized type scales down. Tablet: 2-col team grid",
-    "is_broken": false
-  },
-  {
-    "site_name": "VitalFit Gym",
-    "category": "health-fitness",
-    "niche": "premium gym and wellness center with personal training",
-    "pages": ["home", "classes", "trainers", "membership", "about", "contact"],
-    "design_system": {
-      "color_palette": {"primary": "#1A1A1A", "secondary": "#FF4500", "accent": "#00D4FF", "bg": "#F5F5F5", "text": "#1A1A1A"},
-      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.2 minor third"},
-      "layout_style": "energetic with strong contrast and dynamic angles",
-      "mood": "energetic, motivating, strong"
-    },
-    "page_descriptions": {
-      "home": "Hero with gym action image area + bold headline + free trial CTA, class schedule preview, trainer spotlight cards, membership teaser, testimonials with before/after placeholder",
-      "classes": "Weekly schedule grid/table, class cards with type, duration, intensity level, trainer name. Filter by type",
-      "trainers": "Trainer cards (photo, name, specialization, certifications, bio), booking CTA per trainer",
-      "membership": "3-tier pricing cards (basic, premium, elite) with feature lists, comparison table, money-back guarantee badge",
-      "about": "Gym story, facility photo gallery placeholders, equipment highlights, location info",
-      "contact": "Contact form, trial booking form, location map placeholder, hours of operation"
-    },
-    "complexity": "moderate",
-    "special_elements": ["class schedule table/grid", "intensity level indicators", "pricing comparison table", "dynamic angled section dividers"],
-    "responsive_notes": "Mobile: schedule becomes list view, trainer cards stack, pricing cards stack with horizontal scroll option. Tablet: 2-col grid",
     "is_broken": false
   },
   {
     "site_name": "NeuralForge AI",
     "category": "tech-startup",
     "niche": "AI infrastructure startup providing model deployment platform",
+    "language": "en",
+    "text_direction": "ltr",
+    "design_style": "cyberpunk",
+    "dark_mode": true,
+    "nav_style": "top-bar",
     "pages": ["home", "platform", "docs", "pricing", "blog", "contact"],
     "design_system": {
       "color_palette": {"primary": "#0F172A", "secondary": "#1E293B", "accent": "#38BDF8", "bg": "#0F172A", "text": "#E2E8F0"},
@@ -295,80 +128,286 @@
       "contact": "Sales contact form, community Discord link, support options (docs, forum, enterprise)"
     },
     "complexity": "complex",
-    "special_elements": ["code snippet blocks with syntax highlighting placeholder", "terminal-style UI elements", "architecture diagram", "benchmark comparison charts placeholder"],
+    "image_assets": [
+      {"filename": "hero-terminal.png", "prompt": "Dark terminal window showing colorful code output with neon blue and green syntax highlighting, glowing cursor, matrix-style digital rain in the background, cyberpunk aesthetic, dark navy background", "size": "1536x1024", "used_on": "home", "purpose": "hero section decorative image"},
+      {"filename": "architecture-diagram.png", "prompt": "Clean technical architecture diagram on dark background showing interconnected cloud services, API gateways, and neural network nodes, neon blue connection lines, minimal flat design style, tech blueprint aesthetic", "size": "1536x1024", "used_on": "home, platform", "purpose": "architecture overview illustration"},
+      {"filename": "dashboard-mockup.png", "prompt": "Modern analytics dashboard interface on dark background showing graphs, charts, and metrics in neon blue and cyan colors, glassmorphism card elements, sleek UI design mockup", "size": "1536x1024", "used_on": "platform", "purpose": "platform feature showcase"}
+    ],
+    "special_elements": ["code snippet blocks with syntax highlighting placeholder", "terminal-style UI elements", "architecture diagram", "benchmark comparison charts placeholder", "neon glow effects on hover"],
     "responsive_notes": "Mobile: code blocks scroll horizontally, feature cards stack, sidebar navigation collapses. Tablet: 2-col feature grid",
     "is_broken": false
   },
   {
-    "site_name": "Metro Pulse News",
-    "category": "news-media",
-    "niche": "local city news and investigative journalism outlet",
-    "pages": ["home", "article", "section", "opinion", "about", "subscribe"],
+    "site_name": "Maison Lumière",
+    "category": "luxury-brand",
+    "niche": "French luxury candle and home fragrance brand",
+    "language": "fr",
+    "text_direction": "ltr",
+    "design_style": "luxury",
+    "dark_mode": true,
+    "nav_style": "hamburger-only",
+    "pages": ["accueil", "collections", "produit", "notre-histoire", "boutiques", "contact"],
     "design_system": {
-      "color_palette": {"primary": "#1A1A1A", "secondary": "#B22222", "accent": "#003366", "bg": "#FFFFFF", "text": "#333333"},
-      "typography": {"heading_font": "serif", "body_font": "serif", "scale": "1.2 newspaper-style"},
-      "layout_style": "classic newspaper grid with clear hierarchy",
-      "mood": "trustworthy, informative, classic news"
+      "color_palette": {"primary": "#0A0A0A", "secondary": "#1A1A1A", "accent": "#C9A84C", "bg": "#0A0A0A", "text": "#F5F0E8"},
+      "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.333 perfect fourth"},
+      "layout_style": "dark luxury with generous whitespace, gold accents, and full-bleed imagery",
+      "mood": "luxurious, intimate, sophisticated, French elegance"
     },
     "page_descriptions": {
-      "home": "Breaking news banner, featured story (large image + headline), 3-col grid of top stories, sidebar with weather placeholder + market data + opinion preview, section quick-nav bar",
-      "article": "Article header (headline, byline, date, share buttons), featured image, body text with subheadings, related articles sidebar, comment section placeholder",
-      "section": "Section header (politics, business, sports, culture), article list with thumbnails, trending in section sidebar",
-      "opinion": "Editorial board picks, op-ed cards with author photos, letters to editor section",
-      "about": "Newsroom info, editorial standards, staff directory, contact for tips",
-      "subscribe": "Subscription tiers with pricing, digital/print options, student discount, gift subscription option"
+      "accueil": "Plein écran hero avec image de bougie allumée dans un intérieur sombre élégant, titre en serif doré avec tagline. Section collections vedettes (3 grandes cartes avec images). Citation de la fondatrice en typographie élégante. Bande dorée avec logos presse (Vogue, Elle Décor)",
+      "collections": "Grille de produits 3 colonnes avec images sur fond noir, noms en doré, prix discrets. Filtres par catégorie (Bougies, Diffuseurs, Coffrets). Animation hover subtile",
+      "produit": "Grande image produit à gauche, détails à droite (nom, description, notes olfactives, prix, bouton Ajouter au panier doré). Section 'Vous aimerez aussi' en bas",
+      "notre-histoire": "Récit long format avec images parallax de l'atelier, timeline de la marque depuis 1987, photos de la fondatrice, section sur l'artisanat et les matières premières",
+      "boutiques": "Cartes pour chaque boutique (Paris, Lyon, Bordeaux) avec photo, adresse, horaires. Carte interactive placeholder",
+      "contact": "Formulaire minimaliste sur fond noir (nom, email, message), coordonnées dorées, liens réseaux sociaux"
     },
     "complexity": "moderate",
-    "special_elements": ["breaking news ticker bar", "newspaper-style column layout", "share buttons", "weather widget placeholder"],
-    "responsive_notes": "Mobile: single column, breaking news simplifies, sidebar below main content. Tablet: 2-col grid",
+    "image_assets": [
+      {"filename": "hero-candle.png", "prompt": "Luxury scented candle burning in a dark elegant room, warm golden flame glow illuminating a marble surface, black and gold minimalist aesthetic, dramatic chiaroscuro lighting, high-end product photography", "size": "1536x1024", "used_on": "accueil", "purpose": "hero full-bleed background"},
+      {"filename": "collection-bougies.png", "prompt": "Three luxury candles in dark glass vessels arranged on black marble, gold labels, soft warm backlighting, premium product photography, dark moody atmosphere", "size": "1024x1024", "used_on": "accueil, collections", "purpose": "candle collection card"},
+      {"filename": "atelier.png", "prompt": "Artisan hand-pouring hot wax into a luxury candle mold in a Parisian workshop, warm ambient lighting, shallow depth of field, documentary craftsmanship photography", "size": "1536x1024", "used_on": "notre-histoire", "purpose": "brand story craftsmanship image"},
+      {"filename": "boutique-paris.png", "prompt": "Elegant Parisian boutique interior with dark walls, gold shelving displaying luxury candles, crystal chandelier, marble floor, high-end retail photography", "size": "1536x1024", "used_on": "boutiques", "purpose": "Paris store photo"}
+    ],
+    "special_elements": ["gold accent borders and dividers", "hamburger menu with full-screen overlay navigation", "parallax image sections", "hover animations revealing product details", "French language throughout"],
+    "responsive_notes": "Mobile: full-screen hamburger nav overlay, product grid becomes single column, hero text scales down, gold accents remain. Tablet: 2-col product grid, story images alternate side",
     "is_broken": false
   },
   {
-    "site_name": "Nexus Summit 2026",
-    "category": "event-conference",
-    "niche": "annual tech conference on AI and the future of work",
-    "pages": ["home", "speakers", "schedule", "tickets", "venue", "sponsors"],
+    "site_name": "PIXEL REVOLT",
+    "category": "creative-collective",
+    "niche": "underground digital art and zine collective",
+    "language": "en",
+    "text_direction": "ltr",
+    "design_style": "brutalist",
+    "dark_mode": false,
+    "nav_style": "side-drawer",
+    "pages": ["home", "gallery", "zines", "manifesto", "submit", "links"],
     "design_system": {
-      "color_palette": {"primary": "#6C63FF", "secondary": "#3F3D56", "accent": "#FF6584", "bg": "#FFFFFF", "text": "#2F2E41"},
-      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.333 perfect fourth"},
-      "layout_style": "vibrant with geometric patterns and gradient backgrounds",
-      "mood": "exciting, innovative, community-driven"
+      "color_palette": {"primary": "#000000", "secondary": "#FF0000", "accent": "#00FF00", "bg": "#FFFFFF", "text": "#000000"},
+      "typography": {"heading_font": "monospace", "body_font": "sans-serif", "scale": "1.5 raw and uneven"},
+      "layout_style": "brutalist — raw borders, stark black and white with neon accents, asymmetric grid, visible structure, no rounded corners",
+      "mood": "raw, confrontational, punk, anti-corporate"
     },
     "page_descriptions": {
-      "home": "Countdown timer placeholder, hero with event name + date + location + register CTA, keynote speaker spotlight cards, track overview (AI, Future of Work, Ethics), past event highlights, sponsor logos tier",
-      "speakers": "Speaker cards grid (photo, name, company, talk title), keynote section at top, filter by track",
-      "schedule": "Multi-day tabbed schedule, time slots with track columns, session cards (title, speaker, room, time), add-to-calendar placeholder",
-      "tickets": "Ticket tiers (early bird, regular, VIP, group) with pricing and perks list, FAQ, refund policy",
-      "venue": "Venue photo gallery placeholders, floor plan placeholder, travel info (airport, hotels, transit), accommodation partner section",
-      "sponsors": "Sponsor tiers (platinum, gold, silver, community) with logos and descriptions, become-a-sponsor CTA with packages"
+      "home": "Giant monospace headline taking up 60% of viewport. Rotating ASCII art placeholder. Raw grid of latest works (images with thick black borders, no padding). Marquee-style scrolling text with latest updates. Counter showing 'WORKS SUBMITTED: 1,247'",
+      "gallery": "Asymmetric masonry grid with intentionally varied card sizes, thick 3px black borders on everything, artist name in monospace overlaid on images, filter by medium (DIGITAL / GLITCH / PIXEL / MIXED)",
+      "zines": "List of zine issues with large issue numbers, raw table layout with columns (ISSUE / DATE / THEME / DOWNLOAD), each row has a stark hover effect (red background, white text)",
+      "manifesto": "Long-form manifesto text in centered single column, oversized drop caps, pull quotes in red with thick left border, numbered paragraphs, raw typography",
+      "submit": "Brutalist form with thick borders on all inputs, monospace labels, large submit button (black bg, green text), file upload area with dashed border, terms in small monospace text",
+      "links": "Simple list of external links styled as a directory, each link in its own bordered row, categorized (TOOLS / COMMUNITIES / INSPIRATION / FRIENDS)"
     },
     "complexity": "moderate",
-    "special_elements": ["countdown timer placeholder", "multi-track schedule grid", "geometric decorative shapes", "gradient backgrounds"],
-    "responsive_notes": "Mobile: schedule becomes day-by-day list, speaker grid 1-col, countdown simplifies. Tablet: 2-col speaker grid, schedule still tabbed",
+    "image_assets": [
+      {"filename": "hero-glitch.png", "prompt": "Abstract glitch art with corrupted pixel patterns, stark red and green on black, digital noise and scan lines, raw cyberpunk aesthetic, VHS distortion effect", "size": "1536x1024", "used_on": "home", "purpose": "hero background decoration"},
+      {"filename": "zine-cover.png", "prompt": "Punk-style zine cover with cut-and-paste collage aesthetic, bold monospace text, black and white with red accents, photocopier texture, DIY underground art style", "size": "1024x1536", "used_on": "zines", "purpose": "featured zine cover"},
+      {"filename": "pixel-art-sample.png", "prompt": "Retro pixel art landscape with limited color palette (black, white, red, green), 8-bit style cityscape, visible pixels, nostalgic digital art aesthetic", "size": "1024x1024", "used_on": "gallery, home", "purpose": "sample artwork in gallery"}
+    ],
+    "special_elements": ["thick black borders on all elements", "monospace text throughout", "marquee scrolling text", "asymmetric intentionally 'broken' grid", "cursor changes to crosshair"],
+    "responsive_notes": "Mobile: side drawer collapses to hamburger, grid becomes single column with full-width cards, marquee still scrolls, form goes full-width. Tablet: 2-col asymmetric grid. All viewports maintain brutalist aesthetic — no softening for mobile",
     "is_broken": false
   },
   {
-    "site_name": "Artisan Bakehouse",
-    "category": "food-bakery",
-    "niche": "artisan sourdough bakery with café and baking classes",
-    "pages": ["home", "menu", "classes", "catering", "about", "contact"],
+    "site_name": "Clínica Bienestar",
+    "category": "healthcare",
+    "niche": "wellness clinic and medical spa in Barcelona",
+    "language": "es",
+    "text_direction": "ltr",
+    "design_style": "minimalist",
+    "dark_mode": false,
+    "nav_style": "top-bar",
+    "pages": ["inicio", "servicios", "equipo", "tratamientos", "testimonios", "contacto"],
     "design_system": {
-      "color_palette": {"primary": "#5C3D2E", "secondary": "#D4A373", "accent": "#E07A5F", "bg": "#FFF8F0", "text": "#3D2B1F"},
+      "color_palette": {"primary": "#2C6E49", "secondary": "#8ECAE6", "accent": "#FFB703", "bg": "#FEFEFE", "text": "#2B2D42"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.2 minor third"},
+      "layout_style": "clean minimalist with generous whitespace, soft shadows, rounded elements",
+      "mood": "calming, professional, trustworthy, welcoming"
+    },
+    "page_descriptions": {
+      "inicio": "Hero con imagen de spa sereno y titular 'Tu bienestar es nuestra prioridad' + botón CTA 'Reservar cita'. Sección de servicios destacados (3 tarjetas con iconos). Contador de estadísticas (pacientes atendidos, años de experiencia, especialistas). Testimonios con estrellas. Banner de descarga de app",
+      "servicios": "Cuadrícula de tarjetas de servicio (Masajes, Acupuntura, Nutrición, Dermatología, Fisioterapia, Yoga) con icono, descripción breve y enlace 'Más información'. Cada tarjeta con sombra suave y esquinas redondeadas",
+      "equipo": "Tarjetas del equipo médico con foto circular, nombre, especialidad, breve bio. Sección de certificaciones y afiliaciones con logos",
+      "tratamientos": "Página detallada con pestañas (Relajación / Terapéutico / Estético). Cada tratamiento: nombre, duración, precio, descripción, indicaciones y contraindicaciones",
+      "testimonios": "Tarjetas de testimonios con foto del paciente, puntuación con estrellas, texto del testimonio, fecha. Formulario para dejar testimonio",
+      "contacto": "Formulario de contacto (nombre, email, teléfono, servicio de interés, mensaje). Mapa placeholder. Horarios de atención. Botón de WhatsApp"
+    },
+    "complexity": "moderate",
+    "image_assets": [
+      {"filename": "hero-spa.png", "prompt": "Serene wellness spa interior with natural light, green plants, white towels, bamboo elements, calming water feature, clean minimalist design, soft natural lighting, spa photography", "size": "1536x1024", "used_on": "inicio", "purpose": "hero background"},
+      {"filename": "team-doctor.png", "prompt": "Professional female doctor in white coat smiling warmly in a modern bright medical office, stethoscope, clean background, professional headshot photography style", "size": "1024x1024", "used_on": "equipo", "purpose": "team member photo"},
+      {"filename": "massage-treatment.png", "prompt": "Relaxing hot stone massage treatment in a calm spa setting with soft ambient lighting, candles, and green plants, wellness photography, warm tones", "size": "1536x1024", "used_on": "servicios, tratamientos", "purpose": "treatment showcase image"}
+    ],
+    "special_elements": ["rounded card corners with soft shadows", "star rating display", "WhatsApp floating button placeholder", "tab navigation for treatment categories", "smooth gradient section transitions"],
+    "responsive_notes": "Mobile: services stack single column, team cards stack, treatment tabs become accordion, WhatsApp button remains fixed bottom-right. Tablet: 2-col service grid, team 2-col",
+    "is_broken": false
+  },
+  {
+    "site_name": "서울 디자인 스튜디오",
+    "category": "design-studio",
+    "niche": "Korean graphic design and branding studio",
+    "language": "ko",
+    "text_direction": "ltr",
+    "design_style": "swiss",
+    "dark_mode": false,
+    "nav_style": "side-drawer",
+    "pages": ["홈", "작업", "서비스", "프로세스", "소개", "문의"],
+    "design_system": {
+      "color_palette": {"primary": "#1A1A1A", "secondary": "#E8E8E8", "accent": "#FF4444", "bg": "#FFFFFF", "text": "#1A1A1A"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.414 augmented fourth"},
+      "layout_style": "Swiss/International style — strict grid system, asymmetric layouts, bold typography, strong alignment, minimal decoration",
+      "mood": "precise, bold, confident, contemporary"
+    },
+    "page_descriptions": {
+      "홈": "대형 타이포그래피 히어로 '우리는 브랜드를 만듭니다' 빨간 악센트. 선택된 작업 3개 가로 스크롤 (큰 이미지 + 프로젝트명). 클라이언트 로고 줄. 수상 내역 카운터. 연락처 CTA",
+      "작업": "엄격한 그리드 레이아웃의 프로젝트 카드 (이미지, 프로젝트명, 카테고리 태그). 카테고리 필터 (브랜딩 / 웹 / 편집 / 패키지). 흑백 이미지에 호버시 컬러 전환",
+      "서비스": "서비스 블록 4개 (브랜딩, 웹디자인, 편집디자인, 패키지디자인) 각각 큰 번호 (01-04), 제목, 상세 설명, 관련 프로젝트 링크",
+      "프로세스": "4단계 프로세스 (리서치 → 전략 → 디자인 → 납품) 수평 타임라인, 각 단계별 상세 설명과 기간, FAQ 아코디언",
+      "소개": "스튜디오 소개 텍스트, 팀원 그리드 (사진, 이름, 역할), 스튜디오 공간 사진, 연혁 타임라인",
+      "문의": "미니멀 폼 (이름, 이메일, 프로젝트 유형, 예산 범위, 메시지). 서울 사무실 주소와 지도. 영업 시간"
+    },
+    "complexity": "moderate",
+    "image_assets": [
+      {"filename": "project-branding.png", "prompt": "Elegant brand identity mockup showing business cards, letterhead, and envelope on a clean white surface with dramatic shadow, minimal Swiss design aesthetic, black and red accents", "size": "1536x1024", "used_on": "홈, 작업", "purpose": "featured project showcase"},
+      {"filename": "studio-interior.png", "prompt": "Modern minimalist design studio interior with white walls, large desks, Apple displays, design books on shelves, natural light from large windows, clean architectural photography", "size": "1536x1024", "used_on": "소개", "purpose": "studio space photo"},
+      {"filename": "project-editorial.png", "prompt": "Open spread of a beautifully designed editorial magazine on a white surface, bold typography, grid-based layout visible, Swiss design influence, overhead photography", "size": "1024x1024", "used_on": "작업, 서비스", "purpose": "editorial design project sample"}
+    ],
+    "special_elements": ["strict 12-column grid visible in layout", "large bold numbering on sections (01, 02, 03)", "monochrome images with color on hover", "permanent side drawer navigation with Korean labels", "red accent line decorators"],
+    "responsive_notes": "Mobile: side drawer becomes hamburger overlay, grid collapses to single column, large type scales down but stays bold, process timeline becomes vertical. Tablet: 2-col grid, side drawer remains as narrow strip. Korean text requires proper line-height and word-break handling",
+    "is_broken": false
+  },
+  {
+    "site_name": "Prism Creative Studio",
+    "category": "creative-agency",
+    "niche": "digital design and branding agency for tech startups",
+    "language": "en",
+    "text_direction": "ltr",
+    "design_style": "maximalist",
+    "dark_mode": true,
+    "nav_style": "top-bar",
+    "pages": ["home", "work", "services", "process", "team", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#0D0D0D", "secondary": "#1A1A1A", "accent": "#FF3366", "bg": "#0D0D0D", "text": "#FFFFFF"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.414 augmented fourth"},
+      "layout_style": "dark theme with bold typography and full-width case studies",
+      "mood": "bold, creative, cutting-edge, dark"
+    },
+    "page_descriptions": {
+      "home": "Animated hero text (large bold type) with reel placeholder, selected work horizontal scroll section, services overview with icons, client quotes marquee, awards section",
+      "work": "Full-width case study cards (large image + project name + category), filterable by category",
+      "services": "Service blocks (branding, web, mobile, motion) with icon + description + example projects list",
+      "process": "4-step process timeline (discover, design, develop, deliver) with illustrations, FAQ accordion",
+      "team": "Team grid with creative hover effects (photo reveals role + bio), studio culture section",
+      "contact": "Minimal dark contact form, new business inquiries section, office location with map"
+    },
+    "complexity": "complex",
+    "image_assets": [
+      {"filename": "hero-abstract.png", "prompt": "Abstract 3D rendered shapes in hot pink and electric blue floating on a pure black background, glossy reflective surfaces, dramatic lighting, futuristic digital art", "size": "1536x1024", "used_on": "home", "purpose": "hero section abstract visual"},
+      {"filename": "case-study-app.png", "prompt": "Mockup of a sleek mobile app interface on a dark background with colorful gradient elements, modern UI design showcase, hot pink accent color, floating device angle", "size": "1024x1024", "used_on": "work", "purpose": "case study card image"},
+      {"filename": "studio-culture.png", "prompt": "Creative team brainstorming in a modern dark-themed office with neon accent lighting, laptops and design tools, candid collaborative atmosphere, dramatic low-key photography", "size": "1536x1024", "used_on": "team", "purpose": "studio culture section"}
+    ],
+    "special_elements": ["dark theme throughout", "horizontal scroll section", "bold oversized typography", "creative team hover effects"],
+    "responsive_notes": "Mobile: horizontal scroll becomes vertical stack, team grid 1-col, oversized type scales down. Tablet: 2-col team grid",
+    "is_broken": false
+  },
+  {
+    "site_name": "GreenHope Foundation",
+    "category": "non-profit",
+    "niche": "environmental conservation non-profit focusing on reforestation",
+    "language": "en",
+    "text_direction": "ltr",
+    "design_style": "organic",
+    "dark_mode": false,
+    "nav_style": "top-bar",
+    "pages": ["home", "mission", "programs", "impact", "donate", "contact"],
+    "design_system": {
+      "color_palette": {"primary": "#2D6A4F", "secondary": "#40916C", "accent": "#D4A373", "bg": "#F0F7F4", "text": "#1B4332"},
       "typography": {"heading_font": "serif", "body_font": "sans-serif", "scale": "1.25 modular"},
-      "layout_style": "rustic warmth with handcrafted feel and texture overlays",
-      "mood": "warm, artisan, handcrafted, inviting"
+      "layout_style": "nature-inspired with organic shapes and earthy tones",
+      "mood": "hopeful, natural, trustworthy"
     },
     "page_descriptions": {
-      "home": "Hero with fresh bread image area and daily special callout, our breads preview grid (3 signature items), baking class teaser with CTA, location and hours card, instagram-style photo grid placeholder",
-      "menu": "Categorized menu (Breads, Pastries, Sandwiches, Drinks) with descriptions and prices, daily specials highlighted section, allergen info note",
-      "classes": "Upcoming class cards (date, title, level, price, spots remaining), class descriptions, what to bring list, instructor bios",
-      "catering": "Catering packages (corporate, wedding, event) with sample menus, order form placeholder, photo gallery of past events",
-      "about": "Baker's story with photos, our process (mixing, proofing, baking) illustrated steps, sourcing philosophy",
-      "contact": "Bakery address + hours + phone, order form, map placeholder, social media links"
+      "home": "Hero with forest image area and call to action, impact counter section (trees planted, acres restored, volunteers), program highlights cards, latest news section, donate CTA banner",
+      "mission": "Mission statement hero, core values with nature icons, founder message with photo, partner organization logos",
+      "programs": "Program cards (reforestation, education, advocacy) with images and descriptions, how to get involved section",
+      "impact": "Large stat counters, before/after image comparison placeholders, annual report highlights, interactive map placeholder showing project sites",
+      "donate": "Donation tiers (seed, sapling, forest) as cards with amounts, recurring/one-time toggle, dedication option, corporate matching info",
+      "contact": "Volunteer signup form, office info, social media links, press inquiry section"
+    },
+    "complexity": "simple",
+    "image_assets": [
+      {"filename": "hero-forest.png", "prompt": "Lush green forest canopy with sunlight filtering through leaves, rays of light in morning mist, nature photography, vibrant greens and warm golden light, hopeful atmosphere", "size": "1536x1024", "used_on": "home", "purpose": "hero background"},
+      {"filename": "planting-trees.png", "prompt": "Volunteers planting young tree seedlings in an open field, diverse group of people working together, warm sunny day, documentary photography, earthy tones", "size": "1536x1024", "used_on": "programs, impact", "purpose": "program highlight image"},
+      {"filename": "founder-portrait.png", "prompt": "Warm portrait of a woman standing in a reforested area surrounded by young trees, natural outdoor lighting, green background, inspiring documentary photography style", "size": "1024x1024", "used_on": "mission", "purpose": "founder portrait"}
+    ],
+    "special_elements": ["impact counter animation placeholder", "donation tier cards", "before/after image slider placeholder", "organic shape decorators"],
+    "responsive_notes": "Mobile: stats stack vertically, program cards stack, donation tiers stack. Tablet: 2-col programs",
+    "is_broken": false
+  },
+  {
+    "site_name": "RetroWave Records",
+    "category": "music-label",
+    "niche": "independent synthwave and retrowave music label",
+    "language": "en",
+    "text_direction": "ltr",
+    "design_style": "retro-90s",
+    "dark_mode": true,
+    "nav_style": "bottom-tabs",
+    "pages": ["home", "artists", "releases", "store", "events", "about"],
+    "design_system": {
+      "color_palette": {"primary": "#0D0221", "secondary": "#150638", "accent": "#FF00FF", "bg": "#0D0221", "text": "#E0D0FF"},
+      "typography": {"heading_font": "sans-serif", "body_font": "monospace", "scale": "1.2 minor third"},
+      "layout_style": "retro-futuristic dark theme with neon gradients, grid lines, and VHS aesthetic",
+      "mood": "nostalgic, neon, synthwave, retro-futuristic"
+    },
+    "page_descriptions": {
+      "home": "Hero with retro sun/grid landscape and latest release album art, scrolling neon text marquee, featured artists section (3 cards with glowing borders), upcoming events list, embedded audio player placeholder bar at bottom",
+      "artists": "Artist cards in 3-col grid with neon-bordered photos, artist name in glow text, genre tags, play count stat. Click reveals bio expandable section",
+      "releases": "Album grid with cover art, release date, tracklist expandable, neon 'NEW' badge on recent releases, filter by year/genre",
+      "store": "Merchandise grid (vinyl, cassettes, t-shirts, posters) with prices, neon Add to Cart buttons, shopping cart counter in nav",
+      "events": "Upcoming shows list with venue, date, city, ticket status (ON SALE / SOLD OUT badges), past events gallery",
+      "about": "Label history with timeline, founder story, submission guidelines for artists, press kit download link"
+    },
+    "complexity": "complex",
+    "image_assets": [
+      {"filename": "hero-synthwave.png", "prompt": "Retro synthwave landscape with purple and pink sunset over grid plane, distant neon city skyline, chrome sun reflecting on digital ocean, 80s retrowave poster art style, vibrant neon gradients", "size": "1536x1024", "used_on": "home", "purpose": "hero background"},
+      {"filename": "album-cover.png", "prompt": "Synthwave album cover art featuring a chrome sports car driving on a neon grid highway toward a sunset, palm trees silhouetted, purple and magenta sky, retro 80s airbrushed style", "size": "1024x1024", "used_on": "home, releases", "purpose": "featured album cover"},
+      {"filename": "vinyl-merch.png", "prompt": "Vinyl record half out of a neon-colored sleeve on a dark surface with purple ambient lighting, retro music merchandise photography, synthwave aesthetic", "size": "1024x1024", "used_on": "store", "purpose": "merchandise showcase"}
+    ],
+    "special_elements": ["neon glow text effects", "bottom tab navigation bar (mobile-app style)", "scrolling marquee text", "VHS scan line overlay effect", "audio player placeholder bar"],
+    "responsive_notes": "Bottom tabs remain fixed at all viewports. Mobile: album grid single-col, events list simplified, store grid 2-col. Tablet: 2-col album grid, tabs get labels. Neon effects maintained across all sizes. Desktop: bottom tabs show icons + text labels",
+    "is_broken": false
+  },
+  {
+    "site_name": "FORM / VOID",
+    "category": "architecture-studio",
+    "niche": "minimalist residential architecture firm",
+    "language": "en",
+    "text_direction": "ltr",
+    "design_style": "glassmorphism",
+    "dark_mode": false,
+    "nav_style": "hamburger-only",
+    "pages": ["home", "projects", "project-detail", "approach", "studio", "inquiries"],
+    "design_system": {
+      "color_palette": {"primary": "#1A1A2E", "secondary": "#B8C4D0", "accent": "#E8D5B5", "bg": "#F0F2F5", "text": "#1A1A2E"},
+      "typography": {"heading_font": "sans-serif", "body_font": "sans-serif", "scale": "1.333 perfect fourth"},
+      "layout_style": "minimal with frosted glass cards overlaying full-bleed architecture photos, asymmetric split layouts",
+      "mood": "serene, architectural, precise, contemplative"
+    },
+    "page_descriptions": {
+      "home": "Full-viewport hero image of a minimalist building, frosted glass card overlay with studio name and tagline. Scroll reveals 3 featured projects as large split-screen sections (image left, glass card with details right, alternating). Brief philosophy statement. Inquiry CTA",
+      "projects": "Masonry grid of project thumbnails, each with a frosted glass overlay on hover showing project name + location + year. Filter by type (Residential / Cultural / Commercial)",
+      "project-detail": "Full-width hero image, frosted glass info card overlay (project name, location, area, year, status). Scrolling image gallery. Technical details in clean grid. Awards section",
+      "approach": "Split screen: large image left, text right describing design philosophy. 3 principle cards with frosted glass effect. Process diagram (Concept → Design → Build → Inhabit)",
+      "studio": "Team portraits in a row with frosted glass bio cards on hover, studio space photography, awards and publications list, partner architects",
+      "inquiries": "Minimal form on frosted glass card (name, email, project type, budget range, message). Response time note. Office address with map placeholder"
     },
     "complexity": "moderate",
-    "special_elements": ["daily special highlight card", "texture/grain overlay backgrounds", "class booking cards", "handwritten-style decorative elements placeholder"],
-    "responsive_notes": "Mobile: menu sections stack, class cards single-col, hero text over image. Tablet: 2-col menu sections",
+    "image_assets": [
+      {"filename": "hero-building.png", "prompt": "Stunning minimalist concrete and glass residential building with clean geometric lines, set against a pale blue sky, surrounded by minimal landscaping, architectural photography with dramatic perspective, serene mood", "size": "1536x1024", "used_on": "home", "purpose": "hero full-viewport background"},
+      {"filename": "project-house.png", "prompt": "Interior of a minimalist house with floor-to-ceiling windows, polished concrete floors, wooden accent wall, natural light streaming in, architectural interior photography, serene contemplative atmosphere", "size": "1536x1024", "used_on": "projects, project-detail", "purpose": "project showcase"},
+      {"filename": "studio-workspace.png", "prompt": "Architect studio workspace with large wooden table covered in architectural models and drawings, natural light, minimal decor, white walls, clean professional atmosphere", "size": "1536x1024", "used_on": "studio", "purpose": "studio section image"}
+    ],
+    "special_elements": ["frosted glass (glassmorphism) card overlays throughout", "full-screen hamburger menu with large type", "split-screen alternating layouts", "subtle parallax on project images", "minimal monochrome palette with warm accent"],
+    "responsive_notes": "Mobile: split screens stack vertically, glass cards become full-width, hamburger menu remains, project grid single column. Tablet: split screens remain but 60/40 ratio. Glass blur effects maintained on all viewports",
     "is_broken": false
   }
 ]
