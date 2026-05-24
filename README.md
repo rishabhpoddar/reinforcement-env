@@ -186,31 +186,36 @@ python -m pipeline.run_pipeline --step package generated/my-site/
 Requires: `spec.json` + `site/*.html` + `screenshots/*.png` in workspace
 Output: `tasks/web-design-<slug>/` with full Harbor task structure
 
-#### 6. `eval` — Run Harbor evaluation on a packaged task
+#### 6. Run evaluations (via Modal)
 
-Runs the packaged Harbor task using Claude Code as the evaluation agent. Supports local Docker or Modal cloud.
+Evaluations run entirely on [Modal](https://modal.com/) — the Harbor orchestrator, agent, and sandbox all run in the cloud. Your local machine only streams logs and downloads results.
 
-**Important:** The Harbor orchestrator and agent processes run **locally on your machine** — only the sandbox environment (filesystem + verifier) runs remotely on Modal. High concurrency will exhaust local memory and cause `EnvironmentStartTimeoutError`. Use `--eval-concurrent` to control how many trials run simultaneously.
+See `remote_eval.py` for configuration and details.
 
+**Setup (one-time):**
 ```bash
-# Run on Modal (default) — single trial
-python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/
+pip install modal
+modal setup
 
-# Run 10 trials with low concurrency (2 at a time) to avoid OOM
-python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-trials 10 --eval-concurrent 2
-
-# Run eval on ALL packaged tasks sequentially
-python -m pipeline.run_pipeline --step eval --all --eval-trials 10 --eval-concurrent 2
-
-# Run locally with Docker
-python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-env docker
-
-# Use a different model for the evaluation agent
-python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-model anthropic/claude-sonnet-4-6
+# Create secrets in Modal
+modal secret create anthropic-api-key ANTHROPIC_API_KEY=sk-ant-...
+modal secret create openai-api-key OPENAI_API_KEY=sk-...
 ```
 
-Requires: A packaged task directory with `task.toml`
-Output: Results in `jobs/<timestamp>/` with agent trajectory, artifacts (source code), verifier screenshots, and `reward.json`
+**Run:**
+```bash
+# Run all tasks (10 trials each, 2 concurrent per task)
+modal run remote_eval.py
+```
+
+Results are automatically downloaded to `remote-jobs/` when the run completes. You can also browse logs in the [Modal dashboard](https://modal.com/apps).
+
+**How it works:**
+- `remote_eval.py` spins up one Modal machine per task (10 tasks = 10 machines in parallel)
+- Each machine runs the Harbor orchestrator + claude-code agent
+- Harbor spawns child Modal sandboxes for each trial environment
+- With `EVAL_CONCURRENT=2`, each machine runs 2 trials at a time
+- Configure `EVAL_TRIALS` and `EVAL_CONCURRENT` at the top of the script
 
 ### Full Pipeline Arguments Reference
 
@@ -223,13 +228,8 @@ Output: Results in `jobs/<timestamp>/` with agent trajectory, artifacts (source 
 | `--models M [M...]` | `claude-opus-4-7 gpt-5.5` | LLM models for building and judging |
 | `--max-iterations N` | 5 | Max builder-judge iterations per task |
 | `--spec-model M` | `claude-opus-4-7` | Anthropic model for spec generation |
-| `--step STEP` | — | Run a single step: `spec`, `build`, `judge`, `screenshot`, `package`, `eval` |
-| `workspace` | — | Workspace or task directory (required for all steps except `spec`) |
-| `--eval-env` | `modal` | Environment for eval step: `docker` or `modal` |
-| `--eval-model` | `claude-opus-4-7` | Model for the evaluation agent |
-| `--eval-trials N` | 1 | Total number of eval trials per task |
-| `--eval-concurrent N` | 2 | Max trials running simultaneously (keep low to avoid OOM) |
-| `--all` | — | Run eval on all tasks in `tasks/` sequentially |
+| `--step STEP` | — | Run a single step: `spec`, `build`, `judge`, `screenshot`, `package` |
+| `workspace` | — | Workspace directory (required for all steps except `spec`) |
 | `--language LANG` | random | Force website language (e.g. `en`, `es`, `fr`, `ja`, `ar`, `ko`, `de`, `pt`, `hi`, `zh`, `mixed-en-es`, `mixed-en-ja`) |
 
 ## Project Structure
@@ -237,6 +237,7 @@ Output: Results in `jobs/<timestamp>/` with agent trajectory, artifacts (source 
 ```
 reinforcement-env/
 ├── .env                          # API keys (ANTHROPIC_API_KEY, OPENAI_API_KEY)
+├── remote_eval.py                # Run evals on Modal (all tasks in parallel)
 ├── .opencode/                    # OpenCode isolated config + data (gitignored)
 ├── pipeline/
 │   ├── config.py                 # Configuration, paths, logger
@@ -346,23 +347,14 @@ The evaluation agent must:
 
 ## Running Evaluations with Harbor
 
-After generating tasks:
+Evaluations run entirely on Modal (zero local resource usage). See step 6 above for setup and usage.
 
 ```bash
-# Install Harbor
-pip install harbor
+# All tasks in parallel
+modal run remote_eval.py
 
-# Run all tasks via the pipeline (recommended — handles concurrency safely)
-python -m pipeline.run_pipeline --step eval --all --eval-trials 10 --eval-concurrent 2
-
-# Or run a single task
-python -m pipeline.run_pipeline --step eval tasks/web-design-my-site/ --eval-trials 10 --eval-concurrent 2
-
-# Or use harbor CLI directly (careful with -n concurrency!)
-harbor run -p ./tasks --agent claude-code --model anthropic/claude-opus-4-7 -e modal -k 10 -n 2
-
-# View results
-harbor view jobs
+# View downloaded results
+harbor view remote-jobs
 ```
 
-**Concurrency warning:** The Harbor orchestrator and all agent processes run locally — only the sandbox filesystem runs on Modal. Setting `-n` (concurrent trials) too high will exhaust local memory. Start with `-n 2` and increase if your machine handles it. For large-scale runs (many tasks × many trials), run from a cloud VM instead of a laptop.
+**Architecture:** Each task gets its own Modal machine running the Harbor orchestrator + claude-code agent. Harbor spawns child Modal sandboxes for trial environments. Your Mac only streams logs and downloads results at the end.
