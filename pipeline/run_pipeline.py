@@ -107,7 +107,7 @@ def step_screenshot(workspace_dir: Path):
     log.info(f"  Captured {total} screenshots across {len(screenshots)} pages")
 
 
-def step_eval(task_dir: Path, model: str = "anthropic/claude-opus-4-7", env: str = "modal", trials: int = 1):
+def step_eval(task_dir: Path, model: str = "anthropic/claude-opus-4-7", env: str = "modal", trials: int = 1, concurrent: int = 2):
     """Run a Harbor evaluation on a packaged task."""
     import subprocess
 
@@ -124,7 +124,7 @@ def step_eval(task_dir: Path, model: str = "anthropic/claude-opus-4-7", env: str
         "-e", env,
         "--env-file", str(env_file),
         "-k", str(trials),
-        "-n", str(trials),
+        "-n", str(concurrent),
     ]
 
     log.info(f"Running Harbor eval: {' '.join(cmd)}")
@@ -304,7 +304,15 @@ def main():
     )
     parser.add_argument(
         "--eval-trials", type=int, default=1,
-        help="Number of parallel eval trials to run (default: 1)",
+        help="Number of eval trials to run per task (default: 1)",
+    )
+    parser.add_argument(
+        "--eval-concurrent", type=int, default=2,
+        help="Max concurrent trials per Harbor job (default: 2)",
+    )
+    parser.add_argument(
+        "--all", action="store_true",
+        help="Run the step on all tasks in tasks/ directory (for eval step)",
     )
     args = parser.parse_args()
 
@@ -315,6 +323,20 @@ def main():
         if args.step == "spec":
             force_broken = True if args.broken else (False if args.clean else None)
             step_spec(args.spec_model, force_broken, force_language=args.language)
+            return
+
+        # --all mode for eval: run on every task in tasks/ sequentially
+        if args.all and args.step == "eval":
+            task_dirs = sorted(d for d in TASKS_DIR.iterdir() if d.is_dir() and (d / "task.toml").exists())
+            if not task_dirs:
+                log.error(f"No packaged tasks found in {TASKS_DIR}")
+                sys.exit(1)
+            log.info(f"Running eval on {len(task_dirs)} tasks sequentially (trials={args.eval_trials}, concurrent={args.eval_concurrent})")
+            for i, td in enumerate(task_dirs):
+                log.info(f"\n{'='*60}")
+                log.info(f"  Task {i+1}/{len(task_dirs)}: {td.name}")
+                log.info(f"{'='*60}")
+                step_eval(td, model=args.eval_model, env=args.eval_env, trials=args.eval_trials, concurrent=args.eval_concurrent)
             return
 
         if not args.workspace:
@@ -335,7 +357,7 @@ def main():
         elif args.step == "package":
             step_package(workspace)
         elif args.step == "eval":
-            step_eval(workspace, model=args.eval_model, env=args.eval_env, trials=args.eval_trials)
+            step_eval(workspace, model=args.eval_model, env=args.eval_env, trials=args.eval_trials, concurrent=args.eval_concurrent)
         return
 
     # ── Full pipeline ──
