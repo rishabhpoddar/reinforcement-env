@@ -1,4 +1,5 @@
 - go through entire code base and refactor properly
+- in the grader add a thing about checking copy is the same or not per page.
 - go through all the prompts and criteria once the full pipeline is working as expected.
 - make the full pipeline config based - should be easy to add more types of websites (even give reference images), should be easy to add more llm, change prompts slightly etc.
 - Add support for animations.
