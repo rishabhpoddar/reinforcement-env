@@ -565,7 +565,7 @@ def judge_website(
                 link.symlink_to(target.resolve())
 
         screenshots_subdir = "screenshots"
-        verdict_filename = f".verdict-{judge_idx}.json"
+        verdict_filename = ".verdict.json"
         verdict_path = str(judge_workdir / verdict_filename)
         session_id = judge_session_ids.get(judge_model)
         log.info(f"    Judge: {judge_model} → {verdict_filename}" +
