@@ -6,6 +6,7 @@
 - make the full pipeline config based - should be easy to add more types of websites (even give reference images), should be easy to add more llm, change prompts slightly etc.
 - Add support for animations.
 - add multi tech stack support (see multi-tech-stack-support.txt)
+- should we use agent trajectory.json as well in grader? To detect hacking attempts or something?
 
 --------------------
 
