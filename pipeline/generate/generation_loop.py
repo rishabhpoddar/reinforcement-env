@@ -430,6 +430,16 @@ def generate_website(
                 })
                 continue
 
+        # Skip judges on the last iteration — verdict can't be acted on
+        if iteration == max_iterations:
+            metadata["iterations"].append({
+                "iteration": iteration,
+                "builder_model": builder_model,
+                "builder_success": True,
+            })
+            log.info(f"    Last iteration — skipping judges (no further builder rounds)")
+            break
+
         # --- JUDGES ---
         verdicts, judge_session_ids = judge_website(
             workspace_dir=workspace_dir,
