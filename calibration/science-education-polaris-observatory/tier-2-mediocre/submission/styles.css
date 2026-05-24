@@ -1,0 +1,2355 @@
+/* ================================================
+   POLARIS OBSERVATORY — Master Stylesheet
+   Deep-space dark theme, scholarly & cosmic
+   ================================================ */
+
+:root {
+  --primary: #474c62;
+  --secondary: #665798;
+  --accent: #ffff99;
+  --accent-soft: #f4c95d33;
+  --bg: #434656;
+  --bg-2: #494e6c;
+  --text: #ffffff;
+  --text-dim: #e2e0f9;
+  --text-faint: #aba9c6;
+  --border: #595e83;
+  --line: #5f6494;
+  --success: #baffdf;
+  --warn: #ffdf98;
+  --danger: #ffa7a7;
+
+  /* Typography scale — perfect fourth 1.333 */
+  --t-xs: 1.3rem;
+  --t-sm: 1.5rem;
+  --t-base: 1.8rem;
+  --t-md: 2.4rem;
+  --t-lg: 3.2rem;
+  --t-xl: 4.3rem;
+  --t-2xl: 5.7rem;
+  --t-3xl: 7.6rem;
+  --t-4xl: 10.1rem;
+
+  --serif: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 25.2px;
+  --radius-sm: 14.4px;
+  --radius-lg: 39.6px;
+  --shadow-lg: 0 36.0px 108.0px -36.0px rgba(0,0,0,0.6), 0 0 1.8px rgba(244,201,93,0.1);
+
+  --maxw: 2232.0px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Courier New", monospace;
+  font-size: var(--t-base);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: clip;
+  background-image:
+    radial-gradient(ellipse at top, rgba(42,27,92,0.35), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(11,16,38,0.6), transparent 60%);
+  background-attachment: fixed;
+}
+html { overflow-x: clip; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Courier New", monospace;
+  font-weight: 500;
+  letter-spacing: -0.0em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+p { color: var(--text-dim); }
+
+a { color: var(--accent); text-decoration: none; transition: opacity 0.15s; }
+a:hover { opacity: 0.75; }
+
+img, svg { display: block; max-width: 100%; }
+
+/* =========================================
+   STARFIELD BACKGROUND
+   ========================================= */
+.starfield {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-image:
+    radial-gradient(1.8px 1.8px at 12% 18%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 28% 72%, #ffffff 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 47% 30%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 63% 56%, #ffff99 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 81% 12%, #ffffff 50%, transparent 100%),
+    radial-gradient(3.6px 3.6px at 92% 64%, #feffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 35% 88%, #ffffff 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 72% 84%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 5% 50%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 17% 40%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 55% 8%, #ffff99 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 88% 38%, #ffffff 50%, transparent 100%);
+}
+
+.starfield.dense {
+  background-image:
+    radial-gradient(1.8px 1.8px at 8% 14%, #ffffff 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 19% 62%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 29% 24%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 38% 79%, #ffffff 50%, transparent 100%),
+    radial-gradient(3.6px 3.6px at 44% 41%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 53% 16%, #ffff99 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 62% 88%, #ffffff 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 71% 31%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 78% 71%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 86% 22%, #ffffff 50%, transparent 100%),
+    radial-gradient(3.6px 3.6px at 94% 56%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 3% 86%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 11% 49%, #ffff99 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 24% 11%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 66% 56%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 49% 96%, #ffffff 50%, transparent 100%);
+}
+
+/* =========================================
+   NAV
+   ========================================= */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 10, 26, 0.85);
+  backdrop-filter: blur(25.2px);
+  -webkit-backdrop-filter: blur(25.2px);
+  border-bottom: 1.8px solid var(--border);
+}
+
+.nav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 1.8rem 2.7rem;
+  display: flex;
+  align-items: center;
+  gap: 3.6rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: "Courier New", monospace;
+  font-size: 2.2rem;
+  letter-spacing: 0.1em;
+  color: var(--text);
+}
+
+.brand .brand-mark {
+  width: 50.4px; height: 50.4px;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.9rem;
+  list-style: none;
+  flex: 1;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  font-size: 1.7rem;
+  letter-spacing: 0.1em;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-links a.active, .nav-links a:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -7.2px; left: 0; right: 0;
+  height: 1.8px;
+  background: var(--accent);
+}
+
+/* Moon phase widget */
+.moon-widget {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(11,16,38,0.6);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  font-size: 1.4rem;
+  color: var(--text-dim);
+}
+
+.moon-icon {
+  width: 39.6px; height: 39.6px;
+  border-radius: 0;
+  background: radial-gradient(circle at 70% 35%, #ffffff, #fff3c7 70%, #aaa28d);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 21.6px rgba(244,201,93,0.35);
+}
+.moon-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  background: var(--bg);
+  transform: translateX(-45%);
+}
+
+.moon-widget .label { color: var(--text); font-weight: 500; }
+
+/* =========================================
+   LAYOUT HELPERS
+   ========================================= */
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 2.7rem;
+}
+
+.section {
+  padding: 9.0rem 0;
+  position: relative;
+}
+
+.section-sm { padding: 5.4rem 0; }
+
+.section-title {
+  font-size: var(--t-xl);
+  margin-bottom: 0.9rem;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 1.4rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.8rem;
+}
+
+.section-lead {
+  font-size: 2.0rem;
+  max-width: 60ch;
+  margin-bottom: 5.4rem;
+  color: var(--text-dim);
+}
+
+/* =========================================
+   CONSTELLATION DIVIDER
+   ========================================= */
+.constellation-divider {
+  width: 100%;
+  height: 108.0px;
+  margin: 1.8rem auto;
+  display: block;
+  opacity: 0.7;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.5rem 2.9rem;
+  border-radius: 0;
+  font-family: "Courier New", monospace;
+  font-size: 1.7rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  border: 1.8px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--primary);
+}
+.btn-primary:hover { transform: translateY(-1.8px); opacity: 1; }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--text-dim);
+  color: var(--text);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn-lg { padding: 1.9rem 3.6rem; font-size: 1.8rem; }
+
+/* =========================================
+   HERO (home)
+   ========================================= */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(112,82,221,0.5), transparent 55%),
+    radial-gradient(ellipse at 20% 70%, rgba(244,201,93,0.15), transparent 50%),
+    linear-gradient(180deg, #414350 0%, #474c62 100%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 10.8rem 2.7rem;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-size: 1.4rem;
+  letter-spacing: 0.7em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2.7rem;
+}
+
+.hero h1 {
+  font-size: clamp(4.5rem, 7vw, 10.1rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.0em;
+  margin-bottom: 2.7rem;
+  font-family: "Courier New", monospace;
+}
+
+.hero h1 .italic { font-style: italic; color: var(--accent); }
+
+.hero-tag {
+  font-size: 2.1rem;
+  color: var(--text-dim);
+  max-width: 55ch;
+  margin-bottom: 4.5rem;
+}
+
+.hero-cta-row { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+
+/* Nebula imagery placeholder */
+.nebula {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 75% 40%, rgba(255,128,200,0.25) 0%, transparent 30%),
+    radial-gradient(circle at 30% 60%, rgba(118,98,255,0.35) 0%, transparent 35%),
+    radial-gradient(circle at 60% 80%, rgba(255,180,90,0.18) 0%, transparent 30%),
+    radial-gradient(circle at 15% 25%, rgba(96,180,255,0.2) 0%, transparent 28%);
+  filter: blur(18.0px);
+  opacity: 0.85;
+}
+
+/* Tonight's sky compass widget (corner) */
+.sky-compass {
+  position: absolute;
+  right: 5.4rem;
+  bottom: 5.4rem;
+  width: 396.0px;
+  z-index: 5;
+  padding: 2.2rem 2.3rem;
+  background: rgba(11,16,38,0.7);
+  backdrop-filter: blur(14.4px);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+}
+.sky-compass h4 {
+  font-family: "Courier New", monospace;
+  font-size: 1.3rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+.sky-compass .moon-row {
+  display: flex; align-items: center; gap: 1.4rem;
+  font-size: 1.5rem; color: var(--text-dim);
+  margin-bottom: 1.3rem;
+}
+.sky-compass .moon-row .big-moon {
+  width: 64.8px; height: 64.8px;
+}
+.sky-compass .data {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.7rem 1.4rem; font-size: 1.4rem;
+  border-top: 1.8px solid var(--border);
+  padding-top: 1.3rem;
+  margin-top: 0.9rem;
+}
+.sky-compass .data span:nth-child(odd) { color: var(--text-faint); }
+.sky-compass .data span:nth-child(even) { color: var(--text); text-align: right; }
+
+/* =========================================
+   CELESTIAL CARDS
+   ========================================= */
+.celestial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.7rem;
+}
+
+.celestial-card {
+  background: linear-gradient(180deg, #4a506e 0%, #464b62 100%);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  padding: 3.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.celestial-card:hover { border-color: var(--accent); }
+
+.celestial-card .visual {
+  height: 288.0px;
+  border-radius: 0;
+  margin-bottom: 2.3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-jupiter {
+  background:
+    radial-gradient(circle at 50% 50%,
+      #ffe4a6 0%, #dcac81 25%,
+      #ffcc9c 35%, #c69c74 55%,
+      #ecc19c 65%, #9b816c 85%, transparent 90%),
+    radial-gradient(ellipse at center, #565474, transparent 60%);
+}
+.visual-jupiter::before {
+  content: "";
+  position: absolute;
+  width: 32.4px; height: 14.4px;
+  background: radial-gradient(ellipse, #a67161, #795b51);
+  border-radius: 0;
+  left: 47%; top: 52%;
+}
+
+.visual-orion {
+  background:
+    radial-gradient(circle at 30% 25%, #ffffff 2.7px, transparent 3.6px),
+    radial-gradient(circle at 60% 35%, #ffffff 2.7px, transparent 3.6px),
+    radial-gradient(circle at 78% 60%, #ffffff 2.7px, transparent 3.6px),
+    radial-gradient(circle at 45% 55%, #ffff99 3.6px, transparent 4.5px),
+    radial-gradient(circle at 38% 75%, #ffffff 2.7px, transparent 3.6px),
+    radial-gradient(circle at 70% 78%, #ffffff 2.7px, transparent 3.6px),
+    radial-gradient(circle at 50% 25%, rgba(140,180,255,0.4) 0%, transparent 35%),
+    linear-gradient(180deg, #464b62, #565474);
+}
+
+.visual-andromeda {
+  background:
+    radial-gradient(ellipse 80% 30% at center, rgba(255,220,180,0.7) 0%, rgba(255,180,140,0.4) 20%, rgba(180,140,200,0.2) 45%, transparent 65%),
+    radial-gradient(circle at center, rgba(255,240,220,0.9) 1.5%, transparent 5%),
+    linear-gradient(180deg, #464b62, #565474);
+  transform: rotate(-12deg);
+  transform-origin: center;
+}
+
+.celestial-card .obj-type {
+  font-size: 1.3rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+
+.celestial-card h3 {
+  font-size: var(--t-md);
+  margin-bottom: 0.9rem;
+}
+
+.celestial-card p {
+  font-size: 1.6rem;
+  margin-bottom: 1.8rem;
+  color: var(--text-dim);
+}
+
+.celestial-card .data-table {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.8rem;
+  font-size: 1.4rem;
+  padding-top: 1.8rem;
+  border-top: 1.8px dashed var(--border);
+}
+.data-table dt { color: var(--text-faint); }
+.data-table dd { color: var(--text); text-align: right; font-variant-numeric: tabular-nums; }
+
+/* =========================================
+   EVENT STRIP
+   ========================================= */
+.event-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.2rem;
+}
+
+.event-strip-card {
+  display: flex;
+  gap: 1.8rem;
+  padding: 2.2rem;
+  background: rgba(14,20,50,0.5);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  transition: transform 0.15s;
+}
+.event-strip-card:hover { transform: translateY(-3.6px); border-color: var(--accent); }
+
+.date-badge {
+  flex-shrink: 0;
+  width: 108.0px;
+  text-align: center;
+  padding: 0.9rem 0.7rem;
+  background: rgba(244,201,93,0.08);
+  border: 1.8px solid var(--accent-soft);
+  border-radius: 0;
+  height: max-content;
+}
+.date-badge .month {
+  font-size: 1.3rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.date-badge .day {
+  font-family: "Courier New", monospace;
+  font-size: 3.1rem;
+  color: var(--text);
+  line-height: 1;
+  margin-top: 0.3rem;
+}
+
+.event-strip-card .e-title {
+  font-family: "Courier New", monospace;
+  font-size: 1.9rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.event-strip-card .e-meta {
+  font-size: 1.4rem;
+  color: var(--text-faint);
+}
+
+/* =========================================
+   MISSION SECTION
+   ========================================= */
+.mission {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 7.2rem;
+  align-items: center;
+}
+
+.dome-photo {
+  aspect-ratio: 5/4;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 38%, #8981ac 0%, #666083 30%, #4a506e 65%),
+    linear-gradient(180deg, #464b62, #414350);
+  border: 1.8px solid var(--border);
+}
+.dome-photo::before {
+  content: "";
+  position: absolute;
+  bottom: 22%; left: 10%; right: 10%;
+  height: 38%;
+  background: radial-gradient(ellipse at center bottom,
+    #565b86 0%, #4a506e 40%, transparent 70%);
+  border-radius: 0;
+  border-top: 1.8px solid rgba(244,201,93,0.3);
+}
+.dome-photo::after {
+  content: "";
+  position: absolute;
+  bottom: 22%; left: 45%;
+  width: 10%; height: 25%;
+  background: linear-gradient(180deg, transparent, rgba(244,201,93,0.6));
+  border-radius: 0;
+  opacity: 0.5;
+}
+.dome-stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1.8px 1.8px at 12% 18%, #ffffff 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 28% 32%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 47% 14%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 65% 22%, #ffffff 50%, transparent 100%),
+    radial-gradient(3.6px 3.6px at 78% 8%, #ffff99 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 88% 30%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 35% 5%, #ffffff 50%, transparent 100%);
+}
+
+.mission h2 { font-size: var(--t-xl); margin-bottom: 2.2rem; }
+.mission p { margin-bottom: 1.8rem; color: var(--text-dim); font-size: 1.9rem; }
+.mission .signature {
+  font-family: "Courier New", monospace;
+  font-style: italic;
+  color: var(--accent);
+  margin-top: 2.7rem;
+}
+
+/* =========================================
+   TESTIMONIALS
+   ========================================= */
+.testimonials-section {
+  position: relative;
+  padding: 10.8rem 0;
+  background: linear-gradient(180deg, #464b62 0%, #414350 100%);
+  overflow: hidden;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial {
+  padding: 3.6rem;
+  background: rgba(11,16,38,0.6);
+  backdrop-filter: blur(10.8px);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  position: relative;
+}
+.testimonial::before {
+  content: "“";
+  position: absolute;
+  top: 0.7rem; left: 2.2rem;
+  font-family: "Courier New", monospace;
+  font-size: 7.2rem;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+}
+.testimonial blockquote {
+  font-family: "Courier New", monospace;
+  font-size: 2.0rem;
+  font-style: italic;
+  margin-bottom: 2.2rem;
+  margin-top: 1.8rem;
+  color: var(--text);
+}
+.testimonial cite {
+  display: block;
+  font-style: normal;
+  font-size: 1.4rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+.testimonial .role {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--text-faint);
+  margin-top: 0.4rem;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.site-footer {
+  background: #414350;
+  border-top: 1.8px solid var(--border);
+  padding: 7.2rem 0 3.6rem;
+  position: relative;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 5.4rem;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 2.7rem;
+}
+
+.footer-grid h5 {
+  font-family: "Courier New", monospace;
+  font-size: 1.4rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.8rem;
+}
+
+.footer-grid ul { list-style: none; }
+.footer-grid ul li { margin-bottom: 0.9rem; }
+.footer-grid ul a { color: var(--text-dim); font-size: 1.6rem; }
+.footer-grid ul a:hover { color: var(--text); }
+
+.footer-grid .col-about p {
+  font-size: 1.6rem;
+  max-width: 38ch;
+  margin-top: 1.4rem;
+}
+
+.footer-bottom {
+  max-width: var(--maxw);
+  margin: 5.4rem auto 0;
+  padding: 2.7rem;
+  border-top: 1.8px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  color: var(--text-faint);
+}
+
+/* =========================================
+   EVENTS PAGE
+   ========================================= */
+.events-hero {
+  padding: 9.0rem 0 5.4rem;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at right top, rgba(112,82,221,0.4), transparent 50%),
+    linear-gradient(180deg, #464b62, #434656);
+}
+
+.featured-event {
+  position: relative;
+  padding: 5.4rem;
+  border-radius: 0;
+  background:
+    linear-gradient(110deg, rgba(11,16,38,0.92) 30%, rgba(11,16,38,0.4) 70%),
+    radial-gradient(circle at 80% 50%, #9776da 0%, #665798 35%, #464b62 70%);
+  border: 1.8px solid var(--border);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3.6rem;
+  align-items: center;
+  overflow: hidden;
+}
+
+.featured-event::before {
+  content: "";
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 50%;
+  background:
+    radial-gradient(1.8px 1.8px at 12% 18%, #ffffff 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 28% 62%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 47% 30%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 63% 56%, #ffff99 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 81% 12%, #ffffff 50%, transparent 100%),
+    radial-gradient(3.6px 3.6px at 92% 64%, #ffffff 50%, transparent 100%);
+  opacity: 0.7;
+}
+
+.featured-event .info { position: relative; z-index: 2; }
+.featured-event .tag {
+  display: inline-block;
+  padding: 0.5rem 1.4rem;
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 1.3rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  border-radius: 0;
+  margin-bottom: 1.8rem;
+}
+.featured-event h2 {
+  font-size: var(--t-xl);
+  margin-bottom: 1.3rem;
+}
+.featured-event .lede {
+  font-size: 1.8rem;
+  margin-bottom: 2.7rem;
+  max-width: 50ch;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 1.8rem;
+  margin-bottom: 2.7rem;
+}
+.countdown-unit {
+  text-align: center;
+  padding: 1.4rem 1.8rem;
+  background: rgba(11,16,38,0.6);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  min-width: 126.0px;
+}
+.countdown-unit .num {
+  font-family: "Courier New", monospace;
+  font-size: 3.6rem;
+  color: var(--accent);
+  line-height: 1;
+  display: block;
+}
+.countdown-unit .lbl {
+  font-size: 1.3rem;
+  letter-spacing: 0.3em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
+/* Events Layout */
+.events-layout {
+  display: grid;
+  grid-template-columns: 432.0px 1fr;
+  gap: 5.4rem;
+}
+
+.filter-sidebar {
+  position: sticky;
+  top: 162.0px;
+  height: max-content;
+  padding: 2.7rem;
+  background: rgba(14,20,50,0.4);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+}
+.filter-sidebar h4 {
+  font-family: "Courier New", monospace;
+  font-size: 1.3rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.8rem;
+}
+.filter-group {
+  margin-bottom: 2.7rem;
+  padding-bottom: 2.7rem;
+  border-bottom: 1.8px solid var(--border);
+}
+.filter-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  font-size: 1.5rem;
+  color: var(--text-dim);
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+.filter-group input[type="checkbox"] {
+  appearance: none;
+  width: 25.2px; height: 25.2px;
+  border: 1.8px solid var(--text-faint);
+  border-radius: 0;
+  position: relative;
+  cursor: pointer;
+}
+.filter-group input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.filter-group input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 7.2px; top: 1.8px;
+  width: 7.2px; height: 14.4px;
+  border: solid var(--primary);
+  border-width: 0 3.6px 3.6px 0;
+  transform: rotate(45deg);
+}
+.filter-group .pill-row { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.filter-group .pill {
+  padding: 0.6rem 1.4rem;
+  border-radius: 0;
+  border: 1.8px solid var(--border);
+  font-size: 1.4rem;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+.filter-group .pill.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+/* View toggle */
+.view-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.6rem;
+}
+.view-toggle {
+  display: inline-flex;
+  background: rgba(14,20,50,0.5);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  padding: 7.2px;
+}
+.view-toggle button {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-family: "Courier New", monospace;
+  font-size: 1.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 0;
+  cursor: pointer;
+}
+.view-toggle button.active {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+/* Calendar */
+.calendar {
+  background: rgba(14,20,50,0.4);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  padding: 2.7rem;
+  margin-bottom: 5.4rem;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.7rem;
+}
+.calendar-header h3 {
+  font-family: "Courier New", monospace;
+  font-size: var(--t-md);
+}
+.calendar-nav { display: flex; gap: 0.9rem; align-items: center; }
+.cal-arrow {
+  width: 57.6px; height: 57.6px;
+  border-radius: 0;
+  background: transparent;
+  border: 1.8px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 7.2px;
+}
+.cal-dayname {
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 0.9rem 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.cal-cell {
+  aspect-ratio: 1;
+  background: rgba(11,16,38,0.6);
+  border: 1.8px solid transparent;
+  border-radius: 0;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  font-size: 1.5rem;
+  min-width: 0;
+  overflow: hidden;
+}
+.cal-cell.empty { background: transparent; }
+.cal-cell.today {
+  border-color: var(--accent);
+  background: rgba(244,201,93,0.08);
+}
+.cal-cell .day-num { color: var(--text); font-variant-numeric: tabular-nums; }
+.cal-cell .events-dots {
+  display: flex; gap: 5.4px; flex-wrap: wrap;
+}
+.event-dot {
+  width: 10.8px; height: 10.8px; border-radius: 0;
+  background: var(--accent);
+}
+.event-dot.purple { background: #d7b9ff; }
+.event-dot.cyan { background: #b9ffff; }
+.cal-cell.has-event { border-color: var(--border); }
+.cal-cell.has-event:hover { border-color: var(--accent); cursor: pointer; }
+
+/* Event cards list */
+.event-card {
+  display: grid;
+  grid-template-columns: 162.0px 1fr auto;
+  gap: 2.7rem;
+  padding: 2.7rem;
+  background: rgba(14,20,50,0.4);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  margin-bottom: 2.2rem;
+  align-items: center;
+}
+.event-card .ec-date {
+  text-align: center;
+  padding: 1.4rem 0.7rem;
+  background: rgba(244,201,93,0.08);
+  border: 1.8px solid var(--accent-soft);
+  border-radius: 0;
+}
+.event-card .ec-date .m {
+  font-size: 1.3rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--accent);
+}
+.event-card .ec-date .d {
+  font-family: "Courier New", monospace;
+  font-size: 3.8rem;
+  color: var(--text);
+  line-height: 1;
+}
+.event-card .ec-date .y {
+  font-size: 1.3rem;
+  color: var(--text-faint);
+}
+
+.event-card .ec-info h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.7rem;
+}
+.event-card .ec-tags {
+  display: flex; gap: 0.9rem; margin-bottom: 1.1rem; flex-wrap: wrap;
+}
+.event-tag {
+  font-size: 1.3rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 0;
+  background: rgba(155,125,214,0.15);
+  color: #ffefff;
+  letter-spacing: 0.1em;
+}
+.event-tag.type-meteor { background: rgba(244,201,93,0.12); color: var(--accent); }
+.event-tag.type-talk { background: rgba(125,196,214,0.15); color: #d7ffff; }
+.event-card .ec-info .meta {
+  font-size: 1.5rem;
+  color: var(--text-faint);
+}
+
+.weather-ind {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.4rem;
+  margin-top: 0.9rem;
+}
+.weather-ind .dot {
+  width: 14.4px; height: 14.4px; border-radius: 0;
+}
+.weather-ind.good .dot { background: var(--success); box-shadow: 0 0 14.4px var(--success); }
+.weather-ind.fair .dot { background: var(--warn); }
+.weather-ind.poor .dot { background: var(--danger); }
+
+.event-card .ec-action {
+  text-align: right;
+  min-width: 270.0px;
+}
+.event-card .ec-price {
+  font-family: "Courier New", monospace;
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+.capacity-bar {
+  height: 7.2px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 0.7rem;
+}
+.capacity-bar .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #ffffba);
+}
+.capacity-label {
+  font-size: 1.3rem;
+  color: var(--text-faint);
+  margin-bottom: 1.4rem;
+}
+
+/* =========================================
+   COURSES PAGE
+   ========================================= */
+.tabs-bar {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  border-bottom: 1.8px solid var(--border);
+  margin-bottom: 5.4rem;
+}
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-family: "Courier New", monospace;
+  font-size: 1.7rem;
+  padding: 1.8rem 2.3rem;
+  cursor: pointer;
+  position: relative;
+}
+.tab-btn.active {
+  color: var(--text);
+}
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1.8px; left: 2.3rem; right: 2.3rem;
+  height: 3.6px;
+  background: var(--accent);
+}
+
+.courses-layout {
+  display: grid;
+  grid-template-columns: 1fr 576.0px;
+  gap: 5.4rem;
+}
+
+.course-card {
+  background: linear-gradient(180deg, rgba(14,20,50,0.6) 0%, rgba(10,15,38,0.6) 100%);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  padding: 3.2rem;
+  margin-bottom: 2.7rem;
+  transition: border-color 0.2s;
+}
+.course-card:hover { border-color: var(--accent); }
+
+.course-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.7rem;
+  margin-bottom: 2.7rem;
+}
+
+.course-card h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.course-meta {
+  display: flex;
+  gap: 2.2rem;
+  font-size: 1.5rem;
+  color: var(--text-faint);
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+}
+.course-meta span::before {
+  content: "•";
+  margin-right: 0.9rem;
+  color: var(--accent);
+}
+.course-meta span:first-child::before { display: none; }
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 1.3rem;
+  background: rgba(244,201,93,0.1);
+  border: 1.8px solid var(--accent-soft);
+  border-radius: 0;
+  font-size: 1.3rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.4rem;
+}
+.constellation-stars {
+  display: inline-flex;
+  gap: 3.6px;
+}
+.constellation-stars .star {
+  width: 7.2px; height: 7.2px;
+  background: var(--accent);
+  border-radius: 0;
+}
+.constellation-stars .star.empty {
+  background: transparent;
+  border: 1.8px solid var(--accent);
+}
+
+.course-card p { font-size: 1.7rem; margin-bottom: 2.2rem; }
+
+/* Instructor row inside course card */
+.instructor-row {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  padding: 1.8rem;
+  background: rgba(7, 10, 26, 0.85);
+  border: 1.8px solid var(--line);
+  border-radius: 0;
+  margin-bottom: 2.2rem;
+  box-shadow: inset 0 1.8px 0 rgba(255,255,255,0.03);
+}
+.instructor-avatar {
+  width: 86.4px; height: 86.4px;
+  border-radius: 0;
+  flex-shrink: 0;
+  background: radial-gradient(circle at 50% 40%, #a79be4 0%, #665798 60%, #4a506e 100%);
+  border: 1.8px solid var(--border);
+  position: relative;
+}
+.instructor-avatar::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 60%; height: 35%;
+  background: rgba(0,0,0,0.3);
+  border-radius: 0;
+  transform: translateX(-50%);
+}
+.instructor-info .name {
+  font-family: "Courier New", monospace;
+  font-size: 1.8rem;
+  color: var(--text);
+}
+.instructor-info .credentials {
+  font-size: 1.4rem;
+  color: var(--text-faint);
+}
+
+.course-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2.2rem;
+  border-top: 1.8px solid var(--border);
+}
+.course-price {
+  font-family: "Courier New", monospace;
+  font-size: 2.7rem;
+  color: var(--accent);
+}
+.course-price .per { font-size: 1.4rem; color: var(--text-faint); font-family: "Courier New", monospace; }
+
+.enroll-status {
+  font-size: 1.4rem;
+  color: var(--success);
+  margin-top: 0.5rem;
+}
+.enroll-status.filling { color: var(--warn); }
+.enroll-status.full { color: var(--danger); }
+
+/* Syllabus accordion */
+.syllabus {
+  margin-top: 2.7rem;
+  border-top: 1.8px solid var(--border);
+  padding-top: 2.7rem;
+}
+.syllabus-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: "Courier New", monospace;
+  font-size: 1.6rem;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.9rem 0;
+}
+.syllabus-toggle .chev {
+  width: 21.6px; height: 21.6px;
+  border-right: 2.7px solid var(--accent);
+  border-bottom: 2.7px solid var(--accent);
+  transform: rotate(45deg);
+}
+.syllabus-list {
+  list-style: none;
+  margin-top: 1.8rem;
+  display: grid;
+  gap: 0.9rem;
+}
+.syllabus-list li {
+  display: grid;
+  grid-template-columns: 108.0px 1fr;
+  gap: 1.8rem;
+  padding: 1.3rem 0;
+  border-bottom: 1.8px dashed var(--border);
+  font-size: 1.6rem;
+}
+.syllabus-list li .session-num {
+  font-family: "Courier New", monospace;
+  color: var(--accent);
+  font-size: 1.8rem;
+}
+.syllabus-list li .session-title { color: var(--text); }
+.syllabus-list li .session-desc {
+  font-size: 1.4rem;
+  color: var(--text-faint);
+  margin-top: 0.4rem;
+}
+
+/* Instructor sidebar */
+.instructor-sidebar {
+  position: sticky;
+  top: 162.0px;
+  height: max-content;
+  padding: 3.6rem;
+  background: linear-gradient(180deg, rgba(14,20,50,0.6), rgba(10,15,38,0.6));
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+}
+.instructor-sidebar .big-avatar {
+  width: 216.0px; height: 216.0px;
+  border-radius: 0;
+  margin: 0 auto 2.2rem;
+  background: radial-gradient(circle at 50% 40%, #c8bbff 0%, #8674ce 50%, #565174 100%);
+  border: 3.6px solid var(--border);
+  position: relative;
+}
+.instructor-sidebar .big-avatar::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 60%; height: 35%;
+  background: rgba(0,0,0,0.4);
+  border-radius: 0;
+  transform: translateX(-50%);
+}
+.instructor-sidebar h4 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+.instructor-sidebar .credentials-line {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 2.7rem;
+  letter-spacing: 0.1em;
+}
+.instructor-sidebar p {
+  font-size: 1.6rem;
+  margin-bottom: 1.8rem;
+}
+.instructor-sidebar .creds-list {
+  list-style: none;
+  margin-top: 1.8rem;
+  padding-top: 1.8rem;
+  border-top: 1.8px solid var(--border);
+}
+.instructor-sidebar .creds-list li {
+  font-size: 1.4rem;
+  padding: 0.7rem 0;
+  color: var(--text-dim);
+}
+.instructor-sidebar .creds-list li::before {
+  content: "✦";
+  color: var(--accent);
+  margin-right: 0.9rem;
+}
+
+/* =========================================
+   PLANETARIUM
+   ========================================= */
+.shows-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.2rem;
+}
+
+.show-poster {
+  background: rgba(14,20,50,0.5);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s;
+}
+.show-poster:hover { transform: translateY(-5.4px); border-color: var(--accent); }
+
+.show-poster .poster-art {
+  aspect-ratio: 3/4;
+  position: relative;
+  overflow: hidden;
+}
+.poster-art-cosmos {
+  background:
+    radial-gradient(circle at 50% 60%, rgba(118,98,255,0.6) 0%, rgba(118,98,255,0.2) 25%, transparent 50%),
+    radial-gradient(circle at 30% 30%, rgba(255,180,90,0.5) 0%, transparent 30%),
+    radial-gradient(1.8px 1.8px at 22% 28%, #ffffff 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 48% 12%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 78% 35%, #ffffff 50%, transparent 100%),
+    radial-gradient(3.6px 3.6px at 35% 75%, #ffff99 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 65% 88%, #ffffff 50%, transparent 100%),
+    linear-gradient(180deg, #464b62, #565686 50%, #414350 100%);
+}
+.poster-art-blackhole {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0%, transparent 12%, rgba(255,180,90,0.7) 16%, rgba(255,140,40,0.3) 22%, transparent 35%),
+    radial-gradient(circle at 50% 50%, #3c3c3c 0%, #3c3c3c 13%, transparent 16%),
+    radial-gradient(circle at 50% 50%, rgba(118,98,255,0.5) 30%, transparent 50%),
+    radial-gradient(1.8px 1.8px at 12% 18%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 78% 22%, #ffffff 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 88% 78%, #ffffff 50%, transparent 100%),
+    linear-gradient(180deg, #464b62, #414350);
+}
+.poster-art-mars {
+  background:
+    radial-gradient(circle at 50% 55%, #ff8e6a 0%, #c66f54 25%, #86584a 50%, transparent 65%),
+    radial-gradient(1.8px 1.8px at 22% 18%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 78% 22%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 12% 78%, #ffffff 50%, transparent 100%),
+    linear-gradient(180deg, #464450 0%, #564656 100%);
+}
+
+.show-poster .info {
+  padding: 2.7rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.show-poster .runtime-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1.3rem;
+}
+.show-poster h3 {
+  font-size: 2.3rem;
+  margin-bottom: 0.9rem;
+}
+.show-poster .synopsis {
+  font-size: 1.6rem;
+  color: var(--text-dim);
+  flex: 1;
+  margin-bottom: 2.2rem;
+}
+.show-poster .show-times {
+  font-size: 1.4rem;
+  color: var(--text);
+  padding-top: 1.8rem;
+  border-top: 1.8px solid var(--border);
+}
+.show-poster .show-times strong { color: var(--accent); }
+
+/* Trailer frames */
+.trailer-section {
+  background: linear-gradient(180deg, #414350, #464b62);
+  padding: 9.0rem 0;
+  border-block: 1.8px solid var(--border);
+}
+.trailer-frames {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.8rem;
+}
+.trailer-frame {
+  border-radius: 0;
+  border: 1.8px solid var(--border);
+  aspect-ratio: 16/10;
+  position: relative;
+  overflow: hidden;
+}
+.trailer-frame.large {
+  grid-row: span 2;
+  aspect-ratio: 16/12;
+}
+.trailer-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(7,10,26,0.7), transparent 50%);
+}
+.trailer-frame .play-ico {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100.8px; height: 100.8px;
+  border-radius: 0;
+  background: rgba(244,201,93,0.9);
+  display: grid; place-items: center;
+  z-index: 3;
+}
+.trailer-frame .play-ico::before {
+  content: "";
+  width: 0; height: 0;
+  border-left: 25.2px solid var(--primary);
+  border-top: 16.2px solid transparent;
+  border-bottom: 16.2px solid transparent;
+  margin-left: 7.2px;
+}
+.tf-1 { background:
+  radial-gradient(circle at 30% 40%, #a281ff 0%, transparent 50%),
+  radial-gradient(circle at 70% 60%, #ff8fa6 0%, transparent 45%),
+  linear-gradient(180deg, #464b62, #414350);
+}
+.tf-2 { background:
+  radial-gradient(circle at 50% 50%, #ffe676 0%, transparent 30%),
+  radial-gradient(circle at 50% 50%, #3c3c3c 0%, transparent 18%),
+  linear-gradient(180deg, #464b62, #414350);
+}
+.tf-3 { background:
+  radial-gradient(circle at 50% 60%, #ff8e6a 0%, transparent 50%),
+  linear-gradient(180deg, #564450, #414350);
+}
+
+/* Dome specs */
+.specs-panel {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5.4rem;
+  align-items: center;
+}
+
+.specs-list {
+  display: grid;
+  gap: 0.7rem;
+}
+.specs-list .row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 1.6rem 0;
+  border-bottom: 1.8px dashed var(--border);
+  font-size: 1.7rem;
+}
+.specs-list .row .l { color: var(--text-faint); letter-spacing: 0.1em; }
+.specs-list .row .v { color: var(--text); font-family: "Courier New", monospace; font-size: 1.9rem; }
+
+.dome-illustration {
+  aspect-ratio: 1;
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 60%, #565b98, #464b62 70%);
+  border: 1.8px solid var(--border);
+}
+.dome-illustration .dome-svg {
+  position: absolute; inset: 0;
+}
+
+/* Seat map */
+.seat-map-block {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 5.4rem;
+  align-items: start;
+}
+.seat-map {
+  aspect-ratio: 4/3;
+  background: linear-gradient(180deg, #464b62, #414350);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  padding: 3.6rem;
+  position: relative;
+}
+.screen-arc {
+  width: 80%; height: 43.2px;
+  margin: 0 auto 3.6rem;
+  background: linear-gradient(180deg, rgba(244,201,93,0.5), transparent);
+  border-top: 3.6px solid var(--accent);
+  border-radius: 0;
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 0.5em;
+  color: var(--accent);
+  text-transform: uppercase;
+  padding-top: 7.2px;
+}
+
+.seat-rows { display: grid; gap: 10.8px; }
+.seat-row { display: flex; justify-content: center; gap: 7.2px; }
+.seat {
+  width: 25.2px; height: 25.2px;
+  background: rgba(244,201,93,0.15);
+  border-radius: 0;
+  border: 1.8px solid rgba(244,201,93,0.2);
+}
+.seat.taken { background: var(--text-faint); border-color: transparent; opacity: 0.4; }
+.seat.selected { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 14.4px rgba(244,201,93,0.5); }
+.seat.aisle { background: transparent; border: none; }
+
+.seat-legend {
+  display: flex;
+  gap: 2.2rem;
+  justify-content: center;
+  margin-top: 2.7rem;
+  font-size: 1.4rem;
+  color: var(--text-faint);
+}
+.seat-legend .item { display: flex; align-items: center; gap: 0.7rem; }
+.seat-legend .swatch {
+  width: 18.0px; height: 18.0px; border-radius: 0;
+}
+.seat-legend .swatch.avail { background: rgba(244,201,93,0.15); border: 1.8px solid rgba(244,201,93,0.3); }
+.seat-legend .swatch.sel { background: var(--accent); }
+.seat-legend .swatch.taken { background: var(--text-faint); opacity: 0.4; }
+
+/* School group form */
+.school-form {
+  padding: 4.5rem;
+  background: linear-gradient(180deg, rgba(14,20,50,0.7), rgba(10,15,38,0.7));
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+.field { display: flex; flex-direction: column; gap: 0.7rem; }
+.field label {
+  font-size: 1.4rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.field input, .field textarea, .field select {
+  background: rgba(7,10,26,0.7);
+  border: 1.8px solid var(--border);
+  color: var(--text);
+  font-family: "Courier New", monospace;
+  font-size: 1.7rem;
+  padding: 1.3rem 1.6rem;
+  border-radius: 0;
+}
+.field input:focus, .field textarea:focus { outline: 1.8px solid var(--accent); border-color: var(--accent); }
+.field textarea { min-height: 180.0px; resize: vertical; }
+
+/* =========================================
+   VISIT
+   ========================================= */
+.visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7.2rem;
+  align-items: start;
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(14,20,50,0.4);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  overflow: hidden;
+}
+.hours-table th, .hours-table td {
+  padding: 1.8rem 2.3rem;
+  text-align: left;
+  font-size: 1.7rem;
+  border-bottom: 1.8px solid var(--border);
+}
+.hours-table th {
+  background: rgba(11,16,38,0.7);
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 1.3rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.hours-table tr:last-child td { border-bottom: none; }
+.hours-table tr.season-header td {
+  background: rgba(244,201,93,0.05);
+  font-family: "Courier New", monospace;
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+
+.map-placeholder {
+  aspect-ratio: 4/3;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 60% 40%, rgba(244,201,93,0.2) 0%, transparent 25%),
+    repeating-linear-gradient(0deg, transparent 0 54.0px, rgba(255,255,255,0.04) 54.0px 55.8px),
+    repeating-linear-gradient(90deg, transparent 0 54.0px, rgba(255,255,255,0.04) 54.0px 55.8px),
+    linear-gradient(135deg, #4a506e 0%, #565b86 100%);
+  border: 1.8px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.map-pin {
+  position: absolute;
+  left: 58%; top: 38%;
+  width: 28.8px; height: 28.8px;
+  background: var(--accent);
+  border-radius: 0;
+  box-shadow: 0 0 0 10.8px rgba(244,201,93,0.25), 0 0 0 25.2px rgba(244,201,93,0.1);
+}
+.map-pin::after {
+  content: "POLARIS OBSERVATORY";
+  position: absolute;
+  bottom: -50.4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  border: 1.8px solid var(--accent);
+  border-radius: 0;
+  padding: 7.2px 18.0px;
+  font-size: 1.3rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.map-road {
+  position: absolute;
+  background: rgba(255,255,255,0.06);
+}
+.map-road.r1 { left: 0; right: 0; top: 50%; height: 7.2px; }
+.map-road.r2 { top: 0; bottom: 0; left: 35%; width: 7.2px; }
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem;
+}
+.info-card {
+  padding: 2.7rem;
+  background: rgba(14,20,50,0.4);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+}
+.info-card h4 {
+  font-size: 1.8rem;
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+.info-card .ico {
+  width: 50.4px; height: 50.4px;
+  border-radius: 0;
+  background: rgba(244,201,93,0.1);
+  border: 1.8px solid var(--accent-soft);
+  display: grid; place-items: center;
+  color: var(--accent);
+}
+.info-card p { font-size: 1.6rem; }
+.info-card ul {
+  list-style: none;
+  margin-top: 0.9rem;
+}
+.info-card ul li {
+  font-size: 1.5rem;
+  color: var(--text-dim);
+  padding: 0.5rem 0;
+}
+.info-card ul li::before { content: "·"; margin-right: 0.9rem; color: var(--accent); font-size: 2.7rem; line-height: 0; }
+
+/* Dark-sky callout */
+.dark-sky-callout {
+  margin: 5.4rem 0;
+  padding: 4.5rem;
+  background: linear-gradient(135deg, #565174 0%, #665798 100%);
+  border-radius: 0;
+  border: 1.8px solid var(--accent-soft);
+  position: relative;
+  overflow: hidden;
+}
+.dark-sky-callout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.8px 1.8px at 12% 18%, #ffffff 50%, transparent 100%),
+    radial-gradient(2.7px 2.7px at 78% 32%, #ffffff 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 47% 70%, #ffff99 50%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 88% 78%, #ffffff 50%, transparent 100%);
+  opacity: 0.6;
+}
+.dark-sky-callout > * { position: relative; }
+.dark-sky-callout h3 {
+  font-size: var(--t-md);
+  margin-bottom: 1.8rem;
+  color: var(--accent);
+}
+.dark-sky-callout ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem 2.7rem;
+  margin-top: 2.2rem;
+}
+.dark-sky-callout ul li {
+  padding-left: 2.7rem;
+  position: relative;
+  color: var(--text);
+  font-size: 1.7rem;
+}
+.dark-sky-callout ul li::before {
+  content: "✦";
+  position: absolute; left: 0;
+  color: var(--accent);
+}
+
+/* Scrollable table wrappers */
+.pricing-table-wrap,
+.hours-table-wrap,
+.compare-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0;
+  border: 1.8px solid var(--border);
+  background: rgba(14,20,50,0.4);
+}
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 864.0px;
+}
+.hours-table-wrap .hours-table { min-width: 648.0px; border: none; border-radius: 0; background: transparent; margin: 0; }
+.compare-table-wrap { margin-top: 3.6rem; }
+.compare-table-wrap .compare-table { min-width: 828.0px; border: none; border-radius: 0; background: transparent; margin: 0; }
+.pricing-table th, .pricing-table td {
+  padding: 1.8rem 2.3rem;
+  text-align: left;
+  border-bottom: 1.8px solid var(--border);
+  font-size: 1.7rem;
+}
+.pricing-table th {
+  background: rgba(11,16,38,0.7);
+  color: var(--accent);
+  font-size: 1.3rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "Courier New", monospace;
+}
+.pricing-table td.price { color: var(--accent); font-family: "Courier New", monospace; font-size: 2.1rem; text-align: right; }
+.pricing-table tr:last-child td { border-bottom: none; }
+
+/* FAQ accordion */
+.faq-item {
+  border-bottom: 1.8px solid var(--border);
+}
+.faq-q {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: "Courier New", monospace;
+  font-size: 2.0rem;
+  text-align: left;
+  padding: 2.2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.faq-q .chev {
+  width: 18.0px; height: 18.0px;
+  border-right: 2.7px solid var(--accent);
+  border-bottom: 2.7px solid var(--accent);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-left: 1.8rem;
+}
+.faq-a {
+  font-size: 1.7rem;
+  color: var(--text-dim);
+  padding-bottom: 2.3rem;
+  max-width: 80ch;
+}
+
+/* Gallery */
+.facility-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.8rem;
+  margin-top: 3.6rem;
+}
+.gallery-tile {
+  border-radius: 0;
+  border: 1.8px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  min-height: 324.0px;
+}
+.gallery-tile.big { grid-row: span 2; }
+.gt-1 { background:
+  radial-gradient(circle at 50% 70%, #8674ce 0%, #565174 50%, #414350 100%),
+  linear-gradient(180deg, #464b62, #414350);
+}
+.gt-2 { background:
+  radial-gradient(ellipse at 50% 40%, #ffe1b0 0%, #9a866c 40%, #565174 80%);
+}
+.gt-3 { background:
+  radial-gradient(circle at 30% 50%, #ff8fa6 0%, transparent 40%),
+  radial-gradient(circle at 70% 50%, #a281ff 0%, transparent 40%),
+  linear-gradient(180deg, #464b62, #414350);
+}
+.gt-4 { background:
+  radial-gradient(circle at 50% 50%, #665798 0%, #464b62 70%);
+}
+.gt-5 { background:
+  radial-gradient(circle at 50% 30%, #ffe676 0%, transparent 25%),
+  linear-gradient(180deg, #565174, #414350);
+}
+.gallery-tile .caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1.8rem;
+  font-size: 1.4rem;
+  color: var(--text);
+  background: linear-gradient(0deg, rgba(7,10,26,0.95), transparent);
+}
+
+/* =========================================
+   MEMBERSHIP
+   ========================================= */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.7rem;
+}
+
+.tier-card {
+  position: relative;
+  padding: 4.5rem 3.6rem;
+  background: linear-gradient(180deg, rgba(14,20,50,0.7) 0%, rgba(10,15,38,0.7) 100%);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  overflow: hidden;
+}
+.tier-card .starfield {
+  opacity: 0.4;
+}
+.tier-card.featured {
+  border-color: var(--accent);
+  transform: scale(1.03);
+  background:
+    linear-gradient(180deg, rgba(42,27,92,0.7) 0%, rgba(10,15,38,0.7) 100%);
+}
+.tier-card.featured::before {
+  content: "Most Popular";
+  position: absolute;
+  top: 2.5rem; right: 2.5rem;
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 1.2rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.3rem;
+  border-radius: 0;
+  z-index: 3;
+}
+
+.tier-card > *:not(.starfield) { position: relative; z-index: 2; }
+
+.tier-card .tier-name {
+  font-family: "Courier New", monospace;
+  font-size: 3.1rem;
+  margin-bottom: 0.5rem;
+}
+.tier-card .tier-price {
+  font-family: "Courier New", monospace;
+  font-size: 5.4rem;
+  color: var(--accent);
+  margin: 1.8rem 0 0.5rem;
+}
+.tier-card .tier-price small {
+  font-size: 1.8rem;
+  color: var(--text-faint);
+  font-family: "Courier New", monospace;
+}
+.tier-card .tier-desc {
+  font-size: 1.6rem;
+  margin-bottom: 2.7rem;
+  color: var(--text-dim);
+}
+.tier-card ul.benefits {
+  list-style: none;
+  margin: 2.7rem 0;
+  padding: 2.7rem 0;
+  border-top: 1.8px solid var(--border);
+}
+.tier-card ul.benefits li {
+  padding: 0.9rem 0 0.9rem 2.7rem;
+  font-size: 1.6rem;
+  color: var(--text);
+  position: relative;
+}
+.tier-card ul.benefits li::before {
+  content: "✦";
+  position: absolute; left: 0;
+  color: var(--accent);
+}
+
+/* Astronomer tier defect — uses cyan instead of gold (intentional defect) */
+.tier-card .btn-tier {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 1.8rem;
+  border-radius: 0;
+  background: var(--accent);
+  color: var(--primary);
+  font-family: "Courier New", monospace;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-size: 1.7rem;
+  border: none;
+  cursor: pointer;
+}
+.tier-card.featured .btn-tier {
+  background: #42ffdc;
+  color: #435e56;
+}
+
+/* Comparison table */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(14,20,50,0.4);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  overflow: hidden;
+  margin-top: 3.6rem;
+}
+.compare-table th, .compare-table td {
+  padding: 1.8rem 2.2rem;
+  text-align: center;
+  border-bottom: 1.8px solid var(--border);
+  font-size: 1.7rem;
+}
+.compare-table th:first-child, .compare-table td:first-child {
+  text-align: left;
+}
+.compare-table th {
+  background: rgba(11,16,38,0.7);
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 1.8rem;
+  letter-spacing: 0.0em;
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table .check { color: var(--success); font-size: 2.2rem; }
+.compare-table .dash { color: var(--text-faint); }
+
+/* Member testimonials reused */
+/* Gift section */
+.gift-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5.4rem;
+  align-items: center;
+  padding: 5.4rem;
+  background: linear-gradient(135deg, #565174 0%, #665798 100%);
+  border: 1.8px solid var(--accent-soft);
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+.gift-block .starfield { opacity: 0.5; }
+.gift-block > *:not(.starfield) { position: relative; z-index: 2; }
+.gift-block h3 {
+  font-size: var(--t-xl);
+  margin-bottom: 1.8rem;
+}
+
+/* Donor wall */
+.donor-wall {
+  padding: 5.4rem 3.6rem;
+  background: linear-gradient(180deg, #464b62, #414350);
+  border: 1.8px solid var(--border);
+  border-radius: 0;
+  text-align: center;
+}
+.donor-wall h3 {
+  font-size: var(--t-lg);
+  margin-bottom: 0.9rem;
+}
+.donor-wall .sub {
+  font-size: 1.6rem;
+  color: var(--text-faint);
+  margin-bottom: 4.5rem;
+  letter-spacing: 0.1em;
+}
+
+.donor-tier {
+  margin-bottom: 4.5rem;
+}
+.donor-tier-name {
+  font-family: "Courier New", monospace;
+  font-size: 1.3rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.8rem;
+}
+.donor-names {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.4rem 3.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 1.9rem;
+  color: var(--text);
+  letter-spacing: 0.1em;
+  max-width: 90.0rem;
+  margin: 0 auto;
+}
+.donor-names span {
+  position: relative;
+  padding: 0 1.1rem;
+}
+.donor-names span:not(:last-child)::after {
+  content: "✦";
+  position: absolute;
+  right: -2.3rem; top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-size: 1.1rem;
+  opacity: 0.6;
+}
+.donor-tier.platinum .donor-names { font-size: 2.3rem; color: var(--accent); }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1843.2px) {
+  :root {
+    --maxw: 100%;
+  }
+  .nav-inner {
+    padding: 1.5rem 2.2rem;
+    gap: 2.2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand { flex: 0 0 auto; }
+  .nav-links {
+    gap: 1.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1 1 100%;
+    order: 3;
+    width: 100%;
+    border-top: 1.8px solid var(--border);
+    padding-top: 1.3rem;
+    margin-top: 0.2rem;
+  }
+  .nav-links a { font-size: 1.5rem; white-space: nowrap; }
+  .moon-widget { flex: 0 0 auto; }
+  .celestial-grid { grid-template-columns: repeat(2, 1fr); }
+  .event-strip { grid-template-columns: repeat(2, 1fr); }
+  .mission { grid-template-columns: 1fr; gap: 4.5rem; }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+  .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; gap: 3.6rem; }
+
+  .sky-compass { display: none; }
+  .hero-inner { padding: 9.0rem 2.7rem; }
+
+  .events-layout { grid-template-columns: 1fr; }
+  .filter-sidebar { position: static; }
+  .featured-event { grid-template-columns: 1fr; }
+  .event-card { grid-template-columns: 144.0px 1fr; }
+  .event-card .ec-action { grid-column: 1 / -1; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 1.8rem; padding-top: 1.8rem; border-top: 1.8px solid var(--border); }
+  .event-card .ec-action .capacity-bar { flex: 1; min-width: 144.0px; }
+
+  .courses-layout { grid-template-columns: 1fr; }
+  .instructor-sidebar { position: static; }
+
+  .shows-grid { grid-template-columns: repeat(2, 1fr); }
+  .specs-panel { grid-template-columns: 1fr; }
+  .trailer-frames { grid-template-columns: 1fr 1fr; }
+  .trailer-frame.large { grid-row: auto; grid-column: span 2; }
+  .seat-map-block { grid-template-columns: 1fr; }
+
+  .visit-grid { grid-template-columns: 1fr; gap: 4.5rem; }
+  .facility-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; }
+  .facility-gallery .gallery-tile.big { grid-column: span 2; grid-row: auto; }
+
+  .tier-grid { grid-template-columns: 1fr; gap: 2.2rem; max-width: 864.0px; margin: 0 auto; }
+  .tier-card.featured { transform: none; }
+  .gift-block { grid-template-columns: 1fr; padding: 3.6rem; }
+
+  /* INTENTIONAL DEFECT: course instructor sidebar credentials may overflow on tablet */
+  /* This is forced via white-space on tablet only (mid breakpoint) below */
+}
+
+/* New layout classes for visit FAQ and planetarium school-group */
+.faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 7.2rem;
+  align-items: start;
+}
+.school-group-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5.4rem;
+  align-items: start;
+}
+
+@media (max-width: 1843.2px) {
+  .faq-layout { grid-template-columns: 1fr; gap: 3.6rem; }
+  .school-group-row { grid-template-columns: 1fr; gap: 3.6rem; }
+}
+
+/* Tablet-specific - between 600 and 1024 — intentionally cause overflow on courses */
+@media (min-width: 1080.0px) and (max-width: 1843.2px) {
+  .courses-layout {
+    grid-template-columns: 1fr 504.0px;
+    gap: 2.7rem;
+  }
+  .instructor-sidebar {
+    position: static;
+    padding: 2.7rem;
+    overflow: visible;
+  }
+  .instructor-sidebar h4,
+  .instructor-sidebar .credentials-line {
+    white-space: nowrap;
+    overflow: visible;
+  }
+  /* INTENTIONAL DEFECT: instructor row's name overflows the inner portrait card on tablet,
+     breaking out of the rounded card border on the right side */
+  .instructor-row {
+    overflow: visible;
+    /* Constrain row so children can't expand beyond this — defect: text spills out */
+    max-width: 576.0px;
+    width: 576.0px;
+  }
+  .instructor-row .instructor-info {
+    /* Don't let info grow — force overflow */
+    flex: 0 0 auto;
+    max-width: none;
+    width: max-content;
+    min-width: 0;
+  }
+  .instructor-row .instructor-info .name {
+    white-space: nowrap;
+    overflow: visible;
+    font-size: 1.9rem;
+  }
+  .instructor-row .instructor-info .credentials {
+    white-space: nowrap;
+    overflow: visible;
+  }
+  .instructor-sidebar .big-avatar {
+    width: 162.0px; height: 162.0px;
+  }
+}
+
+@media (max-width: 1080.0px) {
+  :root {
+    --t-xl: 3.5rem;
+    --t-2xl: 4.3rem;
+    --t-3xl: 5.4rem;
+  }
+  .nav-inner { flex-wrap: wrap; gap: 1.1rem 1.8rem; padding: 1.4rem 1.8rem; justify-content: space-between; align-items: center; }
+  .brand { font-size: 1.6rem; gap: 0.7rem; flex: 0 1 auto; letter-spacing: 0.1em; }
+  .brand .brand-mark { width: 39.6px; height: 39.6px; }
+  .moon-widget {
+    padding: 0.6rem 1.0rem;
+    gap: 0.8rem;
+    flex: 0 0 auto;
+  }
+  .moon-widget .label { display: none; }
+  .moon-widget div div { font-size: 1.1rem !important; }
+  .moon-widget .moon-icon { width: 32.4px; height: 32.4px; }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    flex-basis: 100%;
+    overflow: visible;
+    flex-wrap: nowrap;
+    gap: 0.7rem;
+    padding-bottom: 0;
+    padding-top: 1.2rem;
+    margin-top: 0.4rem;
+    border-top: 1.8px solid var(--border);
+    justify-content: space-between;
+  }
+  .nav-links li { flex: 0 1 auto; }
+  .nav-links a {
+    white-space: nowrap;
+    font-size: 1.3rem;
+    letter-spacing: 0.0em;
+    padding: 0.3rem 0;
+  }
+
+  .section { padding: 6.3rem 0; }
+  .hero { min-height: auto; }
+  .hero-inner { padding: 6.3rem 2.2rem; }
+  .hero h1 { font-size: clamp(4.3rem, 11vw, 6.1rem); }
+  .hero-tag { font-size: 1.8rem; }
+
+  .celestial-grid { grid-template-columns: 1fr; }
+  .event-strip { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 3.6rem; }
+  .footer-bottom { flex-direction: column; gap: 0.9rem; }
+
+  .shows-grid { grid-template-columns: 1fr; }
+  .trailer-frames { grid-template-columns: 1fr; }
+  .trailer-frame.large { grid-column: auto; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .info-cards { grid-template-columns: 1fr; }
+  .dark-sky-callout ul { grid-template-columns: 1fr; }
+  .facility-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .facility-gallery .gallery-tile.big { grid-column: auto; }
+  .hours-table th, .hours-table td { padding: 1.0rem 0.7rem; font-size: 1.4rem; }
+  .hours-table-wrap .hours-table { min-width: 0; width: 100%; table-layout: fixed; }
+  .hours-table th { font-size: 1.1rem; }
+  .pricing-table th, .pricing-table td { padding: 0.9rem 0.6rem; font-size: 1.3rem; text-align: center; }
+  .pricing-table th:first-child, .pricing-table td:first-child { text-align: left; }
+  .pricing-table th { font-size: 1.1rem; letter-spacing: 0.1em; line-height: 1.2; word-break: normal; overflow-wrap: normal; hyphens: auto; }
+  .pricing-table td.price { font-size: 1.5rem; }
+  .pricing-table {
+    min-width: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  .pricing-table th:first-child, .pricing-table td:first-child {
+    width: 30%;
+  }
+  .pricing-table-wrap { overflow-x: hidden; }
+  .compare-table th, .compare-table td { padding: 1.1rem 0.7rem; font-size: 1.3rem; }
+  .compare-table-wrap .compare-table { min-width: 0; }
+
+  .event-card { grid-template-columns: 126.0px 1fr; padding: 2.2rem; gap: 1.8rem; }
+  .event-card .ec-date .d { font-size: 2.9rem; }
+
+  /* INTENTIONAL DEFECT: Calendar does NOT collapse on mobile — keeps 7-col grid */
+  /* (no override here, keeps default 7-col grid on mobile which causes cells to shrink) */
+
+  .specs-panel { gap: 2.7rem; }
+  .gift-block, .donor-wall, .school-form { padding: 2.7rem; }
+
+  /* Planetarium: shrink seat map and constrain selection summary on mobile */
+  .seat-map { padding: 2.2rem 1.1rem; }
+  .seat { width: 18.0px; height: 18.0px; }
+  .seat-rows { gap: 7.2px; }
+  .seat-row { gap: 3.6px; }
+  .seat-legend { gap: 1.4rem; flex-wrap: wrap; font-size: 1.3rem; }
+
+  .featured-event { padding: 3.2rem; }
+  .countdown { gap: 0.9rem; }
+  .countdown-unit { padding: 1.1rem 0.9rem; min-width: 0; }
+  .countdown-unit .num { font-size: 2.5rem; }
+}

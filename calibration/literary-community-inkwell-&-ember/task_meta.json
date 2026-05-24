@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "about",
+    "events",
+    "home",
+    "issues",
+    "story",
+    "submissions",
+    "writers"
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 900
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812
+    }
+  },
+  "is_broken": false,
+  "defects": [],
+  "source_workspace": "generated/literary-community-inkwell-&-ember",
+  "spec": {
+    "site_name": "Inkwell & Ember",
+    "category": "literary-community",
+    "niche": "online literary magazine and writing community for speculative fiction",
+    "pages": [
+      "home",
+      "issues",
+      "story",
+      "submissions",
+      "writers",
+      "events",
+      "about"
+    ],
+    "design_system": {
+      "color_palette": {
+        "primary": "#3B1F2B",
+        "secondary": "#A23E48",
+        "accent": "#E8C547",
+        "bg": "#F5EBDD",
+        "text": "#2B1B1F"
+      },
+      "typography": {
+        "heading_font": "serif",
+        "body_font": "serif",
+        "scale": "1.333 perfect fourth"
+      },
+      "layout_style": "magazine editorial with drop caps, asymmetric columns, and vintage paper textures",
+      "mood": "literary, mysterious, romantic, candlelit"
+    },
+    "page_descriptions": {
+      "home": "Masthead-style header with ornamental divider, featured story hero with large serif title, pull quote and 'Read this issue' button, current issue cover image left + table of contents right (numbered list with author names italicized), 'From the Editor' letter section with signature flourish, three-column 'In This Issue' card row (poetry, short fiction, essays) each with thumbnail and excerpt, ember-glow newsletter signup with quill icon",
+      "issues": "Archive grid of past issue covers (4-col masonry) each with issue number, season/year, and theme tagline overlay, decade filter tabs at top, hover reveals contributor count and table of contents teaser, featured 'Anniversary Editions' row at bottom",
+      "story": "Single long-form reading view: centered narrow text column (max 640px), large ornamental drop cap on first paragraph, author byline with portrait circle, estimated reading time and word count, footnote sidebar on desktop, audio narration player bar (sticky bottom), end-of-story author bio card, 'More from this issue' three-card footer",
+      "submissions": "Editorial guidelines in two-column layout with section dividers (what we want, what we don't, payment rates, response times), genre acceptance status indicators (open/closed badges per category), submission form with manuscript upload field, cover letter textarea, bio field, sliding pay-rate calculator based on word count",
+      "writers": "Contributor directory: alphabetical letter navigation bar, writer cards with sepia-toned portrait, name in display serif, two-line bio, list of published pieces as linked titles, genre tags, sortable by recent/alphabetical/most-published",
+      "events": "Upcoming readings and salons calendar (month grid view with event dots), featured event hero with venue illustration, RSVP cards with date stamp, virtual event indicators, past events archive with photo strips, host a salon submission form",
+      "about": "Founding story narrative with vintage photograph placeholders, masthead listing all editors with roles and portraits arranged like a yearbook, our aesthetic manifesto (numbered list with ornamental bullets), supporters/patron wall (tiered name listings), press mentions row"
+    },
+    "complexity": "complex",
+    "special_elements": [
+      "ornamental drop caps and section dividers",
+      "footnote sidebar on long-form articles",
+      "audio narration player for stories",
+      "sliding pay-rate calculator",
+      "alphabetical letter navigation for directory"
+    ],
+    "responsive_notes": "Mobile: masthead collapses to single column, footnotes become inline expandable, issue grid becomes 2-col then 1-col, table of contents stacks below cover, audio player simplifies to play/pause + scrub. Tablet: 2-col issue grid, writer cards 2-col, sidebar footnotes move below paragraphs",
+    "is_broken": false
+  }
+}

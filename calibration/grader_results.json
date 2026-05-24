@@ -1,0 +1,910 @@
+[
+  {
+    "site": "literary-community-inkwell-&-ember",
+    "tier": 0,
+    "tier_name": "perfect",
+    "expected_score": 1.0,
+    "actual_score": 1.0,
+    "grader_details": {
+      "overall": 1.0,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 1.0,
+      "pixel_color": 1.0,
+      "pixel_combined": 1.0,
+      "llm_layout": 1.0,
+      "llm_color": 1.0,
+      "llm_typography": 1.0,
+      "llm_spacing": 1.0,
+      "llm_components": 1.0,
+      "llm_avg": 1.0,
+      "per_page": {
+        "about": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "events": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "home": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "issues": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "story": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "submissions": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "writers": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        }
+      }
+    }
+  },
+  {
+    "site": "literary-community-inkwell-&-ember",
+    "tier": 1,
+    "tier_name": "good",
+    "expected_score": 0.8,
+    "actual_score": 0.8897,
+    "grader_details": {
+      "overall": 0.8897,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 0.7145,
+      "pixel_color": 0.8956,
+      "pixel_combined": 0.787,
+      "llm_layout": 0.8905,
+      "llm_color": 0.9357,
+      "llm_typography": 0.8857,
+      "llm_spacing": 0.8286,
+      "llm_components": 0.9,
+      "llm_avg": 0.8881,
+      "per_page": {
+        "about": {
+          "desktop": 0.89,
+          "tablet": 0.94,
+          "mobile": 0.9
+        },
+        "events": {
+          "desktop": 0.91,
+          "tablet": 0.92,
+          "mobile": 0.89
+        },
+        "home": {
+          "desktop": 0.86,
+          "tablet": 0.94,
+          "mobile": 0.87
+        },
+        "issues": {
+          "desktop": 0.89,
+          "tablet": 0.86,
+          "mobile": 0.83
+        },
+        "story": {
+          "desktop": 0.85,
+          "tablet": 0.91,
+          "mobile": 0.83
+        },
+        "submissions": {
+          "desktop": 0.89,
+          "tablet": 0.93,
+          "mobile": 0.88
+        },
+        "writers": {
+          "desktop": 0.86,
+          "tablet": 0.92,
+          "mobile": 0.88
+        }
+      }
+    }
+  },
+  {
+    "site": "literary-community-inkwell-&-ember",
+    "tier": 2,
+    "tier_name": "mediocre",
+    "expected_score": 0.5,
+    "actual_score": 0.5746,
+    "grader_details": {
+      "overall": 0.5746,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 0.621,
+      "pixel_color": 0.8006,
+      "pixel_combined": 0.6929,
+      "llm_layout": 0.4905,
+      "llm_color": 0.6524,
+      "llm_typography": 0.2476,
+      "llm_spacing": 0.4214,
+      "llm_components": 0.4786,
+      "llm_avg": 0.4581,
+      "per_page": {
+        "about": {
+          "desktop": 0.46,
+          "tablet": 0.47,
+          "mobile": 0.46
+        },
+        "events": {
+          "desktop": 0.37,
+          "tablet": 0.41,
+          "mobile": 0.51
+        },
+        "home": {
+          "desktop": 0.49,
+          "tablet": 0.5,
+          "mobile": 0.45
+        },
+        "issues": {
+          "desktop": 0.44,
+          "tablet": 0.49,
+          "mobile": 0.52
+        },
+        "story": {
+          "desktop": 0.4,
+          "tablet": 0.45,
+          "mobile": 0.47
+        },
+        "submissions": {
+          "desktop": 0.42,
+          "tablet": 0.43,
+          "mobile": 0.49
+        },
+        "writers": {
+          "desktop": 0.48,
+          "tablet": 0.44,
+          "mobile": 0.47
+        }
+      }
+    }
+  },
+  {
+    "site": "literary-community-inkwell-&-ember",
+    "tier": 3,
+    "tier_name": "bad",
+    "expected_score": 0.2,
+    "actual_score": 0.3118,
+    "grader_details": {
+      "overall": 0.3118,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 0.59,
+      "pixel_color": 0.2008,
+      "pixel_combined": 0.4343,
+      "llm_layout": 0.1833,
+      "llm_color": 0.0738,
+      "llm_typography": 0.1738,
+      "llm_spacing": 0.1286,
+      "llm_components": 0.131,
+      "llm_avg": 0.1381,
+      "per_page": {
+        "about": {
+          "desktop": 0.17,
+          "tablet": 0.11,
+          "mobile": 0.16
+        },
+        "events": {
+          "desktop": 0.15,
+          "tablet": 0.11,
+          "mobile": 0.16
+        },
+        "home": {
+          "desktop": 0.12,
+          "tablet": 0.15,
+          "mobile": 0.17
+        },
+        "issues": {
+          "desktop": 0.13,
+          "tablet": 0.08,
+          "mobile": 0.12
+        },
+        "story": {
+          "desktop": 0.17,
+          "tablet": 0.16,
+          "mobile": 0.17
+        },
+        "submissions": {
+          "desktop": 0.11,
+          "tablet": 0.13,
+          "mobile": 0.17
+        },
+        "writers": {
+          "desktop": 0.1,
+          "tablet": 0.08,
+          "mobile": 0.18
+        }
+      }
+    }
+  },
+  {
+    "site": "literary-community-inkwell-&-ember",
+    "tier": 4,
+    "tier_name": "hack",
+    "expected_score": 0.0,
+    "actual_score": 0.0,
+    "grader_details": {
+      "overall": 0.0,
+      "hack_detected": true,
+      "structural": 0.0,
+      "pixel_ssim": 0.0,
+      "pixel_color": 0.0,
+      "pixel_combined": 0.0,
+      "llm_layout": 0.0,
+      "llm_color": 0.0,
+      "llm_typography": 0.0,
+      "llm_spacing": 0.0,
+      "llm_components": 0.0,
+      "llm_avg": 0.0
+    }
+  },
+  {
+    "site": "literary-community-inkwell-&-ember",
+    "tier": 5,
+    "tier_name": "empty",
+    "expected_score": 0.0,
+    "actual_score": 0.0309,
+    "grader_details": {
+      "overall": 0.0309,
+      "hack_detected": false,
+      "structural": 0.125,
+      "pixel_ssim": 0.1023,
+      "pixel_color": 0.015,
+      "pixel_combined": 0.0674,
+      "llm_layout": 0.0,
+      "llm_color": 0.0024,
+      "llm_typography": 0.0119,
+      "llm_spacing": 0.0,
+      "llm_components": 0.0,
+      "llm_avg": 0.0029,
+      "per_page": {
+        "about": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "events": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "home": {
+          "desktop": 0.01,
+          "tablet": 0.02,
+          "mobile": 0.03
+        },
+        "issues": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "story": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "submissions": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "writers": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        }
+      }
+    }
+  },
+  {
+    "site": "traditional-craft-ember-ash-forge",
+    "tier": 0,
+    "tier_name": "perfect",
+    "expected_score": 1.0,
+    "actual_score": 1.0,
+    "grader_details": {
+      "overall": 1.0,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 1.0,
+      "pixel_color": 1.0,
+      "pixel_combined": 1.0,
+      "llm_layout": 1.0,
+      "llm_color": 1.0,
+      "llm_typography": 1.0,
+      "llm_spacing": 1.0,
+      "llm_components": 1.0,
+      "llm_avg": 1.0,
+      "per_page": {
+        "about": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "commissions": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "contact": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "gallery": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "home": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "process": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "workshops": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        }
+      }
+    }
+  },
+  {
+    "site": "traditional-craft-ember-ash-forge",
+    "tier": 1,
+    "tier_name": "good",
+    "expected_score": 0.8,
+    "actual_score": 0.879,
+    "grader_details": {
+      "overall": 0.879,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 0.734,
+      "pixel_color": 0.4107,
+      "pixel_combined": 0.6047,
+      "llm_layout": 0.9238,
+      "llm_color": 0.9238,
+      "llm_typography": 0.919,
+      "llm_spacing": 0.8738,
+      "llm_components": 0.919,
+      "llm_avg": 0.9119,
+      "per_page": {
+        "about": {
+          "desktop": 0.92,
+          "tablet": 0.93,
+          "mobile": 0.93
+        },
+        "commissions": {
+          "desktop": 0.87,
+          "tablet": 0.83,
+          "mobile": 0.92
+        },
+        "contact": {
+          "desktop": 0.89,
+          "tablet": 0.87,
+          "mobile": 0.95
+        },
+        "gallery": {
+          "desktop": 0.92,
+          "tablet": 0.95,
+          "mobile": 0.93
+        },
+        "home": {
+          "desktop": 0.93,
+          "tablet": 0.89,
+          "mobile": 0.97
+        },
+        "process": {
+          "desktop": 0.87,
+          "tablet": 0.95,
+          "mobile": 0.97
+        },
+        "workshops": {
+          "desktop": 0.92,
+          "tablet": 0.85,
+          "mobile": 0.89
+        }
+      }
+    }
+  },
+  {
+    "site": "traditional-craft-ember-ash-forge",
+    "tier": 2,
+    "tier_name": "mediocre",
+    "expected_score": 0.5,
+    "actual_score": 0.5353,
+    "grader_details": {
+      "overall": 0.5353,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 0.4467,
+      "pixel_color": 0.3073,
+      "pixel_combined": 0.3909,
+      "llm_layout": 0.5024,
+      "llm_color": 0.5786,
+      "llm_typography": 0.3119,
+      "llm_spacing": 0.4286,
+      "llm_components": 0.5119,
+      "llm_avg": 0.4667,
+      "per_page": {
+        "about": {
+          "desktop": 0.49,
+          "tablet": 0.44,
+          "mobile": 0.51
+        },
+        "commissions": {
+          "desktop": 0.5,
+          "tablet": 0.52,
+          "mobile": 0.32
+        },
+        "contact": {
+          "desktop": 0.46,
+          "tablet": 0.45,
+          "mobile": 0.36
+        },
+        "gallery": {
+          "desktop": 0.48,
+          "tablet": 0.46,
+          "mobile": 0.43
+        },
+        "home": {
+          "desktop": 0.51,
+          "tablet": 0.58,
+          "mobile": 0.47
+        },
+        "process": {
+          "desktop": 0.41,
+          "tablet": 0.53,
+          "mobile": 0.43
+        },
+        "workshops": {
+          "desktop": 0.6,
+          "tablet": 0.46,
+          "mobile": 0.39
+        }
+      }
+    }
+  },
+  {
+    "site": "traditional-craft-ember-ash-forge",
+    "tier": 3,
+    "tier_name": "bad",
+    "expected_score": 0.2,
+    "actual_score": 0.3305,
+    "grader_details": {
+      "overall": 0.3305,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 0.4208,
+      "pixel_color": 0.3442,
+      "pixel_combined": 0.3902,
+      "llm_layout": 0.2095,
+      "llm_color": 0.181,
+      "llm_typography": 0.169,
+      "llm_spacing": 0.1452,
+      "llm_components": 0.1667,
+      "llm_avg": 0.1743,
+      "per_page": {
+        "about": {
+          "desktop": 0.16,
+          "tablet": 0.17,
+          "mobile": 0.23
+        },
+        "commissions": {
+          "desktop": 0.14,
+          "tablet": 0.16,
+          "mobile": 0.15
+        },
+        "contact": {
+          "desktop": 0.14,
+          "tablet": 0.18,
+          "mobile": 0.2
+        },
+        "gallery": {
+          "desktop": 0.17,
+          "tablet": 0.13,
+          "mobile": 0.2
+        },
+        "home": {
+          "desktop": 0.21,
+          "tablet": 0.22,
+          "mobile": 0.26
+        },
+        "process": {
+          "desktop": 0.14,
+          "tablet": 0.15,
+          "mobile": 0.2
+        },
+        "workshops": {
+          "desktop": 0.13,
+          "tablet": 0.13,
+          "mobile": 0.19
+        }
+      }
+    }
+  },
+  {
+    "site": "traditional-craft-ember-ash-forge",
+    "tier": 4,
+    "tier_name": "hack",
+    "expected_score": 0.0,
+    "actual_score": 0.0,
+    "grader_details": {
+      "overall": 0.0,
+      "hack_detected": true,
+      "structural": 0.0,
+      "pixel_ssim": 0.0,
+      "pixel_color": 0.0,
+      "pixel_combined": 0.0,
+      "llm_layout": 0.0,
+      "llm_color": 0.0,
+      "llm_typography": 0.0,
+      "llm_spacing": 0.0,
+      "llm_components": 0.0,
+      "llm_avg": 0.0
+    }
+  },
+  {
+    "site": "traditional-craft-ember-ash-forge",
+    "tier": 5,
+    "tier_name": "empty",
+    "expected_score": 0.0,
+    "actual_score": 0.0245,
+    "grader_details": {
+      "overall": 0.0245,
+      "hack_detected": false,
+      "structural": 0.125,
+      "pixel_ssim": 0.0416,
+      "pixel_color": 0.0001,
+      "pixel_combined": 0.025,
+      "llm_layout": 0.0,
+      "llm_color": 0.0024,
+      "llm_typography": 0.0119,
+      "llm_spacing": 0.0,
+      "llm_components": 0.0,
+      "llm_avg": 0.0029,
+      "per_page": {
+        "about": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "commissions": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "contact": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "gallery": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "home": {
+          "desktop": 0.02,
+          "tablet": 0.02,
+          "mobile": 0.02
+        },
+        "process": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "workshops": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        }
+      }
+    }
+  },
+  {
+    "site": "science-education-polaris-observatory",
+    "tier": 0,
+    "tier_name": "perfect",
+    "expected_score": 1.0,
+    "actual_score": 1.0,
+    "grader_details": {
+      "overall": 1.0,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 1.0,
+      "pixel_color": 1.0,
+      "pixel_combined": 1.0,
+      "llm_layout": 1.0,
+      "llm_color": 1.0,
+      "llm_typography": 1.0,
+      "llm_spacing": 1.0,
+      "llm_components": 1.0,
+      "llm_avg": 1.0,
+      "per_page": {
+        "courses": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "events": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "home": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "membership": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "planetarium": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        },
+        "visit": {
+          "desktop": 1.0,
+          "tablet": 1.0,
+          "mobile": 1.0
+        }
+      }
+    }
+  },
+  {
+    "site": "science-education-polaris-observatory",
+    "tier": 1,
+    "tier_name": "good",
+    "expected_score": 0.8,
+    "actual_score": 0.8685,
+    "grader_details": {
+      "overall": 0.8685,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 0.6656,
+      "pixel_color": 0.276,
+      "pixel_combined": 0.5097,
+      "llm_layout": 0.925,
+      "llm_color": 0.95,
+      "llm_typography": 0.9111,
+      "llm_spacing": 0.8694,
+      "llm_components": 0.9306,
+      "llm_avg": 0.9172,
+      "per_page": {
+        "courses": {
+          "desktop": 0.87,
+          "tablet": 0.86,
+          "mobile": 0.99
+        },
+        "events": {
+          "desktop": 0.86,
+          "tablet": 0.92,
+          "mobile": 0.89
+        },
+        "home": {
+          "desktop": 0.91,
+          "tablet": 0.97,
+          "mobile": 0.9
+        },
+        "membership": {
+          "desktop": 0.91,
+          "tablet": 0.93,
+          "mobile": 0.96
+        },
+        "planetarium": {
+          "desktop": 0.92,
+          "tablet": 0.93,
+          "mobile": 0.97
+        },
+        "visit": {
+          "desktop": 0.92,
+          "tablet": 0.92,
+          "mobile": 0.88
+        }
+      }
+    }
+  },
+  {
+    "site": "science-education-polaris-observatory",
+    "tier": 2,
+    "tier_name": "mediocre",
+    "expected_score": 0.5,
+    "actual_score": 0.5083,
+    "grader_details": {
+      "overall": 0.5083,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 0.3542,
+      "pixel_color": 0.1251,
+      "pixel_combined": 0.2626,
+      "llm_layout": 0.5056,
+      "llm_color": 0.5361,
+      "llm_typography": 0.3306,
+      "llm_spacing": 0.4194,
+      "llm_components": 0.4861,
+      "llm_avg": 0.4556,
+      "per_page": {
+        "courses": {
+          "desktop": 0.46,
+          "tablet": 0.49,
+          "mobile": 0.34
+        },
+        "events": {
+          "desktop": 0.5,
+          "tablet": 0.56,
+          "mobile": 0.45
+        },
+        "home": {
+          "desktop": 0.43,
+          "tablet": 0.48,
+          "mobile": 0.43
+        },
+        "membership": {
+          "desktop": 0.5,
+          "tablet": 0.51,
+          "mobile": 0.33
+        },
+        "planetarium": {
+          "desktop": 0.42,
+          "tablet": 0.5,
+          "mobile": 0.39
+        },
+        "visit": {
+          "desktop": 0.61,
+          "tablet": 0.51,
+          "mobile": 0.29
+        }
+      }
+    }
+  },
+  {
+    "site": "science-education-polaris-observatory",
+    "tier": 3,
+    "tier_name": "bad",
+    "expected_score": 0.2,
+    "actual_score": 0.2678,
+    "grader_details": {
+      "overall": 0.2678,
+      "hack_detected": false,
+      "structural": 1.0,
+      "pixel_ssim": 0.1224,
+      "pixel_color": 0.0551,
+      "pixel_combined": 0.0955,
+      "llm_layout": 0.175,
+      "llm_color": 0.1056,
+      "llm_typography": 0.1722,
+      "llm_spacing": 0.1389,
+      "llm_components": 0.1472,
+      "llm_avg": 0.1478,
+      "per_page": {
+        "courses": {
+          "desktop": 0.13,
+          "tablet": 0.14,
+          "mobile": 0.15
+        },
+        "events": {
+          "desktop": 0.1,
+          "tablet": 0.13,
+          "mobile": 0.16
+        },
+        "home": {
+          "desktop": 0.13,
+          "tablet": 0.15,
+          "mobile": 0.15
+        },
+        "membership": {
+          "desktop": 0.13,
+          "tablet": 0.16,
+          "mobile": 0.18
+        },
+        "planetarium": {
+          "desktop": 0.13,
+          "tablet": 0.17,
+          "mobile": 0.18
+        },
+        "visit": {
+          "desktop": 0.14,
+          "tablet": 0.15,
+          "mobile": 0.18
+        }
+      }
+    }
+  },
+  {
+    "site": "science-education-polaris-observatory",
+    "tier": 4,
+    "tier_name": "hack",
+    "expected_score": 0.0,
+    "actual_score": 0.0,
+    "grader_details": {
+      "overall": 0.0,
+      "hack_detected": true,
+      "structural": 0.0,
+      "pixel_ssim": 0.0,
+      "pixel_color": 0.0,
+      "pixel_combined": 0.0,
+      "llm_layout": 0.0,
+      "llm_color": 0.0,
+      "llm_typography": 0.0,
+      "llm_spacing": 0.0,
+      "llm_components": 0.0,
+      "llm_avg": 0.0
+    }
+  },
+  {
+    "site": "science-education-polaris-observatory",
+    "tier": 5,
+    "tier_name": "empty",
+    "expected_score": 0.0,
+    "actual_score": 0.0253,
+    "grader_details": {
+      "overall": 0.0253,
+      "hack_detected": false,
+      "structural": 0.1429,
+      "pixel_ssim": 0.026,
+      "pixel_color": 0.0001,
+      "pixel_combined": 0.0156,
+      "llm_layout": 0.0,
+      "llm_color": 0.0,
+      "llm_typography": 0.0111,
+      "llm_spacing": 0.0,
+      "llm_components": 0.0,
+      "llm_avg": 0.0022,
+      "per_page": {
+        "courses": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "events": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "home": {
+          "desktop": 0.01,
+          "tablet": 0.01,
+          "mobile": 0.02
+        },
+        "membership": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "planetarium": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        },
+        "visit": {
+          "desktop": 0.0,
+          "tablet": 0.0,
+          "mobile": 0.0
+        }
+      }
+    }
+  }
+]

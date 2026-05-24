@@ -1,0 +1,51 @@
+{
+  "overall": 0.5746,
+  "hack_detected": false,
+  "structural": 1.0,
+  "pixel_ssim": 0.621,
+  "pixel_color": 0.8006,
+  "pixel_combined": 0.6929,
+  "llm_layout": 0.4905,
+  "llm_color": 0.6524,
+  "llm_typography": 0.2476,
+  "llm_spacing": 0.4214,
+  "llm_components": 0.4786,
+  "llm_avg": 0.4581,
+  "per_page": {
+    "about": {
+      "desktop": 0.46,
+      "tablet": 0.47,
+      "mobile": 0.46
+    },
+    "events": {
+      "desktop": 0.37,
+      "tablet": 0.41,
+      "mobile": 0.51
+    },
+    "home": {
+      "desktop": 0.49,
+      "tablet": 0.5,
+      "mobile": 0.45
+    },
+    "issues": {
+      "desktop": 0.44,
+      "tablet": 0.49,
+      "mobile": 0.52
+    },
+    "story": {
+      "desktop": 0.4,
+      "tablet": 0.45,
+      "mobile": 0.47
+    },
+    "submissions": {
+      "desktop": 0.42,
+      "tablet": 0.43,
+      "mobile": 0.49
+    },
+    "writers": {
+      "desktop": 0.48,
+      "tablet": 0.44,
+      "mobile": 0.47
+    }
+  }
+}

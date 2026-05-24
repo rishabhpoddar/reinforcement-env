@@ -1,0 +1,6 @@
+{
+  "tier": 2,
+  "name": "mediocre",
+  "expected_score": 0.5,
+  "description": "Major CSS changes (wrong fonts, big color shifts, layout changes)"
+}

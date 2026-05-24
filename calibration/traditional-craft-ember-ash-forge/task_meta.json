@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "about",
+    "commissions",
+    "contact",
+    "gallery",
+    "home",
+    "process",
+    "workshops"
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 900
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812
+    }
+  },
+  "is_broken": false,
+  "defects": [],
+  "source_workspace": "generated/traditional-craft-ember-ash-forge",
+  "spec": {
+    "site_name": "Ember & Ash Forge",
+    "category": "traditional-craft",
+    "niche": "traditional blacksmithing studio offering custom ironwork commissions and weekend forge workshops",
+    "pages": [
+      "home",
+      "gallery",
+      "commissions",
+      "workshops",
+      "process",
+      "about",
+      "contact"
+    ],
+    "design_system": {
+      "color_palette": {
+        "primary": "#1A1310",
+        "secondary": "#8B3A1F",
+        "accent": "#E8A03C",
+        "bg": "#F5EFE6",
+        "text": "#2C211C"
+      },
+      "typography": {
+        "heading_font": "slab-serif",
+        "body_font": "sans-serif",
+        "scale": "1.333 perfect fourth"
+      },
+      "layout_style": "high-contrast editorial with charcoal backgrounds for hero sections and parchment-toned content areas, heavy use of negative space and asymmetric grids",
+      "mood": "rugged, elemental, time-honored, masculine-warmth"
+    },
+    "page_descriptions": {
+      "home": "Full-bleed dark hero with glowing forge ember imagery placeholder, large slab-serif headline 'Iron Shaped by Hand, Fire, and Time', subhead, dual CTA (Commission Work / Book a Workshop). Below: three-column featured craft categories (Architectural, Sculptural, Tools & Blades) with monochrome thumbnails. Horizontal scrolling 'Recent Forgings' strip with project tiles. Two-column split section: smith portrait placeholder + brief origin story. Workshop teaser banner with ember-orange accent block. Footer with anvil-mark logo and forge address.",
+      "gallery": "Masonry grid of past ironwork with category filter chips (Gates & Railings, Hardware, Cookware, Decorative, Blades). Each tile reveals project title and year on hover. Lightbox modal placeholder for detail views. Sticky filter bar at top. Sidebar with material/technique tags. 'View Commission Inquiry' floating CTA.",
+      "commissions": "Hero with quote about commissioned work over hammered-texture background. Process timeline (Consultation \u2192 Sketches \u2192 Material Sourcing \u2192 Forging \u2192 Finishing \u2192 Delivery) as horizontal stepper with hand-drawn arrows. Pricing guidance table (small hardware, mid-scale fixtures, large architectural). Inquiry form with fields for project type, dimensions, timeline, budget range, inspiration uploads placeholder. Past client testimonials in pull-quote style.",
+      "workshops": "Workshop catalog: 'Intro to the Forge' (1-day), 'Forge a Kitchen Knife' (weekend), 'Hooks & Hardware' (evening), 'Damascus Steel Intensive' (3-day). Each as a horizontal card with date list, skill level dot indicator, price, group size, and 'Reserve a Bench' button. What to expect section with iconography (apron, safety, lunch provided, take home your work). Instructor bios. Gift voucher purchase block.",
+      "process": "Long-scroll narrative page documenting the forge process: heating, drawing out, upsetting, bending, punching, welding, quenching, tempering. Each step has a full-width image placeholder paired with descriptive text and a tool callout sidebar. Material spotlight section on different steels and irons used. Sustainability note about reclaimed metal sourcing.",
+      "about": "Editorial-style about page with large smith portrait at top, multi-paragraph story written in first person, generational lineage callout box, studio history timeline (founded, expansions, notable commissions), shop tour photo grid placeholder, list of awards and exhibitions, philosophy statement in oversized italic pull-quote.",
+      "contact": "Two-column layout: left side has studio address with hand-drawn map placeholder, hours (forge open Wed-Sat), phone, email; right side has general inquiry form. Visit-by-appointment note. Newsletter signup ('Quarterly Forge Letter'). Social links to Instagram and YouTube channel."
+    },
+    "complexity": "moderate",
+    "special_elements": [
+      "hammered-texture background overlays on section dividers",
+      "ember-glow gradient CTA buttons that suggest heated metal",
+      "horizontal process stepper with hand-drawn arrow connectors",
+      "anvil-mark logo motif used as section bullets",
+      "skill-level dot indicators on workshop cards"
+    ],
+    "responsive_notes": "Mobile: hero text scales down significantly, three-column categories stack into single column, masonry gallery becomes 2-col then 1-col, horizontal process stepper rotates to vertical timeline, workshop cards stack with date lists collapsing into accordions. Tablet: gallery 3-col, workshop cards remain horizontal but compressed, two-column contact stacks at 768px.",
+    "is_broken": false
+  }
+}

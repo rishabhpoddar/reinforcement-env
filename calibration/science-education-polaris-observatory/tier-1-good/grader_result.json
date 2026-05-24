@@ -1,0 +1,46 @@
+{
+  "overall": 0.8685,
+  "hack_detected": false,
+  "structural": 1.0,
+  "pixel_ssim": 0.6656,
+  "pixel_color": 0.276,
+  "pixel_combined": 0.5097,
+  "llm_layout": 0.925,
+  "llm_color": 0.95,
+  "llm_typography": 0.9111,
+  "llm_spacing": 0.8694,
+  "llm_components": 0.9306,
+  "llm_avg": 0.9172,
+  "per_page": {
+    "courses": {
+      "desktop": 0.87,
+      "tablet": 0.86,
+      "mobile": 0.99
+    },
+    "events": {
+      "desktop": 0.86,
+      "tablet": 0.92,
+      "mobile": 0.89
+    },
+    "home": {
+      "desktop": 0.91,
+      "tablet": 0.97,
+      "mobile": 0.9
+    },
+    "membership": {
+      "desktop": 0.91,
+      "tablet": 0.93,
+      "mobile": 0.96
+    },
+    "planetarium": {
+      "desktop": 0.92,
+      "tablet": 0.93,
+      "mobile": 0.97
+    },
+    "visit": {
+      "desktop": 0.92,
+      "tablet": 0.92,
+      "mobile": 0.88
+    }
+  }
+}

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planetarium — Polaris Observatory</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="home.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="14" stroke="#F4C95D" stroke-width="0.8" opacity="0.4"/>
+        <circle cx="16" cy="16" r="8" stroke="#F4C95D" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2" fill="#F4C95D"/>
+        <path d="M16 2 L16.6 14 L28 16 L16.6 18 L16 30 L15.4 18 L4 16 L15.4 14 Z" fill="#F4C95D" opacity="0.85"/>
+      </svg>
+      POLARIS OBSERVATORY
+    </a>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="planetarium.html" class="active">Planetarium</a></li>
+      <li><a href="visit.html">Visit</a></li>
+      <li><a href="membership.html">Membership</a></li>
+    </ul>
+    <div class="moon-widget">
+      <div class="moon-icon"></div>
+      <div>
+        <div class="label">Waxing Gibbous</div>
+        <div style="font-size:0.7rem;color:var(--text-faint)">73% Illuminated</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="events-hero">
+  <div class="starfield dense" style="position:absolute;inset:0;"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <span class="section-eyebrow">Full-dome theater · 60 seats</span>
+    <h1 style="font-size:var(--t-2xl);font-family:var(--serif);margin-bottom:1rem;letter-spacing:-0.02em;">The Maren Lindqvist Planetarium</h1>
+    <p class="section-lead" style="font-size:1.1rem;max-width:60ch;">A 14-meter tilted dome, 8K-resolution full-dome projection, and an immersive Dolby 7.1 sound system. Three rotating feature shows plus live presentations every weekend.</p>
+  </div>
+</section>
+
+<!-- SHOWS -->
+<section class="section">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <span class="section-eyebrow">Now showing</span>
+        <h2 class="section-title" style="margin-bottom:0">Feature Programs</h2>
+      </div>
+      <div class="view-toggle">
+        <button class="active">All</button>
+        <button>Family</button>
+        <button>Adult</button>
+      </div>
+    </div>
+
+    <div class="shows-grid">
+
+      <article class="show-poster">
+        <div class="poster-art poster-art-cosmos"></div>
+        <div class="info">
+          <div class="runtime-row">
+            <span>42 min runtime</span>
+            <span>All ages</span>
+          </div>
+          <h3>Cosmos: A Personal Voyage</h3>
+          <p class="synopsis">A re-imagined journey from the Pacific shore to the edge of the observable universe, narrated for the dome by Dr. Vidya Saraswat.</p>
+          <div class="show-times">
+            <strong>Sat &amp; Sun</strong> · 11 AM, 1 PM, 3 PM<br>
+            <strong>Wed–Fri</strong> · 4 PM only
+          </div>
+        </div>
+      </article>
+
+      <article class="show-poster">
+        <div class="poster-art poster-art-blackhole"></div>
+        <div class="info">
+          <div class="runtime-row">
+            <span>36 min runtime</span>
+            <span>Age 12+</span>
+          </div>
+          <h3>The Event Horizon</h3>
+          <p class="synopsis">A visualization-rich exploration of black holes — from stellar collapse to the EHT image of M87* — drawing on the latest gravitational-wave observations.</p>
+          <div class="show-times">
+            <strong>Fri &amp; Sat</strong> · 7 PM, 9 PM<br>
+            <strong>Sun</strong> · 5 PM
+          </div>
+        </div>
+      </article>
+
+      <article class="show-poster">
+        <div class="poster-art poster-art-mars"></div>
+        <div class="info">
+          <div class="runtime-row">
+            <span>28 min runtime</span>
+            <span>Family (6+)</span>
+          </div>
+          <h3>To the Red Planet</h3>
+          <p class="synopsis">Follow three generations of Mars missions, from Mariner to Perseverance, with full-dome flyovers of Olympus Mons and Valles Marineris in 8K.</p>
+          <div class="show-times">
+            <strong>Sat &amp; Sun</strong> · 10 AM, 12 PM<br>
+            <strong>Tue–Fri</strong> · 11 AM
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRAILER FRAMES -->
+<section class="trailer-section">
+  <div class="container">
+    <span class="section-eyebrow">Watch a trailer</span>
+    <h2 class="section-title" style="margin-bottom:2.5rem;">Glimpses from the dome</h2>
+
+    <div class="trailer-frames">
+      <div class="trailer-frame large tf-1">
+        <div class="play-ico"></div>
+      </div>
+      <div class="trailer-frame tf-2">
+        <div class="play-ico"></div>
+      </div>
+      <div class="trailer-frame tf-3">
+        <div class="play-ico"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOME SPECS -->
+<section class="section">
+  <div class="container">
+    <div class="specs-panel">
+      <div>
+        <span class="section-eyebrow">Theater specifications</span>
+        <h2 class="section-title">Inside the Lindqvist Dome</h2>
+        <p style="margin-bottom:2rem;">Our 14-meter tilted dome was upgraded in 2023 with an eight-projector 8K full-dome system. The result: 4× the resolution of our previous installation and color depth that holds up under the deepest cosmic blacks.</p>
+
+        <div class="specs-list">
+          <div class="row"><span class="l">Dome diameter</span><span class="v">14 m (46 ft)</span></div>
+          <div class="row"><span class="l">Tilt</span><span class="v">23°</span></div>
+          <div class="row"><span class="l">Seating</span><span class="v">60 reclined seats</span></div>
+          <div class="row"><span class="l">Projection</span><span class="v">8K · 8-projector blend</span></div>
+          <div class="row"><span class="l">Audio</span><span class="v">Dolby 7.1 surround</span></div>
+          <div class="row"><span class="l">Star field</span><span class="v">9,100 stars · Hipparcos catalog</span></div>
+          <div class="row"><span class="l">Accessibility</span><span class="v">Wheelchair stations, hearing loop</span></div>
+        </div>
+      </div>
+
+      <div class="dome-illustration">
+        <svg class="dome-svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <radialGradient id="domeg" cx="0.5" cy="0.7" r="0.7">
+              <stop offset="0%" stop-color="#3a3380"/>
+              <stop offset="60%" stop-color="#1a1f4a"/>
+              <stop offset="100%" stop-color="#0a0f26"/>
+            </radialGradient>
+          </defs>
+          <!-- ground -->
+          <line x1="40" y1="320" x2="360" y2="320" stroke="#F4C95D" stroke-opacity="0.4" stroke-width="1"/>
+          <!-- dome -->
+          <path d="M 80 320 Q 80 140, 200 130 Q 320 140, 320 320 Z" fill="url(#domeg)" stroke="#F4C95D" stroke-opacity="0.5" stroke-width="1"/>
+          <!-- panels -->
+          <line x1="200" y1="130" x2="200" y2="320" stroke="#F4C95D" stroke-opacity="0.2" stroke-width="0.5"/>
+          <line x1="130" y1="160" x2="270" y2="160" stroke="#F4C95D" stroke-opacity="0.2" stroke-width="0.5"/>
+          <line x1="100" y1="220" x2="300" y2="220" stroke="#F4C95D" stroke-opacity="0.2" stroke-width="0.5"/>
+          <line x1="86" y1="280" x2="314" y2="280" stroke="#F4C95D" stroke-opacity="0.2" stroke-width="0.5"/>
+          <!-- aperture / opening -->
+          <path d="M 200 140 Q 240 130, 260 160" stroke="#F4C95D" stroke-width="1" fill="none" opacity="0.8"/>
+          <!-- person silhouette -->
+          <circle cx="340" cy="310" r="3" fill="#F4C95D"/>
+          <line x1="340" y1="313" x2="340" y2="322" stroke="#F4C95D" stroke-width="1.5"/>
+          <!-- annotations -->
+          <text x="50" y="316" fill="#F4C95D" font-size="10" font-family="serif" opacity="0.7">14 m ⌀</text>
+          <text x="160" y="115" fill="#F4C95D" font-size="10" font-family="serif" opacity="0.7">aperture</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEAT MAP -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <span class="section-eyebrow">Reserve your seat</span>
+    <h2 class="section-title" style="margin-bottom:2.5rem;">Choose your reclined view</h2>
+
+    <div class="seat-map-block">
+      <div class="seat-map">
+        <div class="screen-arc">↑ Dome center ↑</div>
+        <div class="seat-rows">
+          <div class="seat-row">
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat aisle"></div>
+            <div class="seat"></div><div class="seat taken"></div><div class="seat taken"></div><div class="seat"></div>
+            <div class="seat aisle"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+          </div>
+          <div class="seat-row">
+            <div class="seat"></div><div class="seat taken"></div><div class="seat"></div><div class="seat"></div><div class="seat aisle"></div>
+            <div class="seat"></div><div class="seat selected"></div><div class="seat selected"></div><div class="seat"></div>
+            <div class="seat aisle"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+          </div>
+          <div class="seat-row">
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat aisle"></div>
+            <div class="seat taken"></div><div class="seat taken"></div><div class="seat"></div><div class="seat"></div>
+            <div class="seat aisle"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+          </div>
+          <div class="seat-row">
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat aisle"></div>
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat taken"></div>
+            <div class="seat aisle"></div><div class="seat"></div><div class="seat taken"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+          </div>
+          <div class="seat-row">
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat aisle"></div>
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+            <div class="seat aisle"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+          </div>
+        </div>
+        <div class="seat-legend">
+          <div class="item"><span class="swatch avail"></span> Available</div>
+          <div class="item"><span class="swatch sel"></span> Your selection</div>
+          <div class="item"><span class="swatch taken"></span> Taken</div>
+        </div>
+      </div>
+
+      <div>
+        <div style="padding:1.5rem;background:rgba(14,20,50,0.5);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:1.5rem;">
+          <div style="font-size:0.72rem;letter-spacing:0.25em;color:var(--accent);text-transform:uppercase;margin-bottom:0.6rem;">Your Selection</div>
+          <h3 style="font-size:1.2rem;font-family:var(--serif);margin-bottom:0.4rem;">The Event Horizon</h3>
+          <div style="color:var(--text-dim);font-size:0.88rem;margin-bottom:1.2rem;">Saturday, May 31 · 9:00 PM · Seats B6, B7</div>
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:1.2rem;">
+            <span style="color:var(--text-dim);font-size:0.9rem;">2 × Adult @ $16</span>
+            <span style="font-family:var(--serif);color:var(--accent);font-size:1.2rem;">$32.00</span>
+          </div>
+          <a href="#" class="btn btn-primary" style="width:100%;justify-content:center;">Continue to checkout</a>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-faint);">Seats are released back to inventory 8 minutes after selection if not confirmed. Members receive 20% off all show tickets — <a href="membership.html">sign in</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSTELLATION DIVIDER -->
+<div class="container">
+  <svg class="constellation-divider" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <line x1="0" y1="30" x2="200" y2="30" stroke="#1d2247" stroke-width="1"/>
+    <circle cx="240" cy="30" r="2" fill="#F4C95D"/>
+    <line x1="248" y1="30" x2="320" y2="20" stroke="#F4C95D" stroke-width="0.5"/>
+    <circle cx="328" cy="18" r="2" fill="#F4C95D"/>
+    <line x1="334" y1="20" x2="420" y2="40" stroke="#F4C95D" stroke-width="0.5"/>
+    <circle cx="428" cy="42" r="2.5" fill="#F4C95D"/>
+    <line x1="436" y1="42" x2="540" y2="30" stroke="#F4C95D" stroke-width="0.5"/>
+    <circle cx="548" cy="30" r="3" fill="#F4C95D"/>
+    <line x1="556" y1="30" x2="660" y2="20" stroke="#F4C95D" stroke-width="0.5"/>
+    <circle cx="668" cy="18" r="2" fill="#F4C95D"/>
+    <line x1="674" y1="20" x2="780" y2="38" stroke="#F4C95D" stroke-width="0.5"/>
+    <circle cx="788" cy="40" r="2" fill="#F4C95D"/>
+    <line x1="796" y1="40" x2="900" y2="30" stroke="#F4C95D" stroke-width="0.5"/>
+    <circle cx="908" cy="30" r="2" fill="#F4C95D"/>
+    <line x1="918" y1="30" x2="1200" y2="30" stroke="#1d2247" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- SCHOOL GROUPS -->
+<section class="section">
+  <div class="container">
+    <div class="school-group-row">
+      <div>
+        <span class="section-eyebrow">For educators</span>
+        <h2 class="section-title">School Group Bookings</h2>
+        <p style="margin-bottom:1.2rem;">Polaris welcomes 6,000+ K–12 students every year. Group rates start at $4 per student (free for Title-I schools), with custom curriculum tie-ins available for grades 3–12.</p>
+        <ul style="list-style:none;padding-left:0;">
+          <li style="padding:0.4rem 0;color:var(--text-dim);">✦ Minimum 12 students, maximum 60 per show</li>
+          <li style="padding:0.4rem 0;color:var(--text-dim);">✦ Pre-visit and post-visit lesson plans included</li>
+          <li style="padding:0.4rem 0;color:var(--text-dim);">✦ One free chaperone per 8 students</li>
+          <li style="padding:0.4rem 0;color:var(--text-dim);">✦ Tuesday–Thursday morning slots most flexible</li>
+        </ul>
+      </div>
+
+      <form class="school-form">
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:0.4rem;">Request a booking</h3>
+        <p style="font-size:0.85rem;color:var(--text-faint);margin-bottom:1.5rem;">We'll respond within two business days.</p>
+
+        <div class="form-row">
+          <div class="field"><label>School name</label><input type="text" placeholder="Hillcrest Elementary"></div>
+          <div class="field"><label>Educator contact</label><input type="text" placeholder="Marcus Beaumont"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Email</label><input type="email" placeholder="m.beaumont@school.org"></div>
+          <div class="field"><label>Phone</label><input type="tel" placeholder="(541) ..."></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Grade level</label>
+            <select><option>3rd grade</option><option>4th–5th</option><option>6th–8th</option><option>9th–12th</option></select>
+          </div>
+          <div class="field"><label>Students (approx.)</label><input type="number" placeholder="28"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Preferred show</label>
+            <select><option>To the Red Planet</option><option>Cosmos: A Personal Voyage</option><option>The Event Horizon</option><option>Educator's choice</option></select>
+          </div>
+          <div class="field"><label>Preferred date</label><input type="date"></div>
+        </div>
+        <div class="field" style="margin-bottom:1.5rem;"><label>Notes / curriculum focus</label><textarea placeholder="Studying the solar system this term — any tie-in with Mars geology would be great."></textarea></div>
+        <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;">Submit request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="col-about">
+      <a href="home.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="#F4C95D" stroke-width="0.8" opacity="0.4"/>
+          <circle cx="16" cy="16" r="8" stroke="#F4C95D" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="16" cy="16" r="2" fill="#F4C95D"/>
+          <path d="M16 2 L16.6 14 L28 16 L16.6 18 L16 30 L15.4 18 L4 16 L15.4 14 Z" fill="#F4C95D" opacity="0.85"/>
+        </svg>
+        POLARIS OBSERVATORY
+      </a>
+      <p>A non-profit public observatory dedicated to sharing the wonder of the night sky through education, research, and community gatherings under the stars.</p>
+    </div>
+    <div>
+      <h5>Visit</h5>
+      <ul>
+        <li><a href="visit.html">Hours &amp; Directions</a></li>
+        <li><a href="visit.html">Ticket Pricing</a></li>
+        <li><a href="visit.html">Accessibility</a></li>
+        <li><a href="visit.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Programs</h5>
+      <ul>
+        <li><a href="events.html">Stargazing Nights</a></li>
+        <li><a href="courses.html">Astronomy Courses</a></li>
+        <li><a href="planetarium.html">Planetarium Shows</a></li>
+        <li><a href="membership.html">Membership</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li>Cascade Range, OR</li>
+        <li>(541) 555-0162</li>
+        <li>hello@polarisobs.org</li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 1962—2026 Polaris Observatory · A 501(c)(3) non-profit</div>
+    <div>Made under dark skies in the Cascades</div>
+  </div>
+</footer>
+
+</body>
+</html>

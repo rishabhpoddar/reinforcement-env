@@ -1,0 +1,51 @@
+{
+  "overall": 0.3305,
+  "hack_detected": false,
+  "structural": 1.0,
+  "pixel_ssim": 0.4208,
+  "pixel_color": 0.3442,
+  "pixel_combined": 0.3902,
+  "llm_layout": 0.2095,
+  "llm_color": 0.181,
+  "llm_typography": 0.169,
+  "llm_spacing": 0.1452,
+  "llm_components": 0.1667,
+  "llm_avg": 0.1743,
+  "per_page": {
+    "about": {
+      "desktop": 0.16,
+      "tablet": 0.17,
+      "mobile": 0.23
+    },
+    "commissions": {
+      "desktop": 0.14,
+      "tablet": 0.16,
+      "mobile": 0.15
+    },
+    "contact": {
+      "desktop": 0.14,
+      "tablet": 0.18,
+      "mobile": 0.2
+    },
+    "gallery": {
+      "desktop": 0.17,
+      "tablet": 0.13,
+      "mobile": 0.2
+    },
+    "home": {
+      "desktop": 0.21,
+      "tablet": 0.22,
+      "mobile": 0.26
+    },
+    "process": {
+      "desktop": 0.14,
+      "tablet": 0.15,
+      "mobile": 0.2
+    },
+    "workshops": {
+      "desktop": 0.13,
+      "tablet": 0.13,
+      "mobile": 0.19
+    }
+  }
+}

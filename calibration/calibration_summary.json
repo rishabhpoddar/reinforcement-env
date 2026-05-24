@@ -1,0 +1,18 @@
+{
+  "rank_correlation": 0.9428571428571427,
+  "monotonicity": 0.8,
+  "avg_tier_gap": 0.19462,
+  "hack_rejection_rate": 1.0,
+  "empty_rejection_rate": 1.0,
+  "perfect_recognition_rate": 1.0,
+  "tier_means": {
+    "0": 1.0,
+    "1": 0.8790666666666667,
+    "2": 0.5394,
+    "3": 0.3033666666666667,
+    "4": 0.0,
+    "5": 0.026899999999999997
+  },
+  "n_sites": 3,
+  "n_submissions": 18
+}

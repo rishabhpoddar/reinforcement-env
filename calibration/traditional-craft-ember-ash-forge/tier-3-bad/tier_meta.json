@@ -1,0 +1,6 @@
+{
+  "tier": 3,
+  "name": "bad",
+  "expected_score": 0.2,
+  "description": "HTML structure only, CSS mostly stripped"
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkwell & Ember | Submissions</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233B1F2B'/%3E%3Cpath d='M8 22c6-1 10-5 15-13' stroke='%23E8C547' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="masthead site-shell">
+    <div class="masthead-top">
+      <div class="brand">
+        <p class="eyebrow">Submissions</p>
+        <h1>Inkwell & Ember</h1>
+      </div>
+      <p class="masthead-note">We seek vivid speculative work with emotional precision, sentence-level care, and a taste for the uncanny.</p>
+    </div>
+    <div class="ornament"><span></span></div>
+    <nav class="nav" aria-label="Primary">
+      <a href="home.html">Home</a>
+      <a href="issues.html">Issues</a>
+      <a href="story.html">Story</a>
+      <a href="submissions.html" aria-current="page">Submissions</a>
+      <a href="writers.html">Writers</a>
+      <a href="events.html">Events</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="site-shell">
+    <section class="panel page-section submissions-grid">
+      <article>
+        <p class="section-label">Editorial guidelines</p>
+        <h2 class="section-title">What we want and what we don't</h2>
+        <div class="guidelines">
+          <div class="guideline-card">
+            <h3>What we want</h3>
+            <p>Speculative fiction with atmospheric texture, memorable images, and a strong emotional center.</p>
+            <p>Poems that earn their turns. Essays that interrogate the strange with intelligence and warmth.</p>
+          </div>
+          <div class="guideline-card">
+            <h3>What we do not want</h3>
+            <p>Cliched horror beats, thin worldbuilding, or work that mistakes opacity for depth.</p>
+            <p>Please avoid simultaneous submissions unless noted in the cover letter.</p>
+          </div>
+          <div class="guideline-card">
+            <h3>Payment rates</h3>
+            <p>Short fiction: 0.20/word. Poetry: $60 per poem. Essays: $150 flat.</p>
+            <p>We pay on acceptance and confirm within the response window listed below.</p>
+          </div>
+          <div class="guideline-card">
+            <h3>Response times</h3>
+            <p>Fiction and essays: 4 to 8 weeks. Poetry: 2 to 4 weeks. We reply to every submission.</p>
+            <p>Status updates are sent to the address used in the form.</p>
+          </div>
+        </div>
+      </article>
+      <aside class="calculator">
+        <p class="meta">Open status indicators</p>
+        <h3>Genre acceptance</h3>
+        <div class="rate-table">
+          <div class="rate-box"><div class="status open">Open</div><p>Short fiction</p></div>
+          <div class="rate-box"><div class="status open">Open</div><p>Poetry</p></div>
+          <div class="rate-box"><div class="status">Closed</div><p>Flash fiction</p></div>
+        </div>
+        <div class="calculation">
+          <label for="wordcount">Sliding pay-rate calculator</label>
+          <input id="wordcount" type="range" min="500" max="5000" value="1800" step="100">
+          <div class="meta">Word count preview: 1,800</div>
+          <div class="rate-table">
+            <div class="rate-box"><strong>$360</strong><br><span>Fiction estimate</span></div>
+            <div class="rate-box"><strong>$60</strong><br><span>Poem rate</span></div>
+            <div class="rate-box"><strong>$150</strong><br><span>Essay flat</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="panel page-section">
+      <p class="section-label">Submission form</p>
+      <form class="form-grid">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="genre">Genre</label>
+          <select id="genre">
+            <option>Short fiction</option>
+            <option>Poetry</option>
+            <option>Essay</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="manuscript">Manuscript upload</label>
+          <input id="manuscript" type="file">
+        </div>
+        <div class="field">
+          <label for="bio">Bio</label>
+          <input id="bio" type="text" placeholder="One or two lines about you">
+        </div>
+        <div class="field" style="grid-column: 1 / -1;">
+          <label for="coverletter">Cover letter</label>
+          <textarea id="coverletter" placeholder="Tell us about the piece, your inspirations, and any relevant notes."></textarea>
+        </div>
+        <button class="button" type="button">Submit manuscript</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="page-footer site-shell">
+    <div class="footer-grid">
+      <p class="footer-copy">We read with care and reply with clarity. Send the work that keeps you awake.</p>
+      <p class="footer-meta">Submissions open on a rolling seasonal schedule</p>
+    </div>
+  </footer>
+</body>
+</html>

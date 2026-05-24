@@ -1,0 +1,1450 @@
+:root {
+  --primary: #775b67;
+  --secondary: #de7a84;
+  --accent: #ffff83;
+  --bg: #ffffff;
+  --text: #67575b;
+  --paper: #ffffff;
+  --paper-soft: #ffffff;
+  --border: rgba(59, 31, 43, 0.18);
+  --shadow: 0 43.2px 108.0px rgba(43, 27, 31, 0.16);
+  --serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --measure: 68ch;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "Courier New", monospace;
+  background:
+    radial-gradient(circle at top left, rgba(232, 197, 71, 0.18), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(162, 62, 72, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0)),
+    repeating-linear-gradient(90deg, rgba(59, 31, 43, 0.02) 0, rgba(59, 31, 43, 0.02) 1.8px, transparent 1.8px, transparent 129.6px),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 42%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(59, 31, 43, 0.03), transparent 35%),
+    radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.35), transparent 45%);
+  mix-blend-mode: multiply;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1.8px;
+  text-underline-offset: 0.3em;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.site-shell {
+  width: min(2304.0px, calc(100% - 57.6px));
+  margin: 0 auto;
+}
+
+.masthead,
+.page-footer {
+  position: relative;
+  z-index: 1;
+  border: 1.8px solid var(--border);
+  background: linear-gradient(180deg, rgba(251, 245, 234, 0.94), rgba(245, 235, 221, 0.9));
+  box-shadow: var(--shadow);
+}
+
+.masthead {
+  margin: 32.4px auto 43.2px;
+  padding: 39.6px 43.2px 32.4px;
+}
+
+.masthead::after {
+  content: "";
+  display: block;
+  margin-top: 25.2px;
+  height: 14.4px;
+  background:
+    linear-gradient(90deg, transparent 0 8%, rgba(162, 62, 72, 0.18) 8% 92%, transparent 92% 100%),
+    radial-gradient(circle at center, rgba(232, 197, 71, 0.65) 0 30%, transparent 31% 100%);
+  opacity: 0.8;
+}
+
+.masthead-top {
+  display: flex;
+  gap: 36.0px;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.brand {
+  max-width: 79.2rem;
+}
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 1.3rem;
+  color: var(--secondary);
+  margin: 0 0 10.8px;
+}
+
+.brand h1,
+.section-title,
+.hero-title,
+.story-title,
+.page-heading {
+  margin: 0;
+  color: var(--primary);
+  line-height: 0.95;
+  letter-spacing: -0.1em;
+}
+
+.brand h1 {
+  font-size: clamp(4.3rem, 5vw, 9.5rem);
+}
+
+.masthead-note {
+  max-width: 55.8rem;
+  font-size: 1.8rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.ornament {
+  margin-top: 32.4px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 28.8px;
+}
+
+.ornament::before,
+.ornament::after {
+  content: "";
+  height: 1.8px;
+  background: linear-gradient(90deg, transparent, rgba(59, 31, 43, 0.7), transparent);
+}
+
+.ornament span {
+  width: 111.6px;
+  height: 32.4px;
+  border-radius: 0;
+  background: radial-gradient(circle, rgba(232, 197, 71, 0.95) 0 28%, rgba(162, 62, 72, 0.7) 29% 45%, transparent 46%),
+    linear-gradient(90deg, transparent, rgba(59, 31, 43, 0.15), transparent);
+}
+
+.nav {
+  display: flex;
+  gap: 18.0px;
+  overflow-x: auto;
+  padding-bottom: 10.8px;
+  margin-top: 28.8px;
+  scrollbar-width: thin;
+}
+
+.nav a {
+  white-space: nowrap;
+  text-decoration: none;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 1.3rem;
+  border: 1.8px solid rgba(59, 31, 43, 0.14);
+  background: rgba(255, 250, 242, 0.74);
+  padding: 1.2rem 1.6rem;
+  border-radius: 0;
+}
+
+.nav a[aria-current="page"] {
+  background: var(--primary);
+  color: var(--bg);
+  border-color: var(--primary);
+}
+
+main {
+  display: grid;
+  gap: 43.2px;
+  margin-bottom: 50.4px;
+}
+
+.panel {
+  position: relative;
+  z-index: 1;
+  border: 1.8px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 251, 244, 0.92), rgba(246, 236, 221, 0.95));
+  box-shadow: var(--shadow);
+}
+
+.page-section {
+  padding: 39.6px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 18.0px;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 1.3rem;
+  color: var(--secondary);
+  margin-bottom: 21.6px;
+}
+
+.section-label::before {
+  content: "";
+  width: 5.0rem;
+  height: 1.8px;
+  background: currentColor;
+}
+
+.section-title {
+  font-size: clamp(3.2rem, 3vw, 5.6rem);
+  max-width: 16ch;
+}
+
+.lede,
+.body-copy,
+.letter,
+.bio,
+.card p,
+.guideline,
+.footer-copy {
+  font-size: 1.8rem;
+  line-height: 1.72;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 36.0px;
+  align-items: start;
+}
+
+.hero-main {
+  padding: 50.4px;
+  min-height: 100%;
+  background:
+    linear-gradient(130deg, rgba(59, 31, 43, 0.9), rgba(59, 31, 43, 0.64) 55%, rgba(162, 62, 72, 0.34)),
+    radial-gradient(circle at 20% 15%, rgba(232, 197, 71, 0.42), transparent 20%),
+    linear-gradient(180deg, #87606d, #69535c);
+  color: #ffffff;
+  border: 1.8px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 0 0 1.8px rgba(255, 255, 255, 0.05);
+}
+
+.hero-title {
+  font-size: clamp(4.1rem, 4.8vw, 9.0rem);
+  color: #ffffff;
+  max-width: 11ch;
+}
+
+.pull-quote {
+  margin: 32.4px 0 0;
+  max-width: 64.8rem;
+  font-size: 1.9rem;
+  line-height: 1.78;
+  font-style: italic;
+  color: rgba(251, 245, 234, 0.92);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 21.6px;
+  margin-top: 39.6px;
+}
+
+.button,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 82.8px;
+  padding: 1.3rem 2.0rem;
+  border-radius: 0;
+  text-decoration: none;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 1.3rem;
+}
+
+.button {
+  background: var(--accent);
+  color: var(--primary);
+  border: 1.8px solid rgba(59, 31, 43, 0.18);
+}
+
+.button-secondary {
+  color: #ffffff;
+  border: 1.8px solid rgba(251, 245, 234, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hero-aside {
+  display: grid;
+  gap: 25.2px;
+}
+
+.current-issue-split {
+  grid-template-columns: minmax(0, 1.08fr) minmax(432.0px, 0.92fr);
+  align-items: stretch;
+}
+
+.current-issue-split .toc,
+.current-issue-split .issue-cover {
+  min-height: 100%;
+}
+
+.cover,
+.photo,
+.thumb,
+.portrait,
+.placeholder-image,
+.venue-art,
+.issue-cover {
+  border: 1.8px solid rgba(59, 31, 43, 0.16);
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.cover {
+  min-height: 468.0px;
+  padding: 32.4px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(232, 197, 71, 0.85), transparent 16%),
+    radial-gradient(circle at 70% 30%, rgba(162, 62, 72, 0.34), transparent 24%),
+    linear-gradient(150deg, rgba(255, 245, 229, 0.96), rgba(233, 212, 180, 0.88));
+}
+
+.cover::after,
+.issue-cover::after,
+.portrait::after,
+.photo::after,
+.thumb::after,
+.venue-art::after,
+.placeholder-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(59, 31, 43, 0.08));
+}
+
+.cover-mark {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 1.2rem;
+  color: var(--secondary);
+  margin-bottom: 14.4px;
+}
+
+.cover h3,
+.issue-cover h3,
+.card h3,
+.event-card h3,
+.writer-card h3,
+.story-footer h3,
+.about-card h3 {
+  margin: 0;
+  color: var(--primary);
+  line-height: 1.05;
+}
+
+.cover h3 {
+  font-size: 3.6rem;
+  max-width: 12ch;
+}
+
+.issue-tag {
+  margin: 32.4px 0 0;
+  max-width: 28ch;
+  font-style: italic;
+  line-height: 1.55;
+  color: rgba(43, 27, 31, 0.8);
+}
+
+.editor-letter {
+  display: grid;
+  align-content: start;
+  gap: 14.4px;
+}
+
+.signature {
+  margin-top: 14.4px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.newsletter-card {
+  display: grid;
+  align-content: start;
+  gap: 18.0px;
+  padding: 36.0px;
+  border: 1.8px solid rgba(59, 31, 43, 0.14);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(232, 197, 71, 0.18), transparent 30%),
+    rgba(255, 251, 244, 0.86);
+}
+
+.quill-mark {
+  width: 93.6px;
+  height: 93.6px;
+  display: grid;
+  place-items: center;
+  border-radius: 0;
+  color: var(--secondary);
+  border: 1.8px solid rgba(59, 31, 43, 0.16);
+  background: radial-gradient(circle, rgba(232, 197, 71, 0.35), rgba(255, 251, 244, 0.2));
+}
+
+.quill-mark svg {
+  width: 50.4px;
+  height: 50.4px;
+}
+
+.about-lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 43.2px;
+  align-items: start;
+}
+
+.about-photostrip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28.8px;
+}
+
+.masthead-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28.8px;
+}
+
+.yearbook-card h3 {
+  font-size: 2.7rem;
+}
+
+.yearbook-card .meta {
+  color: var(--secondary);
+}
+
+.issue-number,
+.issue-teaser {
+  margin: 0;
+}
+
+.issue-teaser {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.masonry-grid .issue-card {
+  min-height: 100%;
+}
+
+.masonry-grid .issue-art {
+  min-height: 378.0px;
+  padding: 28.8px;
+  display: flex;
+  align-items: end;
+}
+
+.masonry-grid .tall .issue-art {
+  min-height: 486.0px;
+}
+
+.overlay-copy {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  max-width: 15ch;
+}
+
+.overlay-copy .issue-number {
+  display: inline-block;
+  padding: 0;
+  color: rgba(251, 245, 234, 0.86);
+}
+
+.issue-season,
+.issue-tagline {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 1.2rem;
+}
+
+.issue-season {
+  margin-top: 10.8px;
+  color: rgba(251, 245, 234, 0.74);
+}
+
+.issue-tagline {
+  margin: 14.4px 0 0;
+  color: rgba(251, 245, 234, 0.82);
+  line-height: 1.45;
+}
+
+.overlay-copy h3 {
+  color: #ffffff;
+  margin-top: 18.0px;
+}
+
+.masonry-grid .issue-body {
+  min-height: 252.0px;
+}
+
+.masonry-grid .issue-card:hover .overlay-copy {
+  transform: translateY(-3.6px);
+}
+
+.toc,
+.issue-grid,
+.card-grid,
+.writer-grid,
+.event-grid,
+.about-grid,
+.manifesto,
+.guidelines,
+.submissions-grid,
+.story-layout,
+.archive-row {
+  display: grid;
+  gap: 32.4px;
+}
+
+.toc {
+  padding: 32.4px;
+  background: rgba(255, 251, 244, 0.78);
+}
+
+.toc h3,
+.sidebar-title,
+.small-title {
+  margin: 0 0 21.6px;
+  font-size: 2.3rem;
+  color: var(--primary);
+}
+
+.toc ol,
+.footnotes,
+.published-list,
+.tags,
+.editor-list,
+.support-list,
+.manifesto ol,
+.press-list {
+  margin: 0;
+  padding-left: 2.2rem;
+}
+
+.toc li,
+.footnotes li,
+.published-list li,
+.editor-list li,
+.support-list li,
+.press-list li {
+  margin-bottom: 1.3rem;
+  line-height: 1.5;
+}
+
+.toc em,
+.published-list em,
+.writer-card em,
+.issue-meta em {
+  font-style: italic;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 39.6px;
+}
+
+.image-frame {
+  min-height: 504.0px;
+  background:
+    radial-gradient(circle at 24% 22%, rgba(232, 197, 71, 0.58), transparent 18%),
+    linear-gradient(160deg, rgba(59, 31, 43, 0.88), rgba(162, 62, 72, 0.55)),
+    linear-gradient(135deg, rgba(255, 244, 223, 0.72), rgba(255, 244, 223, 0.16));
+}
+
+.issue-cover,
+.portrait,
+.photo,
+.thumb,
+.venue-art,
+.placeholder-image {
+  min-height: 100%;
+}
+
+.issue-cover {
+  min-height: 648.0px;
+  padding: 32.4px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(232, 197, 71, 0.7), transparent 16%),
+    radial-gradient(circle at 75% 35%, rgba(162, 62, 72, 0.35), transparent 22%),
+    linear-gradient(150deg, rgba(251, 245, 234, 0.98), rgba(226, 206, 174, 0.85));
+}
+
+.issue-cover .issue-number,
+.issue-card .issue-number,
+.badge,
+.stamp,
+.meta,
+.pill,
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+.issue-number {
+  color: var(--secondary);
+}
+
+.issue-cover .issue-number {
+  margin-bottom: 28.8px;
+}
+
+.issue-contents {
+  margin-top: 32.4px;
+  padding-top: 28.8px;
+  border-top: 1.8px solid rgba(59, 31, 43, 0.18);
+}
+
+.issue-contents ol {
+  margin: 0;
+  padding-left: 2.2rem;
+}
+
+.issue-contents li {
+  margin-bottom: 1.3rem;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 540.0px;
+  gap: 39.6px;
+  align-items: start;
+}
+
+.story-column {
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+.story-title {
+  font-size: clamp(4.0rem, 4vw, 7.6rem);
+  max-width: 12ch;
+}
+
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 25.2px;
+  margin: 28.8px 0 25.2px;
+}
+
+.portrait {
+  width: 129.6px;
+  height: 129.6px;
+  border-radius: 0;
+  flex: 0 0 auto;
+  background:
+    radial-gradient(circle at 35% 32%, rgba(255, 255, 255, 0.5), transparent 12%),
+    radial-gradient(circle at 50% 40%, rgba(232, 197, 71, 0.88), transparent 20%),
+    linear-gradient(145deg, rgba(59, 31, 43, 0.9), rgba(162, 62, 72, 0.42));
+}
+
+.byline p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.story-meta {
+  display: flex;
+  gap: 21.6px;
+  flex-wrap: wrap;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 1.3rem;
+  color: var(--secondary);
+}
+
+.story-copy p:first-of-type::first-letter,
+.dropcap::first-letter {
+  float: left;
+  font-size: 8.6rem;
+  line-height: 0.8;
+  padding: 0.1em 0.1em 0 0;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.footnotes-inline {
+  display: none;
+  margin-top: 32.4px;
+  padding: 25.2px;
+}
+
+.footnotes-inline summary {
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 1.3rem;
+  color: var(--secondary);
+}
+
+.footnote-side {
+  position: sticky;
+  top: 32.4px;
+  padding: 32.4px;
+  background: rgba(255, 250, 242, 0.8);
+}
+
+.footnote-side p,
+.footnote-side li {
+  font-size: 1.7rem;
+}
+
+.audio-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+  margin-top: 32.4px;
+  background: linear-gradient(180deg, rgba(59, 31, 43, 0.97), rgba(43, 27, 31, 0.98));
+  color: #ffffff;
+  border-top: 1.8px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -32.4px 72.0px rgba(43, 27, 31, 0.2);
+}
+
+.audio-inner {
+  width: min(2304.0px, calc(100% - 57.6px));
+  margin: 0 auto;
+  padding: 21.6px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 25.2px;
+}
+
+.audio-controls {
+  display: flex;
+  gap: 14.4px;
+  align-items: center;
+}
+
+.audio-button {
+  width: 68.4px;
+  height: 68.4px;
+  border-radius: 0;
+  border: 1.8px solid rgba(255, 255, 255, 0.18);
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.audio-track {
+  display: grid;
+  gap: 10.8px;
+}
+
+.audio-track input[type="range"],
+.calculator input[type="range"] {
+  width: 100%;
+}
+
+.story-footer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28.8px;
+}
+
+.card,
+.issue-card,
+.writer-card,
+.event-card,
+.about-card,
+.bio-card,
+.support-card,
+.guideline-card,
+.calculator,
+.editor-card {
+  padding: 32.4px;
+  border: 1.8px solid rgba(59, 31, 43, 0.14);
+  background: rgba(255, 251, 244, 0.82);
+}
+
+.card-grid,
+.writer-grid,
+.event-grid,
+.about-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card .thumb {
+  min-height: 237.6px;
+  margin-bottom: 25.2px;
+}
+
+.thumb.poetry {
+  background:
+    linear-gradient(135deg, rgba(59, 31, 43, 0.4), transparent),
+    radial-gradient(circle at 30% 30%, rgba(232, 197, 71, 0.82), transparent 18%),
+    linear-gradient(160deg, rgba(162, 62, 72, 0.8), rgba(251, 245, 234, 0.32));
+}
+
+.thumb.fiction {
+  background:
+    linear-gradient(135deg, rgba(59, 31, 43, 0.38), transparent),
+    radial-gradient(circle at 70% 25%, rgba(232, 197, 71, 0.7), transparent 16%),
+    linear-gradient(160deg, rgba(59, 31, 43, 0.85), rgba(162, 62, 72, 0.46));
+}
+
+.thumb.essays {
+  background:
+    linear-gradient(135deg, rgba(59, 31, 43, 0.28), transparent),
+    radial-gradient(circle at 34% 26%, rgba(232, 197, 71, 0.66), transparent 18%),
+    linear-gradient(160deg, rgba(221, 201, 169, 0.95), rgba(162, 62, 72, 0.44));
+}
+
+.card h3,
+.writer-card h3,
+.event-card h3,
+.issue-card h3,
+.about-card h3,
+.guideline-card h3,
+.editor-card h3,
+.support-card h3,
+.bio-card h3,
+.calculator h3 {
+  font-size: 2.5rem;
+  margin-bottom: 14.4px;
+}
+
+.card .meta,
+.issue-card .meta,
+.writer-card .meta,
+.event-card .meta,
+.about-card .meta,
+.guideline-card .meta,
+.calculator .meta {
+  color: var(--secondary);
+  margin-bottom: 18.0px;
+}
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18.0px;
+  margin: 0 0 32.4px;
+}
+
+.filter-tabs span,
+.pill,
+.badge,
+.status {
+  border: 1.8px solid rgba(59, 31, 43, 0.14);
+  background: rgba(255, 251, 244, 0.88);
+  padding: 1.0rem 1.4rem;
+  border-radius: 0;
+}
+
+.filter-tabs span.active,
+.badge.open,
+.status.open {
+  background: var(--primary);
+  color: var(--bg);
+  border-color: var(--primary);
+}
+
+.issue-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.issue-card {
+  min-height: 504.0px;
+  display: grid;
+  align-content: end;
+  padding: 0;
+  overflow: hidden;
+}
+
+.issue-art {
+  min-height: 324.0px;
+  position: relative;
+}
+
+.issue-art.one {
+  background:
+    radial-gradient(circle at 20% 25%, rgba(232, 197, 71, 0.88), transparent 18%),
+    linear-gradient(145deg, rgba(59, 31, 43, 0.85), rgba(162, 62, 72, 0.55));
+}
+
+.issue-art.two {
+  background:
+    radial-gradient(circle at 65% 35%, rgba(232, 197, 71, 0.72), transparent 18%),
+    linear-gradient(145deg, rgba(226, 201, 169, 0.98), rgba(162, 62, 72, 0.5));
+}
+
+.issue-art.three {
+  background:
+    radial-gradient(circle at 45% 30%, rgba(232, 197, 71, 0.7), transparent 17%),
+    linear-gradient(145deg, rgba(59, 31, 43, 0.78), rgba(91, 44, 60, 0.56));
+}
+
+.issue-art.four {
+  background:
+    radial-gradient(circle at 35% 35%, rgba(232, 197, 71, 0.88), transparent 17%),
+    linear-gradient(145deg, rgba(162, 62, 72, 0.82), rgba(59, 31, 43, 0.48));
+}
+
+.issue-card .issue-meta,
+.issue-card .issue-body {
+  padding: 28.8px;
+}
+
+.issue-body {
+  background: rgba(255, 250, 242, 0.84);
+}
+
+.hover-reveal {
+  margin-top: 21.6px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 180ms ease, opacity 180ms ease;
+}
+
+.issue-card:hover .hover-reveal {
+  max-height: 144.0px;
+  opacity: 1;
+}
+
+.issue-card:hover .issue-body,
+.writer-card:hover,
+.event-card:hover,
+.card:hover,
+.about-card:hover {
+  transform: translateY(-3.6px);
+}
+
+.issue-card,
+.writer-card,
+.event-card,
+.card,
+.about-card {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.issue-card:hover,
+.writer-card:hover,
+.event-card:hover,
+.card:hover,
+.about-card:hover {
+  box-shadow: 0 54.0px 108.0px rgba(43, 27, 31, 0.15);
+}
+
+.archive-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.archive-card {
+  display: grid;
+  grid-template-columns: 288.0px 1fr;
+  gap: 28.8px;
+  align-items: stretch;
+}
+
+.archive-card .issue-cover {
+  min-height: 100%;
+}
+
+.writer-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.writer-card .portrait {
+  width: 100%;
+  height: 306.0px;
+  border-radius: 0;
+  margin-bottom: 25.2px;
+}
+
+.sepia-one {
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.2), transparent 14%),
+    linear-gradient(145deg, rgba(59, 31, 43, 0.92), rgba(162, 62, 72, 0.36)),
+    linear-gradient(180deg, #f2d6ae, #a98a75);
+}
+
+.sepia-two {
+  background:
+    radial-gradient(circle at 65% 35%, rgba(255, 255, 255, 0.2), transparent 14%),
+    linear-gradient(145deg, rgba(69, 37, 44, 0.9), rgba(232, 197, 71, 0.2)),
+    linear-gradient(180deg, #e5c09e, #967c6f);
+}
+
+.sepia-three {
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.18), transparent 14%),
+    linear-gradient(145deg, rgba(162, 62, 72, 0.68), rgba(59, 31, 43, 0.82)),
+    linear-gradient(180deg, #ffdfba, #a88679);
+}
+
+.sepia-four {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.22), transparent 14%),
+    linear-gradient(145deg, rgba(91, 44, 60, 0.82), rgba(232, 197, 71, 0.16)),
+    linear-gradient(180deg, #f5dbbc, #a48576);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14.4px;
+  padding-left: 0;
+  list-style: none;
+  margin-top: 21.6px;
+}
+
+.tags li {
+  list-style: none;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 18.0px;
+}
+
+.day,
+.month-day {
+  min-height: 165.6px;
+  padding: 18.0px;
+  border: 1.8px solid rgba(59, 31, 43, 0.12);
+  background: rgba(255, 251, 244, 0.84);
+}
+
+.day-name {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 1.2rem;
+  color: var(--secondary);
+  min-height: 0;
+  border: none;
+  background: transparent;
+}
+
+.month-day strong {
+  display: block;
+  color: var(--primary);
+  margin-bottom: 10.8px;
+}
+
+.dot {
+  width: 14.4px;
+  height: 14.4px;
+  border-radius: 0;
+  display: inline-block;
+  margin-right: 9.0px;
+  background: var(--accent);
+}
+
+.venue-art {
+  min-height: 468.0px;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(232, 197, 71, 0.85), transparent 18%),
+    radial-gradient(circle at 70% 36%, rgba(255, 255, 255, 0.16), transparent 14%),
+    linear-gradient(160deg, rgba(59, 31, 43, 0.9), rgba(162, 62, 72, 0.55));
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28.8px;
+}
+
+.field,
+.calculator,
+.guideline-card,
+.support-card,
+.editor-card,
+.bio-card {
+  display: grid;
+  gap: 18.0px;
+}
+
+label {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 1.3rem;
+  color: var(--secondary);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 1.5rem 1.7rem;
+  border: 1.8px solid rgba(59, 31, 43, 0.18);
+  background: rgba(255, 251, 244, 0.92);
+  color: var(--text);
+  font: inherit;
+}
+
+textarea {
+  min-height: 288.0px;
+  resize: vertical;
+}
+
+.submissions-grid {
+  grid-template-columns: 1.05fr 0.95fr;
+}
+
+.guidelines {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.calculation {
+  display: grid;
+  gap: 18.0px;
+  padding-top: 18.0px;
+  border-top: 1.8px dashed rgba(59, 31, 43, 0.2);
+}
+
+.rate-table {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18.0px;
+}
+
+.rate-box {
+  padding: 21.6px;
+  background: rgba(255, 251, 244, 0.86);
+  border: 1.8px solid rgba(59, 31, 43, 0.12);
+}
+
+.about-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.photo {
+  min-height: 270.0px;
+}
+
+.photo.one {
+  background:
+    radial-gradient(circle at 36% 28%, rgba(255, 255, 255, 0.3), transparent 12%),
+    linear-gradient(145deg, rgba(59, 31, 43, 0.78), rgba(232, 197, 71, 0.14)),
+    linear-gradient(180deg, #cbad93, #a88a7b);
+}
+
+.photo.two {
+  background:
+    radial-gradient(circle at 60% 32%, rgba(255, 255, 255, 0.3), transparent 12%),
+    linear-gradient(145deg, rgba(162, 62, 72, 0.68), rgba(59, 31, 43, 0.88)),
+    linear-gradient(180deg, #edc6a1, #ae8c7e);
+}
+
+.photo.three {
+  background:
+    radial-gradient(circle at 50% 26%, rgba(255, 255, 255, 0.24), transparent 12%),
+    linear-gradient(145deg, rgba(232, 197, 71, 0.25), rgba(59, 31, 43, 0.86)),
+    linear-gradient(180deg, #efd5ae, #a48576);
+}
+
+.photo.four {
+  background:
+    radial-gradient(circle at 45% 28%, rgba(255, 255, 255, 0.26), transparent 12%),
+    linear-gradient(145deg, rgba(91, 44, 60, 0.72), rgba(162, 62, 72, 0.22)),
+    linear-gradient(180deg, #e7c8a8, #8b736c);
+}
+
+.yearbook-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28.8px;
+}
+
+.masthead-grid .yearbook-card {
+  min-height: 100%;
+}
+
+.yearbook-card {
+  padding: 0;
+}
+
+.yearbook-card .editor-photo {
+  min-height: 324.0px;
+}
+
+.editor-photo.one {
+  background: linear-gradient(160deg, rgba(59, 31, 43, 0.88), rgba(232, 197, 71, 0.16)), linear-gradient(180deg, #d6b694, #9b7e72);
+}
+
+.editor-photo.two {
+  background: linear-gradient(160deg, rgba(162, 62, 72, 0.76), rgba(59, 31, 43, 0.3)), linear-gradient(180deg, #eecca5, #a7897b);
+}
+
+.editor-photo.three {
+  background: linear-gradient(160deg, rgba(232, 197, 71, 0.28), rgba(59, 31, 43, 0.84)), linear-gradient(180deg, #ffe1ba, #a58778);
+}
+
+.editor-photo.four {
+  background: linear-gradient(160deg, rgba(91, 44, 60, 0.78), rgba(162, 62, 72, 0.25)), linear-gradient(180deg, #edcbab, #8e766f);
+}
+
+.yearbook-copy {
+  padding: 25.2px;
+}
+
+.support-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18.0px;
+}
+
+.support-wall span {
+  padding: 0.9rem 1.4rem;
+  border: 1.8px solid rgba(59, 31, 43, 0.12);
+  background: rgba(255, 251, 244, 0.85);
+}
+
+.press-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 21.6px;
+}
+
+.press-row span {
+  padding: 1.8rem;
+  border: 1.8px solid rgba(59, 31, 43, 0.12);
+  background: rgba(255, 251, 244, 0.86);
+  text-align: center;
+}
+
+.page-footer {
+  margin: 0 auto 43.2px;
+  padding: 32.4px 39.6px;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 32.4px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-copy {
+  max-width: 86.4rem;
+  margin: 0;
+}
+
+.footer-meta {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 1.3rem;
+  color: var(--secondary);
+}
+
+@media (max-width: 1843.2px) {
+  .hero,
+  .split,
+  .story-grid,
+  .submissions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .current-issue-split,
+  .about-lead {
+    grid-template-columns: 1fr;
+  }
+
+  .story-grid {
+    gap: 28.8px;
+  }
+
+  .footnote-side {
+    position: static;
+  }
+
+  .card-grid,
+  .writer-grid,
+  .event-grid,
+  .about-grid,
+  .masthead-grid,
+  .yearbook-row,
+  .press-row,
+  .issue-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .archive-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1382.4px) {
+  .site-shell {
+    width: min(100% - 39.6px, 2304.0px);
+  }
+
+  .masthead,
+  .page-footer,
+  .page-section,
+  .hero-main,
+  .toc,
+  .card,
+  .issue-card,
+  .writer-card,
+  .event-card,
+  .about-card,
+  .guideline-card,
+  .support-card,
+  .editor-card,
+  .calculator,
+  .bio-card {
+    padding: 28.8px;
+  }
+
+  .card-grid,
+  .writer-grid,
+  .event-grid,
+  .about-grid,
+  .masthead-grid,
+  .yearbook-row,
+  .press-row,
+  .issue-grid,
+  .story-footer,
+  .rate-table,
+  .guidelines,
+  .form-grid,
+  .calendar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .calendar {
+    gap: 14.4px;
+  }
+
+  .day,
+  .month-day {
+    min-height: 136.8px;
+  }
+
+  .audio-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 972.0px) {
+  .masthead-top,
+  .footer-grid,
+  .byline,
+  .button-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .issue-grid,
+  .card-grid,
+  .writer-grid,
+  .event-grid,
+  .about-grid,
+  .yearbook-row,
+  .press-row,
+  .story-footer,
+  .rate-table,
+  .guidelines,
+  .form-grid,
+  .calendar,
+  .hero,
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    gap: 14.4px;
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .nav a {
+    padding: 1.0rem 1.4rem;
+  }
+
+  .masthead::after {
+    margin-top: 21.6px;
+  }
+
+  .story-copy p:first-of-type::first-letter,
+  .dropcap::first-letter {
+    font-size: 6.1rem;
+  }
+
+  .footnotes-inline {
+    display: block;
+    margin-top: 28.8px;
+  }
+
+  .footnote-side {
+    display: none;
+  }
+
+  .audio-inner {
+    width: min(100% - 39.6px, 2304.0px);
+  }
+
+  .masonry-grid .issue-art {
+    min-height: 324.0px;
+  }
+
+  .masonry-grid .tall .issue-art {
+    min-height: 396.0px;
+  }
+
+  .about-photostrip {
+    grid-template-columns: 1fr;
+  }
+
+  .masthead-grid {
+    grid-template-columns: 1fr;
+  }
+}

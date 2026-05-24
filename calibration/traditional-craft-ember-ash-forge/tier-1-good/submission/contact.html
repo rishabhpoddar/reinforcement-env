@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — Ember &amp; Ash Forge</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <input type="checkbox" id="navtog" class="nav-toggle" aria-hidden="true" />
+  <div class="nav-inner">
+    <a href="home.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M4 30 L10 22 L18 22 L21 14 L27 14 L30 22 L38 22 L44 30 L44 38 L4 38 Z" fill="#E8A03C"/>
+        <rect x="20" y="6" width="8" height="6" fill="#E8A03C"/>
+        <circle cx="24" cy="34" r="2" fill="#1A1310"/>
+      </svg>
+      <span>Ember &amp; Ash<span class="brand-sub">Forge · Est. 2009</span></span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="commissions.html">Commissions</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="nav-cta">Visit</a>
+    <label for="navtog" class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></label>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="eyebrow">148 Forge Road · Kingston, NY</span>
+    <h1>Come <em>find the fire.</em></h1>
+    <p class="sub">We answer email within three working days, take phone calls Wed – Sat between 10am and 6pm, and welcome studio visits by appointment any day we are here.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="contact-grid">
+
+    <!-- Left: address, map, hours -->
+    <div class="contact-info">
+      <h2>The Studio.</h2>
+
+      <div class="info-block">
+        <h4>Address</h4>
+        <p>148 Forge Road<br>Kingston, NY 12401</p>
+      </div>
+      <div class="info-block">
+        <h4>Hours</h4>
+        <p>Wed – Sat · 10am – 6pm<br>Closed Sun – Tue</p>
+      </div>
+      <div class="info-block">
+        <h4>Phone</h4>
+        <p><a href="tel:8455550142">(845) 555-0142</a></p>
+      </div>
+      <div class="info-block">
+        <h4>Email</h4>
+        <p><a href="mailto:hello@emberashforge.com">hello@emberashforge.com</a></p>
+      </div>
+
+      <!-- Hand-drawn map -->
+      <div class="map-placeholder">
+        <svg viewBox="0 0 500 300" preserveAspectRatio="xMidYMid slice">
+          <rect width="500" height="300" fill="#e8dfd0"/>
+          <!-- background grid -->
+          <g stroke="rgba(44,33,28,.08)" stroke-width="1">
+            <line x1="0" y1="60" x2="500" y2="60"/>
+            <line x1="0" y1="120" x2="500" y2="120"/>
+            <line x1="0" y1="180" x2="500" y2="180"/>
+            <line x1="0" y1="240" x2="500" y2="240"/>
+            <line x1="100" y1="0" x2="100" y2="300"/>
+            <line x1="200" y1="0" x2="200" y2="300"/>
+            <line x1="300" y1="0" x2="300" y2="300"/>
+            <line x1="400" y1="0" x2="400" y2="300"/>
+          </g>
+          <!-- river -->
+          <path d="M-10 220 C 80 200, 160 240, 240 215 S 400 195, 510 215 L 510 310 L -10 310 Z" fill="#a8b8a3" opacity=".55"/>
+          <text x="40" y="270" font-family="Georgia" font-style="italic" font-size="14" fill="#5c4d3e">Rondout Creek</text>
+          <!-- roads -->
+          <g stroke="#5c4d3e" stroke-width="2.5" fill="none" stroke-linecap="round">
+            <path d="M0 100 L 500 110"/>
+            <path d="M180 0 L 200 300"/>
+            <path d="M0 160 L 320 160 L 350 200"/>
+          </g>
+          <text x="20" y="93" font-family="Georgia" font-size="11" fill="#5c4d3e">RT 28 ·  Albany Ave</text>
+          <text x="205" y="50" font-family="Georgia" font-size="11" fill="#5c4d3e">Forge Rd</text>
+          <text x="20" y="153" font-family="Georgia" font-size="11" fill="#5c4d3e">Hurley St</text>
+          <!-- forge pin -->
+          <g transform="translate(193 158)">
+            <circle r="14" fill="#E8A03C"/>
+            <circle r="6" fill="#1A1310"/>
+            <path d="M0 -20 L -8 -10 L 8 -10 Z" fill="#E8A03C"/>
+            <text x="22" y="6" font-family="Georgia" font-size="12" font-weight="700" fill="#1a1310">Ember &amp; Ash</text>
+          </g>
+          <!-- compass -->
+          <g transform="translate(440 50)">
+            <circle r="20" fill="none" stroke="#5c4d3e" stroke-width="1.2"/>
+            <path d="M0 -16 L4 0 L0 16 L-4 0 Z" fill="#8B3A1F"/>
+            <text x="-3" y="-22" font-family="Georgia" font-size="10" fill="#5c4d3e">N</text>
+          </g>
+          <!-- north arrow + scale -->
+          <g transform="translate(370 260)" stroke="#5c4d3e" stroke-width="1.2" fill="#5c4d3e">
+            <line x1="0" y1="0" x2="80" y2="0"/>
+            <line x1="0" y1="-4" x2="0" y2="4"/>
+            <line x1="40" y1="-4" x2="40" y2="4"/>
+            <line x1="80" y1="-4" x2="80" y2="4"/>
+            <text x="0" y="20" font-family="Georgia" font-size="9" stroke="none">0    ¼ mile    ½</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="appointment-note">
+        <strong>Visit by Appointment</strong>
+        For studio tours, commission consultations, or simply to watch the fire — please ring ahead so the smith on duty can give you their full attention. Coffee is on.
+      </div>
+
+      <h4 style="margin-top:2.5rem">Follow the Forge</h4>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9 L16 12 L10 15 Z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="Pinterest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M11 8 L10 18"/><path d="M11 8 Q 16 8 16 12 Q 16 16 12 16"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: inquiry form -->
+    <div>
+      <form class="form-card">
+        <span class="eyebrow" style="margin-bottom:1rem;display:inline-flex">General Inquiry</span>
+        <h3 style="margin-bottom:1.5rem; font-size: var(--t-xl)">Send us a letter.</h3>
+
+        <div class="form-grid">
+          <div class="field">
+            <label>Your Name</label>
+            <input type="text" placeholder="First &amp; last">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label>Phone <span style="color:var(--text-50)">(optional)</span></label>
+            <input type="tel" placeholder="(area) ___ – ____">
+          </div>
+          <div class="field">
+            <label>Subject</label>
+            <select>
+              <option>Commission inquiry</option>
+              <option>Workshop booking</option>
+              <option>Gift voucher purchase</option>
+              <option>Studio visit / appointment</option>
+              <option>Press &amp; media</option>
+              <option>Apprenticeship interest</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label>Message</label>
+            <textarea placeholder="Tell us what's on your mind. Sketches, ideas, dimensions — all welcome."></textarea>
+          </div>
+          <div class="field full">
+            <button type="button" class="btn btn-ember">Send Message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div>
+        <span class="eyebrow" style="color:var(--accent)"><span style="background:var(--accent)"></span>Once a Season</span>
+        <h2>The Quarterly Forge Letter.</h2>
+        <p>Four mailings a year. New commissions, workshop dates, and the occasional essay on craft. No spam, no urgency, no resale of your address — we promise.</p>
+      </div>
+      <form class="newsletter-form">
+        <input type="email" placeholder="your email">
+        <button type="button" class="btn btn-ember">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="home.html" class="brand">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M4 30 L10 22 L18 22 L21 14 L27 14 L30 22 L38 22 L44 30 L44 38 L4 38 Z" fill="#E8A03C"/>
+            <rect x="20" y="6" width="8" height="6" fill="#E8A03C"/>
+            <circle cx="24" cy="34" r="2" fill="#1A1310"/>
+          </svg>
+          <span>Ember &amp; Ash Forge</span>
+        </a>
+        <p>A working blacksmithing studio in the Hudson Valley. Commissions, workshops, and one stubborn coal fire kept burning since 2009.</p>
+      </div>
+      <div class="foot-col"><h5>Studio</h5><ul><li><a href="about.html">About the Smith</a></li><li><a href="process.html">Our Process</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Visit</a></li></ul></div>
+      <div class="foot-col"><h5>Work</h5><ul><li><a href="commissions.html">Commissions</a></li><li><a href="workshops.html">Workshops</a></li><li><a href="workshops.html">Gift Vouchers</a></li><li><a href="contact.html">Newsletter</a></li></ul></div>
+      <div class="foot-col"><h5>Find Us</h5><ul><li>148 Forge Road</li><li>Kingston, NY 12401</li><li>(845) 555-0142</li><li>hello@emberashforge.com</li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Ember &amp; Ash Forge · All work hand-made</span><span>Forged in the Hudson Valley</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

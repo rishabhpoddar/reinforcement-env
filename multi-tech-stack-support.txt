@@ -1,0 +1,230 @@
+MULTI-TECH-STACK SUPPORT PLAN
+==============================
+Support React+Tailwind, SolidJS+Tailwind, Vue+Tailwind, and other framework
+combinations alongside the current static HTML+CSS stack.
+
+
+================================================================================
+APPROACH: TECH STACK PROFILES
+================================================================================
+
+Each tech stack is a config object that defines everything downstream steps need.
+The spec generator picks a stack, and every subsequent step reads the profile.
+
+Example profile for "react-tailwind":
+
+  {
+    "id": "react-tailwind",
+    "label": "React + Tailwind CSS",
+    "file_patterns": ["*.jsx", "*.tsx", "*.js", "*.ts", "*.css"],
+    "entry_point": "src/main.jsx",
+    "config_files": ["package.json", "tailwind.config.js", "vite.config.js", "index.html"],
+    "source_dir": "src",
+    "static_dir": "public",
+    "asset_dir": "public/assets",
+    "build_command": "npm install && npm run build",
+    "dev_command": "npm run dev",
+    "build_output_dir": "dist",
+    "url_pattern": "route",  // "route" = /about, "file" = /about.html
+    "structural_checks": ["package.json", "src/App.jsx", "tailwind.config.js"],
+    "scaffold_command": "npm create vite@latest . -- --template react && npm install tailwindcss @tailwindcss/vite"
+  }
+
+Example profile for "html-css" (current behavior):
+
+  {
+    "id": "html-css",
+    "label": "Static HTML + CSS",
+    "file_patterns": ["*.html", "*.css"],
+    "entry_point": null,
+    "config_files": [],
+    "source_dir": "site",
+    "static_dir": "site",
+    "asset_dir": "site/assets",
+    "build_command": null,
+    "dev_command": null,
+    "build_output_dir": null,
+    "url_pattern": "file",  // /home.html, /about.html
+    "structural_checks": ["styles.css"],
+    "scaffold_command": null
+  }
+
+
+================================================================================
+WHAT CHANGES PER FILE
+================================================================================
+
+1. pipeline/config.py
+   - Add TECH_STACKS dict with all profile definitions
+   - Add default stack selection and weights for random picking
+
+2. pipeline/generate/spec_generator.py
+   - New field in schema: "tech_stack" (e.g. "html-css", "react-tailwind")
+   - Add tech stack to the randomized diversity directives
+   - Seed specs: add a few non-HTML examples
+   - Page descriptions may need to reference components vs flat HTML sections
+
+3. pipeline/generate/generation_loop.py
+
+   _build_builder_prompt():
+   - Rules section becomes entirely stack-dependent:
+     - html-css: "ONLY create .html files and ONE styles.css"
+     - react-tailwind: "Create a Vite+React project with Tailwind. Components in
+       src/components/, pages in src/pages/, shared layout in src/App.jsx"
+   - File structure instructions change per stack
+   - "No external dependencies" → some stacks ARE external dependencies
+   - "System font stacks only" → Tailwind has its own font system
+   - "CSS custom properties" → Tailwind uses config-based theming
+   - Image asset paths change per stack (site/assets vs public/assets)
+   - Build/serve commands in visual verification section
+
+   _start_http_server():
+   - For html-css: current static file server (no change)
+   - For framework stacks: need to run build command first, then serve
+     build_output_dir. OR run the dev server and use its port.
+   - Option A: always build to static and serve (simpler, but slower)
+   - Option B: run dev server (faster iteration, but port management)
+   - Recommendation: Option A for judge, Option B for builder
+
+   Page URLs:
+   - html-css: http://localhost:{port}/home.html
+   - react: http://localhost:{port}/ and http://localhost:{port}/about
+   - Need router setup in the scaffold for multi-page React apps
+
+   _build_judge_prompt():
+   - "Read the HTML and CSS source files in site/" → read from stack's source_dir
+   - Source file types change per stack
+
+4. pipeline/generate/screenshot.py
+   - Currently serves static files directly
+   - Framework stacks need: npm install → npm run build → serve dist/
+   - Add a pre-screenshot build step conditioned on tech_stack
+
+5. pipeline/plugins/image-gen.js
+   - Asset output path (site/assets vs public/assets) should come from context
+   - Could read a .tech-stack.json file from the workspace, or accept the path
+     as a tool argument
+
+6. pipeline/package/harbor_task.py
+
+   _build_instruction():
+   - "HTML files: home.html, about.html" → framework-specific file listing
+   - "Shared stylesheet: styles.css" → "Tailwind config + component styles"
+   - "Place all files in /app/" → specify expected project structure per stack
+   - Constraints section is entirely stack-specific
+   - Image asset usage instructions change per stack
+
+   _build_dockerfile():
+   - html-css: current Dockerfile (just node + python + chromium)
+   - react-tailwind: pre-install scaffold so the agent doesn't waste time on
+     boilerplate. COPY a pre-built package.json + scaffold, RUN npm install.
+     Or provide the scaffold as part of the environment.
+   - Could also pre-install framework CLIs globally
+
+   _build_task_toml():
+   - artifacts path may change (still /app but internal structure differs)
+   - May need more resources for framework builds (npm install is memory-heavy)
+
+   _write_solution():
+   - html-css: copy *.html + *.css + assets/
+   - react: copy entire project dir (src/, public/, package.json, configs)
+   - solve.sh: add npm install && npm run build step for framework stacks
+
+   grader (embedded):
+   - capture_submission_screenshots(): currently uses file:// URLs
+     - Framework stacks: need to npm install, npm run build, serve dist/, then
+       screenshot from http://localhost
+     - Add a build-and-serve step before screenshot capture
+   - check_structural(): currently checks for *.html + styles.css
+     - React: check for package.json, src/App.jsx, tailwind.config.js, etc.
+     - Use the stack profile's structural_checks list
+
+7. pipeline/agents/opencode_wrapper.py
+   - MCP config may need framework-specific tools (though Playwright covers most)
+   - No major changes expected
+
+
+================================================================================
+FRAMEWORK-SPECIFIC CONSIDERATIONS
+================================================================================
+
+React + Tailwind (Vite):
+  - Project structure: index.html, src/main.jsx, src/App.jsx, src/pages/*.jsx,
+    src/components/*.jsx, tailwind.config.js, vite.config.js, package.json
+  - Routing: react-router-dom for multi-page
+  - Build: npm run build → dist/
+  - Dev: npm run dev → http://localhost:5173
+  - Tailwind v4 uses CSS-based config, v3 uses JS config — pick one
+
+SolidJS + Tailwind (Vite):
+  - Similar to React but src/pages/*.jsx uses Solid syntax
+  - Routing: @solidjs/router
+  - Build: npm run build → dist/
+  - Smaller bundle, faster builds than React
+
+Vue + Tailwind (Vite):
+  - src/*.vue single-file components
+  - Routing: vue-router
+  - Build: npm run build → dist/
+
+Svelte + Tailwind:
+  - src/routes/*.svelte (if SvelteKit) or src/*.svelte
+  - File-based routing in SvelteKit
+  - Build: npm run build → build/
+
+Next.js (React SSR):
+  - More complex: app/ or pages/ directory, server components
+  - May be overkill for this use case — static export mode could work
+  - Build: next build && next export → out/
+
+
+================================================================================
+IMPLEMENTATION ORDER
+================================================================================
+
+Phase 1: Extract tech stack profile system
+  - Define profiles in config.py
+  - Add tech_stack field to spec schema
+  - Make builder prompt read profile for rules section
+  - Keep only html-css working, but through the profile system
+
+Phase 2: Add React + Tailwind support
+  - Create react-tailwind profile
+  - Update builder prompt template for React
+  - Update Dockerfile to scaffold a Vite+React+Tailwind project
+  - Update grader to build before screenshotting
+  - Update solution packaging
+  - Test end-to-end
+
+Phase 3: Add more stacks
+  - SolidJS, Vue, Svelte — mostly profile config changes if Phase 2
+    architecture is clean
+
+Phase 4: Mix stacks in batch generation
+  - Spec generator randomly picks tech stacks
+  - Ensure diversity across stacks in batch runs
+
+
+================================================================================
+OPEN QUESTIONS
+================================================================================
+
+- Should the RL agent receive a pre-scaffolded project (just fill in components)
+  or start from scratch (npm create, install, configure)?
+  Pre-scaffold is more realistic for the "replicate this design" task.
+  From-scratch tests framework setup skills, which is a different skill.
+
+- How to handle node_modules in the Docker environment?
+  Pre-install in Dockerfile (fast agent start, larger image) vs agent runs
+  npm install (slower start, smaller image). Pre-install is better for RL
+  where agent time is the bottleneck.
+
+- Should framework choice be visible in the instruction to the RL agent, or
+  should the agent figure it out from the screenshots + provided scaffold?
+  Recommendation: tell the agent explicitly. The task is design replication,
+  not framework detection.
+
+- Dev server vs static build for visual verification during the builder loop?
+  Dev server is faster for iteration but adds port management complexity.
+  Static build is simpler but slower (rebuild on every change).
+  Could use dev server for builder, static build for judge/grader.

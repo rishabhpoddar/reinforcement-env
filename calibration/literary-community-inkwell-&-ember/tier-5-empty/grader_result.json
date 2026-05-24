@@ -1,0 +1,51 @@
+{
+  "overall": 0.0309,
+  "hack_detected": false,
+  "structural": 0.125,
+  "pixel_ssim": 0.1023,
+  "pixel_color": 0.015,
+  "pixel_combined": 0.0674,
+  "llm_layout": 0.0,
+  "llm_color": 0.0024,
+  "llm_typography": 0.0119,
+  "llm_spacing": 0.0,
+  "llm_components": 0.0,
+  "llm_avg": 0.0029,
+  "per_page": {
+    "about": {
+      "desktop": 0.0,
+      "tablet": 0.0,
+      "mobile": 0.0
+    },
+    "events": {
+      "desktop": 0.0,
+      "tablet": 0.0,
+      "mobile": 0.0
+    },
+    "home": {
+      "desktop": 0.01,
+      "tablet": 0.02,
+      "mobile": 0.03
+    },
+    "issues": {
+      "desktop": 0.0,
+      "tablet": 0.0,
+      "mobile": 0.0
+    },
+    "story": {
+      "desktop": 0.0,
+      "tablet": 0.0,
+      "mobile": 0.0
+    },
+    "submissions": {
+      "desktop": 0.0,
+      "tablet": 0.0,
+      "mobile": 0.0
+    },
+    "writers": {
+      "desktop": 0.0,
+      "tablet": 0.0,
+      "mobile": 0.0
+    }
+  }
+}

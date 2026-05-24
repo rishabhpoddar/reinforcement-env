@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkwell & Ember | Events</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233B1F2B'/%3E%3Cpath d='M8 22c6-1 10-5 15-13' stroke='%23E8C547' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="masthead site-shell">
+    <div class="masthead-top">
+      <div class="brand">
+        <p class="eyebrow">Events</p>
+        <h1>Inkwell & Ember</h1>
+      </div>
+      <p class="masthead-note">Readings, salons, launch nights, and a calendar that glows like a room full of matches.</p>
+    </div>
+    <div class="ornament"><span></span></div>
+    <nav class="nav" aria-label="Primary">
+      <a href="home.html">Home</a>
+      <a href="issues.html">Issues</a>
+      <a href="story.html">Story</a>
+      <a href="submissions.html">Submissions</a>
+      <a href="writers.html">Writers</a>
+      <a href="events.html" aria-current="page">Events</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="site-shell">
+    <section class="panel page-section split">
+      <article>
+        <p class="section-label">Featured event</p>
+        <h2 class="section-title">A reading at the candleworks</h2>
+        <div class="venue-art"></div>
+        <p class="lede">Our next salon gathers readers and contributors beneath old brick and amber lights, with live readings, conversation, and a midnight Q&A.</p>
+      </article>
+      <aside class="event-card">
+        <div class="meta">Venue illustration</div>
+        <h3>Harbor Lamp Salon</h3>
+        <p>Date stamp: 18 Oct</p>
+        <p>RSVP for in-person seats or the livestream broadcast.</p>
+        <div class="button-row"><a class="button" href="#rsvp">RSVP</a><span class="pill">Virtual</span></div>
+      </aside>
+    </section>
+
+    <section class="panel page-section">
+      <p class="section-label">Upcoming readings</p>
+      <h2 class="section-title">Calendar view</h2>
+      <div class="calendar" aria-label="Monthly calendar">
+        <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div><div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+        <div class="month-day"><strong>1</strong></div>
+        <div class="month-day"><strong>2</strong><span class="dot"></span>Open mic</div>
+        <div class="month-day"><strong>3</strong></div>
+        <div class="month-day"><strong>4</strong><span class="dot"></span>Salon</div>
+        <div class="month-day"><strong>5</strong></div>
+        <div class="month-day"><strong>6</strong></div>
+        <div class="month-day"><strong>7</strong><span class="dot"></span>Reading</div>
+        <div class="month-day"><strong>8</strong></div>
+        <div class="month-day"><strong>9</strong></div>
+        <div class="month-day"><strong>10</strong><span class="dot"></span>Workshop</div>
+        <div class="month-day"><strong>11</strong></div>
+        <div class="month-day"><strong>12</strong></div>
+        <div class="month-day"><strong>13</strong></div>
+        <div class="month-day"><strong>14</strong><span class="dot"></span>Launch</div>
+      </div>
+    </section>
+
+    <section class="panel page-section">
+      <p class="section-label">Event cards</p>
+      <div class="event-grid">
+        <article class="event-card"><div class="meta">18 Oct - virtual</div><h3>Moonlit Revision Circle</h3><p>A communal writing session for speculative drafts and brave edits.</p></article>
+        <article class="event-card"><div class="meta">22 Oct - in person</div><h3>Launch Night for Issue 18</h3><p>Readings, music, and a toast to the new volume.</p></article>
+        <article class="event-card"><div class="meta">29 Oct - hybrid</div><h3>October Ghost Salon</h3><p>Stories about hauntings, ancestry, and the rooms we cannot leave.</p></article>
+      </div>
+    </section>
+
+    <section class="panel page-section">
+      <p class="section-label">Past events</p>
+      <div class="press-row">
+        <span>Photo strip one</span>
+        <span>Photo strip two</span>
+        <span>Photo strip three</span>
+        <span>Photo strip four</span>
+      </div>
+    </section>
+
+    <section class="panel page-section" id="rsvp">
+      <p class="section-label">Host a salon</p>
+      <form class="form-grid">
+        <div class="field"><label for="event-name">Name</label><input id="event-name" type="text" placeholder="Your name"></div>
+        <div class="field"><label for="event-type">Event type</label><select id="event-type"><option>Salon</option><option>Reading</option><option>Workshop</option></select></div>
+        <div class="field" style="grid-column:1 / -1;"><label for="event-desc">Description</label><textarea id="event-desc" placeholder="Tell us about your proposed gathering."></textarea></div>
+        <button class="button" type="button">Submit event</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="page-footer site-shell">
+    <div class="footer-grid">
+      <p class="footer-copy">Our events are designed for readers, writers, and the polite chaos of shared lit rooms.</p>
+      <p class="footer-meta">Calendar updated monthly</p>
+    </div>
+  </footer>
+</body>
+</html>
