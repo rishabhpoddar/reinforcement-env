@@ -432,11 +432,6 @@ def generate_website(
 
         # Skip judges on the last iteration — verdict can't be acted on
         if iteration == max_iterations:
-            metadata["iterations"].append({
-                "iteration": iteration,
-                "builder_model": builder_model,
-                "builder_success": True,
-            })
             log.info(f"    Last iteration — skipping judges (no further builder rounds)")
             break
 
