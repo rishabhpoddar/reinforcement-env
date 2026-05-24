@@ -1,3 +1,4 @@
+- the rl agent can't find the reference screenshot only.. 
 - full pipeline on broken setup
 	- make sure judge is able to correctly judge intentionally wrong websites as well
  - go through entire code base and refactor properly

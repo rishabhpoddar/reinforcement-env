@@ -3,9 +3,9 @@
 
 Self-contained grader that runs inside the Harbor verifier container.
 Compares the agent's submission against reference screenshots using:
-1. Dual LLM judges (Claude Opus 4.7 + GPT-5.5), averaged (70% weight)
+1. Dual LLM judges (Claude Opus 4.7 + GPT-5.5), averaged (80% weight)
 2. Deterministic pixel metrics: SSIM + color histogram (15% weight)
-3. Structural checks (pages exist, nav links, stylesheet) (15% weight)
+3. Structural checks (pages exist, nav links, stylesheet, semantic HTML) (5% weight)
 4. Anti-hack detection (screenshot embedding → score 0)
 5. Defect grading for broken sites (replication + identification)
 
@@ -27,6 +27,8 @@ from PIL import Image
 from skimage.metrics import structural_similarity as compute_ssim_raw
 
 MAX_CONCURRENT_LLM = 10
+LLM_MAX_RETRIES = 2
+LLM_RETRY_BASE_DELAY = 2.0
 
 VIEWPORTS_DEFAULT = {
     "desktop": {"width": 1280, "height": 900},
@@ -51,19 +53,44 @@ def _resize_to_match(img_a, img_b):
     return img_a, np.array(img_b_pil)
 
 
-def _resize_image_for_api(image_path, max_height=7000):
+def _resize_image_for_api(image_path, max_height=7000, max_bytes=3_500_000):
     img = Image.open(image_path)
     if img.height > max_height:
         ratio = max_height / img.height
-        new_width = int(img.width * ratio)
-        img = img.resize((new_width, max_height), Image.LANCZOS)
+        img = img.resize((int(img.width * ratio), max_height), Image.LANCZOS)
     buf = io.BytesIO()
     img.save(buf, format="PNG")
+    while buf.tell() > max_bytes:
+        img = img.resize((int(img.width * 0.8), int(img.height * 0.8)), Image.LANCZOS)
+        buf = io.BytesIO()
+        img.save(buf, format="PNG")
     return buf.getvalue()
 
 
 def _image_to_b64(image_path):
     return base64.b64encode(_resize_image_for_api(image_path)).decode()
+
+
+# ──────────────────────────────────────────────────
+# Retry helper
+# ──────────────────────────────────────────────────
+
+async def _retry_async(fn, label, semaphore, max_retries=LLM_MAX_RETRIES):
+    """Run fn with retries and exponential backoff. fn is a sync callable."""
+    last_err = None
+    for attempt in range(max_retries + 1):
+        try:
+            async with semaphore:
+                return await asyncio.get_event_loop().run_in_executor(None, fn)
+        except Exception as e:
+            last_err = e
+            if attempt < max_retries:
+                delay = LLM_RETRY_BASE_DELAY * (2 ** attempt)
+                print(f"{label}: attempt {attempt+1} failed ({e}), retrying in {delay}s...", file=sys.stderr)
+                await asyncio.sleep(delay)
+            else:
+                print(f"{label}: all {max_retries+1} attempts failed: {e}", file=sys.stderr)
+    raise last_err
 
 
 # ──────────────────────────────────────────────────
@@ -145,7 +172,7 @@ ZERO_SCORES = {"layout": 0.0, "color": 0.0, "typography": 0.0, "spacing": 0.0, "
 
 
 # ──────────────────────────────────────────────────
-# Async LLM judges
+# Async LLM judges (with retry)
 # ──────────────────────────────────────────────────
 
 async def _judge_claude_async(ref_b64, sub_b64, page_name, viewport, semaphore):
@@ -167,8 +194,7 @@ async def _judge_claude_async(ref_b64, sub_b64, page_name, viewport, semaphore):
             if block.type == "tool_use":
                 return {k: float(v) / 10.0 for k, v in block.input.items()}
         raise ValueError("Claude did not return tool_use")
-    async with semaphore:
-        return await asyncio.get_event_loop().run_in_executor(None, _call)
+    return await _retry_async(_call, f"Claude judge {page_name}/{viewport}", semaphore)
 
 
 async def _judge_openai_async(ref_b64, sub_b64, page_name, viewport, semaphore):
@@ -194,8 +220,7 @@ async def _judge_openai_async(ref_b64, sub_b64, page_name, viewport, semaphore):
                 scores = json.loads(item.arguments)
                 return {k: float(v) / 10.0 for k, v in scores.items()}
         raise ValueError("GPT did not return function_call")
-    async with semaphore:
-        return await asyncio.get_event_loop().run_in_executor(None, _call)
+    return await _retry_async(_call, f"GPT judge {page_name}/{viewport}", semaphore)
 
 
 async def _score_single_pair(ref_path, sub_path, page_name, viewport, semaphore):
@@ -217,7 +242,7 @@ async def _score_single_pair(ref_path, sub_path, page_name, viewport, semaphore)
     scores_list = []
     for i, result in enumerate(results):
         if isinstance(result, Exception):
-            print(f"{'Claude' if i == 0 else 'GPT'} judge failed for {page_name}/{viewport}: {result}", file=sys.stderr)
+            print(f"{'Claude' if i == 0 else 'GPT'} judge failed for {page_name}/{viewport} after retries: {result}", file=sys.stderr)
         else:
             scores_list.append(result)
 
@@ -232,7 +257,36 @@ async def _score_single_pair(ref_path, sub_path, page_name, viewport, semaphore)
 # Defect grading (broken sites)
 # ──────────────────────────────────────────────────
 
-async def _check_defect_replication_async(ref_b64, sub_b64, defect_description, page_name, viewport, semaphore):
+def _check_defect_in_source(submission_dir, defect):
+    """Check for text/typo defects by examining HTML source code directly."""
+    defect_type = defect.get("type", "")
+    description = defect.get("description", "")
+    page = defect.get("page", "")
+
+    if defect_type not in ("typo", "inconsistency"):
+        return None  # not a source-checkable defect
+
+    html_file = submission_dir / f"{page}.html"
+    if not html_file.exists():
+        return False
+
+    content = html_file.read_text()
+
+    # Extract quoted strings from the description that might be the defective text
+    quoted = re.findall(r"['\u2018\u2019\u201c\u201d\"](.*?)['\u2018\u2019\u201c\u201d\"]", description)
+
+    # For typo defects, look for the misspelled text in the source
+    if defect_type == "typo":
+        for q in quoted:
+            # Check if the misspelled version is in the source
+            if q in content:
+                return True
+        return False
+
+    return None  # couldn't determine from source
+
+
+async def _check_defect_replication_visual_async(ref_b64, sub_b64, defect_description, page_name, viewport, semaphore):
     import anthropic
     def _call():
         client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
@@ -256,30 +310,47 @@ async def _check_defect_replication_async(ref_b64, sub_b64, defect_description, 
             if block.type == "tool_use":
                 return block.input.get("present", False)
         return False
-    async with semaphore:
-        return await asyncio.get_event_loop().run_in_executor(None, _call)
+    return await _retry_async(_call, f"Defect check {page_name}/{viewport}", semaphore)
 
 
-async def _grade_defect_replication(reference_dir, sub_screenshots_dir, defects, semaphore):
+async def _grade_defect_replication(reference_dir, sub_screenshots_dir, submission_dir, defects, viewports, semaphore):
     if not defects:
         return {"defect_replication": 1.0, "per_defect": []}
-    tasks = []
+
+    per_defect = []
     for defect in defects:
         page = defect.get("page", "")
         viewport = defect.get("viewport", "all")
-        vp = "desktop" if viewport == "all" else viewport
-        ref_path = reference_dir / f"{page}-{vp}.png"
-        sub_path = sub_screenshots_dir / f"{page}-{vp}.png"
-        if not ref_path.exists() or not sub_path.exists():
-            async def _f():
-                return False
-            tasks.append(_f())
+        description = defect.get("description", "")
+
+        # Try source-code check first (for typo/text defects)
+        source_result = _check_defect_in_source(submission_dir, defect)
+        if source_result is not None:
+            per_defect.append(1.0 if source_result else 0.0)
             continue
-        ref_b64 = _image_to_b64(str(ref_path))
-        sub_b64 = _image_to_b64(str(sub_path))
-        tasks.append(_check_defect_replication_async(ref_b64, sub_b64, defect.get("description", ""), page, vp, semaphore))
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-    per_defect = [1.0 if (not isinstance(r, Exception) and r) else 0.0 for r in results]
+
+        # Visual check — for "all" viewports, check all and take max
+        vps_to_check = list(viewports.keys()) if viewport == "all" else [viewport]
+
+        visual_tasks = []
+        for vp in vps_to_check:
+            ref_path = reference_dir / f"{page}-{vp}.png"
+            sub_path = sub_screenshots_dir / f"{page}-{vp}.png"
+            if not ref_path.exists() or not sub_path.exists():
+                continue
+            ref_b64 = _image_to_b64(str(ref_path))
+            sub_b64 = _image_to_b64(str(sub_path))
+            visual_tasks.append(_check_defect_replication_visual_async(ref_b64, sub_b64, description, page, vp, semaphore))
+
+        if not visual_tasks:
+            per_defect.append(0.0)
+            continue
+
+        results = await asyncio.gather(*visual_tasks, return_exceptions=True)
+        # Take max: if any viewport confirms the defect, it's replicated
+        found = any(r is True for r in results if not isinstance(r, Exception))
+        per_defect.append(1.0 if found else 0.0)
+
     avg = sum(per_defect) / len(per_defect) if per_defect else 0.0
     return {"defect_replication": round(avg, 4), "per_defect": per_defect}
 
@@ -287,10 +358,10 @@ async def _grade_defect_replication(reference_dir, sub_screenshots_dir, defects,
 async def _grade_defect_identification(submission_dir, defects, semaphore):
     report_path = submission_dir / "defects_report.md"
     if not report_path.exists():
-        return {"defect_identification": 0.0, "report_found": False}
+        return {"defect_identification": 0.0, "report_found": False, "recall": 0, "precision": 0, "detail": 0}
     report_text = report_path.read_text()
     if not report_text.strip():
-        return {"defect_identification": 0.0, "report_found": True, "report_empty": True}
+        return {"defect_identification": 0.0, "report_found": True, "report_empty": True, "recall": 0, "precision": 0, "detail": 0}
     import anthropic
     defects_json = json.dumps(defects, indent=2)
     def _call():
@@ -311,14 +382,14 @@ async def _grade_defect_identification(submission_dir, defects, semaphore):
             if block.type == "tool_use":
                 s = block.input
                 weighted = (0.5 * s["recall"] + 0.3 * s["precision"] + 0.2 * s["detail"]) / 10.0
-                return {"defect_identification": round(weighted, 4), "report_found": True, "recall": s["recall"], "precision": s["precision"], "detail": s["detail"]}
-        return {"defect_identification": 0.0, "report_found": True}
-    async with semaphore:
-        try:
-            return await asyncio.get_event_loop().run_in_executor(None, _call)
-        except Exception as e:
-            print(f"Defect identification grading failed: {e}", file=sys.stderr)
-            return {"defect_identification": 0.0, "report_found": True}
+                return {"defect_identification": round(weighted, 4), "report_found": True,
+                        "recall": s["recall"], "precision": s["precision"], "detail": s["detail"]}
+        return {"defect_identification": 0.0, "report_found": True, "recall": 0, "precision": 0, "detail": 0}
+    try:
+        return await _retry_async(_call, "Defect identification", semaphore)
+    except Exception as e:
+        print(f"Defect identification grading failed after retries: {e}", file=sys.stderr)
+        return {"defect_identification": 0.0, "report_found": True, "recall": 0, "precision": 0, "detail": 0}
 
 
 # ──────────────────────────────────────────────────
@@ -326,25 +397,62 @@ async def _grade_defect_identification(submission_dir, defects, semaphore):
 # ──────────────────────────────────────────────────
 
 def check_structural(submission_dir, expected_pages):
-    score = 0.0
-    total_checks = 0
+    checks_passed = 0.0
+    total_checks = 0.0
+
+    # 1. All expected HTML files exist
     for page in expected_pages:
         total_checks += 1
         html_file = submission_dir / f"{page}.html"
         if html_file.exists():
-            score += 1.0
-            content = html_file.read_text()
-            if "styles.css" in content:
-                score += 0.5
-                total_checks += 0.5
-            nav_links = sum(1 for p in expected_pages if f"{p}.html" in content)
-            if nav_links >= len(expected_pages) - 1:
-                score += 0.5
-                total_checks += 0.5
+            checks_passed += 1.0
+
+    # 2. styles.css exists
     total_checks += 1
     if (submission_dir / "styles.css").exists():
-        score += 1.0
-    return score / total_checks if total_checks > 0 else 0.0
+        checks_passed += 1.0
+
+    # 3. Check each HTML file for quality signals
+    for page in expected_pages:
+        html_file = submission_dir / f"{page}.html"
+        if not html_file.exists():
+            continue
+        content = html_file.read_text()
+
+        # Links to stylesheet
+        total_checks += 1
+        if "styles.css" in content:
+            checks_passed += 1.0
+
+        # Nav links to other pages
+        total_checks += 1
+        nav_links = sum(1 for p in expected_pages if f"{p}.html" in content)
+        if nav_links >= len(expected_pages) - 1:
+            checks_passed += 1.0
+
+        # Viewport meta tag (responsive)
+        total_checks += 1
+        if 'viewport' in content and 'width=device-width' in content:
+            checks_passed += 1.0
+
+        # Semantic HTML elements
+        total_checks += 1
+        semantic_tags = ['<nav', '<main', '<footer', '<header', '<section', '<article']
+        semantic_count = sum(1 for tag in semantic_tags if tag in content)
+        if semantic_count >= 3:
+            checks_passed += 1.0
+        elif semantic_count >= 1:
+            checks_passed += 0.5
+
+    # 4. CSS has media queries (responsive design)
+    css_file = submission_dir / "styles.css"
+    if css_file.exists():
+        css_content = css_file.read_text()
+        total_checks += 1
+        if '@media' in css_content:
+            checks_passed += 1.0
+
+    return checks_passed / total_checks if total_checks > 0 else 0.0
 
 
 HACK_DETECTION_SYSTEM = """You are a code reviewer checking whether a website submission is legitimately built with HTML/CSS or is using a trick to display a pre-existing image instead of actually constructing the page.
@@ -532,11 +640,15 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
     real_results = await asyncio.gather(*real_tasks, return_exceptions=True) if real_tasks else []
 
     all_llm, all_pixel = [], []
+    per_page = {}
     real_idx = 0
     for page, vp_name, valid in pair_keys:
+        if page not in per_page:
+            per_page[page] = {}
         if not valid:
             all_llm.append(dict(ZERO_SCORES))
             all_pixel.append({"ssim": 0.0, "color_histogram": 0.0, "pixel_combined": 0.0})
+            per_page[page][vp_name] = {"llm": dict(ZERO_SCORES), "pixel": {"ssim": 0.0, "color_histogram": 0.0, "pixel_combined": 0.0}, "missing": True}
         else:
             r = real_results[real_idx]
             real_idx += 1
@@ -544,9 +656,11 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
                 print(f"Scoring failed for {page}/{vp_name}: {r}", file=sys.stderr)
                 all_llm.append(dict(ZERO_SCORES))
                 all_pixel.append({"ssim": 0.0, "color_histogram": 0.0, "pixel_combined": 0.0})
+                per_page[page][vp_name] = {"llm": dict(ZERO_SCORES), "pixel": {"ssim": 0.0, "color_histogram": 0.0, "pixel_combined": 0.0}, "error": str(r)}
             else:
                 all_llm.append(r[0])
                 all_pixel.append(r[1])
+                per_page[page][vp_name] = {"llm": {k: round(v, 4) for k, v in r[0].items()}, "pixel": r[1]}
 
     # Aggregate
     llm_agg = {k: float(sum(s.get(k, 0.0) for s in all_llm) / len(all_llm)) for k in ZERO_SCORES} if all_llm else dict(ZERO_SCORES)
@@ -555,7 +669,8 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
     avg_color = float(np.mean([p["color_histogram"] for p in all_pixel])) if all_pixel else 0.0
     avg_pixel = float(np.mean([p["pixel_combined"] for p in all_pixel])) if all_pixel else 0.0
 
-    visual_fidelity = 0.70 * avg_llm + 0.15 * avg_pixel + 0.15 * structural
+    # Weights: 80% LLM, 15% pixel, 5% structural
+    visual_fidelity = 0.80 * avg_llm + 0.15 * avg_pixel + 0.05 * structural
 
     result = {
         "hack_detected": False,
@@ -570,18 +685,23 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
         "llm_components": round(llm_agg.get("components", 0), 4),
         "llm_avg": round(avg_llm, 4),
         "visual_fidelity": round(float(visual_fidelity), 4),
+        "per_page": per_page,
     }
 
     if is_broken and defects:
         defect_rep, defect_id = await asyncio.gather(
-            _grade_defect_replication(reference_dir, sub_screenshots_dir, defects, semaphore),
+            _grade_defect_replication(reference_dir, sub_screenshots_dir, submission_dir, defects, viewports, semaphore),
             _grade_defect_identification(submission_dir, defects, semaphore),
         )
         rep_score = defect_rep.get("defect_replication", 0.0)
         id_score = defect_id.get("defect_identification", 0.0)
         overall = 0.50 * visual_fidelity + 0.25 * rep_score + 0.25 * id_score
         result["defect_replication"] = round(rep_score, 4)
+        result["defect_replication_per_defect"] = defect_rep.get("per_defect", [])
         result["defect_identification"] = round(id_score, 4)
+        result["defect_id_recall"] = defect_id.get("recall", 0)
+        result["defect_id_precision"] = defect_id.get("precision", 0)
+        result["defect_id_detail"] = defect_id.get("detail", 0)
     else:
         overall = visual_fidelity
 

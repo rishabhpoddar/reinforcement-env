@@ -64,9 +64,13 @@ def package_task(
     dockerfile = _build_dockerfile(has_assets=has_assets)
     (env_dir / "Dockerfile").write_text(dockerfile)
 
-    # --- Copy reference screenshots ---
+    # --- Copy reference screenshots into tests (for grader) and environment (for agent) ---
     for screenshot in screenshots_dir.glob("*.png"):
         shutil.copy2(screenshot, ref_dir / screenshot.name)
+    env_ref_dir = env_dir / "reference_screenshots"
+    if env_ref_dir.exists():
+        shutil.rmtree(env_ref_dir)
+    shutil.copytree(screenshots_dir, env_ref_dir)
 
     # --- task_meta.json ---
     meta = {
@@ -283,6 +287,10 @@ WORKDIR /app
 # Copy image assets into the working directory
 COPY assets/ /app/assets/
 """
+    base += """
+# Copy reference screenshots so the agent can view them
+COPY reference_screenshots/ /app/reference_screenshots/
+"""
     return base
 
 
@@ -293,12 +301,13 @@ set -e
 
 cd /tests
 
-# Run the grader
+# Run the grader (stderr merged so judge failures appear in test output)
 /opt/grader-venv/bin/python grader.py \\
     --reference /tests/reference_screenshots \\
     --submission /app \\
     --meta /tests/task_meta.json \\
-    --output /logs/verifier/reward.json
+    --output /logs/verifier/reward.json \\
+    2>&1
 
 echo "Grading complete. Results:"
 cat /logs/verifier/reward.json
