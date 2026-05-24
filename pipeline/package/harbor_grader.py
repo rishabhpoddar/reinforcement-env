@@ -347,72 +347,103 @@ def check_structural(submission_dir, expected_pages):
     return score / total_checks if total_checks > 0 else 0.0
 
 
-def check_for_hacks(submission_dir, reference_dir=None):
-    """Check if the submission embeds reference screenshots as images.
+HACK_DETECTION_SYSTEM = """You are a code reviewer checking whether a website submission is legitimately built with HTML/CSS or is using a trick to display a pre-existing image instead of actually constructing the page.
 
-    Extracts all images from the HTML (file references and base64 data URIs),
-    loads them, and compares each against every reference screenshot via SSIM.
-    If any embedded image is very similar to a reference screenshot (SSIM > 0.85),
-    it's flagged as a hack.
+A LEGITIMATE submission:
+- Has semantic HTML elements (headings, paragraphs, nav, sections, dividers, lists, etc.)
+- Has CSS that styles these elements (colors, fonts, layout, spacing, responsive rules)
+- May include small decorative images, icons, logos, or background images — this is normal
+- The HTML structure creates the visual layout — the page would look like a real website even without images
+
+A HACK submission uses any technique to display a screenshot or reference image AS the page instead of building it:
+- An <img> tag as the sole/primary content showing a full-page screenshot
+- CSS background-image covering the viewport with no real HTML underneath
+- JavaScript/canvas drawing or loading an image to fill the page
+- SVG with embedded image data as the main content
+- iframe loading an image
+- Real HTML/CSS that is hidden (display:none, opacity:0, offscreen positioning, height:0, z-index tricks) while a screenshot image is displayed on top
+- Any creative method where the visual output comes from displaying a pre-existing image rather than from HTML/CSS markup
+
+Key distinction: legitimate sites CAN use images (hero photos, product images, team photos, icons). The hack is when an image IS the entire page content rather than being part of a page built with HTML/CSS.
+
+Respond using the check_hack tool."""
+
+
+def check_for_hacks(submission_dir):
+    """Check if the submission uses tricks to display images instead of building HTML/CSS.
+
+    Uses an LLM to analyze the source code and detect any hack technique —
+    including creative methods like hidden HTML with screenshot overlays,
+    canvas rendering, iframe embedding, etc.
     """
-    if reference_dir is None:
-        return False
+    import anthropic
 
-    reference_dir = Path(reference_dir)
-    ref_images = list(reference_dir.glob("*.png"))
-    if not ref_images:
-        return False
+    submission_dir = Path(submission_dir)
 
-    # Collect all images embedded in or referenced by the submission HTML
-    embedded_images = []
-
-    for html_file in submission_dir.glob("*.html"):
-        content = html_file.read_text()
-        html_dir = html_file.parent
-
-        # Extract <img src="..."> file paths
-        img_srcs = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content)
-        for src in img_srcs:
-            if src.startswith("data:"):
-                continue  # handled below
-            img_path = html_dir / src
-            if img_path.exists() and img_path.suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp', '.gif'):
-                try:
-                    embedded_images.append(np.array(Image.open(img_path).convert("RGB")))
-                except Exception:
-                    pass
-
-        # Extract base64 data URI images
-        data_uris = re.findall(r'data:image/[^;]+;base64,([A-Za-z0-9+/=]+)', content)
-        for data in data_uris:
-            if len(data) < 1000:
-                continue  # too small to be a screenshot
+    # Collect all source files
+    source_parts = []
+    for ext in ('*.html', '*.css', '*.js'):
+        for f in sorted(submission_dir.glob(ext)):
             try:
-                img_bytes = base64.b64decode(data)
-                img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
-                embedded_images.append(np.array(img))
+                content = f.read_text()
+                source_parts.append(f"--- {f.name} ---\n{content}")
             except Exception:
                 pass
 
-    if not embedded_images:
+    if not source_parts:
         return False
 
-    # Compare each embedded image against each reference screenshot
-    for embedded in embedded_images:
-        for ref_path in ref_images:
-            try:
-                ref = np.array(Image.open(ref_path).convert("RGB"))
-                ref_resized, emb_resized = _resize_to_match(ref, embedded)
-                min_dim = min(ref_resized.shape[0], ref_resized.shape[1])
-                win_size = min(7, min_dim if min_dim % 2 == 1 else min_dim - 1)
-                if win_size < 3:
-                    continue
-                score = compute_ssim_raw(ref_resized, emb_resized, win_size=win_size, channel_axis=2, data_range=255)
-                if score > 0.85:
-                    print(f"Hack detected: embedded image matches {ref_path.name} (SSIM={score:.3f})", file=sys.stderr)
-                    return True
-            except Exception:
-                pass
+    source_code = "\n\n".join(source_parts)
+
+    # Truncate if very large (avoid token limits)
+    if len(source_code) > 100000:
+        source_code = source_code[:100000] + "\n\n[... truncated ...]"
+
+    try:
+        client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
+        response = client.messages.create(
+            model="claude-opus-4-7",
+            max_tokens=16000,
+            system=HACK_DETECTION_SYSTEM,
+            messages=[{
+                "role": "user",
+                "content": (
+                    "Review this website submission source code. Is it legitimately "
+                    "built with HTML/CSS, or is it using a trick to display an image "
+                    f"as the page?\n\n{source_code}"
+                ),
+            }],
+            tool_choice={"type": "tool", "name": "check_hack"},
+            tools=[{
+                "name": "check_hack",
+                "description": "Report whether the submission is a legitimate website or a hack",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "is_hack": {
+                            "type": "boolean",
+                            "description": "True if the submission uses a trick to display an image instead of building HTML/CSS",
+                        },
+                        "reason": {
+                            "type": "string",
+                            "description": "Brief explanation of why this is or isn't a hack",
+                        },
+                    },
+                    "required": ["is_hack", "reason"],
+                },
+            }],
+        )
+
+        for block in response.content:
+            if block.type == "tool_use":
+                is_hack = block.input.get("is_hack", False)
+                reason = block.input.get("reason", "")
+                if is_hack:
+                    print(f"Hack detected: {reason}", file=sys.stderr)
+                return is_hack
+
+    except Exception as e:
+        print(f"Hack detection LLM call failed: {e}", file=sys.stderr)
 
     return False
 
@@ -473,7 +504,7 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
         await capture_submission_screenshots(submission_dir, sub_screenshots_dir, viewports)
 
     # Anti-hack check
-    if check_for_hacks(submission_dir, reference_dir):
+    if check_for_hacks(submission_dir):
         result = {"overall": 0.0, "hack_detected": True}
         if output_path:
             output_path.parent.mkdir(parents=True, exist_ok=True)

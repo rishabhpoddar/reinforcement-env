@@ -1,7 +1,12 @@
-- for the website builder, start with starter repos
 - full pipeline on broken setup
 	- make sure judge is able to correctly judge intentionally wrong websites as well
  - go through entire code base and refactor properly
 - go through all the prompts and criteria once the full pipeline is working as expected.
 - make the full pipeline config based - should be easy to add more types of websites (even give reference images), should be easy to add more llm, change prompts slightly etc.
+- Add support for animations.
 - add multi tech stack support (see multi-tech-stack-support.txt)
+
+--------------------
+
+Common patterns model struggles with in RL env:
+- Replicating the screenshot layout. It gets the overall theme and copy, but the layout is usually quite different.
