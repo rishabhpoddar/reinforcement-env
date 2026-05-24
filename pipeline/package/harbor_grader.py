@@ -319,43 +319,6 @@ async def _grade_defect_replication(reference_dir, sub_screenshots_dir, defects,
     return {"defect_replication": round(avg, 4), "per_defect": per_defect}
 
 
-async def _grade_defect_identification(submission_dir, defects, semaphore):
-    report_path = submission_dir / "defects_report.md"
-    if not report_path.exists():
-        return {"defect_identification": 0.0, "report_found": False, "recall": 0, "precision": 0, "detail": 0}
-    report_text = report_path.read_text()
-    if not report_text.strip():
-        return {"defect_identification": 0.0, "report_found": True, "report_empty": True, "recall": 0, "precision": 0, "detail": 0}
-    import anthropic
-    defects_json = json.dumps(defects, indent=2)
-    def _call():
-        client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
-        response = client.messages.create(
-            model="claude-opus-4-7", max_tokens=16000,
-            system="You evaluate how well a defect report identifies intentional design defects in a website.",
-            messages=[{"role": "user", "content": f"The following are the ACTUAL intentional defects in a website:\n{defects_json}\n\nThe agent wrote this defect report:\n{report_text}\n\nScore how well the agent identified the defects. Use the score_report tool."}],
-            tool_choice={"type": "tool", "name": "score_report"},
-            tools=[{"name": "score_report", "description": "Score the defect report quality",
-                     "input_schema": {"type": "object", "properties": {
-                         "recall": {"type": "integer", "minimum": 0, "maximum": 10, "description": "How many real defects were found? 0=none, 5=about half, 10=all found"},
-                         "precision": {"type": "integer", "minimum": 0, "maximum": 10, "description": "How many reported defects are real? 0=all false positives, 5=mixed, 10=no false positives"},
-                         "detail": {"type": "integer", "minimum": 0, "maximum": 10, "description": "Quality of defect descriptions? 0=vague, 5=identified but poorly described, 10=precise and actionable"},
-                     }, "required": ["recall", "precision", "detail"]}}],
-        )
-        for block in response.content:
-            if block.type == "tool_use":
-                s = block.input
-                weighted = (0.5 * s["recall"] + 0.3 * s["precision"] + 0.2 * s["detail"]) / 10.0
-                return {"defect_identification": round(weighted, 4), "report_found": True,
-                        "recall": s["recall"], "precision": s["precision"], "detail": s["detail"]}
-        return {"defect_identification": 0.0, "report_found": True, "recall": 0, "precision": 0, "detail": 0}
-    try:
-        return await _retry_async(_call, "Defect identification", semaphore)
-    except Exception as e:
-        print(f"Defect identification grading failed after retries: {e}", file=sys.stderr)
-        return {"defect_identification": 0.0, "report_found": True, "recall": 0, "precision": 0, "detail": 0}
-
-
 # ──────────────────────────────────────────────────
 # Structural checks
 # ──────────────────────────────────────────────────
@@ -656,18 +619,10 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path=None, su
     details = {"per_page": per_page}
 
     if is_broken and defects:
-        defect_rep, defect_id = await asyncio.gather(
-            _grade_defect_replication(reference_dir, sub_screenshots_dir, defects, viewports, semaphore),
-            _grade_defect_identification(submission_dir, defects, semaphore),
-        )
+        defect_rep = await _grade_defect_replication(reference_dir, sub_screenshots_dir, defects, viewports, semaphore)
         rep_score = defect_rep.get("defect_replication", 0.0)
-        id_score = defect_id.get("defect_identification", 0.0)
-        overall = 0.50 * visual_fidelity + 0.25 * rep_score + 0.25 * id_score
+        overall = 0.75 * visual_fidelity + 0.25 * rep_score
         result["defect_replication"] = round(rep_score, 4)
-        result["defect_identification"] = round(id_score, 4)
-        result["defect_id_recall"] = defect_id.get("recall", 0)
-        result["defect_id_precision"] = defect_id.get("precision", 0)
-        result["defect_id_detail"] = defect_id.get("detail", 0)
         details["defect_replication_per_defect"] = defect_rep.get("per_defect", [])
     else:
         overall = visual_fidelity

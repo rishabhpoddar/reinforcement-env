@@ -209,18 +209,9 @@ A score of 10 means your page is visually indistinguishable from the reference. 
     # Add broken website section if applicable
     if spec.get("is_broken"):
         instruction += """
-## Important: Design Defect Analysis
+## Important: This Website Has Intentional Design Defects
 
-This website contains **intentional design defects**. You must:
-
-1. **Replicate the design EXACTLY as shown** in the screenshots (including the defects)
-2. Create a file `defects_report.md` listing each defect you observe:
-   - What the defect is
-   - Which page and viewport it appears on
-   - Why it's a problem from a design perspective
-   - How you would fix it if asked to
-
-Your ability to identify design issues will be part of your score.
+This website contains **intentional design defects**. You must **replicate the design EXACTLY as shown** in the screenshots, including any defects you notice. Do NOT fix or improve the design — reproduce it faithfully.
 """
 
     return instruction
