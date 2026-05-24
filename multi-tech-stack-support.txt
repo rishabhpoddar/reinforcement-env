@@ -130,7 +130,7 @@ WHAT CHANGES PER FILE
    - react: copy entire project dir (src/, public/, package.json, configs)
    - solve.sh: add npm install && npm run build step for framework stacks
 
-   grader (embedded):
+   grader (harbor_grader.py — now a standalone file, not embedded string):
    - capture_submission_screenshots(): currently uses file:// URLs
      - Framework stacks: need to npm install, npm run build, serve dist/, then
        screenshot from http://localhost
@@ -138,6 +138,18 @@ WHAT CHANGES PER FILE
    - check_structural(): currently checks for *.html + styles.css
      - React: check for package.json, src/App.jsx, tailwind.config.js, etc.
      - Use the stack profile's structural_checks list
+   - check_for_hacks(): currently reads *.html, *.css, *.js source files
+     - Must add *.jsx, *.tsx, *.ts, *.vue, *.svelte to the source file globs
+     - Also read config files (package.json, tailwind.config.js, vite.config.js)
+       since hack could hide in build config
+     - The LLM-based approach handles any framework naturally — it understands
+       React/Vue/Svelte code, so no prompt changes needed, just file collection
+   - Dual LLM judges (Claude Opus 4.7 + GPT-5.5): no changes needed — they
+     compare screenshots regardless of how the site was built
+   - Pixel metrics (SSIM + color histogram): no changes needed — image comparison
+     is framework-agnostic
+   - Dockerfile must include node_modules for framework builds (npm install in
+     grader venv won't work — need system-level node/npm)
 
 7. pipeline/agents/opencode_wrapper.py
    - MCP config may need framework-specific tools (though Playwright covers most)
