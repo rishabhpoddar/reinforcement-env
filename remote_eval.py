@@ -159,6 +159,7 @@ def main():
             "harbor-eval-results",
             "jobs/",
             str(output_dir) + "/",
+            "--force",
         ],
         check=True,
     )
