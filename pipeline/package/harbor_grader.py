@@ -347,15 +347,73 @@ def check_structural(submission_dir, expected_pages):
     return score / total_checks if total_checks > 0 else 0.0
 
 
-def check_for_hacks(submission_dir):
+def check_for_hacks(submission_dir, reference_dir=None):
+    """Check if the submission embeds reference screenshots as images.
+
+    Extracts all images from the HTML (file references and base64 data URIs),
+    loads them, and compares each against every reference screenshot via SSIM.
+    If any embedded image is very similar to a reference screenshot (SSIM > 0.85),
+    it's flagged as a hack.
+    """
+    if reference_dir is None:
+        return False
+
+    reference_dir = Path(reference_dir)
+    ref_images = list(reference_dir.glob("*.png"))
+    if not ref_images:
+        return False
+
+    # Collect all images embedded in or referenced by the submission HTML
+    embedded_images = []
+
     for html_file in submission_dir.glob("*.html"):
         content = html_file.read_text()
-        if "reference_screenshot" in content or "_ref_imgs" in content:
-            return True
-        if re.findall(r'base64,([A-Za-z0-9+/=]{10000,})', content):
-            return True
-        if re.findall(r'<img[^>]+src=["\'][^"\']*(?:screenshot|reference|_ref)[^"\']*\.png["\']', content, re.IGNORECASE):
-            return True
+        html_dir = html_file.parent
+
+        # Extract <img src="..."> file paths
+        img_srcs = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content)
+        for src in img_srcs:
+            if src.startswith("data:"):
+                continue  # handled below
+            img_path = html_dir / src
+            if img_path.exists() and img_path.suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp', '.gif'):
+                try:
+                    embedded_images.append(np.array(Image.open(img_path).convert("RGB")))
+                except Exception:
+                    pass
+
+        # Extract base64 data URI images
+        data_uris = re.findall(r'data:image/[^;]+;base64,([A-Za-z0-9+/=]+)', content)
+        for data in data_uris:
+            if len(data) < 1000:
+                continue  # too small to be a screenshot
+            try:
+                img_bytes = base64.b64decode(data)
+                img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
+                embedded_images.append(np.array(img))
+            except Exception:
+                pass
+
+    if not embedded_images:
+        return False
+
+    # Compare each embedded image against each reference screenshot
+    for embedded in embedded_images:
+        for ref_path in ref_images:
+            try:
+                ref = np.array(Image.open(ref_path).convert("RGB"))
+                ref_resized, emb_resized = _resize_to_match(ref, embedded)
+                min_dim = min(ref_resized.shape[0], ref_resized.shape[1])
+                win_size = min(7, min_dim if min_dim % 2 == 1 else min_dim - 1)
+                if win_size < 3:
+                    continue
+                score = compute_ssim_raw(ref_resized, emb_resized, win_size=win_size, channel_axis=2, data_range=255)
+                if score > 0.85:
+                    print(f"Hack detected: embedded image matches {ref_path.name} (SSIM={score:.3f})", file=sys.stderr)
+                    return True
+            except Exception:
+                pass
+
     return False
 
 
@@ -393,21 +451,33 @@ async def capture_submission_screenshots(submission_dir, output_dir, viewports):
 # Main grading
 # ──────────────────────────────────────────────────
 
-async def _grade_async(reference_dir, submission_dir, meta, output_path):
+async def _grade_async(reference_dir, submission_dir, meta, output_path=None, sub_screenshots_dir=None):
+    """Core grading logic. All LLM calls run in parallel.
+
+    Args:
+        reference_dir: Directory with reference screenshots.
+        submission_dir: Directory with submitted HTML/CSS files.
+        meta: Task metadata dict.
+        output_path: If provided, write reward.json here (Harbor mode).
+        sub_screenshots_dir: If provided, use pre-captured screenshots instead
+            of running Playwright (local/calibration mode).
+    """
     pages = meta.get("pages", [])
     viewports = meta.get("viewports", VIEWPORTS_DEFAULT)
     is_broken = meta.get("is_broken", False)
     defects = meta.get("defects", [])
 
-    # Capture submission screenshots
-    sub_screenshots_dir = Path("/logs/verifier/screenshots")
-    await capture_submission_screenshots(submission_dir, sub_screenshots_dir, viewports)
+    # Capture submission screenshots if not pre-provided
+    if sub_screenshots_dir is None:
+        sub_screenshots_dir = Path("/logs/verifier/screenshots")
+        await capture_submission_screenshots(submission_dir, sub_screenshots_dir, viewports)
 
     # Anti-hack check
-    if check_for_hacks(submission_dir):
+    if check_for_hacks(submission_dir, reference_dir):
         result = {"overall": 0.0, "hack_detected": True}
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(json.dumps(result, indent=2))
+        if output_path:
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            output_path.write_text(json.dumps(result, indent=2))
         return result
 
     structural = check_structural(submission_dir, pages)
@@ -486,9 +556,9 @@ async def _grade_async(reference_dir, submission_dir, meta, output_path):
 
     result["overall"] = round(float(overall), 4)
 
-    # Harbor expects flat float/int values in reward.json
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(result, indent=2))
+    if output_path:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(json.dumps(result, indent=2))
     return result
 
 
