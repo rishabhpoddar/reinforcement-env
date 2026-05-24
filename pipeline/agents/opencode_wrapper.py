@@ -109,7 +109,7 @@ class OpenCodeAgent:
                 "mcp": {
                     "playwright": {
                         "type": "local",
-                        "command": ["npx", "-y", "@playwright/mcp@latest", "--headless"],
+                        "command": ["npx", "-y", "@playwright/mcp@latest", "--headless", "--isolated"],
                         "enabled": True,
                     }
                 },

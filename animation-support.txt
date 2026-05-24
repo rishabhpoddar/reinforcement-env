@@ -1,0 +1,208 @@
+Animation Support — Approach
+============================
+
+Overview
+--------
+Add animation support to the RL pipeline so that:
+1. Specs can describe animations
+2. The builder creates animated websites (CSS + JS)
+3. Animations are captured as video → frames
+4. Judges/graders can evaluate animation quality
+5. The RL agent can understand and replicate animations from reference videos
+
+Key constraint: Claude and GPT APIs do NOT support video input. Only images.
+So all video must be converted to frame sequences before any LLM can evaluate it.
+Playwright's screencast API (v1.59+) records .webm videos. ffmpeg extracts frames.
+
+
+1. Specification
+----------------
+Add an "animations" array to the spec schema:
+
+    "animations": [
+      {
+        "element": "hero section heading",
+        "page": "home",
+        "trigger": "on_load" | "on_scroll",
+        "type": "fade_in_up",
+        "duration_ms": 800,
+        "delay_ms": 200,
+        "description": "The main hero heading fades in and slides up from 20px below its final position"
+      }
+    ]
+
+For v1, support only two trigger types:
+- on_load: animation plays when page loads
+- on_scroll: animation plays when element scrolls into view
+
+Skip hover animations for v1 — they require knowing element positions which differ
+between reference and submission, making deterministic capture hard.
+
+The spec generator prompt gets updated to sometimes include animations (similar to
+how broken websites are randomly toggled). Start with 2-4 animations per spec.
+
+Allow both CSS animations/transitions and JavaScript (IntersectionObserver for
+scroll-triggered, requestAnimationFrame for complex sequences). Remove the current
+"No JS" rule when animations are present.
+
+
+2. Building the Website
+-----------------------
+The builder prompt gets updated to reference the animations array from the spec.
+No fundamental architecture change needed — just allow CSS animations and JS.
+
+The builder judge (generation loop) already uses Playwright via MCP and can visually
+verify animations by recording/screenshotting at different times.
+
+
+3. Capture — Recording Reference Animations
+--------------------------------------------
+After the website is built, capture a reference video per page using Playwright's
+screencast API:
+
+    await page.screencast.start(path="home.webm")
+    await page.goto(url)
+    await page.wait_for_timeout(2000)        # on-load animations
+    # scroll choreography for scroll-triggered animations
+    for pct in [25, 50, 75, 100]:
+        await page.evaluate(f"window.scrollTo(0, document.body.scrollHeight * {pct/100})")
+        await page.wait_for_timeout(1500)
+    await page.screencast.stop()
+
+The choreography is derived from the spec:
+- Always wait ~2s after load for on_load animations
+- If spec has on_scroll animations, scroll through the page in steps
+- Same choreography runs on both reference and submission (for grading)
+
+Additionally, extract key frames from the video using ffmpeg:
+
+    ffmpeg -i home.webm -vf "fps=2" frames/home_frame_%03d.png
+
+These frames are included in the task package so the RL agent can view them.
+
+
+4. Task Packaging
+-----------------
+The Harbor task package gets two new things:
+
+a) reference_video/ directory containing .webm recordings per page
+b) reference_frames/ directory containing extracted PNG frames per page
+
+The Dockerfile adds ffmpeg:
+
+    RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3 python3-pip python3-venv chromium ffmpeg \
+        && rm -rf /var/lib/apt/lists/*
+
+instruction.md is updated to tell the agent:
+- Reference screenshots show the final static state (same as today)
+- Reference frames show the animation sequence over time
+- The agent should run ffmpeg on the reference videos to extract frames,
+  OR just look at the pre-extracted frames in reference_frames/
+- The animations section of the spec describes what each animation does
+- JS is allowed for animation purposes
+
+
+5. RL Agent Workflow
+--------------------
+The RL agent (Claude Code in Harbor) does:
+
+1. Read reference screenshots (static design — same as today)
+2. Read reference frames or run:
+   ffmpeg -i reference_video/home.webm -vf "fps=2" frames/frame_%03d.png
+3. View extracted frames to understand what animations exist
+4. Read the animation descriptions from the spec/instruction
+5. Build HTML + CSS + JS to replicate both static design and animations
+6. Self-verify by using Playwright MCP to view the page and check animations
+
+Tested: Claude Code CAN correctly identify animation types (fade-in, scale-up,
+staggered timing, continuous pulse) from a sequence of extracted video frames.
+
+
+6. Harbor Grader — Evaluating Animations
+-----------------------------------------
+The grader needs to evaluate whether the submission replicates the reference animations.
+
+Step 1: Record submission video
+  Use Playwright screencast to record the submission page using the SAME
+  choreography (load → wait → scroll steps) as the reference.
+
+Step 2: Extract frames
+  Use ffmpeg to extract frames from both reference and submission recordings.
+
+Step 3: Deterministic frame-delta check
+  Compute pixel differences between consecutive frames:
+  - Reference has big inter-frame deltas = animation is happening
+  - Submission has near-zero deltas at same timestamps = animation is missing
+  This is a cheap, no-LLM check that catches completely missing animations.
+
+Step 4: LLM judge comparison
+  Send paired frame sequences to Claude/GPT:
+  "Here are 6 frames from the reference page load sequence and 6 frames from
+  the submission. The spec says: [animation descriptions]. Score whether the
+  submission replicates these animations."
+
+  New scoring dimension alongside existing layout/color/typography/spacing/components:
+  - animation_presence (0-10): are the specified animations present?
+  - animation_fidelity (0-10): do they match the reference timing/style?
+
+Step 5: Combine scores
+  Weight animation scores into the overall score. For specs WITH animations:
+    overall = 0.60 * visual_fidelity + 0.10 * animation_score + 0.15 * pixel + 0.15 * structural
+  For specs WITHOUT animations: same as today (no animation component).
+
+
+7. Builder Judge (Generation Loop) Changes
+-------------------------------------------
+The judge prompt in generation_loop.py gets updated:
+
+- "The spec includes animations. After taking static screenshots, also use
+  Playwright screencast to record a short video of each page during load
+  and scrolling. Extract frames and verify the animations match the spec."
+
+Since the judge is a coding agent (not a dumb API call), it can:
+- Record video with Playwright
+- Extract frames with ffmpeg
+- View frames and assess animation quality
+- All without needing a rigid choreography — it figures it out
+
+
+8. Implementation Order
+-----------------------
+Phase 1: Spec + Build (no grading yet)
+  - Add animations to spec schema and generation prompt
+  - Update builder prompt to allow JS and reference animations
+  - Update builder judge prompt to check animations
+  - Test end-to-end: does the builder create animated sites?
+
+Phase 2: Capture + Package
+  - Add screencast recording after site generation (alongside screenshots)
+  - Add frame extraction step
+  - Update harbor_task.py to include video + frames in task package
+  - Update Dockerfile to include ffmpeg
+  - Update instruction.md template for animation tasks
+
+Phase 3: Grading
+  - Add choreography-based recording to harbor_grader.py
+  - Add frame-delta heuristic
+  - Add LLM animation scoring dimension
+  - Update score aggregation weights
+  - Calibrate on test cases
+
+
+9. Open Questions
+-----------------
+- How many animations per spec is the sweet spot? Too few = trivial, too many = overwhelming.
+  Start with 2-4 and calibrate.
+
+- Should all specs have animations or only some? Probably a probability toggle like
+  broken websites (e.g., 40% of specs get animations).
+
+- Frame extraction rate: 2fps seems right for our animation durations (500ms-2s).
+  May need tuning.
+
+- Cost: animation grading adds more LLM calls (frame comparison). Need to measure
+  the marginal cost per task.
+
+- Harbor container: confirm ffmpeg is installable in the base image (node:20-slim
+  + apt). Should be fine since it's in Debian repos.

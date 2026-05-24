@@ -42,7 +42,16 @@ def _start_http_server(directory: Path) -> tuple[threading.Thread, int]:
         def log_message(self, format, *args):
             pass  # Suppress request logs
 
-    server = http.server.HTTPServer(("127.0.0.1", port), QuietHandler)
+    class QuietServer(http.server.HTTPServer):
+        def handle_error(self, request, client_address):
+            # Suppress BrokenPipeError from clients disconnecting early
+            import sys
+            exc = sys.exc_info()[1]
+            if isinstance(exc, BrokenPipeError):
+                return
+            super().handle_error(request, client_address)
+
+    server = QuietServer(("127.0.0.1", port), QuietHandler)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
     return thread, port
@@ -210,6 +219,12 @@ Images are in site/assets/ — check that images referenced in HTML actually exi
 5. IMPORTANT: After saving each screenshot, use the read tool to open the PNG file and actually LOOK at it
 6. Base your scoring on what you VISUALLY SEE in the screenshots, not just the source code
 7. Evaluate: layout, colors, typography, responsiveness, components, consistency
+
+IMPORTANT: For screenshots, use ONLY these Playwright tools in sequence:
+  - playwright_browser_resize to set viewport width
+  - playwright_browser_navigate to load the page
+  - playwright_browser_take_screenshot to capture it
+Do NOT use playwright_browser_run_code_unsafe for taking screenshots — it will silently fail.
 
 ## Scoring
 - 10 = perfect match to spec at all viewports
@@ -539,9 +554,19 @@ def judge_website(
 
     def _run_single_judge(judge_idx: int, judge_model: str) -> dict:
         """Run a single judge. Returns a dict with verdict and updated session_id."""
-        screenshots_subdir = f"screenshots-{judge_idx}"
+        # Give each judge its own working directory so each gets an independent
+        # Playwright MCP server. Symlink site/ and spec.json from the real workspace.
+        judge_workdir = workspace_dir / f".judge-workdir-{judge_idx}"
+        judge_workdir.mkdir(parents=True, exist_ok=True)
+        for name in ("site", "spec.json"):
+            link = judge_workdir / name
+            target = workspace_dir / name
+            if target.exists() and not link.exists():
+                link.symlink_to(target.resolve())
+
+        screenshots_subdir = "screenshots"
         verdict_filename = f".verdict-{judge_idx}.json"
-        verdict_path = str(workspace_dir / verdict_filename)
+        verdict_path = str(judge_workdir / verdict_filename)
         session_id = judge_session_ids.get(judge_model)
         log.info(f"    Judge: {judge_model} → {verdict_filename}" +
                  (f" (continuing session {session_id})" if session_id else " (new session)"))
@@ -556,11 +581,11 @@ def judge_website(
         judge_result = agent.run(
             prompt=judge_prompt,
             model=judge_model,
-            working_dir=workspace_dir,
+            working_dir=judge_workdir,
             session_id=session_id,
             label=f"{iter_prefix}judge-{judge_idx}",
         )
-        _clear_screenshots(workspace_dir, screenshots_subdir)
+        _clear_screenshots(judge_workdir, screenshots_subdir)
 
         # If image-too-large error, drop session and retry fresh with resize instructions
         if not judge_result.success and _is_image_too_large_error(judge_result.error):
@@ -570,11 +595,11 @@ def judge_website(
             judge_result = agent.run(
                 prompt=judge_prompt_retry,
                 model=judge_model,
-                working_dir=workspace_dir,
+                working_dir=judge_workdir,
                 session_id=None,
                 label=f"{iter_prefix}judge-{judge_idx}-retry",
             )
-            _clear_screenshots(workspace_dir, screenshots_subdir)
+            _clear_screenshots(judge_workdir, screenshots_subdir)
 
         # Build result
         new_session_id = judge_result.session_id or session_id
