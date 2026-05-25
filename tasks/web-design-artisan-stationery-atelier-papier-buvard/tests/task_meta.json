@@ -1,0 +1,187 @@
+{
+  "spec": {
+    "site_name": "Atelier Papier Buvard",
+    "category": "artisan-stationery",
+    "niche": "small-batch French paper goods atelier specializing in hand-marbled endpapers, letterpress notebooks, and fountain pen blotting paper",
+    "language": "fr",
+    "text_direction": "ltr",
+    "design_style": "minimalist",
+    "dark_mode": false,
+    "nav_style": "bottom-tabs",
+    "pages": [
+      "accueil",
+      "collections",
+      "atelier",
+      "savoir-faire",
+      "journal",
+      "commander",
+      "contact"
+    ],
+    "design_system": {
+      "color_palette": {
+        "primary": "#1F1B16",
+        "secondary": "#8A7E6B",
+        "accent": "#C25A3C",
+        "bg": "#F7F3EC",
+        "text": "#1F1B16"
+      },
+      "typography": {
+        "heading_font": "serif (Cormorant Garamond style)",
+        "body_font": "sans-serif (Inter style)",
+        "scale": "1.333 perfect fourth"
+      },
+      "layout_style": "generous whitespace with overlapping editorial sections \u2014 image blocks and text cards intentionally cross section boundaries, creating layered compositions on a warm cream canvas",
+      "mood": "tactile, contemplative, refined, artisanal"
+    },
+    "page_descriptions": {
+      "accueil": "Hero pleine largeur avec photographie d'une feuille de papier marbr\u00e9 sur fond cr\u00e8me, titre serif imposant 'Le papier, lentement.' \u00e0 gauche. Une carte 'Nouvelle collection \u2014 Automne' chevauche le bas du hero et d\u00e9borde sur la section suivante. Trois blocs de pr\u00e9sentation horizontaux (Marbrures / Carnets / Buvards) avec petites vignettes carr\u00e9es. Citation d'artisan en grand serif italique. Bandeau de r\u00e9assurance (fait main, papier fran\u00e7ais, exp\u00e9dition sous 5 jours). Pied de page minimal avec barre de navigation inf\u00e9rieure fixe (Accueil, Collections, Atelier, Journal, Commander) avec ic\u00f4nes lin\u00e9aires fines.",
+      "collections": "Grille asym\u00e9trique de produits (deux colonnes desktop, certaines fiches plus grandes que d'autres). Chaque fiche : photo carr\u00e9e, nom du produit en serif, prix en sans-serif, petit badge '\u00c9dition limit\u00e9e' ou 'Pi\u00e8ce unique' en accent terre cuite. Filtres horizontaux en haut (Tout / Marbrures / Carnets / Papeterie / Encres). Section flottante 'Lot du mois' qui chevauche la grille.",
+      "atelier": "Photo panoramique de l'atelier parisien en haut. Texte \u00e9ditorial en deux colonnes \u00e9troites racontant l'histoire (fond\u00e9 en 2014 rue de Charonne). Portrait circulaire de la fondatrice Margaux Lef\u00e8vre avec citation \u00e0 c\u00f4t\u00e9. Galerie de quatre photos de l'atelier dispos\u00e9es en grille d\u00e9cal\u00e9e qui chevauche la section suivante 'Nos valeurs' (trois piliers : Lenteur, Mati\u00e8re, Geste).",
+      "savoir-faire": "Page longue forme expliquant le processus du marbrage \u00e0 la cuve. Quatre \u00e9tapes num\u00e9rot\u00e9es (Pr\u00e9parer le bain, D\u00e9poser les encres, Peigner les motifs, S\u00e9cher la feuille) chacune avec photo grand format \u00e0 gauche et texte serr\u00e9 \u00e0 droite, alternance gauche/droite. Vid\u00e9o placeholder int\u00e9gr\u00e9e. Section glossaire des termes techniques en bas (suminagashi, \u00e9bru, papier dominot\u00e9).",
+      "journal": "Blog \u00e9ditorial. Article vedette en haut prenant toute la largeur avec image et titre serif XXL. En dessous, liste de cinq articles en format magazine : vignette \u00e0 gauche, titre + date + extrait + temps de lecture \u00e0 droite. Cat\u00e9gories en haut (Techniques, Histoire, Rencontres, Visites). Sidebar discr\u00e8te avec newsletter d'inscription qui chevauche la liste sur desktop.",
+      "commander": "Configurateur de commande sur mesure. \u00c9tapes claires : 1) Choisir le format (A4, A5, carte), 2) Choisir le motif (palette de six marbrures cliquables), 3) Quantit\u00e9, 4) Personnalisation (initiales grav\u00e9es). Aper\u00e7u en direct \u00e0 droite. R\u00e9sum\u00e9 de commande en bas. Mention 'D\u00e9lai artisanal : 3 semaines' en italique accent.",
+      "contact": "Formulaire minimal centr\u00e9 (nom, courriel, sujet, message). Adresse de l'atelier (12 rue de Charonne, 75011 Paris) avec petite carte placeholder. Horaires d'ouverture du showroom (jeudi-samedi, 14h-19h). Liens vers Instagram et Are.na. Note 'Nous r\u00e9pondons sous 48 heures ouvr\u00e9es.'"
+    },
+    "complexity": "moderate",
+    "image_assets": [
+      {
+        "filename": "hero-marbrure.png",
+        "prompt": "Close-up of a hand-marbled paper sheet with swirling patterns in terracotta, deep brown, and cream tones, laid flat on a warm cream linen surface, soft natural daylight from the left, shallow depth of field, editorial product photography, tactile and refined",
+        "size": "1536x1024",
+        "used_on": "accueil",
+        "purpose": "hero background image"
+      },
+      {
+        "filename": "atelier-panoramic.png",
+        "prompt": "Wide panoramic view of a small Parisian paper atelier with wooden workbenches, glass jars of pigment, drying racks holding marbled sheets, large windows with soft afternoon light, warm cream and brown tones, documentary craft photography",
+        "size": "1536x1024",
+        "used_on": "atelier",
+        "purpose": "atelier hero panorama"
+      },
+      {
+        "filename": "margaux-portrait.png",
+        "prompt": "Portrait of a calm French woman in her late thirties with short brown hair, wearing a linen apron over a cream shirt, standing in a paper workshop, holding a marbled sheet, soft window light, warm earthy tones, documentary portrait style",
+        "size": "1024x1024",
+        "used_on": "atelier",
+        "purpose": "founder portrait"
+      },
+      {
+        "filename": "process-marbrage.png",
+        "prompt": "Overhead shot of hands using a fine comb to swirl colored inks floating on a water bath in a shallow rectangular tray, creating intricate marbled patterns in terracotta and indigo, cream background, artisan craft photography, soft natural light",
+        "size": "1536x1024",
+        "used_on": "savoir-faire",
+        "purpose": "process step illustration"
+      },
+      {
+        "filename": "carnet-letterpress.png",
+        "prompt": "Flat lay of a letterpress-printed notebook with cream cover and embossed title, beside a fountain pen and folded marbled endpaper, on a warm beige background, minimal composition, soft shadow, product photography",
+        "size": "1024x1024",
+        "used_on": "collections, journal",
+        "purpose": "product showcase"
+      },
+      {
+        "filename": "buvard-stack.png",
+        "prompt": "Stack of square blotting papers in various muted marbled patterns \u2014 sage, terracotta, ochre \u2014 fanned slightly on a cream linen surface, top-down view, soft directional light, minimal artisan aesthetic",
+        "size": "1024x1024",
+        "used_on": "collections",
+        "purpose": "collection grid image"
+      },
+      {
+        "filename": "journal-feature.png",
+        "prompt": "Close-up of antique marbled paper from a 19th century book, intricate Spanish wave pattern in faded blue and burgundy, laid on a wooden surface beside reading glasses, editorial photography, warm vintage tones",
+        "size": "1536x1024",
+        "used_on": "journal",
+        "purpose": "featured article image"
+      }
+    ],
+    "special_elements": [
+      "fixed bottom-tab navigation bar with thin line icons (present on all viewports including desktop)",
+      "overlapping cards that intentionally cross section boundaries",
+      "asymmetric product grid with variable tile sizes",
+      "large serif italic pull quotes between sections",
+      "warm cream paper-texture background subtly applied site-wide"
+    ],
+    "responsive_notes": "Desktop: bottom-tab nav remains fixed at bottom of viewport with max-width 720px centered. Overlapping cards maintain their cross-section positioning. Two-column editorial layouts. Tablet: bottom-tab nav full width, product grid becomes uniform 2-column, overlapping cards retain offset. Mobile: drastically rearranged \u2014 hero text moves below image, overlapping cards become stacked full-width with no overlap, product grid single column, atelier two-column text becomes one column, savoir-faire alternating layout becomes top-image/bottom-text stack. Bottom-tab labels hidden on mobile (icons only). Sidebar newsletter on journal page hidden on mobile, moved to footer.",
+    "is_broken": true,
+    "defects": [
+      {
+        "type": "typo",
+        "page": "accueil",
+        "viewport": "all",
+        "description": "The reassurance banner reads 'fait \u00e0 la mein' instead of 'fait \u00e0 la main' \u2014 the word 'main' is misspelled as 'mein' in the prominent trust badge below the hero."
+      },
+      {
+        "type": "broken_responsiveness",
+        "page": "savoir-faire",
+        "viewport": "mobile",
+        "description": "On mobile, the four-step process section does not properly collapse \u2014 the alternating left/right layout retains its two-column structure, causing the text column to be only ~120px wide and severely cramped beside the images, with text wrapping every 2-3 characters."
+      },
+      {
+        "type": "inconsistency",
+        "page": "collections",
+        "viewport": "all",
+        "description": "Most product cards use the terracotta accent (#C25A3C) for the '\u00c9dition limit\u00e9e' badge, but two cards in the second row use a bright pure red (#FF0000) badge instead, breaking the warm muted palette."
+      },
+      {
+        "type": "overflow",
+        "page": "commander",
+        "viewport": "desktop",
+        "description": "In the order configurator, long custom initial inputs (more than 4 characters) overflow the live preview card on the right, with text extending beyond the card's right edge by approximately 30-40px and overlapping the page margin."
+      }
+    ]
+  },
+  "is_broken": true,
+  "defects": [
+    {
+      "type": "typo",
+      "page": "accueil",
+      "viewport": "all",
+      "description": "The reassurance banner reads 'fait \u00e0 la mein' instead of 'fait \u00e0 la main' \u2014 the word 'main' is misspelled as 'mein' in the prominent trust badge below the hero."
+    },
+    {
+      "type": "broken_responsiveness",
+      "page": "savoir-faire",
+      "viewport": "mobile",
+      "description": "On mobile, the four-step process section does not properly collapse \u2014 the alternating left/right layout retains its two-column structure, causing the text column to be only ~120px wide and severely cramped beside the images, with text wrapping every 2-3 characters."
+    },
+    {
+      "type": "inconsistency",
+      "page": "collections",
+      "viewport": "all",
+      "description": "Most product cards use the terracotta accent (#C25A3C) for the '\u00c9dition limit\u00e9e' badge, but two cards in the second row use a bright pure red (#FF0000) badge instead, breaking the warm muted palette."
+    },
+    {
+      "type": "overflow",
+      "page": "commander",
+      "viewport": "desktop",
+      "description": "In the order configurator, long custom initial inputs (more than 4 characters) overflow the live preview card on the right, with text extending beyond the card's right edge by approximately 30-40px and overlapping the page margin."
+    }
+  ],
+  "pages": [
+    "accueil",
+    "collections",
+    "atelier",
+    "savoir-faire",
+    "journal",
+    "commander",
+    "contact"
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 900
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812
+    }
+  },
+  "generation": {
+    "converged": false,
+    "iterations": 0
+  }
+}

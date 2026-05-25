@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Recipe Vault — The Pickle Periodical</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="announcement">
+  NEW: The 2024 Sauerkraut Census is here! &nbsp;→&nbsp; <a href="recipes.html">Read the findings</a>
+</div>
+
+<nav class="nav">
+  <a href="home.html" class="nav-logo"><span class="jar"></span> The Pickle Periodical</a>
+  <ul class="nav-links">
+    <li><a href="recipes.html" class="active">Recipes</a></li>
+    <li><a href="techniques.html">Techniques</a></li>
+    <li><a href="ferment-atlas.html">Ferment Atlas</a></li>
+    <li><a href="ask-the-brinemaster.html">Ask the Brinemaster</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-hamburger">Menu</button>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="home.html">Home</a> / Recipes</div>
+    <h1><span class="scribble">The Recipe Vault</span></h1>
+    <p class="subtitle">412 tested ferments, sorted by stubbornness.</p>
+  </div>
+</section>
+
+<!-- Sticky Filter Bar -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-bar-inner">
+      <span class="chip active">All</span>
+      <span class="chip">Vegetables</span>
+      <span class="chip">Dairy</span>
+      <span class="chip">Grains</span>
+      <span class="chip">Fish</span>
+      <span class="chip">Beverages</span>
+      <span class="chip">Hot Sauce</span>
+      <span class="chip">Beginner</span>
+      <span class="chip">Advanced</span>
+      <select>
+        <option>Region: Any</option>
+        <option>Korea</option>
+        <option>Japan</option>
+        <option>Germany</option>
+        <option>India</option>
+      </select>
+      <select>
+        <option>Time: Any</option>
+        <option>&lt; 24 hrs</option>
+        <option>1–2 weeks</option>
+        <option>Months</option>
+      </select>
+      <select>
+        <option>Salt: Any</option>
+        <option>2.0%</option>
+        <option>2.5%</option>
+        <option>5%+</option>
+      </select>
+      <span class="search-box">
+        <span class="search-icon"></span>
+        <input type="text" placeholder="Search recipes…">
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="recipes-layout">
+    <main class="recipes-grid">
+
+      <article class="recipe-card">
+        <div class="photo" style="background-image: url('assets/recipe-kimchi.png');">
+          <span class="corner-ribbon ribbon-medium">Intermediate</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Classic Napa Kimchi</h3>
+          <div class="meta">⏱ 5 days · 🧂 2.5% · 🌶 Hot</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-red">Korea</span>
+            <span class="tag-pill tag-pill-outline">Vegetable</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="recipe-card tall">
+        <div class="photo" style="background-image: linear-gradient(rgba(242, 193, 78, 0.25), rgba(74, 124, 42, 0.35)), url('assets/hero-jars.png'); background-size: cover; background-position: center;">
+          <span class="corner-ribbon ribbon-easy">Easy</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Beginner&rsquo;s Caraway Sauerkraut</h3>
+          <div class="meta">⏱ 14 days · 🧂 2.0% · 🌶 Mild</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-green">Germany</span>
+            <span class="tag-pill tag-pill-outline">Vegetable</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="recipe-card short">
+        <div class="photo" style="background-image: linear-gradient(rgba(42, 31, 20, 0.45), rgba(215, 38, 61, 0.25)), url('assets/shop-crock.png'); background-size: cover; background-position: center;">
+          <span class="corner-ribbon ribbon-expert">Expert</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Aged Three-Year Doenjang</h3>
+          <div class="meta">⏱ 3 yrs · 🧂 18% · 🌶 None</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-red">Korea</span>
+            <span class="tag-pill tag-pill-outline">Bean</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="recipe-card">
+        <div class="photo" style="background-image: linear-gradient(rgba(74, 124, 42, 0.4), rgba(242, 193, 78, 0.25)), url('assets/jar-diagram.png'); background-size: cover; background-position: center 35%;">
+          <span class="corner-ribbon ribbon-easy">Easy</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Garlic Dill Half-Sours</h3>
+          <div class="meta">⏱ 4 days · 🧂 3.5% · 🌶 Mild</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-green">USA</span>
+            <span class="tag-pill tag-pill-outline">Vegetable</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="editors-pick">
+        <blockquote>&ldquo;If I were stranded on an island with one recipe in this vault, it would be the Tepache. Sweet, sour, and very slightly mischievous.&rdquo;</blockquote>
+        <div class="pick-author">— Maris Holm, Editor-in-Brine</div>
+      </article>
+
+      <article class="recipe-card tall">
+        <div class="photo" style="background-image: linear-gradient(rgba(53, 92, 28, 0.3), rgba(215, 38, 61, 0.35)), url('assets/recipe-kimchi.png'); background-size: cover; background-position: 30% 70%;">
+          <span class="corner-ribbon ribbon-medium">Intermediate</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Lemon &amp; Cumin Curtido</h3>
+          <div class="meta">⏱ 3 days · 🧂 2.0% · 🌶 Medium</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-red">El Salvador</span>
+            <span class="tag-pill tag-pill-outline">Vegetable</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="recipe-card short">
+        <div class="photo" style="background-image: linear-gradient(rgba(248, 215, 124, 0.45), rgba(215, 38, 61, 0.2)), url('assets/subscription-card.png'); background-size: cover; background-position: 70% 30%;">
+          <span class="corner-ribbon ribbon-easy">Easy</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Wild Pineapple Tepache</h3>
+          <div class="meta">⏱ 48 hrs · 🧂 0% · 🌶 None</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-yellow">Mexico</span>
+            <span class="tag-pill tag-pill-outline">Beverage</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="recipe-card">
+        <div class="photo" style="background-image: linear-gradient(rgba(74, 124, 42, 0.35), rgba(42, 31, 20, 0.55)), url('assets/ferment-map.png'); background-size: cover; background-position: 50% 60%;">
+          <span class="corner-ribbon ribbon-expert">Expert</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Roman Garum from Mackerel</h3>
+          <div class="meta">⏱ 6 months · 🧂 25% · 🌶 None</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-red">Italy</span>
+            <span class="tag-pill tag-pill-outline">Fish</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="recipe-card tall">
+        <div class="photo" style="background-image: linear-gradient(rgba(242, 193, 78, 0.4), rgba(169, 24, 41, 0.3)), url('assets/recipe-kimchi.png'); background-size: cover; background-position: 70% 30%;">
+          <span class="corner-ribbon ribbon-medium">Intermediate</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Punjabi Mango Achaar</h3>
+          <div class="meta">⏱ 21 days · 🧂 4% · 🌶 Spicy</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-yellow">India</span>
+            <span class="tag-pill tag-pill-outline">Fruit</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="recipe-card short">
+        <div class="photo" style="background-image: linear-gradient(rgba(53, 92, 28, 0.3), rgba(215, 38, 61, 0.25)), url('assets/hero-jars.png'); background-size: cover; background-position: 80% 60%;">
+          <span class="corner-ribbon ribbon-easy">Easy</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Beet &amp; Apple Kvass</h3>
+          <div class="meta">⏱ 5 days · 🧂 1% · 🌶 None</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-green">Russia</span>
+            <span class="tag-pill tag-pill-outline">Beverage</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="recipe-card">
+        <div class="photo" style="background-image: linear-gradient(rgba(215, 38, 61, 0.5), rgba(42, 31, 20, 0.4)), url('assets/recipe-kimchi.png'); background-size: cover; background-position: center;">
+          <span class="corner-ribbon ribbon-medium">Intermediate</span>
+          <span class="bookmark"></span>
+        </div>
+        <div class="body">
+          <h3>Smoky Habanero Hot Sauce</h3>
+          <div class="meta">⏱ 7 days · 🧂 3% · 🌶 Very Hot</div>
+          <div class="tags">
+            <span class="tag-pill tag-pill-red">Caribbean</span>
+            <span class="tag-pill tag-pill-outline">Sauce</span>
+          </div>
+        </div>
+      </article>
+
+    </main>
+
+    <aside class="right-rail">
+      <div class="rail-card">
+        <h3>Most Brined This Week</h3>
+        <ol>
+          <li>Classic Napa Kimchi</li>
+          <li>Beginner&rsquo;s Caraway Kraut</li>
+          <li>Half-Sour Garlic Dills</li>
+          <li>Wild Pineapple Tepache</li>
+          <li>Mango Achaar</li>
+          <li>Beet &amp; Apple Kvass</li>
+          <li>Smoky Habanero Sauce</li>
+          <li>Lemon Curtido</li>
+          <li>Three-Year Doenjang</li>
+          <li>Mackerel Garum</li>
+        </ol>
+      </div>
+      <div class="rail-card ad-card">
+        <h3>Brine Calculator</h3>
+        <p>Forget the math. Punch in your veg weight, get the perfect salt by gram.</p>
+        <a href="#" class="btn btn-yellow btn-small">Try Free →</a>
+      </div>
+      <div class="rail-card">
+        <h3>Filter Tip</h3>
+        <p style="font-family: var(--serif); font-style: italic;">Stuck? Try filtering by <em>Beginner</em> and <em>&lt; 24 hrs</em> for confidence-building wins.</p>
+      </div>
+    </aside>
+  </div>
+
+  <nav class="pagination">
+    <a href="#">←</a>
+    <span class="current">1</span>
+    <span class="divider">·</span>
+    <a href="#">2</a>
+    <span class="divider">·</span>
+    <a href="#">3</a>
+    <span class="divider">·</span>
+    <a href="#">4</a>
+    <span class="divider">·</span>
+    <a href="#">…</a>
+    <span class="divider">·</span>
+    <a href="#">37</a>
+    <a href="#">→</a>
+  </nav>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="home.html" class="nav-logo"><span class="jar"></span> The Pickle Periodical</a>
+      <p style="margin-top: 16px; font-size: .9rem;">A quarterly devotion to fermentation, brine, and slow flavor.<br>Brooklyn, NY · Est. 2016</p>
+      <div class="footer-social">
+        <a href="#">IG</a><a href="#">TW</a><a href="#">YT</a><a href="#">RSS</a>
+      </div>
+      <span class="cucumber-mascot" style="margin-top: 16px;"></span>
+    </div>
+    <div><h4>Sections</h4><ul><li><a href="recipes.html">Recipes</a></li><li><a href="techniques.html">Techniques</a></li><li><a href="ferment-atlas.html">Atlas</a></li><li><a href="ask-the-brinemaster.html">Brinemaster</a></li></ul></div>
+    <div><h4>About</h4><ul><li><a href="about.html">Our story</a></li><li><a href="about.html">Masthead</a></li><li><a href="about.html">Pitch us</a></li><li><a href="#">Press</a></li></ul></div>
+    <div><h4>Shop</h4><ul><li><a href="shop.html">All Goods</a></li><li><a href="shop.html">Beginner Kits</a></li><li><a href="shop.html">Subscriptions</a></li><li><a href="shop.html">Gift Cards</a></li></ul></div>
+    <div><h4>Community</h4><ul><li><a href="#">Forums</a></li><li><a href="#">Events</a></li><li><a href="#">Workshops</a></li><li><a href="#">Submitted</a></li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Cookies</a></li><li><a href="#">Accessibility</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 The Pickle Periodical · A worker-owned cooperative.</span>
+    <span>Letterpress aesthetic since vol. 1</span>
+  </div>
+</footer>
+
+</body>
+</html>

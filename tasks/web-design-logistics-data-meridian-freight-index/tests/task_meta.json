@@ -1,0 +1,188 @@
+{
+  "spec": {
+    "site_name": "Meridian Freight Index",
+    "category": "logistics-data",
+    "niche": "global shipping container rate index and supply chain analytics platform for freight forwarders",
+    "language": "en",
+    "text_direction": "ltr",
+    "design_style": "swiss/international",
+    "dark_mode": true,
+    "nav_style": "top-bar",
+    "pages": [
+      "home",
+      "rates",
+      "routes",
+      "analytics",
+      "pricing",
+      "methodology",
+      "contact"
+    ],
+    "design_system": {
+      "color_palette": {
+        "primary": "#0E0E10",
+        "secondary": "#18181B",
+        "accent": "#E63946",
+        "bg": "#0E0E10",
+        "text": "#F4F4F5"
+      },
+      "typography": {
+        "heading_font": "sans-serif (Helvetica/Inter)",
+        "body_font": "sans-serif (Inter)",
+        "scale": "1.25 major third, tight tracking on headings"
+      },
+      "layout_style": "Swiss grid system \u2014 12-column rigid grid with strong left-alignment, generous baseline rhythm, ample whitespace despite dark background, asymmetric compositions with deliberate empty cells, hairline 1px dividers (#27272A), red accent reserved for data highlights and CTAs only",
+      "mood": "precise, analytical, authoritative, editorial, data-journalism"
+    },
+    "page_descriptions": {
+      "home": "Hero spans 12 cols with massive left-aligned headline 'The Global Shipping Index, Recalibrated.' in 96px Helvetica, taking 8 cols; right 4 cols hold a live ticker module with 6 lane rates updating with green/red deltas. Below: a horizontal stat band overlapping the hero bottom edge by 40px showing 4 KPIs (Global Index, WoW Change, Active Lanes Tracked, Data Sources) separated by hairline rules. Section 2: 'Featured Lanes' \u2014 3-col grid of lane cards (Shanghai\u2192LA, Rotterdam\u2192NY, Singapore\u2192Hamburg) each with a sparkline chart, current $/FEU, 30-day delta in red/green. Section 3: editorial-style 2-col split \u2014 left col headline 'Methodology built for forwarders, not headlines', right col 4 short paragraphs. Section 4: client logo strip (12 logos in monochrome) with hairline borders. Footer CTA: oversized 'Request Index Access \u2192' on red background overlapping into the footer.",
+      "rates": "Page title 'Container Rate Index' left-aligned in col 1-6, filter chips (40ft, 20ft, Reefer, Bulk) in col 7-12. Main: massive data table with 14 columns (Origin, Destination, Lane Code, Current Rate, WoW%, MoM%, YoY%, Volatility, Volume Index, Carrier Count, Transit Days, Fuel Surcharge, Last Updated, Trend Sparkline). Sticky table header, alternating row backgrounds (#0E0E10 / #141416). Click row to expand inline detail with historical chart placeholder. Right rail: 'Top Movers' widget with 5 lanes showing biggest weekly changes.",
+      "routes": "Interactive world map placeholder occupying cols 1-8 with red lane lines connecting ports; col 9-12 sidebar lists 'Trade Lanes' grouped by region (Trans-Pacific, Trans-Atlantic, Intra-Asia, Europe-Asia) as a vertical accordion. Below map: 4-col grid of port profile cards (Shanghai, Singapore, Rotterdam, LA/Long Beach) each with port code badge, throughput stat, dwell time, and a thumbnail port photo. Bottom section: route comparison tool \u2014 2 lane dropdowns side-by-side with comparison bar chart placeholder.",
+      "analytics": "Dashboard-style layout. Top row: 4 stat tiles (Index Value 2,847, Volatility 12.4%, Capacity Utilization 87%, Bunker Fuel $632/mt) with delta arrows. Middle: large primary chart placeholder (12 cols wide, 480px tall) \u2014 'Composite Rate Index \u2014 5 Year View' with legend below. Bottom: 3-col grid of secondary charts (Carrier Market Share donut, Lane Volatility heatmap, Seasonal Demand bar chart). Right floating download panel sticky to scroll: 'Export to CSV / PDF / API'.",
+      "pricing": "Three-tier pricing grid: Forwarder ($499/mo), Enterprise ($2,400/mo), Institutional (Custom). Each tier card uses hairline borders, tier name in red caps, price oversized at 72px, feature list with checkmarks. Middle tier elevated with red top border (4px) and 'Most Selected' label. Below: feature comparison table \u2014 22 rows of features \u00d7 3 tier columns, with checks, dashes, and quantity values. FAQ section below in 2-col Q/A layout.",
+      "methodology": "Editorial long-form layout. Left rail sticky table of contents (cols 1-3) with section anchors. Main content cols 4-10 with long-form text, numbered sections (01, 02, 03 in oversized red numerals as drop-marks). Pull quotes in red italic at 32px. Embedded data visualization placeholders between sections. Code block placeholder showing API JSON sample with monospace font.",
+      "contact": "Asymmetric split: left 5 cols contain a minimal form (Name, Company, Role dropdown, Lane interest multiselect, Message) with hairline-bordered inputs and a red submit button. Right 7 cols contain office locations grid (London, Singapore, New York, Hamburg) \u2014 4 cards with address, phone, hours, and small map thumbnail. Below form: enterprise sales direct contacts as a hairline-divided list."
+    },
+    "complexity": "complex",
+    "image_assets": [
+      {
+        "filename": "hero-port-aerial.png",
+        "prompt": "Aerial top-down photograph of a massive container shipping port at night, geometric grid of stacked colorful containers reduced to dark monochrome tones, container ship docked with cranes, shot in editorial documentary style with high contrast, deep blacks and subtle red accent lights from cranes, precise geometric composition emphasizing grid patterns",
+        "size": "1536x1024",
+        "used_on": "home",
+        "purpose": "hero background image, partially obscured by overlay"
+      },
+      {
+        "filename": "port-shanghai.png",
+        "prompt": "Cinematic photograph of Shanghai Yangshan deep-water port at dusk, cranes silhouetted against dark sky, stacked containers, monochrome with deep navy and black tones, single red light accent, editorial photography",
+        "size": "1024x1024",
+        "used_on": "routes",
+        "purpose": "port profile card thumbnail"
+      },
+      {
+        "filename": "port-rotterdam.png",
+        "prompt": "Rotterdam port industrial landscape at twilight, automated container terminal with gantry cranes, dark moody atmosphere, monochrome palette with subtle warm highlights, editorial documentary style",
+        "size": "1024x1024",
+        "used_on": "routes",
+        "purpose": "port profile card thumbnail"
+      },
+      {
+        "filename": "port-singapore.png",
+        "prompt": "Singapore PSA port aerial view at night with city skyline backdrop, illuminated container yards, dark sky, restrained color palette of charcoal grays and deep blues, geometric composition",
+        "size": "1024x1024",
+        "used_on": "routes",
+        "purpose": "port profile card thumbnail"
+      },
+      {
+        "filename": "port-longbeach.png",
+        "prompt": "Port of Long Beach aerial photograph at golden hour fading to night, container ships and cranes, muted dark tones, documentary editorial photography style with strong geometric lines",
+        "size": "1024x1024",
+        "used_on": "routes",
+        "purpose": "port profile card thumbnail"
+      },
+      {
+        "filename": "container-ship-detail.png",
+        "prompt": "Close-up detail photograph of stacked shipping containers on a vessel, abstract geometric pattern of weathered container walls, muted desaturated colors with one red container as accent, fine art industrial photography",
+        "size": "1536x1024",
+        "used_on": "methodology",
+        "purpose": "editorial section break image"
+      },
+      {
+        "filename": "world-map-trade.png",
+        "prompt": "Stylized dark world map with major shipping lanes drawn as thin red lines connecting ports, minimal geometric design, no labels, deep charcoal background, Swiss design aesthetic, flat illustration",
+        "size": "1536x1024",
+        "used_on": "routes",
+        "purpose": "interactive map placeholder background"
+      }
+    ],
+    "special_elements": [
+      "live data ticker with auto-updating rate values",
+      "hairline 1px dividers throughout (#27272A)",
+      "oversized red drop-numerals (01, 02, 03) for editorial sections",
+      "sticky table headers and filter chips",
+      "sparkline charts embedded in table cells",
+      "section-overlapping stat band on home page"
+    ],
+    "responsive_notes": "Desktop (1280+): full 12-col grid maintained, all data tables show all columns, sticky right rails active. Tablet (768-1279): grid collapses to 8-col, rate table hides Volatility/Carrier Count/Fuel Surcharge columns behind a 'More' toggle, right rails move below main content, sticky download panel becomes a bottom bar. Mobile (<768): single column, hero headline scales to 44px, data tables become horizontally scrollable with first column pinned, stat tiles stack 2x2, world map becomes a static image with lane list below, pricing tiers stack vertically.",
+    "is_broken": true,
+    "defects": [
+      {
+        "type": "overflow",
+        "page": "rates",
+        "viewport": "tablet",
+        "description": "On tablet viewport (768-1024px), the rate table's 'Last Updated' column timestamps overflow their cells and bleed into the adjacent Trend Sparkline column, because the column min-width wasn't adjusted when the 'More' toggle was added \u2014 three columns get hidden but the remaining widths don't recalculate properly."
+      },
+      {
+        "type": "typo",
+        "page": "methodology",
+        "viewport": "all",
+        "description": "The methodology page section 02 heading reads 'Data Collection Methadology' instead of 'Methodology' \u2014 a misspelling that appears in the oversized 32px section heading directly under the red drop-numeral."
+      },
+      {
+        "type": "inconsistency",
+        "page": "pricing",
+        "viewport": "all",
+        "description": "The middle 'Enterprise' pricing tier card uses a 4px red top border as specified, but the 'Most Selected' label above it is rendered in a serif italic font and uppercase, which clashes completely with the Swiss sans-serif aesthetic used everywhere else on the site \u2014 appears to be leftover styling from a previous design iteration."
+      },
+      {
+        "type": "alignment",
+        "page": "home",
+        "viewport": "desktop",
+        "description": "The 4 KPI stat band that's supposed to overlap the hero bottom by 40px is misaligned \u2014 the leftmost KPI tile starts at col 2 instead of col 1, breaking the strict left-alignment grid rule the rest of the site follows. The hairline dividers between KPIs also have inconsistent spacing (24px, 32px, 24px gaps)."
+      }
+    ]
+  },
+  "is_broken": true,
+  "defects": [
+    {
+      "type": "overflow",
+      "page": "rates",
+      "viewport": "tablet",
+      "description": "On tablet viewport (768-1024px), the rate table's 'Last Updated' column timestamps overflow their cells and bleed into the adjacent Trend Sparkline column, because the column min-width wasn't adjusted when the 'More' toggle was added \u2014 three columns get hidden but the remaining widths don't recalculate properly."
+    },
+    {
+      "type": "typo",
+      "page": "methodology",
+      "viewport": "all",
+      "description": "The methodology page section 02 heading reads 'Data Collection Methadology' instead of 'Methodology' \u2014 a misspelling that appears in the oversized 32px section heading directly under the red drop-numeral."
+    },
+    {
+      "type": "inconsistency",
+      "page": "pricing",
+      "viewport": "all",
+      "description": "The middle 'Enterprise' pricing tier card uses a 4px red top border as specified, but the 'Most Selected' label above it is rendered in a serif italic font and uppercase, which clashes completely with the Swiss sans-serif aesthetic used everywhere else on the site \u2014 appears to be leftover styling from a previous design iteration."
+    },
+    {
+      "type": "alignment",
+      "page": "home",
+      "viewport": "desktop",
+      "description": "The 4 KPI stat band that's supposed to overlap the hero bottom by 40px is misaligned \u2014 the leftmost KPI tile starts at col 2 instead of col 1, breaking the strict left-alignment grid rule the rest of the site follows. The hairline dividers between KPIs also have inconsistent spacing (24px, 32px, 24px gaps)."
+    }
+  ],
+  "pages": [
+    "home",
+    "rates",
+    "routes",
+    "analytics",
+    "pricing",
+    "methodology",
+    "contact"
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 900
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812
+    }
+  },
+  "generation": {
+    "converged": false,
+    "iterations": 0
+  }
+}

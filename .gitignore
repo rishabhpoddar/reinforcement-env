@@ -5,9 +5,7 @@ __pycache__
 node_modules/
 pipeline/node_modules/
 .opencode/
-tasks/
 logs/
 *.pyc
 jobs
 calibration/
-remote-jobs/

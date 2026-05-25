@@ -1,0 +1,24 @@
+schema_version = "1.2"
+artifacts = ["/app"]
+
+[task]
+name = "web-design-replication/biohacker-community-neonpulse-bioware-collective"
+description = "Replicate the NEONPULSE // Bioware Collective (biohacker-community) website design from screenshots"
+authors = [{ name = "RL Pipeline", email = "pipeline@example.com" }]
+keywords = ["web-design", "html", "css", "responsive", "biohacker-community"]
+
+[environment]
+cpus = 2
+memory_mb = 4096
+storage_mb = 2048
+allow_internet = true
+
+[agent]
+timeout_sec = 900
+
+[verifier]
+timeout_sec = 600
+
+[verifier.env]
+ANTHROPIC_API_KEY = "${ANTHROPIC_API_KEY}"
+OPENAI_API_KEY = "${OPENAI_API_KEY}"

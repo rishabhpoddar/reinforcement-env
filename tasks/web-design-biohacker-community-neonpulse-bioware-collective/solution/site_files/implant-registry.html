@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REGISTRY // NEONPULSE</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 fill=%22%23F2F0E6%22/%3E%3Crect x=%222%22 y=%222%22 width=%226%22 height=%226%22 fill=%22%23FF006E%22/%3E%3Crect x=%228%22 y=%228%22 width=%226%22 height=%226%22 fill=%22%2300F0FF%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="home.html" class="brand"><span class="dot"></span> NEONPULSE<b>//</b>BIOWARE</a>
+    <nav class="nav" id="nav">
+      <a href="home.html">HOME</a>
+      <a href="implant-registry.html" class="active">REGISTRY</a>
+      <a href="guides.html">GUIDES</a>
+      <a href="submit-procedure.html">SUBMIT</a>
+      <a href="members.html">MEMBERS</a>
+      <a href="events.html">EVENTS</a>
+      <a href="manifesto.html">MANIFESTO</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+    <div class="topbar__cta"><span class="status-pill"><span class="blink"></span> NET // LIVE</span></div>
+    <a href="#" class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open');return false;">MENU//</a>
+  </div>
+</header>
+
+<main class="page">
+
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
+    <div>
+      <span class="kicker kicker--pink">// 02 — IMPLANT REGISTRY</span>
+      <h1 class="section-title glitch" data-text="IMPLANT REGISTRY">IMPLANT REGISTRY</h1>
+      <p class="section-sub">Base de datos auto-reportada y anónima. Cada entrada es voluntaria y revisable. Filtrá, consultá y aprendé de lo que el colectivo lleva bajo la piel.</p>
+    </div>
+    <a href="submit-procedure.html" class="btn btn--pink">▸ Añadir mi implante</a>
+  </div>
+
+  <!-- STAT STRIP -->
+  <div class="stat-strip">
+    <div class="stat-strip__item">
+      <span class="stat-strip__num"><span class="accent">1,847</span></span>
+      <span class="stat-strip__label">Implantes registrados</span>
+    </div>
+    <div class="stat-strip__item">
+      <span class="stat-strip__num">312</span>
+      <span class="stat-strip__label">Miembros activos</span>
+    </div>
+    <div class="stat-strip__item">
+      <span class="stat-strip__num">28</span>
+      <span class="stat-strip__label">Países</span>
+    </div>
+    <div class="stat-strip__item">
+      <span class="stat-strip__num">94.3<span class="accent">%</span></span>
+      <span class="stat-strip__label">Tasa sin complicaciones</span>
+    </div>
+  </div>
+
+  <div class="registry-layout">
+    <!-- SIDEBAR FILTERS -->
+    <aside class="filters regmark">
+      <span class="rm1"></span><span class="rm2"></span>
+      <h4>REGION</h4>
+      <div class="filter-row"><span>Latam Norte</span><span class="toggle on"></span></div>
+      <div class="filter-row"><span>Latam Sur</span><span class="toggle on"></span></div>
+      <div class="filter-row"><span>Iberia</span><span class="toggle on"></span></div>
+      <div class="filter-row"><span>Caribe</span><span class="toggle"></span></div>
+      <div class="filter-row"><span>Otros</span><span class="toggle"></span></div>
+
+      <h4>CATEGORY</h4>
+      <div class="filter-row"><span>NFC / RFID</span><span class="toggle on-pink"></span></div>
+      <div class="filter-row"><span>Magneto</span><span class="toggle on-pink"></span></div>
+      <div class="filter-row"><span>LED subdérmico</span><span class="toggle on"></span></div>
+      <div class="filter-row"><span>Biométrico</span><span class="toggle"></span></div>
+      <div class="filter-row"><span>Experimental</span><span class="toggle"></span></div>
+
+      <h4>STATUS</h4>
+      <div class="filter-row"><span>ACTIVE</span><span class="toggle on"></span></div>
+      <div class="filter-row"><span>DORMANT</span><span class="toggle on"></span></div>
+      <div class="filter-row"><span>EXPLANTED</span><span class="toggle"></span></div>
+
+      <h4>VISUAL // REF</h4>
+      <img src="assets/implant-diagram.png" alt="Diagrama de implantes" style="border:1.5px solid var(--c-text);margin-top:.4rem;">
+    </aside>
+
+    <!-- TABLE -->
+    <div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:.75rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;">
+        <span class="muted">Mostrando 12 de 1,847 entradas</span>
+        <span>Ordenar: <b class="pink">recientes ▾</b></span>
+      </div>
+      <table class="reg-table">
+        <thead>
+          <tr><th>ID</th><th>TYPE</th><th>LOCATION</th><th>INSTALLED</th><th>STATUS</th></tr>
+        </thead>
+        <tbody>
+          <tr><td data-label="ID"><span class="id">#NP-1847</span></td><td data-label="TYPE">NFC subdérmico v4</td><td data-label="LOC">Mano izquierda, web pulgar — Lima</td><td data-label="DATE">2026-05-23</td><td data-label="STATUS"><span class="badge badge--active">ACTIVE</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1846</span></td><td data-label="TYPE">Magneto N52 biocompatible</td><td data-label="LOC">Yema del dedo índice — CDMX</td><td data-label="DATE">2026-05-23</td><td data-label="STATUS"><span class="badge badge--active">ACTIVE</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1845</span></td><td data-label="TYPE">LED subdérmico (forearm)</td><td data-label="LOC">Antebrazo derecho — Buenos Aires</td><td data-label="DATE">2026-05-22</td><td data-label="STATUS"><span class="badge badge--active">ACTIVE</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1844</span></td><td data-label="TYPE">xSIID 2.0 (luminoso)</td><td data-label="LOC">Mano izquierda — Bogotá</td><td data-label="DATE">2026-05-22</td><td data-label="STATUS"><span class="badge badge--active">ACTIVE</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1843</span></td><td data-label="TYPE">Termómetro biométrico β</td><td data-label="LOC">Brazo superior izq — Madrid</td><td data-label="DATE">2026-05-21</td><td data-label="STATUS"><span class="badge badge--dormant">DORMANT</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1842</span></td><td data-label="TYPE">RFID T5577</td><td data-label="LOC">Mano derecha — Quito</td><td data-label="DATE">2026-05-21</td><td data-label="STATUS"><span class="badge badge--active">ACTIVE</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1841</span></td><td data-label="TYPE">Magneto en yema del dedo</td><td data-label="LOC">Anular izquierdo — Santiago</td><td data-label="DATE">2026-05-20</td><td data-label="STATUS"><span class="badge badge--explant">EXPLANTED</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1840</span></td><td data-label="TYPE">NFC en mano izquierda</td><td data-label="LOC">Web pulgar/índice — Montevideo</td><td data-label="DATE">2026-05-19</td><td data-label="STATUS"><span class="badge badge--active">ACTIVE</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1839</span></td><td data-label="TYPE">Compass Northstar (magneto)</td><td data-label="LOC">Pectoral izq — Barcelona</td><td data-label="DATE">2026-05-18</td><td data-label="STATUS"><span class="badge badge--warn">REVISIÓN</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1838</span></td><td data-label="TYPE">flexNExT (LED + NFC)</td><td data-label="LOC">Dorso mano — Guadalajara</td><td data-label="DATE">2026-05-17</td><td data-label="STATUS"><span class="badge badge--active">ACTIVE</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1837</span></td><td data-label="TYPE">Magneto silicona M31</td><td data-label="LOC">Meñique izquierdo — Caracas</td><td data-label="DATE">2026-05-15</td><td data-label="STATUS"><span class="badge badge--dormant">DORMANT</span></td></tr>
+          <tr><td data-label="ID"><span class="id">#NP-1836</span></td><td data-label="TYPE">NFC NTAG216 estándar</td><td data-label="LOC">Mano derecha — Asunción</td><td data-label="DATE">2026-05-14</td><td data-label="STATUS"><span class="badge badge--active">ACTIVE</span></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:1rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+        <div class="tiny muted">Última actualización: 03:42 UTC</div>
+        <div style="display:flex;gap:.3rem;">
+          <button class="btn">◂ ANT</button>
+          <button class="btn btn--pink">1</button>
+          <button class="btn">2</button>
+          <button class="btn">3</button>
+          <button class="btn">···</button>
+          <button class="btn">154</button>
+          <button class="btn">SIG ▸</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand"><h5>NEONPULSE // BIOWARE</h5><p>Colectivo abierto. CC BY-SA 4.0. La información aquí es testimonial, no clínica.</p></div>
+    <div><h5>// EXPLORE</h5><ul><li><a href="implant-registry.html">Registry</a></li><li><a href="guides.html">Guides</a></li><li><a href="members.html">Members</a></li><li><a href="events.html">Events</a></li></ul></div>
+    <div><h5>// COLLECTIVE</h5><ul><li><a href="manifesto.html">Manifesto</a></li><li><a href="submit-procedure.html">Submit</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h5>// MIRROR</h5><ul><li><a href="#">tor.onion</a></li><li><a href="#">IPFS</a></li><li><a href="#">Matrix</a></li></ul></div>
+  </div>
+  <div class="footer__bottom"><span>© 2019—2026 NEONPULSE</span><span>v3.2.7 // 8842</span></div>
+</footer>
+
+</body>
+</html>

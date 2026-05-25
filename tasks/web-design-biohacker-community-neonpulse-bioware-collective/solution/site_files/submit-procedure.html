@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUBMIT PROCEDURE // NEONPULSE</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 fill=%22%23F2F0E6%22/%3E%3Crect x=%222%22 y=%222%22 width=%226%22 height=%226%22 fill=%22%23FF006E%22/%3E%3Crect x=%228%22 y=%228%22 width=%226%22 height=%226%22 fill=%22%2300F0FF%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="home.html" class="brand"><span class="dot"></span> NEONPULSE<b>//</b>BIOWARE</a>
+    <nav class="nav" id="nav">
+      <a href="home.html">HOME</a>
+      <a href="implant-registry.html">REGISTRY</a>
+      <a href="guides.html">GUIDES</a>
+      <a href="submit-procedure.html" class="active">SUBMIT</a>
+      <a href="members.html">MEMBERS</a>
+      <a href="events.html">EVENTS</a>
+      <a href="manifesto.html">MANIFESTO</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+    <div class="topbar__cta"><span class="status-pill"><span class="blink"></span> NET // LIVE</span></div>
+    <a href="#" class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open');return false;">MENU//</a>
+  </div>
+</header>
+
+<main class="page">
+
+  <span class="kicker kicker--pink">// 04 — DATA INPUT</span>
+  <h1 class="section-title glitch" data-text="SUBMIT PROCEDURE">SUBMIT PROCEDURE</h1>
+  <p class="section-sub">Registrá tu procedimiento. Datos anónimos por defecto, encriptados en reposo. Ayudás al colectivo a documentar y a aprender.</p>
+
+  <!-- STEPPER -->
+  <div class="stepper" id="stepper">
+    <a href="#section-1" class="step"><span class="step__num">01</span>IDENTITY</a>
+    <a href="#section-2" class="step"><span class="step__num">02</span>PROCEDURE</a>
+    <a href="#section-3" class="step"><span class="step__num">03</span>METRICS</a>
+    <a href="#section-4" class="step"><span class="step__num">04</span>NARRATIVE</a>
+  </div>
+
+  <form class="multistep">
+
+    <fieldset class="fset" id="section-1">
+      <legend>SECTION 01 // IDENTITY</legend>
+
+      <div class="field">
+        <label for="handle">HANDLE</label>
+        <span class="help">Tu alias público dentro del colectivo. No uses tu nombre real.</span>
+        <input id="handle" type="text" placeholder="ej. @wirenode_98">
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="region">REGION</label>
+          <span class="help">Ciudad o área general. No registramos ubicación exacta.</span>
+          <select id="region">
+            <option>Selecciona tu región...</option>
+            <option>México — Norte</option>
+            <option>México — Centro / CDMX</option>
+            <option>Centroamérica</option>
+            <option>Caribe</option>
+            <option>Andina (Colombia / Ecuador / Perú)</option>
+            <option>Cono Sur (Argentina / Chile / Uruguay)</option>
+            <option>Brasil</option>
+            <option>Iberia (España / Portugal)</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="dob">YEAR OF BIRTH</label>
+          <span class="help">Solo el año, para análisis demográfico anónimo.</span>
+          <input id="dob" type="number" placeholder="ej. 1996" min="1900" max="2026">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>ANONYMOUS MODE</label>
+        <span class="help">Si está activado, tu handle no aparece en el registro público.</span>
+        <span class="toggle on-pink" style="display:inline-block;"></span>
+        <span style="margin-left:.5rem;font-size:.85rem;">Modo anónimo activado</span>
+      </div>
+      <div class="step-nav">
+        <span class="tiny muted">PASO 01 / 04</span>
+        <a href="#section-2" class="btn btn--pink">CONTINUAR ▸</a>
+      </div>
+    </fieldset>
+
+    <fieldset class="fset" id="section-2">
+      <legend>SECTION 02 // PROCEDURE</legend>
+
+      <div class="field">
+        <label>IMPLANT TYPE</label>
+        <span class="help">Selecciona la categoría que mejor describe tu implante.</span>
+        <div class="radio-group">
+          <label class="radio-tile">
+            <span class="ico">[NFC]</span>
+            <strong>NFC / RFID</strong>
+            <small>chip subdérmico</small>
+          </label>
+          <label class="radio-tile checked">
+            <span class="ico">[MAG]</span>
+            <strong>MAGNETO</strong>
+            <small>en yema del dedo</small>
+          </label>
+          <label class="radio-tile">
+            <span class="ico">[LED]</span>
+            <strong>LED</strong>
+            <small>subdérmico luminoso</small>
+          </label>
+          <label class="radio-tile">
+            <span class="ico">[BIO]</span>
+            <strong>BIOMÉTRICO</strong>
+            <small>termo / sensor</small>
+          </label>
+          <label class="radio-tile">
+            <span class="ico">[EXP]</span>
+            <strong>EXPERIMENTAL</strong>
+            <small>otro / DIY</small>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>BODY LOCATION</label>
+        <span class="help">Hacé clic en el diagrama o seleccioná la ubicación de la lista.</span>
+        <div class="body-diagram">
+          <img src="assets/implant-diagram.png" alt="Diagrama anatómico de implantes">
+          <ul>
+            <li>Web pulgar (L1)</li>
+            <li>Dorso de la mano (L2)</li>
+            <li>Yema dedo índice (L3)</li>
+            <li>Yema anular (L4)</li>
+            <li>Antebrazo dorsal (L5)</li>
+            <li>Antebrazo ventral (L6)</li>
+            <li>Pectoral (L7)</li>
+            <li>Otra ubicación...</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="date">DATE OF INSTALL</label>
+          <span class="help">Fecha real del procedimiento.</span>
+          <input id="date" type="date">
+        </div>
+        <div class="field">
+          <label for="installer">INSTALLED BY</label>
+          <span class="help">¿Profesional o auto-instalación?</span>
+          <select id="installer">
+            <option>Profesional licenciado (body mod artist)</option>
+            <option>Médico / profesional sanitario</option>
+            <option>Otro miembro del colectivo</option>
+            <option>Auto-instalación (DIY)</option>
+          </select>
+        </div>
+      </div>
+      <div class="step-nav">
+        <a href="#section-1" class="btn">◂ ATRÁS</a>
+        <span class="tiny muted">PASO 02 / 04</span>
+        <a href="#section-3" class="btn btn--pink">CONTINUAR ▸</a>
+      </div>
+    </fieldset>
+
+    <fieldset class="fset" id="section-3">
+      <legend>SECTION 03 // METRICS</legend>
+
+      <div class="field">
+        <label>PAIN LEVEL (0—10)</label>
+        <span class="help">Nivel máximo de dolor durante el procedimiento.</span>
+        <div class="slider-row">
+          <input type="range" min="0" max="10" value="3" class="slider">
+          <span class="val">03</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>HEALING TIME (días hasta cicatrización completa)</label>
+        <span class="help">Tiempo total en días, según tu observación.</span>
+        <div class="slider-row">
+          <input type="range" min="1" max="120" value="21" class="slider">
+          <span class="val">21d</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>SATISFACTION RATING</label>
+        <span class="help">¿Repetirías este procedimiento sabiendo lo que sabés ahora?</span>
+        <div class="stars">
+          <span class="s on">★</span>
+          <span class="s on">★</span>
+          <span class="s on">★</span>
+          <span class="s on">★</span>
+          <span class="s">★</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>COMPLICATIONS</label>
+        <span class="help">¿Experimentaste complicaciones (infección, migración, rechazo)?</span>
+        <span class="toggle" style="display:inline-block;"></span>
+        <span style="margin-left:.5rem;font-size:.85rem;">Sin complicaciones reportadas</span>
+      </div>
+      <div class="step-nav">
+        <a href="#section-2" class="btn">◂ ATRÁS</a>
+        <span class="tiny muted">PASO 03 / 04</span>
+        <a href="#section-4" class="btn btn--pink">CONTINUAR ▸</a>
+      </div>
+    </fieldset>
+
+    <fieldset class="fset" id="section-4">
+      <legend>SECTION 04 // NARRATIVE</legend>
+
+      <div class="field">
+        <label for="story">YOUR STORY</label>
+        <span class="help">Contanos brevemente: motivación, contexto, lo que aprendiste. Tu testimonio enriquece el archivo colectivo.</span>
+        <textarea id="story" placeholder="Decidí instalarme un magneto después de tres años leyendo en este foro. Lo hicimos en casa de un amigo, con kit esterilizado siguiendo la guía 007. Los primeros días dolió más de lo que esperaba, pero al mes ya podía detectar el motor del subte sin pensarlo..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="photo">PHOTO UPLOAD (opcional)</label>
+        <span class="help">JPG o PNG, máx 5 MB. Las fotos se procesan localmente y se almacenan encriptadas.</span>
+        <input id="photo" type="text" placeholder="Seleccioná archivo...  [ examinar ]" readonly>
+      </div>
+
+      <div style="border-top:1px dashed var(--c-text);padding-top:1rem;margin-top:1rem;">
+        <label class="consent"><input type="checkbox" checked> <span>Confirmo que esta información es <b>auto-reportada y verídica</b> según mi mejor conocimiento.</span></label>
+        <label class="consent"><input type="checkbox" checked> <span>Acepto que este reporte se publique de forma <b>anónima y agregada</b> en el registro público.</span></label>
+        <label class="consent"><input type="checkbox"> <span>Acepto recibir un correo encriptado si surgen <b>alertas sanitarias</b> sobre mi tipo de implante.</span></label>
+        <label class="consent"><input type="checkbox"> <span>Doy consentimiento informado y comprendo que esta plataforma <b>no sustituye atención médica profesional</b>.</span></label>
+      </div>
+
+      <div class="step-nav">
+        <a href="#section-3" class="btn">◂ ATRÁS</a>
+        <span class="tiny muted">PASO 04 / 04 — FINAL</span>
+        <button type="submit" class="btn btn--pink">ENVIAR // SUBMIT</button>
+      </div>
+      <div style="display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap;">
+        <button type="button" class="btn btn--ghost">GUARDAR BORRADOR</button>
+      </div>
+    </fieldset>
+
+  </form>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand"><h5>NEONPULSE // BIOWARE</h5><p>Colectivo abierto. CC BY-SA 4.0.</p></div>
+    <div><h5>// EXPLORE</h5><ul><li><a href="implant-registry.html">Registry</a></li><li><a href="guides.html">Guides</a></li><li><a href="members.html">Members</a></li><li><a href="events.html">Events</a></li></ul></div>
+    <div><h5>// COLLECTIVE</h5><ul><li><a href="manifesto.html">Manifesto</a></li><li><a href="submit-procedure.html">Submit</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h5>// MIRROR</h5><ul><li><a href="#">tor.onion</a></li><li><a href="#">IPFS</a></li><li><a href="#">Matrix</a></li></ul></div>
+  </div>
+  <div class="footer__bottom"><span>© 2019—2026 NEONPULSE</span><span>v3.2.7 // 8842</span></div>
+</footer>
+
+</body>
+</html>

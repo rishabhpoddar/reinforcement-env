@@ -1,0 +1,139 @@
+{
+  "spec": {
+    "site_name": "Archiv f\u00fcr Typografische Praxis",
+    "category": "design-archive",
+    "niche": "Swiss typographic research archive documenting 20th century poster design, grid systems, and Helvetica history for designers and academics",
+    "language": "de",
+    "text_direction": "ltr",
+    "design_style": "swiss/international",
+    "dark_mode": false,
+    "nav_style": "side-drawer",
+    "pages": [
+      "startseite",
+      "sammlung",
+      "objekt-detail",
+      "essays",
+      "essay-detail",
+      "raster-system",
+      "uber-uns",
+      "kontakt"
+    ],
+    "design_system": {
+      "color_palette": {
+        "primary": "#000000",
+        "secondary": "#D6001C",
+        "accent": "#0A0A0A",
+        "bg": "#F2F2F0",
+        "text": "#111111"
+      },
+      "typography": {
+        "heading_font": "Helvetica Neue / Inter (sans-serif, tight tracking)",
+        "body_font": "Helvetica Neue / Inter (sans-serif)",
+        "scale": "1.2 minor third, strict 8pt baseline"
+      },
+      "layout_style": "strict 12-column grid with visible baseline alignment, generous whitespace, flush-left ragged-right text blocks, asymmetric placements anchored to grid, oversized numerals as section markers",
+      "mood": "rigorous, intellectual, archival, precise, mid-century Swiss design school"
+    },
+    "page_descriptions": {
+      "startseite": "Fixed left sidebar (240px) with vertical logo lockup 'ATP / 1957\u2192' and navigation list in 14px Helvetica. Main area opens with an oversized headline flush-left: 'Archiv f\u00fcr Typografische Praxis \u2014 Studien zur Schweizer Gestaltung 1950\u20131985.' below a thin 1px black rule. Right of headline: small meta block with current date, edition number ('Ausgabe 47'), and item count ('3.412 Objekte'). Below: 12-column grid showing 4 featured archive objects (poster scans) with caption blocks underneath each (designer / year / medium / inventory number). Mid-page editorial pull quote in 48px set across 8 columns: 'Die Form folgt der Funktion, aber das Raster folgt der Idee.' Footer band lists three latest essays with date stamps. All headings, labels, and buttons in German ('Sammlung durchsuchen', 'Aktuelle Essays', 'Newsletter abonnieren').",
+      "sammlung": "Sidebar persists. Top of main area: filter bar with flush-left chips ('Plakat', 'Buchgestaltung', 'Signaletik', 'Schriftmuster', 'Periode 1950\u201360', 'Periode 1960\u201370'). Below: dense 4-column grid of archive objects, each card is a white tile with the scan, inventory number top-right in red monospace-feel, designer name bold, year, medium. Sort dropdown top-right ('sortieren nach: Jahr \u2193'). Pagination bottom with numbered pages and result count ('Zeige 1\u201348 von 3.412').",
+      "objekt-detail": "Two-column split: left 7 columns show the full archive scan on light grey backdrop with thin black frame; right 5 columns hold a structured data table \u2014 Titel, Gestalter:in, Jahr, Auftraggeber, Druckverfahren, Format, Inventarnr., Provenienz, Standort. Below table: long-form curatorial note (3 paragraphs) in 16px. Further down: 'Verwandte Objekte' row of 4 thumbnails. Bottom: citation block in light grey panel with copyable BibTeX-style reference.",
+      "essays": "Editorial index page. Headline 'Essays & Forschung' flush-left. Below: list view (not grid) with each essay as a row spanning 12 columns \u2014 left 2 cols: large issue number in red (e.g. '\u2116 042'), middle 7 cols: title in 32px + dek + author + reading time, right 3 cols: thumbnail. Thin black rules between rows. Filter by Thema (Raster, Schrift, Geschichte, Praxis) as horizontal tabs.",
+      "essay-detail": "Long-form text-heavy page. Centered measure ~640px for body, but article opens full-width with hero scan and metadata bar (Autor:in / Datum / Lesedauer / Kategorie). Drop cap in red at first paragraph. Multi-column (2-col) sections for dense passages. Pull quotes flush-left, oversized 36px with red left border. Footnotes numbered, listed at article end. Sidebar (sticky, right side, narrow) shows table of contents with current section highlighted. End of essay: author bio card + 'Weiterlesen' with two related essays.",
+      "raster-system": "Interactive documentation page explaining the archive's own grid methodology. Top: schematic diagram of a 12-column grid with measurements labeled. Below: alternating text-and-diagram sections demonstrating column ratios, baseline grid, modular scale. Code-style blocks (in light grey panels) show CSS grid declarations. Three-column comparison of historical Swiss grids (M\u00fcller-Brockmann, Hofmann, Ruder) with annotated reproductions.",
+      "uber-uns": "Mission statement set as a single 800px-wide text column, opening with a manifesto-style numbered list (01\u201307) of archival principles. Below: team section \u2014 flush-left grid of 6 team members, each with B&W portrait, name in bold, role, two-line bio. Further: institutional timeline 1957\u21922024 as a horizontal scrolling band with year markers and milestone notes. Partner institutions logos in a clean row at bottom.",
+      "kontakt": "Two-column layout. Left 5 columns: contact form with German labels (Name, E-Mail, Anfrage-Art dropdown [Forschungszugang / Reproduktion / Presse / Spende], Nachricht), submit button in red 'Anfrage senden'. Right 7 columns: structured info blocks \u2014 Besucheradresse (Z\u00fcrich), \u00d6ffnungszeiten as a data table by weekday, Forschungslesesaal hours, telephone, email. Below: simple map placeholder with thin black border."
+    },
+    "complexity": "complex",
+    "image_assets": [
+      {
+        "filename": "hero-poster-archive.png",
+        "prompt": "Flat-scan reproduction of a vintage Swiss International Style poster from circa 1962, bold red geometric shapes on cream background, Helvetica typography in black, asymmetric composition with grid alignment visible, archival photography style, soft even lighting, slight paper texture",
+        "size": "1536x1024",
+        "used_on": "startseite",
+        "purpose": "featured archive object on homepage"
+      },
+      {
+        "filename": "poster-grid-sample.png",
+        "prompt": "Mid-century Swiss exhibition poster scan, black sans-serif typography stacked flush-left, single red circle as focal element, cream paper with subtle aging, museum archival quality scan, top-down flat photography",
+        "size": "1024x1536",
+        "used_on": "sammlung, objekt-detail",
+        "purpose": "archive object thumbnail and detail view"
+      },
+      {
+        "filename": "typography-specimen.png",
+        "prompt": "Close-up macro photograph of letterpress Helvetica metal type blocks arranged on a composing stick, raking light revealing crisp edges, monochrome with subtle red accent on one block, archival documentary photography, neutral grey background",
+        "size": "1536x1024",
+        "used_on": "essays, essay-detail",
+        "purpose": "essay hero image"
+      },
+      {
+        "filename": "grid-diagram.png",
+        "prompt": "Technical diagram of a 12-column modular grid system on cream paper, drawn with thin black lines and red guides, annotations in small Helvetica labels, measurements in millimeters, Swiss design school aesthetic, clean and instructional",
+        "size": "1536x1024",
+        "used_on": "raster-system",
+        "purpose": "grid system illustration"
+      },
+      {
+        "filename": "archive-reading-room.png",
+        "prompt": "Interior of a minimalist Swiss research library reading room, long oak table, single black task lamp, white walls, polished concrete floor, large floor-to-ceiling windows with diffuse daylight, one open archival folder on the table, architectural photography, calm and rigorous atmosphere",
+        "size": "1536x1024",
+        "used_on": "uber-uns",
+        "purpose": "institutional environment image"
+      },
+      {
+        "filename": "team-portrait-sample.png",
+        "prompt": "Black and white formal portrait of a Swiss archivist in their forties, neutral expression, plain light grey background, soft front lighting, shoulders-up framing, simple dark turtleneck, documentary editorial style",
+        "size": "1024x1024",
+        "used_on": "uber-uns",
+        "purpose": "team member portrait"
+      },
+      {
+        "filename": "book-design-spread.png",
+        "prompt": "Open vintage Swiss design book spread photographed from directly above, two pages showing a typographic specimen with red and black text on cream paper, perfectly aligned grid, subtle shadow in the binding gutter, archival flat-lay photography",
+        "size": "1536x1024",
+        "used_on": "essay-detail, sammlung",
+        "purpose": "secondary archive object and essay illustration"
+      }
+    ],
+    "special_elements": [
+      "permanent left sidebar navigation with vertical brand lockup and tight 14px nav links",
+      "visible 12-column grid with hairline 1px black rules separating major sections",
+      "oversized red issue/section numerals as recurring typographic anchors",
+      "inventory numbers and metadata in tabular flush-right alignment throughout",
+      "strict baseline grid maintained across all text blocks, no rounded corners anywhere"
+    ],
+    "responsive_notes": "Desktop (\u22651200px): full 12-column grid with persistent 240px left sidebar. Tablet (768\u20131199px): sidebar collapses to a top horizontal bar with hamburger toggle revealing the drawer; grid reduces to 8 columns; archive cards 3-per-row; two-column splits become 60/40. Mobile (<768px): sidebar fully hidden behind hamburger icon top-left, drawer slides in from left covering 80% viewport; all grids collapse to single column; data tables reflow into stacked label/value pairs; pull quotes remain oversized but reduce to 28px; baseline grid preserved, generous whitespace maintained \u2014 no decorative softening, the Swiss rigor stays intact at every viewport.",
+    "is_broken": false
+  },
+  "is_broken": false,
+  "defects": [],
+  "pages": [
+    "startseite",
+    "sammlung",
+    "objekt-detail",
+    "essays",
+    "essay-detail",
+    "raster-system",
+    "uber-uns",
+    "kontakt"
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 900
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812
+    }
+  },
+  "generation": {
+    "converged": false,
+    "iterations": 0
+  }
+}
