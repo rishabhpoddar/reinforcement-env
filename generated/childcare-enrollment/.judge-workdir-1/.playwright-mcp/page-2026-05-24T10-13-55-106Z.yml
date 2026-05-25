@@ -1,0 +1,111 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e5]: ★
+        - generic [ref=e6]: حضانة نجوم الصغار
+      - navigation [ref=e7]:
+        - link "الرئيسية" [ref=e8] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "البرامج" [ref=e9] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "التسجيل" [ref=e10] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e11] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "المعلمات" [ref=e12] [cursor=pointer]:
+          - /url: المعلمات.html
+        - link "الأسئلة" [ref=e13] [cursor=pointer]:
+          - /url: الأسئلة.html
+        - link "تواصل" [ref=e14] [cursor=pointer]:
+          - /url: تواصل.html
+        - link "سجّل الآن" [ref=e15] [cursor=pointer]:
+          - /url: التسجيل.html
+  - main [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: برامج حسب العمر
+      - heading "كل نجمة لها إيقاعها اليومي" [level=1] [ref=e20]
+      - paragraph [ref=e21]: نقسم الأطفال لمجموعات صغيرة بحيث يحصل كل طفل على روتين نوم، وجبات، لعب، وفن يناسب عمره وطاقته.
+    - generic [ref=e23]:
+      - article [ref=e24]:
+        - img "نجمة الصغيرة" [ref=e25]
+        - heading "نجمة الصغيرة" [level=2] [ref=e26]
+        - generic [ref=e27]:
+          - generic [ref=e28]: ١-٢ سنة
+          - generic [ref=e29]: رعاية هادئة
+        - paragraph [ref=e30]: حضن آمن، لعب حسي، ومتابعة دقيقة للنوم والرضعات.
+        - list [ref=e31]:
+          - listitem [ref=e32]: 😴 قيلولتان مرنتان
+          - listitem [ref=e33]: 🥣 وجبات مهروسة
+          - listitem [ref=e34]: 🧸 لعب حسي
+          - listitem [ref=e35]: 🎨 تلوين بالأصابع
+        - paragraph [ref=e36]: ١٩٠ د.أ / شهر
+        - link "سجّل طفلك" [ref=e37] [cursor=pointer]:
+          - /url: التسجيل.html
+      - article [ref=e38]:
+        - img "نجمة المستكشف" [ref=e39]
+        - heading "نجمة المستكشف" [level=2] [ref=e40]
+        - generic [ref=e41]:
+          - generic [ref=e42]: ٢-٣ سنوات
+          - generic [ref=e43]: لغة وحركة
+        - paragraph [ref=e44]: رحلات اكتشاف صغيرة، مفردات، ومهارات مشاركة.
+        - list [ref=e45]:
+          - listitem [ref=e46]: 😴 قيلولة واحدة
+          - listitem [ref=e47]: 🍎 وجبة صحية
+          - listitem [ref=e48]: 🧩 لعب تركيبي
+          - listitem [ref=e49]: 🎵 موسيقى وحركة
+        - paragraph [ref=e50]: ٢٢٠ د.أ / شهر
+        - link "سجّل طفلك" [ref=e51] [cursor=pointer]:
+          - /url: التسجيل.html
+      - article [ref=e52]:
+        - img "نجمة المبدع" [ref=e53]
+        - heading "نجمة المبدع" [level=2] [ref=e54]
+        - generic [ref=e55]:
+          - generic [ref=e56]: ٤-٥ سنوات
+          - generic [ref=e57]: استعداد للروضة
+        - paragraph [ref=e58]: فن، قصص، أرقام، وحوار يومي لبناء الثقة.
+        - list [ref=e59]:
+          - listitem [ref=e60]: 📚 قراءة تفاعلية
+          - listitem [ref=e61]: 🥪 صندوق غذاء
+          - listitem [ref=e62]: 🏃 رياضة مرحة
+          - listitem [ref=e63]: 🎨 ورشة فن
+        - paragraph [ref=e64]: ٢٦٠ د.أ / شهر
+        - link "سجّل طفلك" [ref=e65] [cursor=pointer]:
+          - /url: التسجيل.html
+    - generic [ref=e66]:
+      - generic [ref=e68]:
+        - generic [ref=e69]: مقارنة سريعة
+        - heading "اختاروا المجموعة الأقرب لطفلكم" [level=2] [ref=e70]
+      - generic [ref=e71]:
+        - generic [ref=e72]: الفئة
+        - generic [ref=e73]: "الصغيرة: نوم أكثر"
+        - generic [ref=e74]: "المستكشف: حركة أكثر"
+        - generic [ref=e75]: "المبدع: مشاريع أكثر"
+        - generic [ref=e76]: التواصل
+        - generic [ref=e77]: كل رضعة وقيلولة
+        - generic [ref=e78]: تقرير نهاية اليوم
+        - generic [ref=e79]: ملف إنجاز أسبوعي
+    - generic [ref=e81]:
+      - generic [ref=e83]:
+        - generic [ref=e84]: أنشطة إثرائية
+        - heading "شبكة سداسية مليئة بالألوان" [level=2] [ref=e85]
+      - generic [ref=e86]:
+        - generic [ref=e87]: فن حر
+        - generic [ref=e88]: موسيقى
+        - generic [ref=e89]: زراعة
+        - generic [ref=e90]: لغة إنجليزية
+        - generic [ref=e91]: قصص
+        - generic [ref=e92]: يوغا أطفال
+  - contentinfo [ref=e93]:
+    - generic [ref=e94]:
+      - generic [ref=e95]:
+        - strong [ref=e96]: حضانة نجوم الصغار
+        - paragraph [ref=e97]: برامج مرنة وأيام حضور قابلة للتخصيص.
+      - generic [ref=e98]:
+        - link "الرئيسية" [ref=e99] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "التسجيل" [ref=e100] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "تواصل" [ref=e101] [cursor=pointer]:
+          - /url: تواصل.html

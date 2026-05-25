@@ -1,0 +1,221 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text: "NEW: The 2024 Sauerkraut Census is here! →"
+    - link "Read the findings" [ref=e3] [cursor=pointer]:
+      - /url: recipes.html
+  - navigation [ref=e4]:
+    - link "The Pickle Periodical" [ref=e5] [cursor=pointer]:
+      - /url: home.html
+      - text: The Pickle Periodical
+    - button "Menu" [ref=e7] [cursor=pointer]
+  - generic [ref=e9]:
+    - generic [ref=e10]:
+      - link "Home" [ref=e11] [cursor=pointer]:
+        - /url: home.html
+      - text: / Ferment Atlas
+    - heading "The Ferment Atlas" [level=1] [ref=e12]:
+      - generic [ref=e13]: The Ferment Atlas
+    - paragraph [ref=e14]: 38 living traditions, plotted across continents and centuries.
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - img "World ferment map" [ref=e18]
+      - generic [ref=e19]: "1"
+      - generic [ref=e20]: "2"
+      - generic [ref=e21]: "3"
+      - generic [ref=e22]: "4"
+      - generic [ref=e23]: "5"
+      - generic [ref=e24]: "6"
+      - generic [ref=e25]: "7"
+      - generic [ref=e26]: "8"
+    - complementary [ref=e27]:
+      - heading "38 Traditions" [level=3] [ref=e28]
+      - generic [ref=e31]:
+        - generic [ref=e32]: 김치Kimchi
+        - generic [ref=e33]: Korea · Lactic, fiery, generational. Buried for winter in onggi.
+      - generic [ref=e36]:
+        - generic [ref=e37]: 味噌Miso
+        - generic [ref=e38]: Japan · Koji-cultured soybean paste, aged from 1 month to 3 years.
+      - generic [ref=e41]:
+        - generic [ref=e42]: Sauerkraut
+        - generic [ref=e43]: Germany · The lacto-cabbage backbone of central Europe.
+      - generic [ref=e46]:
+        - generic [ref=e47]: अचारAchaar
+        - generic [ref=e48]: India · Oil-cured pickles powered by mustard seed and sun.
+      - generic [ref=e51]:
+        - generic [ref=e52]: КвасKvass
+        - generic [ref=e53]: Russia & Ukraine · Fermented rye-bread beverage, tart and earthy.
+      - generic [ref=e56]:
+        - generic [ref=e57]: Tepache
+        - generic [ref=e58]: Mexico · Pineapple-peel ferment, lightly fizzy, ready in 48 hours.
+      - generic [ref=e61]:
+        - generic [ref=e62]: Garum
+        - generic [ref=e63]: Italy (Roman) · Fermented fish sauce older than the empire itself.
+      - generic [ref=e66]:
+        - generic [ref=e67]: Cornichons
+        - generic [ref=e68]: France · Tiny tart pickled gherkins with tarragon and shallot.
+      - generic [ref=e71]:
+        - generic [ref=e72]: 泡菜Pao Cai
+        - generic [ref=e73]: China · Sichuan brine-jar pickles, fragrant with peppercorn.
+      - generic [ref=e76]:
+        - generic [ref=e77]: ปลาร้าPla Ra
+        - generic [ref=e78]: Thailand · Fermented freshwater fish sauce, central to Isan cooking.
+  - generic [ref=e80]:
+    - generic [ref=e81]:
+      - generic [ref=e82]: — 9,000 Years of Brine —
+      - heading "Timeline of Fermentation" [level=2] [ref=e83]
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - generic [ref=e86]: 7000 BCE
+        - generic [ref=e87]: 🍶
+        - heading "Jiahu Brewery" [level=4] [ref=e88]
+        - paragraph [ref=e89]: Earliest known fermented drink — rice, honey, grape — found in Henan, China.
+      - generic [ref=e90]:
+        - generic [ref=e91]: 5500 BCE
+        - generic [ref=e92]: 🧀
+        - heading "First Cheese" [level=4] [ref=e93]
+        - paragraph [ref=e94]: Strainers recovered in Poland confirm cheesemaking in Neolithic Europe.
+      - generic [ref=e95]:
+        - generic [ref=e96]: 4000 BCE
+        - generic [ref=e97]: 🍺
+        - heading "Sumerian Beer" [level=4] [ref=e98]
+        - paragraph [ref=e99]: The Hymn to Ninkasi celebrates the goddess of beer in cuneiform.
+      - generic [ref=e100]:
+        - generic [ref=e101]: 200 BCE
+        - generic [ref=e102]: 🥬
+        - heading "Chinese Sauerkraut" [level=4] [ref=e103]
+        - paragraph [ref=e104]: Workers on the Great Wall fed fermented cabbage with rice wine.
+      - generic [ref=e105]:
+        - generic [ref=e106]: 700 CE
+        - generic [ref=e107]: 🌶
+        - heading "Early Kimchi" [level=4] [ref=e108]
+        - paragraph [ref=e109]: Korean records show salted vegetable preservation; chili added in 17th century.
+      - generic [ref=e110]:
+        - generic [ref=e111]: "1857"
+        - generic [ref=e112]: 🔬
+        - heading "Pasteur Names Bacteria" [level=4] [ref=e113]
+        - paragraph [ref=e114]: Microbial responsibility for lactic fermentation identified. Microbes get a publicist.
+      - generic [ref=e115]:
+        - generic [ref=e116]: "2008"
+        - generic [ref=e117]: 🧬
+        - heading "Microbiome Era" [level=4] [ref=e118]
+        - paragraph [ref=e119]: NIH’s Human Microbiome Project legitimizes the “gut feeling.”
+      - generic [ref=e120]:
+        - generic [ref=e121]: "2024"
+        - generic [ref=e122]: 📓
+        - heading "Sauerkraut Census" [level=4] [ref=e123]
+        - paragraph [ref=e124]: 8,212 home crocks reported — our largest community study to date.
+  - generic [ref=e127]:
+    - heading "Contribute to the Atlas" [level=2] [ref=e128]:
+      - generic [ref=e129]: Contribute
+      - text: to the Atlas
+    - paragraph [ref=e130]: Have a family tradition we’ve missed? Tell us what you ferment, how long, and where the technique came from. Selected entries are documented and credited in print.
+    - generic [ref=e131]:
+      - textbox "Your name" [ref=e132]
+      - textbox "City & country" [ref=e133]
+      - textbox "Name of the ferment" [ref=e134]
+      - textbox "In native script (optional)" [ref=e135]
+      - 'textbox "Brief description: ingredients, time, who taught you, what it tastes like, when it’s served…" [ref=e136]'
+      - combobox [ref=e137]:
+        - 'option "Category: Vegetable" [selected]'
+        - option "Dairy"
+        - option "Grain"
+        - option "Fish"
+        - option "Beverage"
+      - textbox "Photo / link (optional)" [ref=e138]
+    - button "Send to the Atlas →" [ref=e139] [cursor=pointer]
+  - contentinfo [ref=e140]:
+    - generic [ref=e141]:
+      - generic [ref=e142]:
+        - link "The Pickle Periodical" [ref=e143] [cursor=pointer]:
+          - /url: home.html
+          - text: The Pickle Periodical
+        - paragraph [ref=e145]:
+          - text: A quarterly devotion to fermentation, brine, and slow flavor.
+          - text: Brooklyn, NY · Est. 2016
+        - generic [ref=e146]:
+          - link "IG" [ref=e147] [cursor=pointer]:
+            - /url: "#"
+          - link "TW" [ref=e148] [cursor=pointer]:
+            - /url: "#"
+          - link "YT" [ref=e149] [cursor=pointer]:
+            - /url: "#"
+          - link "RSS" [ref=e150] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e152]:
+        - heading "Sections" [level=4] [ref=e153]
+        - list [ref=e154]:
+          - listitem [ref=e155]:
+            - link "Recipes" [ref=e156] [cursor=pointer]:
+              - /url: recipes.html
+          - listitem [ref=e157]:
+            - link "Techniques" [ref=e158] [cursor=pointer]:
+              - /url: techniques.html
+          - listitem [ref=e159]:
+            - link "Atlas" [ref=e160] [cursor=pointer]:
+              - /url: ferment-atlas.html
+          - listitem [ref=e161]:
+            - link "Brinemaster" [ref=e162] [cursor=pointer]:
+              - /url: ask-the-brinemaster.html
+      - generic [ref=e163]:
+        - heading "About" [level=4] [ref=e164]
+        - list [ref=e165]:
+          - listitem [ref=e166]:
+            - link "Our story" [ref=e167] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e168]:
+            - link "Masthead" [ref=e169] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e170]:
+            - link "Pitch us" [ref=e171] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e172]:
+            - link "Press" [ref=e173] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e174]:
+        - heading "Shop" [level=4] [ref=e175]
+        - list [ref=e176]:
+          - listitem [ref=e177]:
+            - link "All Goods" [ref=e178] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e179]:
+            - link "Beginner Kits" [ref=e180] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e181]:
+            - link "Subscriptions" [ref=e182] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e183]:
+            - link "Gift Cards" [ref=e184] [cursor=pointer]:
+              - /url: shop.html
+      - generic [ref=e185]:
+        - heading "Community" [level=4] [ref=e186]
+        - list [ref=e187]:
+          - listitem [ref=e188]:
+            - link "Forums" [ref=e189] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e190]:
+            - link "Events" [ref=e191] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e192]:
+            - link "Workshops" [ref=e193] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e194]:
+            - link "Submitted" [ref=e195] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e196]:
+        - heading "Legal" [level=4] [ref=e197]
+        - list [ref=e198]:
+          - listitem [ref=e199]:
+            - link "Privacy" [ref=e200] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e201]:
+            - link "Terms" [ref=e202] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e203]:
+            - link "Cookies" [ref=e204] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e205]:
+            - link "Accessibility" [ref=e206] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e207]:
+      - generic [ref=e208]: © 2024 The Pickle Periodical · A worker-owned cooperative.
+      - generic [ref=e209]: Letterpress aesthetic since vol. 1

@@ -1,0 +1,101 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "Meridian.Index" [ref=e5] [cursor=pointer]:
+        - /url: home.html
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: home.html
+        - link "Rates" [ref=e8] [cursor=pointer]:
+          - /url: rates.html
+        - link "Routes" [ref=e9] [cursor=pointer]:
+          - /url: routes.html
+        - link "Analytics" [ref=e10] [cursor=pointer]:
+          - /url: analytics.html
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: pricing.html
+        - link "Methodology" [ref=e12] [cursor=pointer]:
+          - /url: methodology.html
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: contact.html
+      - link "Access" [ref=e14] [cursor=pointer]:
+        - /url: contact.html
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - heading "Request Index Access" [level=1] [ref=e18]
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e21]: Name
+          - textbox [ref=e22]
+        - generic [ref=e23]:
+          - generic [ref=e24]: Company
+          - textbox [ref=e25]
+        - generic [ref=e26]:
+          - generic [ref=e27]: Role
+          - combobox [ref=e28]:
+            - option "Freight Forwarder" [selected]
+            - option "Carrier"
+            - option "Shipper"
+            - option "Analyst"
+        - generic [ref=e29]:
+          - generic [ref=e30]: Lane Interest
+          - listbox [ref=e31]:
+            - option "Trans-Pacific" [ref=e32]
+            - option "Trans-Atlantic" [ref=e33]
+            - option "Intra-Asia" [ref=e34]
+            - option "Europe-Asia" [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]: Message
+          - textbox [ref=e38]
+        - button "Submit Request" [ref=e39] [cursor=pointer]
+      - generic [ref=e40]:
+        - article [ref=e41]:
+          - text: London
+          - heading "EMEA Desk" [level=3] [ref=e42]
+          - paragraph [ref=e43]:
+            - text: 40 Leadenhall Street
+            - text: +44 20 7946 1820
+            - text: 08:00-18:00 GMT
+        - article [ref=e45]:
+          - text: Singapore
+          - heading "Asia Desk" [level=3] [ref=e46]
+          - paragraph [ref=e47]:
+            - text: 1 HarbourFront Avenue
+            - text: +65 6123 4400
+            - text: 08:00-19:00 SGT
+        - article [ref=e49]:
+          - text: New York
+          - heading "Americas Desk" [level=3] [ref=e50]
+          - paragraph [ref=e51]:
+            - text: 225 Liberty Street
+            - text: +1 212 555 0148
+            - text: 08:00-18:00 EST
+        - article [ref=e53]:
+          - text: Hamburg
+          - heading "Europe Ports" [level=3] [ref=e54]
+          - paragraph [ref=e55]:
+            - text: Am Sandtorkai 74
+            - text: +49 40 300 881
+            - text: 08:00-17:00 CET
+    - generic [ref=e59]:
+      - generic [ref=e60]:
+        - generic [ref=e61]: Enterprise Sales
+        - generic [ref=e62]: sales@meridianindex.example
+        - generic [ref=e63]: Global
+      - generic [ref=e64]:
+        - generic [ref=e65]: API Partnerships
+        - generic [ref=e66]: api@meridianindex.example
+        - generic [ref=e67]: Data
+      - generic [ref=e68]:
+        - generic [ref=e69]: Methodology Review
+        - generic [ref=e70]: research@meridianindex.example
+        - generic [ref=e71]: Index
+  - link "Request Index Access →" [ref=e74] [cursor=pointer]:
+    - /url: contact.html
+  - contentinfo [ref=e75]:
+    - generic [ref=e76]:
+      - generic [ref=e77]: Meridian Freight Index
+      - generic [ref=e78]:
+        - generic [ref=e79]: Global rate intelligence
+        - generic [ref=e80]: UTC indexed data
+        - generic [ref=e81]: © 2026

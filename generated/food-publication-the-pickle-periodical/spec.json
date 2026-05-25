@@ -1,0 +1,113 @@
+{
+  "site_name": "The Pickle Periodical",
+  "category": "food-publication",
+  "niche": "online magazine and recipe archive dedicated to global fermentation traditions, pickling techniques, and brine-based gastronomy",
+  "language": "en",
+  "text_direction": "ltr",
+  "design_style": "maximalist",
+  "dark_mode": false,
+  "nav_style": "top-bar",
+  "pages": [
+    "home",
+    "recipes",
+    "techniques",
+    "ferment-atlas",
+    "ask-the-brinemaster",
+    "shop",
+    "about"
+  ],
+  "design_system": {
+    "color_palette": {
+      "primary": "#4A7C2A",
+      "secondary": "#F2C14E",
+      "accent": "#D7263D",
+      "bg": "#FFF8E7",
+      "text": "#2A1F14"
+    },
+    "typography": {
+      "heading_font": "serif",
+      "body_font": "sans-serif",
+      "scale": "1.414 augmented fourth"
+    },
+    "layout_style": "dense magazine-style maximalism with layered colored panels, vintage label aesthetics, sticker-like badges, scribbled annotations, overlapping cards, polka-dot backgrounds, and editorial pull-quotes",
+    "mood": "playful, scholarly, abundant, appetizing, like flipping through a vintage cookbook stuffed with sticky notes"
+  },
+  "page_descriptions": {
+    "home": "Top announcement bar in red with white text reading 'NEW: The 2024 Sauerkraut Census is here! \u2192'. Top-bar nav with logo (a wordmark in green serif with a small jar icon) and links: Recipes, Techniques, Ferment Atlas, Ask the Brinemaster, Shop, About. Hero is a full-width split: left half a chunky yellow panel with oversized serif headline 'Everything Tastes Better in Brine.' plus a paragraph deck and two CTA buttons ('Browse 412 Recipes' green, 'Start with Beginner Kit' outlined red); right half a full-bleed photo of overflowing fermentation jars with a rotated 'Issue No. 47' sticker badge overlaid. Below: a dense 'This Week' grid with 6 article cards, each with a colored top stripe (alternating green/yellow/red), a category tag pill, a photo, headline, byline and read time. Next: full-width green section titled 'The Ferment Atlas' showing a stylized world map with numbered pin markers and a side legend listing fermentation traditions (kimchi, lacto-pickles, miso, garum, achaar, kvass, tepache). Then a contained cream section with three 'Technique of the Month' cards in horizontal layout, each with a numbered circle badge and step preview. Editorial pull-quote band on a polka-dot yellow background: 'Time is the only ingredient you can't buy.' \u2014 Sandor, brinemaster emeritus. Newsletter signup section styled like a vintage subscription card with dashed border, perforated edges, and a red 'SUBSCRIBE' rubber-stamp button. Footer with 5 columns (Sections, About, Shop, Community, Legal), social icons as rounded squares, and a tiny illustrated cucumber mascot.",
+    "recipes": "Hero strip: small breadcrumb (Home / Recipes), big serif H1 'The Recipe Vault', subtitle '412 tested ferments, sorted by stubbornness.' Sticky filter bar below with chip filters (Vegetables, Dairy, Grains, Fish, Beverages, Hot Sauce, Beginner, Advanced) plus dropdowns (Region, Fermentation Time, Salt Ratio) and a search input with magnifier icon. Main area is a masonry-style grid (3 columns) of recipe cards of varied heights \u2014 each card has a photo, a colored corner ribbon showing difficulty (green=easy, yellow=intermediate, red=expert), a serif title, a meta row (\u23f1 time \u00b7 \ud83e\uddc2 salt % \u00b7 \ud83c\udf36 heat), tag pills, and a save (bookmark) icon. Every fifth card is a 'Editor's Pick' double-wide card with a yellow background and quote. Right rail (desktop only) with 'Most Brined This Week' top-10 numbered list and a small banner ad mock for the Brine Calculator. Pagination at bottom styled like vintage page numbers with green dividers.",
+    "techniques": "Header section in green with a large illustrated cross-section of a fermentation jar showing labeled parts (weight, brine, vegetable, headspace, airlock). Below, a tabbed interface with 5 tabs: Lacto-Fermentation, Vinegar Pickling, Koji & Mold, Wild Yeast, Garum & Fish Sauce. Each tab reveals a long-form article layout with: numbered step cards stacked vertically on the left, a sticky illustrated diagram on the right, callout boxes in yellow ('Troubleshooting: Why is my kraut slimy?'), tables for salt-percentage-by-vegetable, and 'Brinemaster's Note' inline quotes with a portrait thumbnail. Embedded video placeholder block with red play button. At the bottom: a 'You'll Need' grid linking to relevant shop items (jars, weights, airlocks, salt) with prices and Add buttons.",
+    "ferment-atlas": "Full-width interactive map placeholder (stylized illustrated world map with hand-drawn borders and pins as little jar icons). Side panel on right with scrollable list of 38 fermentation traditions, each with a country flag, name in native script + transliteration, and a short blurb. Clicking a region (described as interaction) expands a detailed card with: traditional ingredients table, typical timeline, cultural notes, recommended reading, and 3 starter recipes. Below the map: a 'Timeline of Fermentation' horizontal scroller from 7000 BCE to present with milestones (cheese, beer, sauerkraut, Pasteur, modern microbiome research) \u2014 each entry as an illustrated card with date, image, and caption. Bottom section: 'Contribute to the Atlas' form for readers to submit family traditions.",
+    "ask-the-brinemaster": "Q&A column layout. Top: large portrait illustration of the Brinemaster (a friendly figure in an apron with a wooden spoon) next to a green panel introducing the column and showing stats ('1,247 questions answered \u00b7 Since 2019'). Featured Q this week in a yellow card: oversized question text, the asker's name + location, then a long-form answer with embedded photos and a 'Verdict' badge in red. Below: a 2-column grid of past Q&As \u2014 each as a card with question preview, category tag, and answer length. Sidebar 'Submit Your Question' form (name, location, your ferment situation, photo upload field, urgency slider from 'curious' to 'help my jar is hissing'). FAQ accordion at bottom with the 10 most-asked questions of all time.",
+    "shop": "Top promo banner: 'Free shipping over $60 \u00b7 Glass jars ship in recycled straw'. Category nav as colored tile buttons (Jars & Crocks, Weights & Airlocks, Salts & Cultures, Books, Apparel, Gift Sets). Product grid 4-col with photo, name, price in red, star rating, and a quick-add green button. Each card has a small sticker badge where applicable ('Bestseller', 'Staff Pick', 'Low Stock'). Featured product section: large split layout with product photo on left and details (description, size selector pills, quantity stepper, Add to Cart big red button, 'Bundle & Save' upsell) on right. Reviews carousel below with star ratings and reviewer photos. Bottom: 'Gift the Ferment Curious' section with three pre-built kits as illustrated boxes.",
+    "about": "Editorial long-form layout. Hero: oversized headline 'We Believe in Slow Food, Loud Flavors.' over a cream background with a yellow underline scribble. Manifesto in two columns with drop caps. Team section: 6 staff cards in a grid, each with a circular portrait, name, title (Editor-in-Brine, Senior Krautographer, etc.), favorite ferment, and a fun quote. Timeline of the publication from founding in 2016 to today, styled as a vertical winding road with milestone markers. 'As Featured In' logo strip (Bon App\u00e9tit, Lucky Peach archives, The New Yorker, Cherry Bombe). Contact section with editorial email, pitch guidelines accordion, and office address with a hand-drawn map of Brooklyn."
+  },
+  "complexity": "complex",
+  "image_assets": [
+    {
+      "filename": "hero-jars.png",
+      "prompt": "Overflowing collection of glass fermentation jars on a wooden kitchen counter, filled with colorful pickled vegetables \u2014 bright pink sauerkraut, green cucumbers, orange carrots, yellow turmeric kraut, red kimchi. Warm natural light from a window, cream background wall, vintage cookbook aesthetic, slightly overhead angle, abundant and editorial food photography style, saturated colors matching a palette of olive green, mustard yellow, and tomato red.",
+      "size": "1536x1024",
+      "used_on": "home",
+      "purpose": "hero split-screen right panel"
+    },
+    {
+      "filename": "ferment-map.png",
+      "prompt": "Stylized illustrated flat world map with hand-drawn ink borders on a cream paper background, featuring small jar-shaped pins scattered across regions, decorative compass rose, vintage atlas typography labels for oceans, mustard yellow and olive green color accents, red pin highlights, charming hand-illustrated infographic style.",
+      "size": "1536x1024",
+      "used_on": "home, ferment-atlas",
+      "purpose": "atlas section interactive map background"
+    },
+    {
+      "filename": "jar-diagram.png",
+      "prompt": "Detailed cross-section illustration of a fermentation mason jar showing labeled layers: airlock lid, headspace, brine liquid, glass weight, submerged cabbage and vegetables. Technical illustration style with clean labeled callouts, drawn on a warm cream background, olive green and red accent lines, vintage scientific diagram aesthetic.",
+      "size": "1024x1536",
+      "used_on": "techniques",
+      "purpose": "technique guide reference diagram"
+    },
+    {
+      "filename": "brinemaster-portrait.png",
+      "prompt": "Friendly illustrated portrait of a middle-aged brinemaster character wearing a denim apron and round glasses, holding a wooden spoon, surrounded by floating jar icons and cabbage leaves. Warm illustration style with mustard yellow background, hand-drawn texture, character-design feel, approachable and wise expression.",
+      "size": "1024x1024",
+      "used_on": "ask-the-brinemaster, about",
+      "purpose": "Brinemaster column character illustration"
+    },
+    {
+      "filename": "recipe-kimchi.png",
+      "prompt": "Top-down photograph of vibrant red napa cabbage kimchi spilling out of a ceramic crock onto a cream linen cloth, scattered with red pepper flakes, garlic, and ginger, styled in editorial magazine fashion, abundant and slightly messy, warm tones, with a small handwritten recipe card visible at the edge.",
+      "size": "1024x1024",
+      "used_on": "recipes",
+      "purpose": "featured recipe card image"
+    },
+    {
+      "filename": "shop-crock.png",
+      "prompt": "Beautiful stoneware fermentation crock with two ceramic weights, photographed on a yellow polka-dot backdrop, soft daylight, product photography with a vintage general-store feel, cream and olive green accents, slight shadow, inviting and tactile.",
+      "size": "1024x1024",
+      "used_on": "shop",
+      "purpose": "featured product image"
+    },
+    {
+      "filename": "team-photo.png",
+      "prompt": "Group photograph of six diverse food magazine staff members gathered around a long wooden table covered in fermentation jars, laughing and tasting from small spoons, in a warm Brooklyn loft kitchen with hanging plants and shelves of cookbooks, natural light, candid editorial photography, warm cream and green tones.",
+      "size": "1536x1024",
+      "used_on": "about",
+      "purpose": "team section group photo"
+    },
+    {
+      "filename": "subscription-card.png",
+      "prompt": "Vintage-style illustrated subscription card with dashed perforated border, postage stamp corner, red rubber-stamp 'SUBSCRIBE' mark, decorative cucumber and cabbage motifs, cream paper texture with subtle yellow polka-dot accent, hand-drawn typography reading 'The Pickle Periodical Monthly'.",
+      "size": "1536x1024",
+      "used_on": "home",
+      "purpose": "newsletter signup section background"
+    }
+  ],
+  "special_elements": [
+    "vintage label and rubber-stamp style badges scattered across cards",
+    "polka-dot and dashed-border decorative panels",
+    "rotated sticker overlays on hero imagery",
+    "colored corner ribbons on recipe cards indicating difficulty",
+    "hand-drawn scribbled underlines and annotations under key headlines",
+    "sticky filter bar on recipes page with chip-based multi-select"
+  ],
+  "responsive_notes": "Desktop: full 3-4 column grids, sticky right rails on recipes page, side-by-side hero splits. Tablet: hero splits stack with image on top, grids reduce to 2 columns, right rail moves below main content, sticky filters collapse into a 'Filters' button opening a slide-down panel. Mobile: single-column everywhere, top-bar nav collapses into a hamburger but retains the red announcement banner above, sticker badges scale down but remain rotated, masonry grid becomes uniform single-column stack, ferment atlas map switches to a vertical list of regions with thumbnail flags. All decorative polka-dots and dashed borders maintained at every viewport but with reduced density on mobile to preserve readability.",
+  "is_broken": false
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commander — Atelier Papier Buvard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="logo">
+    <a href="accueil.html" style="font-style:italic;">Atelier Papier Buvard</a>
+    <small>Paris · depuis 2014</small>
+  </div>
+  <div class="meta">Showroom · 12 rue de Charonne</div>
+</header>
+
+<main>
+
+  <section class="page-title">
+    <span class="eyebrow">Commande sur mesure</span>
+    <h1>Configurer<br>votre papier</h1>
+    <p>Choisissez le format, la marbrure, la quantité, et la mention gravée. Nous fabriquons à la demande, en respectant l'ordre d'arrivée.</p>
+  </section>
+
+  <div class="configurator">
+
+    <div class="config-steps">
+
+      <div class="step">
+        <span class="step-num">Étape 01</span>
+        <h3>Choisir le format</h3>
+        <div class="option-row">
+          <label class="selected"><input type="radio" name="format" checked>A4 · 21 × 29,7 cm</label>
+          <label><input type="radio" name="format">A5 · 14,8 × 21 cm</label>
+          <label><input type="radio" name="format">Carte · 10 × 15 cm</label>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">Étape 02</span>
+        <h3>Choisir le motif</h3>
+        <div class="swatches">
+          <div class="swatch selected" title="Terra"></div>
+          <div class="swatch" title="Sauge"></div>
+          <div class="swatch" title="Indigo"></div>
+          <div class="swatch" title="Ocre"></div>
+          <div class="swatch" title="Bordeaux"></div>
+          <div class="swatch" title="Encre"></div>
+        </div>
+        <p class="eyebrow" style="margin-top:1rem;">Terra · marbrure terre cuite</p>
+      </div>
+
+      <div class="step">
+        <span class="step-num">Étape 03</span>
+        <h3>Quantité</h3>
+        <div class="qty-row">
+          <button>−</button>
+          <span>6</span>
+          <button>+</button>
+          <span class="eyebrow" style="margin-left:1rem;">feuilles</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">Étape 04</span>
+        <h3>Personnalisation</h3>
+        <label class="eyebrow" for="initials" style="display:block; margin-bottom:0.5rem;">Initiales gravées (jusqu'à 4 caractères)</label>
+        <input id="initials" class="config-input" type="text" value="MARGAUX" maxlength="20">
+        <p class="delay-note">Délai artisanal : 3 semaines</p>
+      </div>
+
+    </div>
+
+    <aside class="preview">
+      <span class="eyebrow">Aperçu en direct</span>
+      <div class="paper-mock">
+        <!-- DEFECT: long initials overflow the preview card on desktop -->
+        <div class="initials">MARGAUX</div>
+      </div>
+      <h3>Marbrure Terra · A4</h3>
+      <div class="small">6 feuilles · gravure MARGAUX</div>
+    </aside>
+
+  </div>
+
+  <section class="order-summary">
+    <div>
+      <span class="eyebrow">Résumé</span>
+      <h4>6 feuilles A4 · Marbrure Terra · gravure incluse</h4>
+    </div>
+    <div class="total">408 €</div>
+    <button class="btn btn-accent">Valider la commande</button>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="logo">Atelier Papier Buvard</div>
+    <div class="small">© 2025 · 12 rue de Charonne, 75011 Paris</div>
+    <div class="small"><a href="contact.html">Instagram</a> · <a href="contact.html">Are.na</a></div>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navigation principale">
+  <a href="accueil.html">
+    <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+    <span class="nav-label">Accueil</span>
+  </a>
+  <a href="collections.html">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    <span class="nav-label">Collections</span>
+  </a>
+  <a href="atelier.html">
+    <svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M9 21v-7h6v7"/></svg>
+    <span class="nav-label">Atelier</span>
+  </a>
+  <a href="journal.html">
+    <svg viewBox="0 0 24 24"><path d="M4 4h11a4 4 0 014 4v12H8a4 4 0 01-4-4V4zM4 16a4 4 0 014-4h11"/></svg>
+    <span class="nav-label">Journal</span>
+  </a>
+  <a href="commander.html" class="active">
+    <svg viewBox="0 0 24 24"><path d="M5 7h14l-1 12H6L5 7zM9 7V4a3 3 0 016 0v3"/></svg>
+    <span class="nav-label">Commander</span>
+  </a>
+</nav>
+
+</body>
+</html>

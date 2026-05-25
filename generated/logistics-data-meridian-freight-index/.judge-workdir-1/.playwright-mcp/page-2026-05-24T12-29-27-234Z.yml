@@ -1,0 +1,197 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "Meridian.Index" [ref=e5] [cursor=pointer]:
+        - /url: home.html
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: home.html
+        - link "Rates" [ref=e8] [cursor=pointer]:
+          - /url: rates.html
+        - link "Routes" [ref=e9] [cursor=pointer]:
+          - /url: routes.html
+        - link "Analytics" [ref=e10] [cursor=pointer]:
+          - /url: analytics.html
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: pricing.html
+        - link "Methodology" [ref=e12] [cursor=pointer]:
+          - /url: methodology.html
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: contact.html
+      - link "Access" [ref=e14] [cursor=pointer]:
+        - /url: contact.html
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - heading "Index Access Plans" [level=1] [ref=e18]
+      - generic [ref=e19]:
+        - article [ref=e20]:
+          - text: Forwarder
+          - generic [ref=e21]: $499/mo
+          - paragraph [ref=e22]: Daily index coverage for regional forwarding teams.
+          - list [ref=e23]:
+            - listitem [ref=e24]: ✓120 tracked lanes
+            - listitem [ref=e25]: ✓CSV exports
+            - listitem [ref=e26]: ✓Weekly market brief
+            - listitem [ref=e27]: ✓3 seats included
+            - listitem [ref=e28]: ✓Email support
+        - article [ref=e29]:
+          - generic [ref=e30]: Most Selected
+          - text: Enterprise
+          - generic [ref=e31]: $2,400/mo
+          - paragraph [ref=e32]: Portfolio analytics and procurement tooling for global teams.
+          - list [ref=e33]:
+            - listitem [ref=e34]: ✓All active lanes
+            - listitem [ref=e35]: ✓API access
+            - listitem [ref=e36]: ✓Contract benchmarking
+            - listitem [ref=e37]: ✓25 seats included
+            - listitem [ref=e38]: ✓Dedicated analyst
+        - article [ref=e39]:
+          - text: Institutional
+          - generic [ref=e40]: Custom
+          - paragraph [ref=e41]: Bespoke index licensing for banks, insurers, and research desks.
+          - list [ref=e42]:
+            - listitem [ref=e43]: ✓Redistribution rights
+            - listitem [ref=e44]: ✓Custom methodology review
+            - listitem [ref=e45]: ✓Raw source audit trail
+            - listitem [ref=e46]: ✓Unlimited seats
+            - listitem [ref=e47]: ✓Priority support
+    - table [ref=e51]:
+      - rowgroup [ref=e52]:
+        - row "Feature Forwarder Enterprise Institutional" [ref=e53]:
+          - columnheader "Feature" [ref=e54]
+          - columnheader "Forwarder" [ref=e55]
+          - columnheader "Enterprise" [ref=e56]
+          - columnheader "Institutional" [ref=e57]
+      - rowgroup [ref=e58]:
+        - row "Daily rates ✓ ✓ ✓" [ref=e59]:
+          - cell "Daily rates" [ref=e60]
+          - cell "✓" [ref=e61]
+          - cell "✓" [ref=e62]
+          - cell "✓" [ref=e63]
+        - row "Lane history 2 years 5 years Full archive" [ref=e64]:
+          - cell "Lane history" [ref=e65]
+          - cell "2 years" [ref=e66]
+          - cell "5 years" [ref=e67]
+          - cell "Full archive" [ref=e68]
+        - row "API calls — 100k Custom" [ref=e69]:
+          - cell "API calls" [ref=e70]
+          - cell "—" [ref=e71]
+          - cell "100k" [ref=e72]
+          - cell "Custom" [ref=e73]
+        - row "Users 3 25 Unlimited" [ref=e74]:
+          - cell "Users" [ref=e75]
+          - cell "3" [ref=e76]
+          - cell "25" [ref=e77]
+          - cell "Unlimited" [ref=e78]
+        - row "Custom lanes — 20 Unlimited" [ref=e79]:
+          - cell "Custom lanes" [ref=e80]
+          - cell "—" [ref=e81]
+          - cell "20" [ref=e82]
+          - cell "Unlimited" [ref=e83]
+        - row "PDF reports ✓ ✓ ✓" [ref=e84]:
+          - cell "PDF reports" [ref=e85]
+          - cell "✓" [ref=e86]
+          - cell "✓" [ref=e87]
+          - cell "✓" [ref=e88]
+        - row "CSV exports ✓ ✓ ✓" [ref=e89]:
+          - cell "CSV exports" [ref=e90]
+          - cell "✓" [ref=e91]
+          - cell "✓" [ref=e92]
+          - cell "✓" [ref=e93]
+        - row "SLA — 99.5% 99.9%" [ref=e94]:
+          - cell "SLA" [ref=e95]
+          - cell "—" [ref=e96]
+          - cell "99.5%" [ref=e97]
+          - cell "99.9%" [ref=e98]
+        - row "Analyst calls — Monthly Weekly" [ref=e99]:
+          - cell "Analyst calls" [ref=e100]
+          - cell "—" [ref=e101]
+          - cell "Monthly" [ref=e102]
+          - cell "Weekly" [ref=e103]
+        - row "Source audit — Partial Full" [ref=e104]:
+          - cell "Source audit" [ref=e105]
+          - cell "—" [ref=e106]
+          - cell "Partial" [ref=e107]
+          - cell "Full" [ref=e108]
+        - row "Carrier mix ✓ ✓ ✓" [ref=e109]:
+          - cell "Carrier mix" [ref=e110]
+          - cell "✓" [ref=e111]
+          - cell "✓" [ref=e112]
+          - cell "✓" [ref=e113]
+        - row "Fuel model — ✓ ✓" [ref=e114]:
+          - cell "Fuel model" [ref=e115]
+          - cell "—" [ref=e116]
+          - cell "✓" [ref=e117]
+          - cell "✓" [ref=e118]
+        - row "Congestion data ✓ ✓ ✓" [ref=e119]:
+          - cell "Congestion data" [ref=e120]
+          - cell "✓" [ref=e121]
+          - cell "✓" [ref=e122]
+          - cell "✓" [ref=e123]
+        - row "Forecast module — ✓ ✓" [ref=e124]:
+          - cell "Forecast module" [ref=e125]
+          - cell "—" [ref=e126]
+          - cell "✓" [ref=e127]
+          - cell "✓" [ref=e128]
+        - row "SSO — ✓ ✓" [ref=e129]:
+          - cell "SSO" [ref=e130]
+          - cell "—" [ref=e131]
+          - cell "✓" [ref=e132]
+          - cell "✓" [ref=e133]
+        - row "Data warehouse sync — — ✓" [ref=e134]:
+          - cell "Data warehouse sync" [ref=e135]
+          - cell "—" [ref=e136]
+          - cell "—" [ref=e137]
+          - cell "✓" [ref=e138]
+        - row "White-label charts — ✓ ✓" [ref=e139]:
+          - cell "White-label charts" [ref=e140]
+          - cell "—" [ref=e141]
+          - cell "✓" [ref=e142]
+          - cell "✓" [ref=e143]
+        - row "Legal redistribution — — ✓" [ref=e144]:
+          - cell "Legal redistribution" [ref=e145]
+          - cell "—" [ref=e146]
+          - cell "—" [ref=e147]
+          - cell "✓" [ref=e148]
+        - row "Benchmark packs 2 12 Custom" [ref=e149]:
+          - cell "Benchmark packs" [ref=e150]
+          - cell "2" [ref=e151]
+          - cell "12" [ref=e152]
+          - cell "Custom" [ref=e153]
+        - row "Alerts 10 100 Unlimited" [ref=e154]:
+          - cell "Alerts" [ref=e155]
+          - cell "10" [ref=e156]
+          - cell "100" [ref=e157]
+          - cell "Unlimited" [ref=e158]
+        - row "Support Email Dedicated Priority" [ref=e159]:
+          - cell "Support" [ref=e160]
+          - cell "Email" [ref=e161]
+          - cell "Dedicated" [ref=e162]
+          - cell "Priority" [ref=e163]
+        - row "Onboarding Self-serve Guided White glove" [ref=e164]:
+          - cell "Onboarding" [ref=e165]
+          - cell "Self-serve" [ref=e166]
+          - cell "Guided" [ref=e167]
+          - cell "White glove" [ref=e168]
+    - generic [ref=e171]:
+      - article [ref=e172]:
+        - heading "Can we trial the API?" [level=3] [ref=e173]
+        - paragraph [ref=e174]: Enterprise pilots include a 30 day sandbox with representative corridor data.
+      - article [ref=e175]:
+        - heading "How are seats counted?" [level=3] [ref=e176]
+        - paragraph [ref=e177]: Seats are named users with dashboard access; API tokens are counted separately.
+      - article [ref=e178]:
+        - heading "Do you cover contract rates?" [level=3] [ref=e179]
+        - paragraph [ref=e180]: Contract observations are normalized into benchmark ranges where source density permits.
+      - article [ref=e181]:
+        - heading "Can reports be redistributed?" [level=3] [ref=e182]
+        - paragraph [ref=e183]: Redistribution requires the Institutional license and legal review.
+  - link "Request Index Access →" [ref=e186] [cursor=pointer]:
+    - /url: contact.html
+  - contentinfo [ref=e187]:
+    - generic [ref=e188]:
+      - generic [ref=e189]: Meridian Freight Index
+      - generic [ref=e190]:
+        - generic [ref=e191]: Global rate intelligence
+        - generic [ref=e192]: UTC indexed data
+        - generic [ref=e193]: © 2026

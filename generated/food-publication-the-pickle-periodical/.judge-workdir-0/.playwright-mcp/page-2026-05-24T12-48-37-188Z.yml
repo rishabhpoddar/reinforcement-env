@@ -1,0 +1,261 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text: "NEW: The 2024 Sauerkraut Census is here! →"
+    - link "Read the findings" [ref=e3] [cursor=pointer]:
+      - /url: recipes.html
+  - navigation [ref=e4]:
+    - link "The Pickle Periodical" [ref=e5] [cursor=pointer]:
+      - /url: home.html
+      - text: The Pickle Periodical
+    - list [ref=e7]:
+      - listitem [ref=e8]:
+        - link "Recipes" [ref=e9] [cursor=pointer]:
+          - /url: recipes.html
+      - listitem [ref=e10]:
+        - link "Techniques" [ref=e11] [cursor=pointer]:
+          - /url: techniques.html
+      - listitem [ref=e12]:
+        - link "Ferment Atlas" [ref=e13] [cursor=pointer]:
+          - /url: ferment-atlas.html
+      - listitem [ref=e14]:
+        - link "Ask the Brinemaster" [ref=e15] [cursor=pointer]:
+          - /url: ask-the-brinemaster.html
+      - listitem [ref=e16]:
+        - link "Shop" [ref=e17] [cursor=pointer]:
+          - /url: shop.html
+      - listitem [ref=e18]:
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: about.html
+  - generic [ref=e20]:
+    - generic [ref=e21]:
+      - text: EST. 2016 · ISSUE No. 47
+      - heading "Everything Tastes Better in Brine." [level=1] [ref=e22]:
+        - text: Everything Tastes
+        - generic [ref=e23]: Better
+        - text: in Brine.
+      - paragraph [ref=e24]: A scholarly love letter to fermentation. Field notes from kraut crocks, kimchi pots, miso vats, and the brave little airlocks bubbling away in basements worldwide.
+      - generic [ref=e25]:
+        - link "Browse 412 Recipes" [ref=e26] [cursor=pointer]:
+          - /url: recipes.html
+        - link "Start with Beginner Kit" [ref=e27] [cursor=pointer]:
+          - /url: shop.html
+    - generic [ref=e28]:
+      - img "Overflowing fermentation jars" [ref=e29]
+      - generic [ref=e30]:
+        - generic [ref=e31]: Issue No.
+        - generic [ref=e32]: "47"
+        - generic [ref=e33]: Spring 2024
+  - generic [ref=e35]:
+    - generic [ref=e36]:
+      - generic [ref=e37]: — This Week —
+      - heading "Fresh Off the Crock" [level=2] [ref=e38]:
+        - generic [ref=e39]: Fresh Off the Crock
+    - generic [ref=e40]:
+      - article [ref=e41]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: Lacto-Ferment
+          - 'heading "The Sauerkraut Census: What 8,212 Crocks Told Us" [level=3] [ref=e46]'
+          - generic [ref=e47]: By Maris Holm · 12 min read
+      - article [ref=e48]:
+        - generic [ref=e51]:
+          - generic [ref=e52]: Field Notes
+          - heading "Hunting Wild Yeast on the Slopes of Mount Yotei" [level=3] [ref=e53]
+          - generic [ref=e54]: By Yuki Tanaka · 9 min read
+      - article [ref=e55]:
+        - generic [ref=e58]:
+          - generic [ref=e59]: Recipe
+          - heading "A Punchy Habanero Hot Sauce That Refuses to Be Tamed" [level=3] [ref=e60]
+          - generic [ref=e61]: By Ivan Cortez · 6 min read
+      - article [ref=e62]:
+        - generic [ref=e65]:
+          - generic [ref=e66]: Profile
+          - heading "Meet the 87-Year-Old Grandmother Bottling 200 Jars a Season" [level=3] [ref=e67]
+          - generic [ref=e68]: By Sasha Vong · 14 min read
+      - article [ref=e69]:
+        - generic [ref=e72]:
+          - generic [ref=e73]: Science
+          - 'heading "Lactobacillus: A Microbial Biography" [level=3] [ref=e74]'
+          - generic [ref=e75]: By Dr. Elena Park · 18 min read
+      - article [ref=e76]:
+        - generic [ref=e79]:
+          - generic [ref=e80]: Gear
+          - 'heading "Crock Showdown: We Tested 12 Stoneware Fermentation Crocks" [level=3] [ref=e81]'
+          - generic [ref=e82]: By Toby Reece · 11 min read
+  - generic [ref=e84]:
+    - generic [ref=e85]:
+      - generic [ref=e86]: — Worldwide Pickling —
+      - heading "The Ferment Atlas" [level=2] [ref=e87]
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - img "Stylized ferment world map" [ref=e90]
+        - generic [ref=e91]: "1"
+        - generic [ref=e92]: "2"
+        - generic [ref=e93]: "3"
+        - generic [ref=e94]: "4"
+        - generic [ref=e95]: "5"
+        - generic [ref=e96]: "6"
+        - generic [ref=e97]: "7"
+      - generic [ref=e98]:
+        - heading "Living Traditions" [level=3] [ref=e99]
+        - list [ref=e100]:
+          - listitem [ref=e101]:
+            - generic [ref=e102]: "1"
+            - generic [ref=e103]: Sauerkraut
+            - generic [ref=e104]: Germany
+          - listitem [ref=e105]:
+            - generic [ref=e106]: "2"
+            - generic [ref=e107]: Lacto-pickles
+            - generic [ref=e108]: Eastern Europe
+          - listitem [ref=e109]:
+            - generic [ref=e110]: "3"
+            - generic [ref=e111]: Kimchi
+            - generic [ref=e112]: Korea
+          - listitem [ref=e113]:
+            - generic [ref=e114]: "4"
+            - generic [ref=e115]: Miso & Koji
+            - generic [ref=e116]: Japan
+          - listitem [ref=e117]:
+            - generic [ref=e118]: "5"
+            - generic [ref=e119]: Achaar
+            - generic [ref=e120]: India
+          - listitem [ref=e121]:
+            - generic [ref=e122]: "6"
+            - generic [ref=e123]: Garum
+            - generic [ref=e124]: Mediterranean
+          - listitem [ref=e125]:
+            - generic [ref=e126]: "7"
+            - generic [ref=e127]: Tepache
+            - generic [ref=e128]: Mexico
+        - link "Explore Atlas →" [ref=e129] [cursor=pointer]:
+          - /url: ferment-atlas.html
+  - generic [ref=e131]:
+    - generic [ref=e132]:
+      - generic [ref=e133]: — Step by Step —
+      - heading "Technique of the Month" [level=2] [ref=e134]:
+        - generic [ref=e135]: Technique of the Month
+    - generic [ref=e136]:
+      - generic [ref=e137]:
+        - generic [ref=e138]: "1"
+        - heading "Salt the Cabbage" [level=3] [ref=e139]
+        - paragraph [ref=e140]: The bedrock of all lacto-fermentation. By weight, 2.5% salt to crushed vegetable. No iodized table salt, no exceptions.
+        - generic [ref=e141]: "PREP: 15 MIN · WAIT: 1 HR · MEDIUM"
+      - generic [ref=e142]:
+        - generic [ref=e143]: "2"
+        - heading "Pack & Submerge" [level=3] [ref=e144]
+        - paragraph [ref=e145]: Press the cabbage down with brutal honesty until the brine rises above. A clean glass weight holds back the air.
+        - generic [ref=e146]: "PREP: 10 MIN · WAIT: 2 HR · EASY"
+      - generic [ref=e147]:
+        - generic [ref=e148]: "3"
+        - heading "Wait, Listen, Taste" [level=3] [ref=e149]
+        - paragraph [ref=e150]: Bubbles arrive on day three. Day seven, things get serious. Day fourteen, you have lunch. Day twenty-one, art.
+        - generic [ref=e151]: "PREP: 2 MIN · WAIT: 3 WEEKS · ZEN"
+  - generic [ref=e152]:
+    - blockquote [ref=e153]: “Time is the only ingredient you can’t buy.”
+    - generic [ref=e154]: — Sandor, Brinemaster Emeritus
+  - generic [ref=e156]:
+    - generic [ref=e157]: SUBSCRIBE
+    - generic [ref=e158]:
+      - heading "The Pickle Periodical Monthly" [level=2] [ref=e159]
+      - paragraph [ref=e160]: One letter, every full moon. Recipes, reader questions, brewing news, and the occasional fermented postcard from places we shouldn’t have visited.
+      - paragraph [ref=e161]: 12 issues / year · No ads · No spam · No exceptions
+    - generic [ref=e162]:
+      - textbox "Your full name" [ref=e163]
+      - textbox "your@email.com" [ref=e164]
+      - button "Stamp My Subscription" [ref=e165] [cursor=pointer]
+  - contentinfo [ref=e166]:
+    - generic [ref=e167]:
+      - generic [ref=e168]:
+        - link "The Pickle Periodical" [ref=e169] [cursor=pointer]:
+          - /url: home.html
+          - text: The Pickle Periodical
+        - paragraph [ref=e171]:
+          - text: A quarterly devotion to fermentation, brine, and slow flavor.
+          - text: Brooklyn, NY · Est. 2016
+        - generic [ref=e172]:
+          - link "IG" [ref=e173] [cursor=pointer]:
+            - /url: "#"
+          - link "TW" [ref=e174] [cursor=pointer]:
+            - /url: "#"
+          - link "YT" [ref=e175] [cursor=pointer]:
+            - /url: "#"
+          - link "RSS" [ref=e176] [cursor=pointer]:
+            - /url: "#"
+        - generic "Our mascot" [ref=e177]
+      - generic [ref=e178]:
+        - heading "Sections" [level=4] [ref=e179]
+        - list [ref=e180]:
+          - listitem [ref=e181]:
+            - link "Recipes" [ref=e182] [cursor=pointer]:
+              - /url: recipes.html
+          - listitem [ref=e183]:
+            - link "Techniques" [ref=e184] [cursor=pointer]:
+              - /url: techniques.html
+          - listitem [ref=e185]:
+            - link "Atlas" [ref=e186] [cursor=pointer]:
+              - /url: ferment-atlas.html
+          - listitem [ref=e187]:
+            - link "Brinemaster" [ref=e188] [cursor=pointer]:
+              - /url: ask-the-brinemaster.html
+      - generic [ref=e189]:
+        - heading "About" [level=4] [ref=e190]
+        - list [ref=e191]:
+          - listitem [ref=e192]:
+            - link "Our story" [ref=e193] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e194]:
+            - link "Masthead" [ref=e195] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e196]:
+            - link "Pitch us" [ref=e197] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e198]:
+            - link "Press" [ref=e199] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e200]:
+        - heading "Shop" [level=4] [ref=e201]
+        - list [ref=e202]:
+          - listitem [ref=e203]:
+            - link "All Goods" [ref=e204] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e205]:
+            - link "Beginner Kits" [ref=e206] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e207]:
+            - link "Subscriptions" [ref=e208] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e209]:
+            - link "Gift Cards" [ref=e210] [cursor=pointer]:
+              - /url: shop.html
+      - generic [ref=e211]:
+        - heading "Community" [level=4] [ref=e212]
+        - list [ref=e213]:
+          - listitem [ref=e214]:
+            - link "Forums" [ref=e215] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e216]:
+            - link "Events" [ref=e217] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e218]:
+            - link "Workshops" [ref=e219] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e220]:
+            - link "Recipes Submitted" [ref=e221] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e222]:
+        - heading "Legal" [level=4] [ref=e223]
+        - list [ref=e224]:
+          - listitem [ref=e225]:
+            - link "Privacy" [ref=e226] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e227]:
+            - link "Terms" [ref=e228] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e229]:
+            - link "Cookies" [ref=e230] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e231]:
+            - link "Accessibility" [ref=e232] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e233]:
+      - generic [ref=e234]: © 2024 The Pickle Periodical · A worker-owned cooperative.
+      - generic [ref=e235]: Letterpress aesthetic since vol. 1

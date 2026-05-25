@@ -1,0 +1,294 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text: "NEW: The 2024 Sauerkraut Census is here! →"
+    - link "Read the findings" [ref=e3] [cursor=pointer]:
+      - /url: recipes.html
+  - navigation [ref=e4]:
+    - link "The Pickle Periodical" [ref=e5] [cursor=pointer]:
+      - /url: home.html
+      - text: The Pickle Periodical
+    - list [ref=e7]:
+      - listitem [ref=e8]:
+        - link "Recipes" [ref=e9] [cursor=pointer]:
+          - /url: recipes.html
+      - listitem [ref=e10]:
+        - link "Techniques" [ref=e11] [cursor=pointer]:
+          - /url: techniques.html
+      - listitem [ref=e12]:
+        - link "Ferment Atlas" [ref=e13] [cursor=pointer]:
+          - /url: ferment-atlas.html
+      - listitem [ref=e14]:
+        - link "Ask the Brinemaster" [ref=e15] [cursor=pointer]:
+          - /url: ask-the-brinemaster.html
+      - listitem [ref=e16]:
+        - link "Shop" [ref=e17] [cursor=pointer]:
+          - /url: shop.html
+      - listitem [ref=e18]:
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: about.html
+  - generic [ref=e21]:
+    - generic [ref=e22]:
+      - link "Home" [ref=e23] [cursor=pointer]:
+        - /url: home.html
+      - text: / Recipes
+    - heading "The Recipe Vault" [level=1] [ref=e24]:
+      - generic [ref=e25]: The Recipe Vault
+    - paragraph [ref=e26]: 412 tested ferments, sorted by stubbornness.
+  - generic [ref=e29]:
+    - generic [ref=e30] [cursor=pointer]: All
+    - generic [ref=e31] [cursor=pointer]: Vegetables
+    - generic [ref=e32] [cursor=pointer]: Dairy
+    - generic [ref=e33] [cursor=pointer]: Grains
+    - generic [ref=e34] [cursor=pointer]: Fish
+    - generic [ref=e35] [cursor=pointer]: Beverages
+    - generic [ref=e36] [cursor=pointer]: Hot Sauce
+    - generic [ref=e37] [cursor=pointer]: Beginner
+    - generic [ref=e38] [cursor=pointer]: Advanced
+    - combobox [ref=e39] [cursor=pointer]:
+      - 'option "Region: Any" [selected]'
+      - option "Korea"
+      - option "Japan"
+      - option "Germany"
+      - option "India"
+    - combobox [ref=e40] [cursor=pointer]:
+      - 'option "Time: Any" [selected]'
+      - option "< 24 hrs"
+      - option "1–2 weeks"
+      - option "Months"
+    - combobox [ref=e41] [cursor=pointer]:
+      - 'option "Salt: Any" [selected]'
+      - option "2.0%"
+      - option "2.5%"
+      - option "5%+"
+    - textbox "Search recipes…" [ref=e44] [cursor=pointer]
+  - generic [ref=e45]:
+    - generic [ref=e46]:
+      - main [ref=e47]:
+        - article [ref=e48]:
+          - generic [ref=e50]: Intermediate
+          - generic [ref=e52]:
+            - heading "Classic Napa Kimchi" [level=3] [ref=e53]
+            - generic [ref=e54]: ⏱ 5 days · 🧂 2.5% · 🌶 Hot
+            - generic [ref=e55]:
+              - generic [ref=e56]: Korea
+              - generic [ref=e57]: Vegetable
+        - article [ref=e58]:
+          - generic [ref=e60]: Easy
+          - generic [ref=e62]:
+            - heading "Beginner’s Caraway Sauerkraut" [level=3] [ref=e63]
+            - generic [ref=e64]: ⏱ 14 days · 🧂 2.0% · 🌶 Mild
+            - generic [ref=e65]:
+              - generic [ref=e66]: Germany
+              - generic [ref=e67]: Vegetable
+        - article [ref=e68]:
+          - generic [ref=e70]: Expert
+          - generic [ref=e72]:
+            - heading "Aged Three-Year Doenjang" [level=3] [ref=e73]
+            - generic [ref=e74]: ⏱ 3 yrs · 🧂 18% · 🌶 None
+            - generic [ref=e75]:
+              - generic [ref=e76]: Korea
+              - generic [ref=e77]: Bean
+        - article [ref=e78]:
+          - generic [ref=e80]: Easy
+          - generic [ref=e82]:
+            - heading "Garlic Dill Half-Sours" [level=3] [ref=e83]
+            - generic [ref=e84]: ⏱ 4 days · 🧂 3.5% · 🌶 Mild
+            - generic [ref=e85]:
+              - generic [ref=e86]: USA
+              - generic [ref=e87]: Vegetable
+        - article [ref=e88]:
+          - text: EDITOR'S PICK
+          - blockquote [ref=e89]: “If I were stranded on an island with one recipe in this vault, it would be the Tepache. Sweet, sour, and very slightly mischievous.”
+          - generic [ref=e90]: — Maris Holm, Editor-in-Brine
+        - article [ref=e91]:
+          - generic [ref=e93]: Intermediate
+          - generic [ref=e95]:
+            - heading "Lemon & Cumin Curtido" [level=3] [ref=e96]
+            - generic [ref=e97]: ⏱ 3 days · 🧂 2.0% · 🌶 Medium
+            - generic [ref=e98]:
+              - generic [ref=e99]: El Salvador
+              - generic [ref=e100]: Vegetable
+        - article [ref=e101]:
+          - generic [ref=e103]: Easy
+          - generic [ref=e105]:
+            - heading "Wild Pineapple Tepache" [level=3] [ref=e106]
+            - generic [ref=e107]: ⏱ 48 hrs · 🧂 0% · 🌶 None
+            - generic [ref=e108]:
+              - generic [ref=e109]: Mexico
+              - generic [ref=e110]: Beverage
+        - article [ref=e111]:
+          - generic [ref=e113]: Expert
+          - generic [ref=e115]:
+            - heading "Roman Garum from Mackerel" [level=3] [ref=e116]
+            - generic [ref=e117]: ⏱ 6 months · 🧂 25% · 🌶 None
+            - generic [ref=e118]:
+              - generic [ref=e119]: Italy
+              - generic [ref=e120]: Fish
+        - article [ref=e121]:
+          - generic [ref=e123]: Intermediate
+          - generic [ref=e125]:
+            - heading "Punjabi Mango Achaar" [level=3] [ref=e126]
+            - generic [ref=e127]: ⏱ 21 days · 🧂 4% · 🌶 Spicy
+            - generic [ref=e128]:
+              - generic [ref=e129]: India
+              - generic [ref=e130]: Fruit
+        - article [ref=e131]:
+          - generic [ref=e133]: Easy
+          - generic [ref=e135]:
+            - heading "Beet & Apple Kvass" [level=3] [ref=e136]
+            - generic [ref=e137]: ⏱ 5 days · 🧂 1% · 🌶 None
+            - generic [ref=e138]:
+              - generic [ref=e139]: Russia
+              - generic [ref=e140]: Beverage
+        - article [ref=e141]:
+          - generic [ref=e143]: Intermediate
+          - generic [ref=e145]:
+            - heading "Smoky Habanero Hot Sauce" [level=3] [ref=e146]
+            - generic [ref=e147]: ⏱ 7 days · 🧂 3% · 🌶 Very Hot
+            - generic [ref=e148]:
+              - generic [ref=e149]: Caribbean
+              - generic [ref=e150]: Sauce
+      - complementary [ref=e151]:
+        - generic [ref=e152]:
+          - heading "Most Brined This Week" [level=3] [ref=e153]
+          - list [ref=e154]:
+            - listitem [ref=e155]: Classic Napa Kimchi
+            - listitem [ref=e156]: Beginner’s Caraway Kraut
+            - listitem [ref=e157]: Half-Sour Garlic Dills
+            - listitem [ref=e158]: Wild Pineapple Tepache
+            - listitem [ref=e159]: Mango Achaar
+            - listitem [ref=e160]: Beet & Apple Kvass
+            - listitem [ref=e161]: Smoky Habanero Sauce
+            - listitem [ref=e162]: Lemon Curtido
+            - listitem [ref=e163]: Three-Year Doenjang
+            - listitem [ref=e164]: Mackerel Garum
+        - generic [ref=e165]:
+          - heading "Brine Calculator" [level=3] [ref=e166]
+          - paragraph [ref=e167]: Forget the math. Punch in your veg weight, get the perfect salt by gram.
+          - link "Try Free →" [ref=e168] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e169]:
+          - heading "Filter Tip" [level=3] [ref=e170]
+          - paragraph [ref=e171]:
+            - text: Stuck? Try filtering by
+            - emphasis [ref=e172]: Beginner
+            - text: and
+            - emphasis [ref=e173]: < 24 hrs
+            - text: for confidence-building wins.
+    - navigation [ref=e174]:
+      - link "←" [ref=e175] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e176]: "1"
+      - generic [ref=e177]: ·
+      - link "2" [ref=e178] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e179]: ·
+      - link "3" [ref=e180] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e181]: ·
+      - link "4" [ref=e182] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e183]: ·
+      - link "…" [ref=e184] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e185]: ·
+      - link "37" [ref=e186] [cursor=pointer]:
+        - /url: "#"
+      - link "→" [ref=e187] [cursor=pointer]:
+        - /url: "#"
+  - contentinfo [ref=e188]:
+    - generic [ref=e189]:
+      - generic [ref=e190]:
+        - link "The Pickle Periodical" [ref=e191] [cursor=pointer]:
+          - /url: home.html
+          - text: The Pickle Periodical
+        - paragraph [ref=e193]:
+          - text: A quarterly devotion to fermentation, brine, and slow flavor.
+          - text: Brooklyn, NY · Est. 2016
+        - generic [ref=e194]:
+          - link "IG" [ref=e195] [cursor=pointer]:
+            - /url: "#"
+          - link "TW" [ref=e196] [cursor=pointer]:
+            - /url: "#"
+          - link "YT" [ref=e197] [cursor=pointer]:
+            - /url: "#"
+          - link "RSS" [ref=e198] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e200]:
+        - heading "Sections" [level=4] [ref=e201]
+        - list [ref=e202]:
+          - listitem [ref=e203]:
+            - link "Recipes" [ref=e204] [cursor=pointer]:
+              - /url: recipes.html
+          - listitem [ref=e205]:
+            - link "Techniques" [ref=e206] [cursor=pointer]:
+              - /url: techniques.html
+          - listitem [ref=e207]:
+            - link "Atlas" [ref=e208] [cursor=pointer]:
+              - /url: ferment-atlas.html
+          - listitem [ref=e209]:
+            - link "Brinemaster" [ref=e210] [cursor=pointer]:
+              - /url: ask-the-brinemaster.html
+      - generic [ref=e211]:
+        - heading "About" [level=4] [ref=e212]
+        - list [ref=e213]:
+          - listitem [ref=e214]:
+            - link "Our story" [ref=e215] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e216]:
+            - link "Masthead" [ref=e217] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e218]:
+            - link "Pitch us" [ref=e219] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e220]:
+            - link "Press" [ref=e221] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e222]:
+        - heading "Shop" [level=4] [ref=e223]
+        - list [ref=e224]:
+          - listitem [ref=e225]:
+            - link "All Goods" [ref=e226] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e227]:
+            - link "Beginner Kits" [ref=e228] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e229]:
+            - link "Subscriptions" [ref=e230] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e231]:
+            - link "Gift Cards" [ref=e232] [cursor=pointer]:
+              - /url: shop.html
+      - generic [ref=e233]:
+        - heading "Community" [level=4] [ref=e234]
+        - list [ref=e235]:
+          - listitem [ref=e236]:
+            - link "Forums" [ref=e237] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e238]:
+            - link "Events" [ref=e239] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e240]:
+            - link "Workshops" [ref=e241] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e242]:
+            - link "Submitted" [ref=e243] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e244]:
+        - heading "Legal" [level=4] [ref=e245]
+        - list [ref=e246]:
+          - listitem [ref=e247]:
+            - link "Privacy" [ref=e248] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e249]:
+            - link "Terms" [ref=e250] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e251]:
+            - link "Cookies" [ref=e252] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e253]:
+            - link "Accessibility" [ref=e254] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e255]:
+      - generic [ref=e256]: © 2024 The Pickle Periodical · A worker-owned cooperative.
+      - generic [ref=e257]: Letterpress aesthetic since vol. 1

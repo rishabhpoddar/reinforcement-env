@@ -1,0 +1,109 @@
+{
+  "site_name": "NEONPULSE // Bioware Collective",
+  "category": "biohacker-community",
+  "niche": "underground biohacker and cybernetic implant enthusiast collective offering DIY guides, implant registry, and community forums",
+  "language": "mixed-en-es",
+  "text_direction": "ltr",
+  "design_style": "cyberpunk",
+  "dark_mode": false,
+  "nav_style": "top-bar",
+  "pages": [
+    "home",
+    "implant-registry",
+    "guides",
+    "submit-procedure",
+    "members",
+    "events",
+    "manifesto",
+    "contact"
+  ],
+  "design_system": {
+    "color_palette": {
+      "primary": "#FF006E",
+      "secondary": "#00F0FF",
+      "accent": "#FFEE00",
+      "bg": "#F2F0E6",
+      "text": "#0A0A0A"
+    },
+    "typography": {
+      "heading_font": "monospace (e.g. JetBrains Mono, IBM Plex Mono)",
+      "body_font": "monospace (e.g. Space Mono) with sans-serif fallback for long-form Spanish content",
+      "scale": "1.25 modular"
+    },
+    "layout_style": "asymmetric grid with off-center hero panels, hot-pink terminal frames, glitch-text headings on light cream background, scan lines, and corner registration marks. Navigation labels and section headers in English; body text, descriptions, member quotes, and forum content in Spanish",
+    "mood": "dystopian-optimistic, underground, technical, defiant, terminal-like but on a light substrate (subverting typical cyberpunk darkness)"
+  },
+  "page_descriptions": {
+    "home": "Asymmetric hero \u2014 left 60% column with massive glitched headline 'AUGMENT // RESIST' in hot pink with cyan offset chromatic aberration, Spanish subtitle 'Comunidad abierta de biohackers y exploradores cibern\u00e9ticos desde 2019'. Right 40% column shows a live-feed style terminal panel listing recent member implant logs in Spanish (e.g. 'NFC subdermal v4 instalado \u2014 Lima, 03:42'). Below: 3 off-kilter cards (un-aligned vertically) titled 'REGISTRY', 'GUIDES', 'COLLECTIVE' with Spanish descriptions. Marquee scrolling Spanish manifesto excerpt. Footer with cookie consent bar in Spanish.",
+    "implant-registry": "Filterable data table of self-reported implants (anonymized IDs). Columns in English: ID, TYPE, LOCATION, INSTALLED, STATUS. Row content in Spanish where applicable ('Magneto en yema del dedo', 'NFC en mano izquierda'). Left sidebar filters (region, implant category, status: ACTIVE / EXPLANTED / DORMANT) using toggle switches with neon cyan accents. Top stat strip showing total registered implants, active members, countries. Status badges color-coded.",
+    "guides": "Asymmetric masonry of guide cards \u2014 uneven column widths (some 1-col, some 2-col). Each card has a numbered code (e.g. 'GUIDE_007'), English category tag, Spanish title and excerpt ('C\u00f3mo esterilizar tu kit de instalaci\u00f3n en casa'), difficulty meter (1-5 dots), estimated time, and warning badges. Filter chips at top: BEGINNER / INTERMEDIATE / ADVANCED / MEDICAL-GRADE. Disclaimer banner in Spanish pinned at top.",
+    "submit-procedure": "Form-heavy page \u2014 multi-section form with progress indicator (4 steps). Section 1 'IDENTITY': handle input, region dropdown, anonymous toggle. Section 2 'PROCEDURE': implant type radio group with icons, body location selector (clickable anatomical diagram placeholder), date picker. Section 3 'METRICS': sliders for pain level (0-10), healing time (days), satisfaction (1-5 stars), toggle for 'complications experienced'. Section 4 'NARRATIVE': long textarea in Spanish, optional photo upload, consent checkboxes. All labels in English, helper text and placeholders in Spanish. Submit button with glitch hover effect.",
+    "members": "Grid of member cards (3-col asymmetric, some cards span 2 cells). Each card: pixelated/glitched avatar, handle in monospace, location in Spanish, count of implants, join date, signature implant badge. Hover reveals a Spanish bio quote. Top of page: search bar and sort dropdown (recent / most augmented / by region).",
+    "events": "Timeline of upcoming meetups and workshops. Each event entry off-center alternating left/right with neon connector lines. Fields in English headers (DATE / LOCATION / TYPE / CAPACITY), Spanish descriptions ('Taller pr\u00e1ctico de instalaci\u00f3n de imanes \u2014 Ciudad de M\u00e9xico'). RSVP toggle button per event, capacity bar. Past events archive accordion below.",
+    "manifesto": "Long-form text page styled as a terminal document. Header 'MANIFIESTO // v3.2' with timestamp. Full Spanish manifesto text in monospace, numbered paragraphs, with key phrases highlighted in neon pink. Margin annotations on right side in English (commentary tags). Signature block at bottom listing founding members. Download as .txt button.",
+    "contact": "Split asymmetric layout \u2014 left 45%: contact form with toggle for inquiry type (PRESS / JOIN / SECURITY / OTHER), input groups with floating monospace labels in English, Spanish placeholders. PGP key download link. Right 55%: encrypted messaging info panel in Spanish, Signal/Matrix handles, jurisdictional disclaimer, glitchy ASCII art logo."
+  },
+  "complexity": "complex",
+  "image_assets": [
+    {
+      "filename": "hero-glitch-portrait.png",
+      "prompt": "Glitched close-up portrait of a person with subdermal LED implants glowing through skin on the forearm, faint scan-line distortion, hot pink (#FF006E) and cyan (#00F0FF) chromatic aberration split, set against a cream (#F2F0E6) background, light-cyberpunk aesthetic, high-contrast editorial photography with digital corruption artifacts",
+      "size": "1536x1024",
+      "used_on": "home",
+      "purpose": "hero right-panel image behind terminal feed"
+    },
+    {
+      "filename": "implant-diagram.png",
+      "prompt": "Technical illustration of a human hand cross-section showing NFC chip and magnet implant locations, blueprint style on cream background, hot pink and cyan annotation lines, monospace technical labels, registration marks in corners, isometric clinical diagram",
+      "size": "1024x1024",
+      "used_on": "implant-registry, submit-procedure",
+      "purpose": "anatomical reference diagram"
+    },
+    {
+      "filename": "guide-thumbnail-magnet.png",
+      "prompt": "Macro photograph of a tiny biocompatible neodymium magnet held by sterile tweezers, dramatic lighting with cyan rim light, cream background with subtle scan-line texture, cyberpunk-clinical aesthetic",
+      "size": "1024x1024",
+      "used_on": "guides",
+      "purpose": "featured guide card image"
+    },
+    {
+      "filename": "guide-thumbnail-nfc.png",
+      "prompt": "Close-up of a small glass-encased NFC implant capsule beside a syringe applicator on a clean cream surface, hot pink accent lighting, technical product photography style with slight digital glitch overlay",
+      "size": "1024x1024",
+      "used_on": "guides",
+      "purpose": "featured guide card image"
+    },
+    {
+      "filename": "member-avatar-placeholder.png",
+      "prompt": "Heavily pixelated and glitched anonymous avatar silhouette in hot pink and cyan duotone on cream background, VHS distortion, cyberpunk underground aesthetic, square portrait",
+      "size": "1024x1024",
+      "used_on": "members",
+      "purpose": "default member avatar"
+    },
+    {
+      "filename": "event-workshop-photo.png",
+      "prompt": "Underground workshop scene with people gathered around a table covered in sterilization equipment, magnifiers, and small implant kits, warm fluorescent overhead light, cream walls, documentary photography with subtle cyan and pink color grade, light-cyberpunk lab atmosphere",
+      "size": "1536x1024",
+      "used_on": "events",
+      "purpose": "events page hero/banner"
+    },
+    {
+      "filename": "manifesto-ascii-bg.png",
+      "prompt": "Dense ASCII art pattern forming an abstract circuit-board motif in faint hot pink monospace characters on cream background, subtle texture, terminal document aesthetic",
+      "size": "1536x1024",
+      "used_on": "manifesto",
+      "purpose": "background texture for manifesto page"
+    }
+  ],
+  "special_elements": [
+    "glitch text effect with RGB chromatic aberration on headings",
+    "scrolling marquee with Spanish manifesto excerpts",
+    "terminal-style live feed panel with monospace timestamps",
+    "neon toggle switches and sliders in forms",
+    "scan-line overlay on hero and image elements",
+    "corner registration marks framing major sections",
+    "asymmetric off-grid card placement"
+  ],
+  "responsive_notes": "Desktop: full asymmetric grid with off-center elements preserved, 3-col cards with intentional offsets. Tablet (768-1024px): grid collapses to 2-col, asymmetry reduced but maintained via varied card heights, sidebar filters on registry become a top horizontal filter bar. Mobile (<768px): single column stack, hero text scales down but glitch effect retained, terminal feed becomes collapsible drawer, form multi-step becomes vertical stepper with one section per screen, table on implant-registry becomes stacked card list, top-bar nav collapses to a slide-down panel triggered by a monospace 'MENU//' link (not hamburger icon). Scan lines and neon accents preserved across all viewports; marquee speed reduces on mobile.",
+  "is_broken": false
+}

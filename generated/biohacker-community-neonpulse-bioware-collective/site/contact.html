@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONTACT // NEONPULSE</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 fill=%22%23F2F0E6%22/%3E%3Crect x=%222%22 y=%222%22 width=%226%22 height=%226%22 fill=%22%23FF006E%22/%3E%3Crect x=%228%22 y=%228%22 width=%226%22 height=%226%22 fill=%22%2300F0FF%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="home.html" class="brand"><span class="dot"></span> NEONPULSE<b>//</b>BIOWARE</a>
+    <nav class="nav" id="nav">
+      <a href="home.html">HOME</a>
+      <a href="implant-registry.html">REGISTRY</a>
+      <a href="guides.html">GUIDES</a>
+      <a href="submit-procedure.html">SUBMIT</a>
+      <a href="members.html">MEMBERS</a>
+      <a href="events.html">EVENTS</a>
+      <a href="manifesto.html">MANIFESTO</a>
+      <a href="contact.html" class="active">CONTACT</a>
+    </nav>
+    <div class="topbar__cta"><span class="status-pill"><span class="blink"></span> NET // LIVE</span></div>
+    <a href="#" class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open');return false;">MENU//</a>
+  </div>
+</header>
+
+<main class="page">
+
+  <span class="kicker kicker--cyan">// 08 — REACH US</span>
+  <h1 class="section-title glitch" data-text="CONTACT // 0x00">CONTACT // 0x00</h1>
+  <p class="section-sub">Comunicación encriptada por defecto. Si tu inquietud es delicada, usá Signal o nuestra clave PGP antes de enviar nada en claro.</p>
+
+  <div class="contact-grid regmark">
+    <span class="rm1"></span><span class="rm2"></span>
+
+    <!-- LEFT: FORM -->
+    <div class="col">
+      <h3 style="font-size:var(--step-2);margin-bottom:1rem;">FORMULARIO // CONTACT</h3>
+
+      <div class="toggle-row">
+        <button class="active">PRESS</button>
+        <button>JOIN</button>
+        <button>SECURITY</button>
+        <button>OTHER</button>
+      </div>
+
+      <div class="floating-field">
+        <label>HANDLE / NAME</label>
+        <input type="text" placeholder="Tu alias o nombre profesional...">
+      </div>
+
+      <div class="floating-field">
+        <label>EMAIL</label>
+        <input type="email" placeholder="Dirección de correo (preferentemente Protonmail / Tuta)...">
+      </div>
+
+      <div class="floating-field">
+        <label>ORGANIZATION</label>
+        <input type="text" placeholder="Medio, colectivo o institución (opcional)...">
+      </div>
+
+      <div class="floating-field">
+        <label>SUBJECT</label>
+        <input type="text" placeholder="Asunto breve, una línea...">
+      </div>
+
+      <div class="floating-field">
+        <label>MESSAGE</label>
+        <textarea placeholder="Contanos qué necesitás. Si vas a enviar info sensible, considerá cifrar este mensaje con nuestra clave PGP antes de copiarlo aquí..."></textarea>
+      </div>
+
+      <label class="consent"><input type="checkbox"> <span>Acepto que mi mensaje sea revisado por dos miembros del comité de comunicaciones antes de respuesta.</span></label>
+      <label class="consent"><input type="checkbox" checked> <span>Prefiero recibir respuesta cifrada con mi clave PGP pública (la adjunto en el cuerpo del mensaje).</span></label>
+
+      <div style="margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+        <button class="btn btn--pink glitch" data-text="ENVIAR // SEND">ENVIAR // SEND</button>
+        <a href="#" class="btn">⤓ DESCARGAR PGP KEY (4096-bit)</a>
+      </div>
+
+      <p style="margin-top:1rem;font-size:.78rem;color:var(--c-muted);">
+        // Fingerprint: <code style="background:var(--c-text);color:var(--c-secondary);padding:2px 6px;">A3F2 8C91 7B9D 4E62 · 3812 F4AC · 0E1B 2D87 · 9C00 5511</code>
+      </p>
+    </div>
+
+    <!-- RIGHT: INFO PANEL -->
+    <div class="col">
+      <h3 style="font-size:var(--step-2);margin-bottom:1rem;">CANALES ENCRIPTADOS</h3>
+
+      <p style="font-size:.92rem;margin-bottom:1.25rem;">Toda comunicación sensible debe pasar por canales con cifrado de extremo a extremo. No respondemos consultas médicas urgentes por estos medios — para emergencias contactá a tu sistema de salud local.</p>
+
+      <div class="info-block">
+        <h4>// SIGNAL</h4>
+        <p style="margin:0;">Número operativo rotativo. Pedí el actual vía Matrix antes de mensajear.</p>
+        <code>+52 ··· ··· ····</code>
+      </div>
+
+      <div class="info-block">
+        <h4>// MATRIX</h4>
+        <p style="margin:0;">Sala pública para preguntas generales y onboarding de nuevos miembros.</p>
+        <code>#neonpulse:matrix.org</code>
+      </div>
+
+      <div class="info-block">
+        <h4>// EMAIL // PGP-ONLY</h4>
+        <p style="margin:0;">Mensajes sin cifrar serán ignorados y borrados a las 24h.</p>
+        <code>contact@neonpulse.collective</code>
+      </div>
+
+      <div class="info-block">
+        <h4>// MIRROR // TOR</h4>
+        <p style="margin:0;">Para acceso desde redes vigiladas.</p>
+        <code>neonpulse5xq2...4r.onion</code>
+      </div>
+
+      <h3 style="margin-top:1.5rem;font-size:1.1rem;">// LOGO</h3>
+      <pre class="ascii-art">  ███▄    █ ▓█████  ▒█████   ███▄    █ 
+  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒ ██ ▀█   █ 
+ ▓██  ▀█ ██▒▒███   ▒██░  ██▒▓██  ▀█ ██▒
+ ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░▓██▒  ▐▌██▒
+ ▒██░   ▓██░░▒████▒░ ████▓▒░▒██░   ▓██░
+ ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒ 
+ ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░ ░ ░░   ░ ▒░
+    ░   ░ ░    ░   ░ ░ ░ ▒     ░   ░ ░ 
+          ░    ░  ░    ░ ░           ░ 
+       p u l s e // b i o w a r e </pre>
+
+      <div class="info-block" style="background:var(--c-text);color:var(--c-bg);border-color:var(--c-text);">
+        <h4 style="color:var(--c-accent);">// JURISDICTIONAL DISCLAIMER</h4>
+        <p style="margin:0;font-size:.85rem;">NEONPULSE opera como colectivo descentralizado sin sede legal. Nuestra documentación tiene fines informativos y no constituye consejo médico ni jurídico. La práctica del biohacking puede estar regulada o prohibida en tu jurisdicción; consultá la legislación local antes de cualquier procedimiento.</p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand"><h5>NEONPULSE // BIOWARE</h5><p>Colectivo abierto. CC BY-SA 4.0.</p></div>
+    <div><h5>// EXPLORE</h5><ul><li><a href="implant-registry.html">Registry</a></li><li><a href="guides.html">Guides</a></li><li><a href="members.html">Members</a></li><li><a href="events.html">Events</a></li></ul></div>
+    <div><h5>// COLLECTIVE</h5><ul><li><a href="manifesto.html">Manifesto</a></li><li><a href="submit-procedure.html">Submit</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h5>// MIRROR</h5><ul><li><a href="#">tor.onion</a></li><li><a href="#">IPFS</a></li><li><a href="#">Matrix</a></li></ul></div>
+  </div>
+  <div class="footer__bottom"><span>© 2019—2026 NEONPULSE</span><span>v3.2.7 // 8842</span></div>
+</footer>
+
+</body>
+</html>

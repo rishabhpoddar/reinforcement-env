@@ -1,0 +1,126 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e6]: ★
+        - generic [ref=e7]: حضانة نجوم الصغار
+      - navigation [ref=e8]:
+        - link "الرئيسية" [ref=e9] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "البرامج" [ref=e10] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "التسجيل" [ref=e11] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e12] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "المعلمات" [ref=e13] [cursor=pointer]:
+          - /url: المعلمات.html
+        - link "الأسئلة" [ref=e14] [cursor=pointer]:
+          - /url: الأسئلة.html
+        - link "تواصل" [ref=e15] [cursor=pointer]:
+          - /url: تواصل.html
+        - link "سجّل الآن" [ref=e16] [cursor=pointer]:
+          - /url: التسجيل.html
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]: تخصيص الرعاية
+        - heading "خطة يومية تشبه طفلك" [level=1] [ref=e21]
+        - generic [ref=e22]:
+          - img "معاينة الطفل" [ref=e23]
+          - generic [ref=e24]:
+            - heading "عمر، ٣ سنوات" [level=3] [ref=e25]
+            - paragraph [ref=e26]: يحب المكعبات والموسيقى ويحتاج تذكيراً لطيفاً قبل القيلولة.
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - heading "الوجبات" [level=2] [ref=e30]
+            - generic [ref=e31]:
+              - generic [ref=e32] [cursor=pointer]:
+                - checkbox "🍌 إفطار فواكه وشوفان" [ref=e33]
+                - text: 🍌 إفطار فواكه وشوفان
+              - generic [ref=e34] [cursor=pointer]:
+                - checkbox "🍲 غداء بيتي خفيف" [ref=e35]
+                - text: 🍲 غداء بيتي خفيف
+              - generic [ref=e36] [cursor=pointer]:
+                - checkbox "🥕 وجبة خفيفة بلا سكر" [ref=e37]
+                - text: 🥕 وجبة خفيفة بلا سكر
+          - generic [ref=e38]:
+            - heading "الأنشطة" [level=2] [ref=e39]
+            - generic [ref=e40]:
+              - generic [ref=e41]:
+                - text: فن
+                - generic [ref=e42]: ٤/٥
+              - slider [ref=e43]: "4"
+            - generic [ref=e44]:
+              - generic [ref=e45]:
+                - text: موسيقى
+                - generic [ref=e46]: ٥/٥
+              - slider [ref=e47]: "5"
+            - generic [ref=e48]:
+              - generic [ref=e49]:
+                - text: رياضة
+                - generic [ref=e50]: ٣/٥
+              - slider [ref=e51]: "3"
+            - generic [ref=e52]:
+              - generic [ref=e53]:
+                - text: قراءة
+                - generic [ref=e54]: ٤/٥
+              - slider [ref=e55]: "4"
+          - generic [ref=e56]:
+            - heading "القيلولة" [level=2] [ref=e57]
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - text: قيلولة واحدة
+                - checkbox "قيلولة واحدة" [checked] [ref=e60]
+              - generic [ref=e61]:
+                - text: قيلولتان
+                - checkbox "قيلولتان" [ref=e62]
+              - generic [ref=e63]:
+                - text: تهدئة بموسيقى هادئة
+                - checkbox "تهدئة بموسيقى هادئة" [checked] [ref=e64]
+          - generic [ref=e65]:
+            - heading "التواصل" [level=2] [ref=e66]
+            - generic [ref=e67]:
+              - generic [ref=e68] [cursor=pointer]:
+                - radio "التطبيق" [checked] [ref=e69]
+                - text: التطبيق
+              - generic [ref=e70] [cursor=pointer]:
+                - radio "واتساب" [ref=e71]
+                - text: واتساب
+              - generic [ref=e72] [cursor=pointer]:
+                - radio "إيميل" [ref=e73]
+                - text: إيميل
+            - generic [ref=e74]:
+              - generic [ref=e75] [cursor=pointer]:
+                - radio "يومي" [checked] [ref=e76]
+                - text: يومي
+              - generic [ref=e77] [cursor=pointer]:
+                - radio "أسبوعي" [ref=e78]
+                - text: أسبوعي
+        - complementary [ref=e79]:
+          - heading "ملخص السعر الحي" [level=2] [ref=e80]
+          - paragraph [ref=e81]: يتغير الملخص عند تحديد الوجبات والقيلولة.
+          - generic [ref=e82]: من ٢٢٠ د.أ
+          - list [ref=e83]:
+            - listitem [ref=e84]: ✓ ٥ أيام أسبوعياً
+            - listitem [ref=e85]: ✓ تحديثات مصورة حسب اختياركم
+          - generic [ref=e86]:
+            - generic [ref=e87]: ٢٢٠ أساسي
+            - generic [ref=e88]: ٢٣٧ مع وجبات خفيفة
+            - generic [ref=e89]: ٢٦٢ خطة كاملة
+          - link "حفظ الخطة" [ref=e90] [cursor=pointer]:
+            - /url: التسجيل.html
+  - contentinfo [ref=e91]:
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - strong [ref=e94]: حضانة نجوم الصغار
+        - paragraph [ref=e95]: يمكن تعديل الخطة شهرياً مع مسؤولة الصف.
+      - generic [ref=e96]:
+        - link "التسجيل" [ref=e97] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "الأسئلة" [ref=e98] [cursor=pointer]:
+          - /url: الأسئلة.html
+        - link "تواصل" [ref=e99] [cursor=pointer]:
+          - /url: تواصل.html

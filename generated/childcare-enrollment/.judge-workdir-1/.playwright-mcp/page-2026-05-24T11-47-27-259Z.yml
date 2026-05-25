@@ -1,0 +1,64 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e6]: ★
+        - generic [ref=e7]: حضانة نجوم الصغار
+      - generic [ref=e8]: ☰
+  - main [ref=e9]:
+    - radio "🚂 ١ بيانات الطفل السابق" [checked] [ref=e10]
+    - radio "🚃 ٢ ولي الأمر التالي السابق" [ref=e11]
+    - radio "🚃 ٣ الصحة التالي السابق" [ref=e12]
+    - radio "🚃 ٤ البرنامج التالي السابق" [ref=e13]
+    - radio "🚃 ٥ الموافقات التالي" [ref=e14]
+    - generic [ref=e16]:
+      - generic [ref=e17]: طلب التحاق
+      - heading "نموذج تسجيل بخمس عربات صغيرة" [level=1] [ref=e18]
+      - paragraph [ref=e19]: املأوا خطوة واحدة في كل مرة. العربة الوردية توضّح مكانكم في القطار، وأزرار التالي والسابق تعمل بدون جافاسكريبت.
+      - generic [ref=e20]:
+        - generic [ref=e21] [cursor=pointer]: 🚂 ١ بيانات الطفل
+        - generic [ref=e22] [cursor=pointer]: 🚃 ٢ ولي الأمر
+        - generic [ref=e23] [cursor=pointer]: 🚃 ٣ الصحة
+        - generic [ref=e24] [cursor=pointer]: 🚃 ٤ البرنامج
+        - generic [ref=e25] [cursor=pointer]: 🚃 ٥ الموافقات
+    - generic [ref=e27]:
+      - 'heading "الخطوة ١: بيانات الطفل" [level=2] [ref=e28]'
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e32]: اسم الطفل
+            - generic [ref=e33]:
+              - generic [ref=e34]: 👧
+              - 'textbox "مثال: ليان أحمد" [ref=e35]'
+          - generic [ref=e36]:
+            - generic [ref=e37]: تاريخ الميلاد
+            - generic [ref=e38]:
+              - generic [ref=e39]: 📅
+              - textbox [ref=e40]
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]: الجنس
+            - generic [ref=e44]:
+              - generic [ref=e45] [cursor=pointer]:
+                - radio "بنت" [ref=e46]
+                - text: بنت
+              - generic [ref=e47] [cursor=pointer]:
+                - radio "ولد" [ref=e48]
+                - text: ولد
+          - generic [ref=e49]:
+            - generic [ref=e50]: صورة الطفل
+            - button "Choose File" [ref=e51]
+      - generic [ref=e53] [cursor=pointer]: التالي
+  - contentinfo [ref=e54]:
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - strong [ref=e57]: حضانة نجوم الصغار
+        - paragraph [ref=e58]: نراجع الطلبات خلال يوم عمل واحد.
+      - generic [ref=e59]:
+        - link "البرامج" [ref=e60] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "خطة طفلي" [ref=e61] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "تواصل" [ref=e62] [cursor=pointer]:
+          - /url: تواصل.html

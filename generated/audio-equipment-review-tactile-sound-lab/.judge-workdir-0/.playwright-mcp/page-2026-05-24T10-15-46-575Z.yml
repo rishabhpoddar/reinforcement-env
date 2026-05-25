@@ -1,0 +1,96 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Tactile Sound Lab" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - generic [ref=e6]: Tactile Sound Lab
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "Reviews" [ref=e9] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Database" [ref=e10] [cursor=pointer]:
+          - /url: gear-database.html
+        - link "Lab Tests" [ref=e11] [cursor=pointer]:
+          - /url: lab-tests.html
+        - link "Compare" [ref=e12] [cursor=pointer]:
+          - /url: comparisons.html
+        - link "Community" [ref=e13] [cursor=pointer]:
+          - /url: community.html
+        - link "About" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - img "Audio measurement lab" [ref=e17]
+      - generic [ref=e18]:
+        - generic [ref=e19]: Measurement desk
+        - heading "Lab Tests" [level=1] [ref=e20]
+        - paragraph [ref=e21]: Frequency response, distortion, latency, and filter behavior captured with repeatable methodology.
+    - navigation [ref=e24]:
+      - generic [ref=e25]: Frequency Response
+      - generic [ref=e26]: THD Analysis
+      - generic [ref=e27]: Noise Floor
+      - generic [ref=e28]: Latency
+      - generic [ref=e29]: Filter Curves
+    - generic [ref=e31]:
+      - article [ref=e32]:
+        - heading "Juno-style chorus response" [level=3] [ref=e34]
+        - paragraph [ref=e35]:
+          - text: "Gear under test: Chorus Ensemble CE-2. Pink noise sweep, calibrated at -18 dBFS."
+          - link "Download raw CSV" [ref=e36] [cursor=pointer]:
+            - /url: "#"
+      - article [ref=e37]:
+        - heading "Analog ladder resonance" [level=3] [ref=e39]
+        - paragraph [ref=e40]:
+          - text: "Gear under test: Model D clone. Filter opened over MIDI CV ramp with resonance held at 75%."
+          - link "Download raw WAV" [ref=e41] [cursor=pointer]:
+            - /url: "#"
+    - generic [ref=e44]:
+      - generic [ref=e45]: ▶
+      - heading "How We Test" [level=2] [ref=e46]
+      - paragraph [ref=e47]: Signal flow, gain staging, calibration, and why every result includes listening notes.
+    - generic [ref=e49]:
+      - heading "Measured Side-by-Side" [level=2] [ref=e50]
+      - table [ref=e52]:
+        - rowgroup [ref=e53]:
+          - row "Instrument Noise Floor THD Latency Filter Peak" [ref=e54]:
+            - columnheader "Instrument" [ref=e55]
+            - columnheader "Noise Floor" [ref=e56]
+            - columnheader "THD" [ref=e57]
+            - columnheader "Latency" [ref=e58]
+            - columnheader "Filter Peak" [ref=e59]
+          - row "Juno-60 -78 dBu 0.42% 3.1 ms 11.8 kHz" [ref=e60]:
+            - cell "Juno-60" [ref=e61]
+            - cell "-78 dBu" [ref=e62]
+            - cell "0.42%" [ref=e63]
+            - cell "3.1 ms" [ref=e64]
+            - cell "11.8 kHz" [ref=e65]
+          - row "MS-20 -70 dBu 0.88% 2.7 ms 9.4 kHz" [ref=e66]:
+            - cell "MS-20" [ref=e67]
+            - cell "-70 dBu" [ref=e68]
+            - cell "0.88%" [ref=e69]
+            - cell "2.7 ms" [ref=e70]
+            - cell "9.4 kHz" [ref=e71]
+          - row "TR-808 -74 dBu 0.51% 1.8 ms 14.2 kHz" [ref=e72]:
+            - cell "TR-808" [ref=e73]
+            - cell "-74 dBu" [ref=e74]
+            - cell "0.51%" [ref=e75]
+            - cell "1.8 ms" [ref=e76]
+            - cell "14.2 kHz" [ref=e77]
+          - row "SH-101 -81 dBu 0.35% 2.2 ms 12.5 kHz" [ref=e78]:
+            - cell "SH-101" [ref=e79]
+            - cell "-81 dBu" [ref=e80]
+            - cell "0.35%" [ref=e81]
+            - cell "2.2 ms" [ref=e82]
+            - cell "12.5 kHz" [ref=e83]
+          - row "OB-Xa -76 dBu 0.61% 4.0 ms 10.9 kHz" [ref=e84]:
+            - cell "OB-Xa" [ref=e85]
+            - cell "-76 dBu" [ref=e86]
+            - cell "0.61%" [ref=e87]
+            - cell "4.0 ms" [ref=e88]
+            - cell "10.9 kHz" [ref=e89]
+  - contentinfo [ref=e90]:
+    - generic [ref=e91]:
+      - strong [ref=e92]: Tactile Sound Lab
+      - generic [ref=e93]: Independent reviews for analog obsessives.
+      - generic [ref=e94]: Raw data available

@@ -1,0 +1,113 @@
+- generic [active] [ref=e1]:
+  - checkbox
+  - generic [ref=e7]: ATP / Objekt
+  - complementary [ref=e8]:
+    - generic [ref=e9]:
+      - link "ATP 1957→ Archiv für Typografische Praxis Schweizer Gestaltung 1950–1985" [ref=e10] [cursor=pointer]:
+        - /url: startseite.html
+        - generic [ref=e11]:
+          - generic [ref=e12]: ATP
+          - generic [ref=e13]: 1957→
+        - generic [ref=e14]:
+          - text: Archiv für Typografische Praxis
+          - text: Schweizer Gestaltung 1950–1985
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "01 Startseite" [ref=e18] [cursor=pointer]:
+              - /url: startseite.html
+          - listitem [ref=e19]:
+            - link "02 Sammlung" [ref=e20] [cursor=pointer]:
+              - /url: sammlung.html
+          - listitem [ref=e21]:
+            - link "03 Objekt-Detail" [ref=e22] [cursor=pointer]:
+              - /url: objekt-detail.html
+          - listitem [ref=e23]:
+            - link "04 Essays" [ref=e24] [cursor=pointer]:
+              - /url: essays.html
+          - listitem [ref=e25]:
+            - link "05 Essay-Detail" [ref=e26] [cursor=pointer]:
+              - /url: essay-detail.html
+          - listitem [ref=e27]:
+            - link "06 Raster-System" [ref=e28] [cursor=pointer]:
+              - /url: raster-system.html
+          - listitem [ref=e29]:
+            - link "07 Über uns" [ref=e30] [cursor=pointer]:
+              - /url: uber-uns.html
+          - listitem [ref=e31]:
+            - link "08 Kontakt" [ref=e32] [cursor=pointer]:
+              - /url: kontakt.html
+    - paragraph [ref=e33]:
+      - text: Zürich
+      - text: Di–Fr 10:00–17:00
+      - text: Inv. Gesamt 3.412
+  - main [ref=e34]:
+    - generic [ref=e35]:
+      - img "Detailscan eines Schweizer Ausstellungsplakats" [ref=e37]
+      - generic [ref=e38]:
+        - paragraph [ref=e39]: Inventarnr. ATP-1960-088
+        - heading "Ausstellung konstruktive Formen" [level=2] [ref=e40]
+        - table [ref=e41]:
+          - rowgroup [ref=e42]:
+            - row "Titel Ausstellung konstruktive Formen" [ref=e43]:
+              - rowheader "Titel" [ref=e44]
+              - cell "Ausstellung konstruktive Formen" [ref=e45]
+            - row "Gestalter:in Elisabeth Frei" [ref=e46]:
+              - rowheader "Gestalter:in" [ref=e47]
+              - cell "Elisabeth Frei" [ref=e48]
+            - row "Jahr 1960" [ref=e49]:
+              - rowheader "Jahr" [ref=e50]
+              - cell "1960" [ref=e51]
+            - row "Auftraggeber Kunsthalle Zürich" [ref=e52]:
+              - rowheader "Auftraggeber" [ref=e53]
+              - cell "Kunsthalle Zürich" [ref=e54]
+            - row "Druckverfahren Siebdruck" [ref=e55]:
+              - rowheader "Druckverfahren" [ref=e56]
+              - cell "Siebdruck" [ref=e57]
+            - row "Format 70 × 100 cm" [ref=e58]:
+              - rowheader "Format" [ref=e59]
+              - cell "70 × 100 cm" [ref=e60]
+            - row "Inventarnr. ATP-1960-088" [ref=e61]:
+              - rowheader "Inventarnr." [ref=e62]
+              - cell "ATP-1960-088" [ref=e63]
+            - row "Provenienz Nachlass Frei, 1998" [ref=e64]:
+              - rowheader "Provenienz" [ref=e65]
+              - cell "Nachlass Frei, 1998" [ref=e66]
+            - row "Standort Depot B, Planlade 14" [ref=e67]:
+              - rowheader "Standort" [ref=e68]
+              - cell "Depot B, Planlade 14" [ref=e69]
+    - generic [ref=e71]:
+      - paragraph [ref=e72]: Das Plakat verbindet eine strenge linksbündige Satzanlage mit einem einzigen roten Kreis, der als Orientierungspunkt und Störung zugleich funktioniert. Die Komposition zeigt exemplarisch, wie die Schweizer Gebrauchsgrafik um 1960 visuelle Hierarchie über Mass, Achse und Abstand erzeugte.
+      - paragraph [ref=e73]: Die Papieroberfläche weist leichte Alterungsspuren auf. Diese Spuren sind in der Digitalisierung bewusst erhalten, weil sie Herstellung, Distribution und Lagerung als Teil der Objektgeschichte lesbar machen.
+      - paragraph [ref=e74]: Bemerkenswert ist die konsequente Trennung von Informationsblock und Bildzeichen. Der Entwurf vermeidet Illustration und arbeitet stattdessen mit relationaler Spannung im Raster.
+    - generic [ref=e75]:
+      - heading "Verwandte Objekte" [level=2] [ref=e76]
+      - generic [ref=e77]:
+        - article [ref=e78]:
+          - img "Verwandtes Plakat" [ref=e79]
+          - paragraph [ref=e80]: ATP-1962-014
+        - article [ref=e81]:
+          - img "Rasterstudie" [ref=e82]
+          - paragraph [ref=e83]: ATP-1968-120
+        - article [ref=e84]:
+          - img "Buchobjekt" [ref=e85]
+          - paragraph [ref=e86]: ATP-1974-231
+        - article [ref=e87]:
+          - img "Schriftobjekt" [ref=e88]
+          - paragraph [ref=e89]: ATP-1957-003
+    - generic [ref=e90]:
+      - strong [ref=e91]: Zitation
+      - generic [ref=e92]: "@archive{ATP-1960-088, title = {Ausstellung konstruktive Formen}, author = {Frei, Elisabeth}, year = {1960}, institution = {Archiv für Typografische Praxis} }"
+    - generic [ref=e93]:
+      - article [ref=e94]:
+        - paragraph [ref=e95]: Rechte
+        - strong [ref=e96]: Bildnutzung
+        - paragraph [ref=e97]: Reproduktion nur nach Freigabe.
+      - article [ref=e98]:
+        - paragraph [ref=e99]: Konservierung
+        - strong [ref=e100]: Zustand II
+        - paragraph [ref=e101]: Stabil, säurefrei gelagert.
+      - article [ref=e102]:
+        - paragraph [ref=e103]: Verweis
+        - strong [ref=e104]: Essay 042
+        - paragraph [ref=e105]: Raster als Argument.

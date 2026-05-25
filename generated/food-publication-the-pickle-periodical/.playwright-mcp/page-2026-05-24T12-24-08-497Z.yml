@@ -1,0 +1,237 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text: "NEW: The 2024 Sauerkraut Census is here! →"
+    - link "Read the findings" [ref=e3] [cursor=pointer]:
+      - /url: recipes.html
+  - navigation [ref=e4]:
+    - link "The Pickle Periodical" [ref=e5] [cursor=pointer]:
+      - /url: home.html
+      - text: The Pickle Periodical
+    - list [ref=e7]:
+      - listitem [ref=e8]:
+        - link "Recipes" [ref=e9] [cursor=pointer]:
+          - /url: recipes.html
+      - listitem [ref=e10]:
+        - link "Techniques" [ref=e11] [cursor=pointer]:
+          - /url: techniques.html
+      - listitem [ref=e12]:
+        - link "Ferment Atlas" [ref=e13] [cursor=pointer]:
+          - /url: ferment-atlas.html
+      - listitem [ref=e14]:
+        - link "Ask the Brinemaster" [ref=e15] [cursor=pointer]:
+          - /url: ask-the-brinemaster.html
+      - listitem [ref=e16]:
+        - link "Shop" [ref=e17] [cursor=pointer]:
+          - /url: shop.html
+      - listitem [ref=e18]:
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: about.html
+  - generic [ref=e21]:
+    - generic [ref=e22]:
+      - link "Home" [ref=e23] [cursor=pointer]:
+        - /url: home.html
+      - text: / Techniques
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - heading "Anatomy of a Jar." [level=1] [ref=e26]:
+          - generic [ref=e27]: Anatomy
+          - text: of a Jar.
+        - paragraph [ref=e28]: "A jar is a tiny ecosystem. Understanding its layered architecture is the first step toward mastering every ferment in this magazine. Below: the five regions of the modern lacto-jar, illustrated."
+      - img "Fermentation jar cross-section" [ref=e30]
+  - generic [ref=e32]:
+    - generic [ref=e33] [cursor=pointer]: Lacto-Fermentation
+    - generic [ref=e34] [cursor=pointer]: Vinegar Pickling
+    - generic [ref=e35] [cursor=pointer]: Koji & Mold
+    - generic [ref=e36] [cursor=pointer]: Wild Yeast
+    - generic [ref=e37] [cursor=pointer]: Garum & Fish Sauce
+  - article [ref=e39]:
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]: "1"
+        - heading "Weigh Your Vegetables" [level=3] [ref=e43]
+        - paragraph [ref=e44]: Strip outer leaves, remove cores, and weigh the prepared vegetable in grams. This number is the foundation of every calculation that follows. Approximation is the enemy of safe lacto-fermentation.
+      - generic [ref=e45]:
+        - generic [ref=e46]: "2"
+        - heading "Calculate the Salt" [level=3] [ref=e47]
+        - paragraph [ref=e48]: Multiply the vegetable weight by your target salt percentage (typically 2.0–2.5% by weight). Use non-iodized salt only — pickling salt, kosher salt, or pure sea salt without anti-caking agents.
+      - generic [ref=e49]:
+        - text: ⚠ TROUBLESHOOTING
+        - 'heading "Troubleshooting: Why is my kraut slimy?" [level=4] [ref=e50]'
+        - paragraph [ref=e51]: "Slime is usually one of three culprits: too-warm ambient temperature (above 75°F), inadequate salt (below 1.8%), or the wrong cabbage cultivar. Most slime is benign — keep it submerged and ferment another week. It often resolves."
+      - generic [ref=e52]:
+        - generic [ref=e53]: "3"
+        - heading "Mash & Knead" [level=3] [ref=e54]
+        - paragraph [ref=e55]: Sprinkle salt over shredded vegetables and massage aggressively for 8–10 minutes. The salt draws water from the cells, creating the brine that will become your fermentation medium.
+      - generic [ref=e58]:
+        - paragraph [ref=e59]: “If your wrists aren’t tired by step three, you haven’t kneaded enough. The kraut should weep like a sad cabbage.”
+        - generic [ref=e60]: — Brinemaster Sandor, on cabbage
+      - generic [ref=e61]:
+        - generic [ref=e62]: "4"
+        - heading "Pack the Vessel" [level=3] [ref=e63]
+        - paragraph [ref=e64]: Press the salted vegetable into a clean, wide-mouth jar in compressed layers. Pour any liberated brine over the top. Leave at least 2 inches of headspace below the rim.
+      - heading "Salt Percentage by Vegetable" [level=3] [ref=e65]
+      - table [ref=e66]:
+        - rowgroup [ref=e67]:
+          - row "Vegetable Salt % Time Notes" [ref=e68]:
+            - columnheader "Vegetable" [ref=e69]
+            - columnheader "Salt %" [ref=e70]
+            - columnheader "Time" [ref=e71]
+            - columnheader "Notes" [ref=e72]
+          - row "Cabbage (kraut) 2.0% 2–4 wk Higher = crunchier" [ref=e73]:
+            - cell "Cabbage (kraut)" [ref=e74]
+            - cell "2.0%" [ref=e75]
+            - cell "2–4 wk" [ref=e76]
+            - cell "Higher = crunchier" [ref=e77]
+          - row "Cucumber 3.5% 1–2 wk Tannin leaves required" [ref=e78]:
+            - cell "Cucumber" [ref=e79]
+            - cell "3.5%" [ref=e80]
+            - cell "1–2 wk" [ref=e81]
+            - cell "Tannin leaves required" [ref=e82]
+          - row "Carrot 2.5% 1–2 wk Add ginger / dill" [ref=e83]:
+            - cell "Carrot" [ref=e84]
+            - cell "2.5%" [ref=e85]
+            - cell "1–2 wk" [ref=e86]
+            - cell "Add ginger / dill" [ref=e87]
+          - row "Radish (kkakdugi) 2.0% 1 wk Pre-salt 1 hour" [ref=e88]:
+            - cell "Radish (kkakdugi)" [ref=e89]
+            - cell "2.0%" [ref=e90]
+            - cell "1 wk" [ref=e91]
+            - cell "Pre-salt 1 hour" [ref=e92]
+          - row "Beet (kvass base) 1.0% 5–7 d Plus water by weight" [ref=e93]:
+            - cell "Beet (kvass base)" [ref=e94]
+            - cell "1.0%" [ref=e95]
+            - cell "5–7 d" [ref=e96]
+            - cell "Plus water by weight" [ref=e97]
+      - generic [ref=e98]:
+        - generic [ref=e99]: "5"
+        - heading "Submerge & Wait" [level=3] [ref=e100]
+        - paragraph [ref=e101]: Weight the vegetables down so they remain submerged below the brine. Apply an airlock or burp the jar daily for the first week. Taste at day 7, 14, and 21 — finish when you love it.
+      - generic [ref=e104]:
+        - text: ⚠ TROUBLESHOOTING
+        - 'heading "Bonus: White scum on top — friend or foe?" [level=4] [ref=e105]'
+        - paragraph [ref=e106]: Kahm yeast. Harmless but funky-smelling. Skim with a clean spoon. Won’t hurt the ferment beneath, but if left for weeks it can soften the texture.
+    - complementary [ref=e107]:
+      - img "Reference diagram" [ref=e108]
+      - heading "Quick Reference" [level=4] [ref=e109]
+      - paragraph [ref=e110]: "Tap any labeled part of the diagram to jump to its dedicated guide. The five regions are: airlock, headspace, brine, weight, and submerged vegetable."
+  - generic [ref=e112]:
+    - generic [ref=e113]:
+      - generic [ref=e114]: — Tools of the Trade —
+      - heading "You’ll Need" [level=2] [ref=e115]
+    - generic [ref=e116]:
+      - generic [ref=e117]:
+        - generic [ref=e118]: 🫙
+        - heading "Wide-Mouth 2L Jar" [level=4] [ref=e119]
+        - generic [ref=e120]: $18.00
+        - button "Add" [ref=e121] [cursor=pointer]
+      - generic [ref=e122]:
+        - generic [ref=e123]: ⚖️
+        - heading "Glass Fermentation Weight" [level=4] [ref=e124]
+        - generic [ref=e125]: $9.00
+        - button "Add" [ref=e126] [cursor=pointer]
+      - generic [ref=e127]:
+        - generic [ref=e128]: 🌬
+        - heading "Silicone Airlock Lid" [level=4] [ref=e129]
+        - generic [ref=e130]: $12.00
+        - button "Add" [ref=e131] [cursor=pointer]
+      - generic [ref=e132]:
+        - generic [ref=e133]: 🧂
+        - heading "Sicilian Pickling Salt 1kg" [level=4] [ref=e134]
+        - generic [ref=e135]: $8.50
+        - button "Add" [ref=e136] [cursor=pointer]
+  - contentinfo [ref=e137]:
+    - generic [ref=e138]:
+      - generic [ref=e139]:
+        - link "The Pickle Periodical" [ref=e140] [cursor=pointer]:
+          - /url: home.html
+          - text: The Pickle Periodical
+        - paragraph [ref=e142]:
+          - text: A quarterly devotion to fermentation, brine, and slow flavor.
+          - text: Brooklyn, NY · Est. 2016
+        - generic [ref=e143]:
+          - link "IG" [ref=e144] [cursor=pointer]:
+            - /url: "#"
+          - link "TW" [ref=e145] [cursor=pointer]:
+            - /url: "#"
+          - link "YT" [ref=e146] [cursor=pointer]:
+            - /url: "#"
+          - link "RSS" [ref=e147] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e149]:
+        - heading "Sections" [level=4] [ref=e150]
+        - list [ref=e151]:
+          - listitem [ref=e152]:
+            - link "Recipes" [ref=e153] [cursor=pointer]:
+              - /url: recipes.html
+          - listitem [ref=e154]:
+            - link "Techniques" [ref=e155] [cursor=pointer]:
+              - /url: techniques.html
+          - listitem [ref=e156]:
+            - link "Atlas" [ref=e157] [cursor=pointer]:
+              - /url: ferment-atlas.html
+          - listitem [ref=e158]:
+            - link "Brinemaster" [ref=e159] [cursor=pointer]:
+              - /url: ask-the-brinemaster.html
+      - generic [ref=e160]:
+        - heading "About" [level=4] [ref=e161]
+        - list [ref=e162]:
+          - listitem [ref=e163]:
+            - link "Our story" [ref=e164] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e165]:
+            - link "Masthead" [ref=e166] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e167]:
+            - link "Pitch us" [ref=e168] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e169]:
+            - link "Press" [ref=e170] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e171]:
+        - heading "Shop" [level=4] [ref=e172]
+        - list [ref=e173]:
+          - listitem [ref=e174]:
+            - link "All Goods" [ref=e175] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e176]:
+            - link "Beginner Kits" [ref=e177] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e178]:
+            - link "Subscriptions" [ref=e179] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e180]:
+            - link "Gift Cards" [ref=e181] [cursor=pointer]:
+              - /url: shop.html
+      - generic [ref=e182]:
+        - heading "Community" [level=4] [ref=e183]
+        - list [ref=e184]:
+          - listitem [ref=e185]:
+            - link "Forums" [ref=e186] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e187]:
+            - link "Events" [ref=e188] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e189]:
+            - link "Workshops" [ref=e190] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e191]:
+            - link "Submitted" [ref=e192] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e193]:
+        - heading "Legal" [level=4] [ref=e194]
+        - list [ref=e195]:
+          - listitem [ref=e196]:
+            - link "Privacy" [ref=e197] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e198]:
+            - link "Terms" [ref=e199] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e200]:
+            - link "Cookies" [ref=e201] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e202]:
+            - link "Accessibility" [ref=e203] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e204]:
+      - generic [ref=e205]: © 2024 The Pickle Periodical · A worker-owned cooperative.
+      - generic [ref=e206]: Letterpress aesthetic since vol. 1

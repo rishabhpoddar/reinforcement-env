@@ -1,0 +1,80 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Atelier Papier Buvard" [ref=e4] [cursor=pointer]:
+        - /url: accueil.html
+      - generic [ref=e5]: Paris · depuis 2014
+    - generic [ref=e6]: Showroom · 12 rue de Charonne
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - text: L'atelier
+      - heading "Rue de Charonne, depuis 2014" [level=1] [ref=e9]
+    - img "Vue panoramique de l'atelier parisien" [ref=e11]
+    - generic [ref=e12]:
+      - heading "Une pièce unique au fond d'une cour pavée du onzième arrondissement." [level=2] [ref=e13]:
+        - emphasis [ref=e14]: Une pièce unique au fond d'une cour pavée du onzième arrondissement.
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: L'atelier a ouvert en mars 2014, dans une ancienne menuiserie de la rue de Charonne. Trois grandes tables de chêne, deux cuves de marbrage, une presse typographique des années 1950 récupérée à Vichy — et beaucoup de patience.
+        - paragraph [ref=e17]: "Au début, Margaux travaillait seule. Aujourd'hui l'équipe compte quatre artisanes formées au marbrage à la cuve et à la reliure traditionnelle. Le rythme reste lent : on ne marbre que les matins, quand la lumière entre par les fenêtres nord."
+      - generic [ref=e18]:
+        - paragraph [ref=e19]: Chaque pièce qui sort de l'atelier est numérotée, signée à la mine de plomb au verso, et accompagnée d'une note précisant le bain utilisé et la date de fabrication.
+        - paragraph [ref=e20]: Nous travaillons exclusivement avec du papier de Moulin Richard de Bas en Auvergne, et des pigments naturels broyés à Montrouge. Rien d'industriel, rien de pressé.
+    - generic [ref=e21]:
+      - img "Portrait de Margaux Lefèvre, fondatrice" [ref=e22]
+      - generic [ref=e23]:
+        - blockquote [ref=e24]: « J'ai d'abord été relieuse, puis le papier marbré m'est revenu, presque sans que je le décide. C'est une matière qui exige le silence — et qui répond à celui qui sait attendre. »
+        - generic [ref=e25]:
+          - strong [ref=e26]: Margaux Lefèvre
+          - text: · fondatrice, marbrière
+    - generic [ref=e27]:
+      - img "Détail atelier 1" [ref=e29]
+      - img "Détail atelier 2" [ref=e31]
+      - img "Détail atelier 3" [ref=e33]
+      - img "Détail atelier 4" [ref=e35]
+    - generic [ref=e37]:
+      - text: Trois piliers
+      - heading "Nos valeurs" [level=2] [ref=e38]
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]: "01"
+          - heading "Lenteur" [level=3] [ref=e42]
+          - paragraph [ref=e43]: Rien ne se fabrique en une journée. Le séchage d'une feuille de marbrure demande quarante-huit heures — nous n'essayons pas d'aller plus vite.
+        - generic [ref=e44]:
+          - generic [ref=e45]: "02"
+          - heading "Matière" [level=3] [ref=e46]
+          - paragraph [ref=e47]: Papier d'Auvergne, pigments minéraux, fil de lin, encres végétales. Nous connaissons l'origine de chaque composant que nous employons.
+        - generic [ref=e48]:
+          - generic [ref=e49]: "03"
+          - heading "Geste" [level=3] [ref=e50]
+          - paragraph [ref=e51]: Le peigne, la cuve, la presse. Des gestes lents, répétés depuis cinq siècles, transmis d'atelier en atelier. Nous y ajoutons notre note.
+  - contentinfo [ref=e52]:
+    - generic [ref=e53]:
+      - generic [ref=e54]: Atelier Papier Buvard
+      - generic [ref=e55]: © 2025 · 12 rue de Charonne, 75011 Paris
+      - generic [ref=e56]:
+        - link "Instagram" [ref=e57] [cursor=pointer]:
+          - /url: contact.html
+        - text: ·
+        - link "Are.na" [ref=e58] [cursor=pointer]:
+          - /url: contact.html
+  - navigation "Navigation principale" [ref=e59]:
+    - link "Accueil" [ref=e60] [cursor=pointer]:
+      - /url: accueil.html
+      - img [ref=e61]
+      - generic [ref=e63]: Accueil
+    - link "Collections" [ref=e64] [cursor=pointer]:
+      - /url: collections.html
+      - img [ref=e65]
+      - generic [ref=e70]: Collections
+    - link "Atelier" [ref=e71] [cursor=pointer]:
+      - /url: atelier.html
+      - img [ref=e72]
+      - generic [ref=e74]: Atelier
+    - link "Journal" [ref=e75] [cursor=pointer]:
+      - /url: journal.html
+      - img [ref=e76]
+      - generic [ref=e78]: Journal
+    - link "Commander" [ref=e79] [cursor=pointer]:
+      - /url: commander.html
+      - img [ref=e80]
+      - generic [ref=e82]: Commander

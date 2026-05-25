@@ -1,0 +1,100 @@
+- generic [active] [ref=e1]:
+  - checkbox
+  - complementary [ref=e2]:
+    - generic [ref=e3]:
+      - link "ATP 1957→ Archiv für Typografische Praxis Schweizer Gestaltung 1950–1985" [ref=e4] [cursor=pointer]:
+        - /url: startseite.html
+        - generic [ref=e5]:
+          - generic [ref=e6]: ATP
+          - generic [ref=e7]: 1957→
+        - generic [ref=e8]:
+          - text: Archiv für Typografische Praxis
+          - text: Schweizer Gestaltung 1950–1985
+      - navigation [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "01 Startseite" [ref=e12] [cursor=pointer]:
+              - /url: startseite.html
+          - listitem [ref=e13]:
+            - link "02 Sammlung" [ref=e14] [cursor=pointer]:
+              - /url: sammlung.html
+          - listitem [ref=e15]:
+            - link "03 Objekt-Detail" [ref=e16] [cursor=pointer]:
+              - /url: objekt-detail.html
+          - listitem [ref=e17]:
+            - link "04 Essays" [ref=e18] [cursor=pointer]:
+              - /url: essays.html
+          - listitem [ref=e19]:
+            - link "05 Essay-Detail" [ref=e20] [cursor=pointer]:
+              - /url: essay-detail.html
+          - listitem [ref=e21]:
+            - link "06 Raster-System" [ref=e22] [cursor=pointer]:
+              - /url: raster-system.html
+          - listitem [ref=e23]:
+            - link "07 Über uns" [ref=e24] [cursor=pointer]:
+              - /url: uber-uns.html
+          - listitem [ref=e25]:
+            - link "08 Kontakt" [ref=e26] [cursor=pointer]:
+              - /url: kontakt.html
+    - paragraph [ref=e27]:
+      - text: Zürich
+      - text: Di–Fr 10:00–17:00
+      - text: Inv. Gesamt 3.412
+  - main [ref=e28]:
+    - generic [ref=e29]:
+      - heading "Archiv für Typografische Praxis — Studien zur Schweizer Gestaltung 1950–1985." [level=1] [ref=e30]
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: Ausgabe 47
+        - paragraph [ref=e33]: 24. Mai 2026
+        - paragraph [ref=e34]: 3.412 Objekte
+        - paragraph [ref=e35]: Forschungsarchiv für Plakat, Raster, Schrift und visuelle Ordnung.
+        - paragraph [ref=e36]:
+          - link "Sammlung durchsuchen" [ref=e37] [cursor=pointer]:
+            - /url: sammlung.html
+    - generic [ref=e38]:
+      - article [ref=e39]:
+        - img "Schweizer Plakatarchiv, rote Geometrie" [ref=e40]
+        - paragraph [ref=e41]: ATP-1962-014
+        - paragraph [ref=e42]:
+          - strong [ref=e43]: Max Keller / 1962
+          - text: Offsetplakat, 70 × 100 cm
+      - article [ref=e44]:
+        - img "Ausstellungsplakat mit rotem Kreis" [ref=e45]
+        - paragraph [ref=e46]: ATP-1960-088
+        - paragraph [ref=e47]:
+          - strong [ref=e48]: Elisabeth Frei / 1960
+          - text: Siebdruck, Ausstellung Zürich
+      - article [ref=e49]:
+        - img "Typografische Buchgestaltung als Doppelseite" [ref=e50]
+        - paragraph [ref=e51]: ATP-1974-231
+        - paragraph [ref=e52]:
+          - strong [ref=e53]: Karl Gerstner / 1974
+          - text: Buchgestaltung, Schriftmuster
+      - article [ref=e54]:
+        - img "Helvetica Metalllettern im Archiv" [ref=e55]
+        - paragraph [ref=e56]: ATP-1957-003
+        - paragraph [ref=e57]:
+          - strong [ref=e58]: Haas’sche Giesserei / 1957
+          - text: Schriftmuster, Helvetica
+    - generic [ref=e59]:
+      - paragraph [ref=e60]: Die Form folgt der Funktion, aber das Raster folgt der Idee.
+      - generic [ref=e61]:
+        - paragraph [ref=e62]: Aktuelle Essays untersuchen die unsichtbaren Systeme hinter publizierter Ordnung.
+        - paragraph [ref=e63]:
+          - link "Aktuelle Essays" [ref=e64] [cursor=pointer]:
+            - /url: essays.html
+          - link "Newsletter abonnieren" [ref=e65] [cursor=pointer]:
+            - /url: kontakt.html
+    - generic [ref=e66]:
+      - article [ref=e67]:
+        - paragraph [ref=e68]: 12.05.2026
+        - strong [ref=e69]: Raster als Argument
+        - paragraph [ref=e70]: Notizen zu Müller-Brockmanns didaktischer Strenge.
+      - article [ref=e71]:
+        - paragraph [ref=e72]: 02.05.2026
+        - strong [ref=e73]: Helvetica vor Helvetica
+        - paragraph [ref=e74]: Spuren der Grotesk im industriellen Alltag.
+      - article [ref=e75]:
+        - paragraph [ref=e76]: 18.04.2026
+        - strong [ref=e77]: Archivieren als Praxis
+        - paragraph [ref=e78]: Warum Inventarnummern gestalterische Aussagen sind.

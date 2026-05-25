@@ -1,0 +1,99 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e5]: ★
+        - generic [ref=e6]: حضانة نجوم الصغار
+      - generic [ref=e7]: ☰
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]: تخصيص الرعاية
+        - heading "خطة يومية تشبه طفلك" [level=1] [ref=e12]
+        - generic [ref=e13]:
+          - img "معاينة الطفل" [ref=e14]
+          - generic [ref=e15]:
+            - heading "عمر، ٣ سنوات" [level=3] [ref=e16]
+            - paragraph [ref=e17]: يحب المكعبات والموسيقى ويحتاج تذكيراً لطيفاً قبل القيلولة.
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]:
+            - heading "الوجبات" [level=2] [ref=e21]
+            - generic [ref=e22]:
+              - generic [ref=e23] [cursor=pointer]:
+                - checkbox "🍌 إفطار فواكه وشوفان" [ref=e24]
+                - text: 🍌 إفطار فواكه وشوفان
+              - generic [ref=e25] [cursor=pointer]:
+                - checkbox "🍲 غداء بيتي خفيف" [ref=e26]
+                - text: 🍲 غداء بيتي خفيف
+              - generic [ref=e27] [cursor=pointer]:
+                - checkbox "🥕 وجبة خفيفة بلا سكر" [ref=e28]
+                - text: 🥕 وجبة خفيفة بلا سكر
+          - generic [ref=e29]:
+            - heading "الأنشطة" [level=2] [ref=e30]
+            - generic [ref=e31]:
+              - generic [ref=e32]: فن
+              - slider [ref=e33]: "4"
+            - generic [ref=e34]:
+              - generic [ref=e35]: موسيقى
+              - slider [ref=e36]: "5"
+            - generic [ref=e37]:
+              - generic [ref=e38]: رياضة
+              - slider [ref=e39]: "3"
+            - generic [ref=e40]:
+              - generic [ref=e41]: قراءة
+              - slider [ref=e42]: "4"
+          - generic [ref=e43]:
+            - heading "القيلولة" [level=2] [ref=e44]
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - text: قيلولة واحدة
+                - checkbox "قيلولة واحدة" [checked] [ref=e47]
+              - generic [ref=e48]:
+                - text: قيلولتان
+                - checkbox "قيلولتان" [ref=e49]
+              - generic [ref=e50]:
+                - text: تهدئة بموسيقى هادئة
+                - checkbox "تهدئة بموسيقى هادئة" [checked] [ref=e51]
+          - generic [ref=e52]:
+            - heading "التواصل" [level=2] [ref=e53]
+            - generic [ref=e54]:
+              - generic [ref=e55] [cursor=pointer]:
+                - radio "التطبيق" [ref=e56]
+                - text: التطبيق
+              - generic [ref=e57] [cursor=pointer]:
+                - radio "واتساب" [ref=e58]
+                - text: واتساب
+              - generic [ref=e59] [cursor=pointer]:
+                - radio "إيميل" [ref=e60]
+                - text: إيميل
+            - generic [ref=e61]:
+              - generic [ref=e62] [cursor=pointer]:
+                - radio "يومي" [ref=e63]
+                - text: يومي
+              - generic [ref=e64] [cursor=pointer]:
+                - radio "أسبوعي" [ref=e65]
+                - text: أسبوعي
+        - complementary [ref=e66]:
+          - heading "ملخص السعر" [level=2] [ref=e67]
+          - paragraph [ref=e68]: البرنامج الأساسي + وجبات + تحديثات يومية
+          - generic [ref=e69]: ٢٤٥ د.أ
+          - list [ref=e70]:
+            - listitem [ref=e71]: ✓ ٥ أيام أسبوعياً
+            - listitem [ref=e72]: ✓ وجبتان ووجبة خفيفة
+            - listitem [ref=e73]: ✓ تقرير يومي مصور
+          - link "حفظ الخطة" [ref=e74] [cursor=pointer]:
+            - /url: التسجيل.html
+  - contentinfo [ref=e75]:
+    - generic [ref=e76]:
+      - generic [ref=e77]:
+        - strong [ref=e78]: حضانة نجوم الصغار
+        - paragraph [ref=e79]: يمكن تعديل الخطة شهرياً مع مسؤولة الصف.
+      - generic [ref=e80]:
+        - link "التسجيل" [ref=e81] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "الأسئلة" [ref=e82] [cursor=pointer]:
+          - /url: الأسئلة.html
+        - link "تواصل" [ref=e83] [cursor=pointer]:
+          - /url: تواصل.html

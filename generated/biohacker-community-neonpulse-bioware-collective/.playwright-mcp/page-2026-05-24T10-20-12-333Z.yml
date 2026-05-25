@@ -1,0 +1,128 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]: // 06 — UPCOMING MEETUPS
+    - heading "EVENTS // TIMELINE EVENTS // TIMELINE EVENTS // TIMELINE" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Talleres prácticos, conversatorios y clínicas de mutuo apoyo. Aforos limitados; protocolo de consentimiento y seguridad obligatorio.
+    - generic [ref=e12]:
+      - img "Taller subterráneo de instalación de implantes" [ref=e13]
+      - generic [ref=e15]: // LATAM 2026 · Encuentro anual confirmado · CDMX · 18—20 sept
+    - generic [ref=e16]:
+      - generic [ref=e19]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: "DATE: 12 JUN 2026"
+          - generic [ref=e24]: "LOCATION: CDMX"
+          - generic [ref=e25]: "TYPE: WORKSHOP"
+        - heading "Taller práctico de instalación de imanes — Ciudad de México" [level=3] [ref=e26]
+        - paragraph [ref=e27]: Sesión presencial de 5 horas con dos body modification artists invitados. Práctica con material biocompatible certificado, anestesia tópica legal y kits esterilizados. Incluye sesión de aftercare grupal.
+        - generic [ref=e29]: "CAPACITY: 14 / 16"
+        - button "▸ RSVP // confirmar" [ref=e32] [cursor=pointer]
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]: "DATE: 28 JUN 2026"
+          - generic [ref=e40]: "LOCATION: ONLINE"
+          - generic [ref=e41]: "TYPE: WEBINAR"
+        - 'heading "Conversatorio: marcos legales del biohacking en Latinoamérica" [level=3] [ref=e42]'
+        - paragraph [ref=e43]: "Mesa redonda con abogadas, médicas y dos miembros del colectivo. Comparamos regulación entre México, Argentina, Colombia y Chile. Idioma: español. Streaming privado vía Jitsi."
+        - generic [ref=e45]: "CAPACITY: 48 / 100"
+        - button "▸ RSVP // confirmar" [ref=e48] [cursor=pointer]
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]: "DATE: 15 JUL 2026"
+          - generic [ref=e54]: "LOCATION: Buenos Aires"
+          - generic [ref=e55]: "TYPE: CLINIC"
+        - 'heading "Clínica de aftercare: revisión de implantes a 6 meses" [level=3] [ref=e56]'
+        - paragraph [ref=e57]: Espacio gratuito para miembros con implantes recientes. Revisión visual, intercambio de experiencias y sesión de fotografía documental opcional para el archivo colectivo.
+        - generic [ref=e59]: "CAPACITY: 22 / 25"
+        - button "RSVP confirmado ✓" [ref=e62] [cursor=pointer]
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - generic [ref=e69]: "DATE: 02 AGO 2026"
+          - generic [ref=e70]: "LOCATION: Bogotá"
+          - generic [ref=e71]: "TYPE: READING"
+        - heading "Lectura abierta del Manifiesto v3.2 + cena comunitaria" [level=3] [ref=e72]
+        - paragraph [ref=e73]: Encuentro íntimo en espacio cultural autogestivo. Lectura colectiva del manifiesto, conversación libre y cena vegana a la canasta. Abierto al público general, no se requiere ser miembro.
+        - generic [ref=e75]: "CAPACITY: 8 / 40"
+        - button "▸ RSVP // confirmar" [ref=e78] [cursor=pointer]
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - generic [ref=e83]: "DATE: 18—20 SEP 2026"
+          - generic [ref=e84]: "LOCATION: CDMX"
+          - generic [ref=e85]: "TYPE: ENCUENTRO"
+        - heading "Encuentro Latinoamericano NEONPULSE 2026" [level=3] [ref=e86]
+        - paragraph [ref=e87]: "Tres días intensivos: 12 talleres, 4 paneles, clínica abierta de mutuo apoyo, feria de herramientas DIY y festival de cine cyberpunk underground. Becas de traslado disponibles por aplicación."
+        - generic [ref=e89]: "CAPACITY: 156 / 200"
+        - button "▸ APLICAR // beca + RSVP" [ref=e92] [cursor=pointer]
+    - generic [ref=e94]:
+      - heading "// PAST EVENTS // ARCHIVE" [level=2] [ref=e95]
+      - group [ref=e96]:
+        - generic "2025 · 14 eventos archivados [+]" [ref=e97] [cursor=pointer]:
+          - generic [ref=e98]: 2025 · 14 eventos archivados
+          - text: "[+]"
+      - group [ref=e99]:
+        - generic "2024 · 18 eventos archivados [+]" [ref=e100] [cursor=pointer]:
+          - generic [ref=e101]: 2024 · 18 eventos archivados
+          - text: "[+]"
+      - group [ref=e102]:
+        - generic "2023 · 12 eventos archivados [+]" [ref=e103] [cursor=pointer]:
+          - generic [ref=e104]: 2023 · 12 eventos archivados
+          - text: "[+]"
+      - group [ref=e105]:
+        - generic "2019—2022 · primeros años · 21 eventos [+]" [ref=e106] [cursor=pointer]:
+          - generic [ref=e107]: 2019—2022 · primeros años · 21 eventos
+          - text: "[+]"
+  - contentinfo [ref=e108]:
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e111]
+        - paragraph [ref=e112]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e113]:
+        - heading "// EXPLORE" [level=5] [ref=e114]
+        - list [ref=e115]:
+          - listitem [ref=e116]:
+            - link "Registry" [ref=e117] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e118]:
+            - link "Guides" [ref=e119] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e120]:
+            - link "Members" [ref=e121] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e122]:
+            - link "Events" [ref=e123] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e124]:
+        - heading "// COLLECTIVE" [level=5] [ref=e125]
+        - list [ref=e126]:
+          - listitem [ref=e127]:
+            - link "Manifesto" [ref=e128] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e129]:
+            - link "Submit" [ref=e130] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e131]:
+            - link "Contact" [ref=e132] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e133]:
+        - heading "// MIRROR" [level=5] [ref=e134]
+        - list [ref=e135]:
+          - listitem [ref=e136]:
+            - link "tor.onion" [ref=e137] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e138]:
+            - link "IPFS" [ref=e139] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e140]:
+            - link "Matrix" [ref=e141] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e142]:
+      - generic [ref=e143]: © 2019—2026 NEONPULSE
+      - generic [ref=e144]: v3.2.7 // 8842

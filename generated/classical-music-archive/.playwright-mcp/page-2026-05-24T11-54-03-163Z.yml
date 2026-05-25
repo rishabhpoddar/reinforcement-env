@@ -1,0 +1,192 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "ध्रु ध्रुपद धरोहर Dhrupad Dharohar" [ref=e4] [cursor=pointer]:
+        - /url: मुख्य-पृष्ठ.html
+        - generic [ref=e5]: ध्रु
+        - generic [ref=e6]:
+          - generic [ref=e7]: ध्रुपद धरोहर
+          - generic [ref=e8]: Dhrupad Dharohar
+      - navigation [ref=e9]:
+        - link "मुख्य पृष्ठ" [ref=e11] [cursor=pointer]:
+          - /url: मुख्य-पृष्ठ.html
+        - link "घराने" [ref=e13] [cursor=pointer]:
+          - /url: घराने.html
+        - link "राग कोश" [ref=e15] [cursor=pointer]:
+          - /url: राग-कोश.html
+        - link "अभिलेखागार" [ref=e17] [cursor=pointer]:
+          - /url: अभिलेखागार.html
+        - link "लेख" [ref=e19] [cursor=pointer]:
+          - /url: लेख.html
+        - link "कार्यशालाएं" [ref=e21] [cursor=pointer]:
+          - /url: कार्यशालाएं.html
+        - link "संपर्क" [ref=e23] [cursor=pointer]:
+          - /url: संपर्क.html
+  - generic [ref=e26]:
+    - generic [ref=e27]:
+      - heading "ध्रुपद की गूँज" [level=1] [ref=e28]
+      - paragraph [ref=e29]: ध्रपद की प्राचीन परंपरा
+      - paragraph [ref=e30]: उत्तर भारतीय शास्त्रीय गायन की प्राचीनतम जीवित विधा — ध्रुपद के घरानों, रागों, गुरु-शिष्य परंपरा और दुर्लभ रिकॉर्डिंग्स का समग्र अभिलेखागार और शिक्षण मंच।
+      - generic [ref=e31]:
+        - link "अभी सुनें" [ref=e32] [cursor=pointer]:
+          - /url: अभिलेखागार.html
+        - link "घराने जानें" [ref=e33] [cursor=pointer]:
+          - /url: घराने.html
+    - img "तानपुरा" [ref=e36]
+  - generic [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]: ध्रुपद की चार वाणियाँ
+      - heading "परंपरा की चार धाराएँ" [level=2] [ref=e41]
+      - paragraph [ref=e42]: ध्रुपद गायन की चार प्रमुख शैलियाँ, जिन्हें वाणी कहा जाता है — प्रत्येक की अपनी विशिष्ट गायन शैली, अलंकरण और सौंदर्य-बोध है।
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e45]: ड
+        - heading "डागर वाणी" [level=3] [ref=e46]
+        - paragraph [ref=e47]: गंभीर, धीर-गति और आलापप्रधान शैली — उस्ताद डागर बंधुओं के माध्यम से सर्वाधिक प्रसिद्ध।
+      - generic [ref=e48]:
+        - generic [ref=e49]: खं
+        - heading "खंडार वाणी" [level=3] [ref=e50]
+        - paragraph [ref=e51]: अलंकारिक और लयप्रधान — मीड़, गमक और कण-स्पर्श की विशेषता।
+      - generic [ref=e52]:
+        - generic [ref=e53]: नौ
+        - heading "नौहार वाणी" [level=3] [ref=e54]
+        - paragraph [ref=e55]: वीर रस प्रधान, तेज़ गति और जोरदार गमकों के लिए विख्यात।
+      - generic [ref=e56]:
+        - generic [ref=e57]: गौ
+        - heading "गौहर वाणी" [level=3] [ref=e58]
+        - paragraph [ref=e59]: मधुर, श्रृंगार रस से ओतप्रोत — सबसे कोमल और मधुर शैली।
+  - generic [ref=e61]:
+    - generic [ref=e62]:
+      - generic [ref=e63]: इस सप्ताह का राग
+      - heading "राग मियाँ की तोड़ी" [level=2] [ref=e64]
+      - paragraph [ref=e65]: प्रातः कालीन प्रधान राग — गहन शांति और भक्ति का संचार करने वाली रचना।
+    - generic [ref=e67]:
+      - generic [ref=e68]:
+        - generic [ref=e69]: मियाँ की तोड़ी
+        - generic [ref=e70]: Miyan Ki Todi
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]: समय
+            - text: प्रातः 9 - 12
+          - generic [ref=e74]:
+            - generic [ref=e75]: थाट
+            - text: तोड़ी
+          - generic [ref=e76]:
+            - generic [ref=e77]: वादी
+            - text: धैवत
+          - generic [ref=e78]:
+            - generic [ref=e79]: संवादी
+            - text: गंधार
+        - generic [ref=e80]:
+          - button "राग सुनें" [ref=e81] [cursor=pointer]
+          - generic [ref=e82]:
+            - generic [ref=e83]: आलाप — पं. उदय भवालकर
+            - generic [ref=e84]: अवधि 42 मिनट · 1998 रिकॉर्डिंग
+      - generic [ref=e85]:
+        - generic [ref=e86]: आरोह
+        - generic [ref=e87]: सा रे॒ ग॒ म॑ प ध॒ नि॒ सां
+        - generic [ref=e88]: अवरोह
+        - generic [ref=e89]: सां नि॒ ध॒ म॑ ग॒ रे॒ सा
+  - generic [ref=e91]:
+    - generic [ref=e92]:
+      - generic [ref=e93]: नवीनतम लेख
+      - heading "शोध एवं चिंतन" [level=2] [ref=e94]
+      - paragraph [ref=e95]: ध्रुपद विधा पर विद्वानों और साधकों के नवीनतम लेख — परंपरा, राग-सिद्धांत और प्रदर्शन कला पर गहन विचार।
+    - generic [ref=e96]:
+      - article [ref=e97]:
+        - generic [ref=e98]:
+          - img "पखावज" [ref=e99]
+          - generic [ref=e100]: लयकारी
+        - generic [ref=e101]:
+          - generic [ref=e102]:
+            - generic [ref=e103]: 15 मई 2026
+            - generic [ref=e104]: · 8 मिनट पठन
+          - heading "पखावज और ध्रुपद का अटूट संबंध" [level=3] [ref=e105]
+          - paragraph [ref=e106]: कैसे पखावज की गंभीर थाप ध्रुपद गायन की आत्मा को जीवित रखती है — एक तालवादक के दृष्टिकोण से।
+          - link "पूरा पढ़ें →" [ref=e107] [cursor=pointer]:
+            - /url: लेख.html
+      - article [ref=e108]:
+        - generic [ref=e109]:
+          - img "गायक" [ref=e110]
+          - generic [ref=e111]: परंपरा
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: 10 मई 2026
+            - generic [ref=e115]: · 12 मिनट पठन
+          - 'heading "डागर बंधु: एक संगीत-वंश की कहानी" [level=3] [ref=e116]'
+          - paragraph [ref=e117]: बीसवीं सदी में डागर परिवार ने कैसे ध्रुपद की उज्ज्वल परंपरा को विश्व मंच पर पुनर्जीवित किया।
+          - link "पूरा पढ़ें →" [ref=e118] [cursor=pointer]:
+            - /url: लेख.html
+      - article [ref=e119]:
+        - generic [ref=e120]:
+          - img "राग संकेत" [ref=e121]
+          - generic [ref=e122]: राग सिद्धांत
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - generic [ref=e125]: 3 मई 2026
+            - generic [ref=e126]: · 15 मिनट पठन
+          - 'heading "आलाप: समय, स्वर और मौन की कला" [level=3] [ref=e127]'
+          - paragraph [ref=e128]: ध्रुपद के आलाप में मौन के क्षणों का महत्व — स्वरों के बीच के अंतराल कैसे राग का प्राण रचते हैं।
+          - link "पूरा पढ़ें →" [ref=e129] [cursor=pointer]:
+            - /url: लेख.html
+  - contentinfo [ref=e130]:
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - generic [ref=e134]:
+            - generic [ref=e135]: ध्रु
+            - generic [ref=e136]:
+              - generic [ref=e137]: ध्रुपद धरोहर
+              - generic [ref=e138]: Dhrupad Dharohar
+          - paragraph [ref=e139]: उत्तर भारतीय शास्त्रीय संगीत की प्राचीनतम विधा को संरक्षित और प्रसारित करने के लिए समर्पित एक स्वतंत्र शैक्षिक मंच।
+        - generic [ref=e140]:
+          - heading "अध्ययन" [level=5] [ref=e141]
+          - list [ref=e142]:
+            - listitem [ref=e143]:
+              - link "घराने" [ref=e144] [cursor=pointer]:
+                - /url: घराने.html
+            - listitem [ref=e145]:
+              - link "राग कोश" [ref=e146] [cursor=pointer]:
+                - /url: राग-कोश.html
+            - listitem [ref=e147]:
+              - link "गुरु-शिष्य परंपरा" [ref=e148] [cursor=pointer]:
+                - /url: गुरु-शिष्य.html
+            - listitem [ref=e149]:
+              - link "कार्यशालाएं" [ref=e150] [cursor=pointer]:
+                - /url: कार्यशालाएं.html
+        - generic [ref=e151]:
+          - heading "संग्रह" [level=5] [ref=e152]
+          - list [ref=e153]:
+            - listitem [ref=e154]:
+              - link "रिकॉर्डिंग्स" [ref=e155] [cursor=pointer]:
+                - /url: अभिलेखागार.html
+            - listitem [ref=e156]:
+              - link "शोध लेख" [ref=e157] [cursor=pointer]:
+                - /url: लेख.html
+            - listitem [ref=e158]:
+              - link "दुर्लभ संग्रह" [ref=e159] [cursor=pointer]:
+                - /url: अभिलेखागार.html
+        - generic [ref=e160]:
+          - heading "संस्थान" [level=5] [ref=e161]
+          - list [ref=e162]:
+            - listitem [ref=e163]:
+              - link "हमारे बारे में" [ref=e164] [cursor=pointer]:
+                - /url: संपर्क.html
+            - listitem [ref=e165]:
+              - link "संपर्क" [ref=e166] [cursor=pointer]:
+                - /url: संपर्क.html
+            - listitem [ref=e167]:
+              - link "सहयोग करें" [ref=e168] [cursor=pointer]:
+                - /url: संपर्क.html
+      - generic [ref=e169]:
+        - generic [ref=e170]: © 2026 ध्रुपद धरोहर · सर्वाधिकार सुरक्षित
+        - generic [ref=e171]:
+          - link "यूट्यूब" [ref=e172] [cursor=pointer]:
+            - /url: "#"
+            - text: "Y"
+          - link "इंस्टाग्राम" [ref=e173] [cursor=pointer]:
+            - /url: "#"
+            - text: In
+          - link "ट्विटर" [ref=e174] [cursor=pointer]:
+            - /url: "#"
+            - text: X

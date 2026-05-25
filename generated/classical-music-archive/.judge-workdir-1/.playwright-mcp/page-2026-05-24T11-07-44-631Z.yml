@@ -1,0 +1,211 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "ध्रु ध्रुपद धरोहर Dhrupad Dharohar" [ref=e4] [cursor=pointer]:
+        - /url: मुख्य-पृष्ठ.html
+        - generic [ref=e5]: ध्रु
+        - generic [ref=e6]:
+          - generic [ref=e7]: ध्रुपद धरोहर
+          - generic [ref=e8]: Dhrupad Dharohar
+      - navigation [ref=e9]:
+        - link "मुख्य पृष्ठ" [ref=e11] [cursor=pointer]:
+          - /url: मुख्य-पृष्ठ.html
+        - link "घराने" [ref=e13] [cursor=pointer]:
+          - /url: घराने.html
+        - link "राग कोश" [ref=e15] [cursor=pointer]:
+          - /url: राग-कोश.html
+        - link "अभिलेखागार" [ref=e17] [cursor=pointer]:
+          - /url: अभिलेखागार.html
+        - link "लेख" [ref=e19] [cursor=pointer]:
+          - /url: लेख.html
+        - link "कार्यशालाएं" [ref=e21] [cursor=pointer]:
+          - /url: कार्यशालाएं.html
+        - link "संपर्क" [ref=e23] [cursor=pointer]:
+          - /url: संपर्क.html
+  - generic [ref=e25]:
+    - article [ref=e26]:
+      - img "पखावज" [ref=e28]
+      - generic [ref=e29]:
+        - generic [ref=e30]: विशेष लेख
+        - heading "पखावज और ध्रुपद का अटूट संबंध" [level=2] [ref=e31]
+        - paragraph [ref=e32]: कैसे पखावज की गंभीर थाप ध्रुपद गायन की आत्मा को जीवित रखती है — एक तालवादक के दृष्टिकोण से बारह माना तालों का परिचय और उनकी रचनात्मक संभावनाएँ।
+        - generic [ref=e33]:
+          - generic [ref=e34]: द्वारा पं. मोहन श्याम शर्मा
+          - generic [ref=e35]: ·
+          - generic [ref=e36]: 15 मई 2026
+          - generic [ref=e37]: ·
+          - generic [ref=e38]: 18 मिनट पठन
+        - link "पूरा लेख पढ़ें →" [ref=e39] [cursor=pointer]:
+          - /url: "#"
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - article [ref=e43]:
+            - generic [ref=e45]: परंपरा
+            - generic [ref=e46]:
+              - generic [ref=e47]:
+                - generic [ref=e48]: 10 मई 2026
+                - generic [ref=e49]: · डॉ. राधा कृष्णन
+              - 'heading "डागर बंधु: एक संगीत-वंश की कहानी" [level=3] [ref=e50]'
+              - paragraph [ref=e51]: बीसवीं सदी में डागर परिवार ने कैसे ध्रुपद की उज्ज्वल परंपरा को विश्व मंच पर पुनर्जीवित किया।
+              - link "पूरा पढ़ें →" [ref=e52] [cursor=pointer]:
+                - /url: "#"
+          - article [ref=e53]:
+            - generic [ref=e55]: राग सिद्धांत
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - generic [ref=e58]: 3 मई 2026
+                - generic [ref=e59]: · प्रो. के. रंगनाथन
+              - 'heading "आलाप: समय, स्वर और मौन की कला" [level=3] [ref=e60]'
+              - paragraph [ref=e61]: ध्रुपद के आलाप में मौन के क्षणों का महत्व — स्वरों के बीच अंतराल कैसे राग का प्राण रचते हैं।
+              - link "पूरा पढ़ें →" [ref=e62] [cursor=pointer]:
+                - /url: "#"
+          - article [ref=e63]:
+            - generic [ref=e65]: शिक्षण
+            - generic [ref=e66]:
+              - generic [ref=e67]:
+                - generic [ref=e68]: 28 अप्रैल 2026
+                - generic [ref=e69]: · सुलेखा वर्मा
+              - 'heading "गुरुकुल में जीवन: एक शिष्या की डायरी" [level=3] [ref=e70]'
+              - paragraph [ref=e71]: भोपाल के ध्रुपद गुरुकुल में पाँच वर्ष — साधना, अनुशासन और संगीत के साथ जीवन का अनुभव।
+              - link "पूरा पढ़ें →" [ref=e72] [cursor=pointer]:
+                - /url: "#"
+          - article [ref=e73]:
+            - generic [ref=e75]: इतिहास
+            - generic [ref=e76]:
+              - generic [ref=e77]:
+                - generic [ref=e78]: 20 अप्रैल 2026
+                - generic [ref=e79]: · डॉ. अनुपम मिश्रा
+              - heading "तानसेन से तानपुरे तक" [level=3] [ref=e80]
+              - paragraph [ref=e81]: सोलहवीं सदी के अकबरी दरबार से लेकर आधुनिक स्टूडियो तक — ध्रुपद का सांगीतिक यात्रा-वृत्तांत।
+              - link "पूरा पढ़ें →" [ref=e82] [cursor=pointer]:
+                - /url: "#"
+          - article [ref=e83]:
+            - generic [ref=e85]: वाद्य
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - generic [ref=e88]: 12 अप्रैल 2026
+                - generic [ref=e89]: · उस्ताद रहीम बक्श
+              - 'heading "तानपुरा: संगीत का प्राण-स्रोत" [level=3] [ref=e90]'
+              - paragraph [ref=e91]: तानपुरे की मिलवट और जवारी पर एक विस्तृत तकनीकी विवेचन — साधक के लिए अनिवार्य ज्ञान।
+              - link "पूरा पढ़ें →" [ref=e92] [cursor=pointer]:
+                - /url: "#"
+          - article [ref=e93]:
+            - generic [ref=e95]: प्रदर्शन
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - generic [ref=e98]: 5 अप्रैल 2026
+                - generic [ref=e99]: · नेहा गांगुली
+              - 'heading "महिला ध्रुपद गायिकाएँ: एक नई धारा" [level=3] [ref=e100]'
+              - paragraph [ref=e101]: मारुसहाब फातिमा खान से अमेलिया कुनिंघम तक — महिलाओं द्वारा ध्रुपद के क्षेत्र में किया जा रहा योगदान।
+              - link "पूरा पढ़ें →" [ref=e102] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e103]:
+          - button "‹" [ref=e104] [cursor=pointer]
+          - button "१" [ref=e105] [cursor=pointer]
+          - button "२" [ref=e106] [cursor=pointer]
+          - button "३" [ref=e107] [cursor=pointer]
+          - button "४" [ref=e108] [cursor=pointer]
+          - button "›" [ref=e109] [cursor=pointer]
+      - complementary [ref=e110]:
+        - generic [ref=e111]:
+          - heading "सबसे अधिक पढ़े गए" [level=4] [ref=e112]
+          - generic [ref=e113]:
+            - generic [ref=e114]: ०१
+            - generic [ref=e115]:
+              - generic [ref=e116]: "डागर बंधु: एक संगीत-वंश की कहानी"
+              - generic [ref=e117]: 10 मई 2026
+          - generic [ref=e118]:
+            - generic [ref=e119]: ०२
+            - generic [ref=e120]:
+              - generic [ref=e121]: "आलाप: स्वर और मौन की कला"
+              - generic [ref=e122]: 3 मई 2026
+          - generic [ref=e123]:
+            - generic [ref=e124]: ०३
+            - generic [ref=e125]:
+              - generic [ref=e126]: तानसेन से तानपुरे तक
+              - generic [ref=e127]: 20 अप्रैल 2026
+          - generic [ref=e128]:
+            - generic [ref=e129]: ०४
+            - generic [ref=e130]:
+              - generic [ref=e131]: "तानपुरा: संगीत का प्राण-स्रोत"
+              - generic [ref=e132]: 12 अप्रैल 2026
+          - generic [ref=e133]:
+            - generic [ref=e134]: ०५
+            - generic [ref=e135]:
+              - generic [ref=e136]: गुरुकुल में जीवन
+              - generic [ref=e137]: 28 अप्रैल 2026
+        - generic [ref=e138]:
+          - heading "श्रेणियाँ" [level=4] [ref=e139]
+          - list [ref=e140]:
+            - listitem [ref=e141]:
+              - link "परंपरा" [ref=e142] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e143]: "24"
+            - listitem [ref=e144]:
+              - link "राग सिद्धांत" [ref=e145] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e146]: "18"
+            - listitem [ref=e147]:
+              - link "इतिहास" [ref=e148] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e149]: "15"
+            - listitem [ref=e150]:
+              - link "शिक्षण" [ref=e151] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e152]: "12"
+            - listitem [ref=e153]:
+              - link "वाद्य" [ref=e154] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e155]: "9"
+            - listitem [ref=e156]:
+              - link "प्रदर्शन" [ref=e157] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e158]: "7"
+            - listitem [ref=e159]:
+              - link "साक्षात्कार" [ref=e160] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e161]: "6"
+  - contentinfo [ref=e162]:
+    - generic [ref=e163]:
+      - generic [ref=e164]:
+        - generic [ref=e165]:
+          - generic [ref=e166]:
+            - generic [ref=e167]: ध्रु
+            - generic [ref=e168]:
+              - generic [ref=e169]: ध्रुपद धरोहर
+              - generic [ref=e170]: Dhrupad Dharohar
+          - paragraph [ref=e171]: उत्तर भारतीय शास्त्रीय संगीत की प्राचीनतम विधा को संरक्षित और प्रसारित करने के लिए समर्पित।
+        - generic [ref=e172]:
+          - heading "अध्ययन" [level=5] [ref=e173]
+          - list [ref=e174]:
+            - listitem [ref=e175]:
+              - link "घराने" [ref=e176] [cursor=pointer]:
+                - /url: घराने.html
+            - listitem [ref=e177]:
+              - link "राग कोश" [ref=e178] [cursor=pointer]:
+                - /url: राग-कोश.html
+        - generic [ref=e179]:
+          - heading "संग्रह" [level=5] [ref=e180]
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - link "रिकॉर्डिंग्स" [ref=e183] [cursor=pointer]:
+                - /url: अभिलेखागार.html
+            - listitem [ref=e184]:
+              - link "शोध लेख" [ref=e185] [cursor=pointer]:
+                - /url: लेख.html
+        - generic [ref=e186]:
+          - heading "संस्थान" [level=5] [ref=e187]
+          - list [ref=e188]:
+            - listitem [ref=e189]:
+              - link "संपर्क" [ref=e190] [cursor=pointer]:
+                - /url: संपर्क.html
+      - generic [ref=e191]:
+        - generic [ref=e192]: © 2026 ध्रुपद धरोहर · सर्वाधिकार सुरक्षित
+        - generic [ref=e193]:
+          - link "Y" [ref=e194] [cursor=pointer]:
+            - /url: "#"
+          - link "In" [ref=e195] [cursor=pointer]:
+            - /url: "#"
+          - link "X" [ref=e196] [cursor=pointer]:
+            - /url: "#"

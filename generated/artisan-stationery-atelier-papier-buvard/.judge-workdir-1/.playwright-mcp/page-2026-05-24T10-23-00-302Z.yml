@@ -1,0 +1,81 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Atelier Papier Buvard" [ref=e4] [cursor=pointer]:
+        - /url: accueil.html
+      - generic [ref=e5]: Paris · depuis 2014
+  - main [ref=e6]:
+    - generic [ref=e7]:
+      - text: Écrivez-nous
+      - heading "Contact" [level=1] [ref=e8]
+      - paragraph [ref=e9]: Une question sur une commande, une visite à l'atelier, une collaboration éditoriale. Nous lisons chaque message.
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - text: Nom
+          - textbox "Nom" [ref=e13]:
+            - /placeholder: Votre nom
+        - generic [ref=e14]:
+          - text: Courriel
+          - textbox "Courriel" [ref=e15]:
+            - /placeholder: vous@exemple.fr
+        - generic [ref=e16]:
+          - text: Sujet
+          - textbox "Sujet" [ref=e17]:
+            - /placeholder: Le motif de votre message
+        - generic [ref=e18]:
+          - text: Message
+          - textbox "Message" [ref=e19]:
+            - /placeholder: Écrivez librement
+        - button "Envoyer le message" [ref=e20] [cursor=pointer]
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - heading "L'atelier" [level=4] [ref=e23]
+          - paragraph [ref=e24]:
+            - text: 12 rue de Charonne
+            - text: 75011 Paris
+            - text: France
+          - paragraph [ref=e25]:
+            - strong [ref=e26]: Horaires du showroom
+            - text: Jeudi — Samedi · 14h à 19h
+            - text: Sur rendez-vous le reste de la semaine
+          - generic "Carte de l'atelier" [ref=e27]: •
+        - generic [ref=e28]:
+          - heading "Ailleurs" [level=4] [ref=e29]
+          - paragraph [ref=e30]: "Nous publions des notes régulières et les nouveautés sur :"
+          - paragraph [ref=e31]:
+            - link "Instagram ↗" [ref=e32] [cursor=pointer]:
+              - /url: "#"
+            - link "Are.na ↗" [ref=e33] [cursor=pointer]:
+              - /url: "#"
+          - paragraph [ref=e34]:
+            - strong [ref=e35]: Courriel direct
+            - link "bonjour@papierbuvard.fr" [ref=e36] [cursor=pointer]:
+              - /url: mailto:bonjour@papierbuvard.fr
+      - paragraph [ref=e37]: Nous répondons sous 48 heures ouvrées.
+  - contentinfo [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]: Atelier Papier Buvard
+      - generic [ref=e41]: © 2025 · 12 rue de Charonne, 75011 Paris
+      - generic [ref=e42]:
+        - link "Instagram" [ref=e43] [cursor=pointer]:
+          - /url: contact.html
+        - text: ·
+        - link "Are.na" [ref=e44] [cursor=pointer]:
+          - /url: contact.html
+  - navigation "Navigation principale" [ref=e45]:
+    - link [ref=e46] [cursor=pointer]:
+      - /url: accueil.html
+      - img [ref=e47]
+    - link [ref=e49] [cursor=pointer]:
+      - /url: collections.html
+      - img [ref=e50]
+    - link [ref=e55] [cursor=pointer]:
+      - /url: atelier.html
+      - img [ref=e56]
+    - link [ref=e58] [cursor=pointer]:
+      - /url: journal.html
+      - img [ref=e59]
+    - link [ref=e61] [cursor=pointer]:
+      - /url: commander.html
+      - img [ref=e62]

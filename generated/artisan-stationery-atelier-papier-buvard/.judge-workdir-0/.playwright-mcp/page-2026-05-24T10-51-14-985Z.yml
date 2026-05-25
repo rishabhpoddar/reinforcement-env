@@ -1,0 +1,90 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Atelier Papier Buvard" [ref=e4] [cursor=pointer]:
+        - /url: accueil.html
+      - generic [ref=e5]: Paris · depuis 2014
+    - generic [ref=e6]: Showroom · 12 rue de Charonne
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - text: Commande sur mesure
+      - heading "Configurer votre papier" [level=1] [ref=e9]:
+        - text: Configurer
+        - text: votre papier
+      - paragraph [ref=e10]: Choisissez le format, la marbrure, la quantité, et la mention gravée. Nous fabriquons à la demande, en respectant l'ordre d'arrivée.
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - text: Étape 01
+          - heading "Choisir le format" [level=3] [ref=e14]
+          - generic [ref=e15]:
+            - generic [ref=e16] [cursor=pointer]: A4 · 21 × 29,7 cm
+            - generic [ref=e17] [cursor=pointer]: A5 · 14,8 × 21 cm
+            - generic [ref=e18] [cursor=pointer]: Carte · 10 × 15 cm
+        - generic [ref=e19]:
+          - text: Étape 02
+          - heading "Choisir le motif" [level=3] [ref=e20]
+          - generic [ref=e21]:
+            - generic "Terra" [ref=e22] [cursor=pointer]
+            - generic "Sauge" [ref=e23] [cursor=pointer]
+            - generic "Indigo" [ref=e24] [cursor=pointer]
+            - generic "Ocre" [ref=e25] [cursor=pointer]
+            - generic "Bordeaux" [ref=e26] [cursor=pointer]
+            - generic "Encre" [ref=e27] [cursor=pointer]
+          - paragraph [ref=e28]: Terra · marbrure terre cuite
+        - generic [ref=e29]:
+          - text: Étape 03
+          - heading "Quantité" [level=3] [ref=e30]
+          - generic [ref=e31]:
+            - button "−" [ref=e32] [cursor=pointer]
+            - generic [ref=e33]: "6"
+            - button "+" [ref=e34] [cursor=pointer]
+            - generic [ref=e35]: feuilles
+        - generic [ref=e36]:
+          - text: Étape 04
+          - heading "Personnalisation" [level=3] [ref=e37]
+          - generic [ref=e38]: Initiales gravées (jusqu'à 4 caractères)
+          - textbox "Initiales gravées (jusqu'à 4 caractères)" [ref=e39]: MARGAUX
+          - paragraph [ref=e40]: "Délai artisanal : 3 semaines"
+      - complementary [ref=e41]:
+        - text: Aperçu en direct
+        - generic [ref=e43]: MARGAUX
+        - heading "Marbrure Terra · A4" [level=3] [ref=e44]
+        - generic [ref=e45]: 6 feuilles · gravure MARGAUX
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - text: Résumé
+        - heading "6 feuilles A4 · Marbrure Terra · gravure incluse" [level=4] [ref=e48]
+      - generic [ref=e49]: 408 €
+      - button "Valider la commande" [ref=e50] [cursor=pointer]
+  - contentinfo [ref=e51]:
+    - generic [ref=e52]:
+      - generic [ref=e53]: Atelier Papier Buvard
+      - generic [ref=e54]: © 2025 · 12 rue de Charonne, 75011 Paris
+      - generic [ref=e55]:
+        - link "Instagram" [ref=e56] [cursor=pointer]:
+          - /url: contact.html
+        - text: ·
+        - link "Are.na" [ref=e57] [cursor=pointer]:
+          - /url: contact.html
+  - navigation "Navigation principale" [ref=e58]:
+    - link "Accueil" [ref=e59] [cursor=pointer]:
+      - /url: accueil.html
+      - img [ref=e60]
+      - generic [ref=e62]: Accueil
+    - link "Collections" [ref=e63] [cursor=pointer]:
+      - /url: collections.html
+      - img [ref=e64]
+      - generic [ref=e69]: Collections
+    - link "Atelier" [ref=e70] [cursor=pointer]:
+      - /url: atelier.html
+      - img [ref=e71]
+      - generic [ref=e73]: Atelier
+    - link "Journal" [ref=e74] [cursor=pointer]:
+      - /url: journal.html
+      - img [ref=e75]
+      - generic [ref=e77]: Journal
+    - link "Commander" [ref=e78] [cursor=pointer]:
+      - /url: commander.html
+      - img [ref=e79]
+      - generic [ref=e81]: Commander

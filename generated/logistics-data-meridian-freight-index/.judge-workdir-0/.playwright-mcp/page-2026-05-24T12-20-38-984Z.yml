@@ -1,0 +1,76 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "Meridian.Index" [ref=e5] [cursor=pointer]:
+        - /url: home.html
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: home.html
+        - link "Rates" [ref=e8] [cursor=pointer]:
+          - /url: rates.html
+        - link "Routes" [ref=e9] [cursor=pointer]:
+          - /url: routes.html
+        - link "Analytics" [ref=e10] [cursor=pointer]:
+          - /url: analytics.html
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: pricing.html
+        - link "Methodology" [ref=e12] [cursor=pointer]:
+          - /url: methodology.html
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: contact.html
+      - link "Access" [ref=e14] [cursor=pointer]:
+        - /url: contact.html
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - heading "Supply Chain Analytics" [level=1] [ref=e18]
+      - generic [ref=e19]:
+        - article [ref=e20]:
+          - text: Index Value
+          - strong [ref=e21]: 2,847
+          - text: ↑ 2.8%
+        - article [ref=e22]:
+          - text: Volatility
+          - strong [ref=e23]: 12.4%
+          - text: ↑ 1.1%
+        - article [ref=e24]:
+          - text: Capacity Utilization
+          - strong [ref=e25]: 87%
+          - text: ↑ 3.2%
+        - article [ref=e26]:
+          - text: Bunker Fuel
+          - strong [ref=e27]: $632
+          - text: ↑ $18/mt
+      - generic [ref=e28]:
+        - generic [ref=e29]: Composite Rate Index — 5 Year View
+        - img [ref=e30]
+        - generic [ref=e32]:
+          - generic [ref=e33]: Composite
+          - generic [ref=e35]: Spot weighted
+          - generic [ref=e36]: Contract adjusted
+      - generic [ref=e37]:
+        - article [ref=e38]:
+          - heading "Carrier Market Share" [level=3] [ref=e39]
+          - paragraph [ref=e41]: Top five carrier groups represent 64% of verified movements.
+        - article [ref=e42]:
+          - heading "Lane Volatility Heatmap" [level=3] [ref=e43]
+          - paragraph [ref=e57]: Trans-Pacific eastbound remains the most variable corridor.
+        - article [ref=e58]:
+          - heading "Seasonal Demand" [level=3] [ref=e59]
+          - paragraph [ref=e67]: Pre-peak season pull-forward continues in Asia exports.
+      - complementary [ref=e68]:
+        - text: Export
+        - link "Export to CSV" [ref=e69] [cursor=pointer]:
+          - /url: "#"
+        - link "Export to PDF" [ref=e70] [cursor=pointer]:
+          - /url: "#"
+        - link "API Endpoint" [ref=e71] [cursor=pointer]:
+          - /url: "#"
+  - link "Request Index Access →" [ref=e74] [cursor=pointer]:
+    - /url: contact.html
+  - contentinfo [ref=e75]:
+    - generic [ref=e76]:
+      - generic [ref=e77]: Meridian Freight Index
+      - generic [ref=e78]:
+        - generic [ref=e79]: Global rate intelligence
+        - generic [ref=e80]: UTC indexed data
+        - generic [ref=e81]: © 2026

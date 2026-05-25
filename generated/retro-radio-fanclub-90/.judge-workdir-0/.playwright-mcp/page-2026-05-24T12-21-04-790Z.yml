@@ -1,0 +1,76 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: संदेश भेजें, रेडियो से जुड़ें
+    - generic [ref=e5]: "00042878"
+  - banner [ref=e6]:
+    - img "रेडियो तरंग लोगो" [ref=e7]
+    - generic [ref=e8]:
+      - heading "संपर्क" [level=1] [ref=e9]
+      - generic [ref=e10]: फरमाइश, शिकायत, सुझाव और यादें
+    - generic [ref=e12]: डाक का लिफाफा तैयार
+  - navigation [ref=e13]:
+    - link "मुख्य पृष्ठ" [ref=e14] [cursor=pointer]:
+      - /url: mukhya-prishth.html
+    - link "कार्यक्रम सूची" [ref=e15] [cursor=pointer]:
+      - /url: kaaryakram-suchi.html
+    - link "जिंगल" [ref=e16] [cursor=pointer]:
+      - /url: jingle-sangrah.html
+    - link "नाटक" [ref=e17] [cursor=pointer]:
+      - /url: redio-natak.html
+    - link "पत्र" [ref=e18] [cursor=pointer]:
+      - /url: shrota-patra.html
+    - link "दीर्घा" [ref=e19] [cursor=pointer]:
+      - /url: tasveer-deergha.html
+    - link "सदस्यता" [ref=e20] [cursor=pointer]:
+      - /url: sadasyata.html
+    - link "संपर्क" [ref=e21] [cursor=pointer]:
+      - /url: sampark.html
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - heading "संपर्क फॉर्म" [level=2] [ref=e24]
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - text: नाम
+          - textbox "नाम" [ref=e27]
+        - generic [ref=e28]:
+          - text: ईमेल
+          - textbox "ईमेल" [ref=e29]
+        - generic [ref=e30]:
+          - text: शहर
+          - textbox "शहर" [ref=e31]
+        - generic [ref=e32]:
+          - text: विषय
+          - combobox "विषय" [ref=e33]:
+            - option "फरमाइश" [selected]
+            - option "शिकायत"
+            - option "सुझाव"
+            - option "अन्य"
+        - generic [ref=e34]:
+          - text: संदेश
+          - textbox "संदेश" [ref=e35]
+        - button "भेजें" [ref=e36] [cursor=pointer]
+    - complementary [ref=e37]:
+      - heading "डाक का पता" [level=2] [ref=e38]
+      - generic [ref=e39]: ✉
+      - paragraph [ref=e40]:
+        - text: रेडियो तरंग 90 फैन मंडली
+        - text: पोस्ट बॉक्स 1990, नई दिल्ली
+      - paragraph [ref=e41]:
+        - strong [ref=e42]: "फोन:"
+        - text: 011-2456-9090
+        - text: STD कोड याद रखें!
+      - paragraph [ref=e43]:
+        - strong [ref=e44]: "ईमेल:"
+        - text: namaste@radiotarang.example
+      - link "हमें फेसबुक पर खोजें" [ref=e45] [cursor=pointer]:
+        - /url: "#"
+      - link "ट्विटर" [ref=e46] [cursor=pointer]:
+        - /url: "#"
+  - generic [ref=e47]:
+    - heading "अतिथि पुस्तक" [level=2] [ref=e48]
+    - paragraph [ref=e49]: अपना नाम, शहर और पसंदीदा कार्यक्रम लिखिए। अगली बार पेज खुलने पर आपकी कल्पना यहां चमकेगी।
+  - contentinfo [ref=e50]:
+    - text: © रेडियो तरंग 90 फैन मंडली
+    - generic [ref=e51]:
+      - generic [ref=e52]: 800x600 में सर्वोत्तम दृश्य
+      - generic [ref=e53]: नोटपैड से निर्मित

@@ -1,0 +1,95 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "Meridian.Index" [ref=e5] [cursor=pointer]:
+        - /url: home.html
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: home.html
+        - link "Rates" [ref=e8] [cursor=pointer]:
+          - /url: rates.html
+        - link "Routes" [ref=e9] [cursor=pointer]:
+          - /url: routes.html
+        - link "Analytics" [ref=e10] [cursor=pointer]:
+          - /url: analytics.html
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: pricing.html
+        - link "Methodology" [ref=e12] [cursor=pointer]:
+          - /url: methodology.html
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: contact.html
+      - link "Access" [ref=e14] [cursor=pointer]:
+        - /url: contact.html
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - heading "Trade Route Intelligence" [level=1] [ref=e18]
+      - generic [ref=e19]:
+        - img "Dark world map with red trade lanes" [ref=e20]
+        - generic [ref=e21]:
+          - heading "431 lanes tracked" [level=2] [ref=e22]
+          - generic [ref=e23]: Port to port
+      - complementary [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]: Trade Lanes
+          - generic [ref=e27]: Regions
+        - group [ref=e28]:
+          - generic "Trans-Pacific" [ref=e29] [cursor=pointer]
+          - list [ref=e30]:
+            - listitem [ref=e31]: Shanghai to Los Angeles
+            - listitem [ref=e32]: Ningbo to Long Beach
+            - listitem [ref=e33]: Busan to Seattle
+        - group [ref=e34]:
+          - generic "Trans-Atlantic" [ref=e35] [cursor=pointer]
+        - group [ref=e36]:
+          - generic "Intra-Asia" [ref=e37] [cursor=pointer]
+        - group [ref=e38]:
+          - generic "Europe-Asia" [ref=e39] [cursor=pointer]
+    - generic [ref=e42]:
+      - article [ref=e43]:
+        - img "Shanghai port" [ref=e44]
+        - generic [ref=e45]:
+          - generic [ref=e46]: CNSHA
+          - heading "Shanghai" [level=3] [ref=e47]
+          - paragraph [ref=e48]:
+            - text: 47.3M TEU throughput
+            - text: 2.8 day dwell time
+      - article [ref=e49]:
+        - img "Singapore port" [ref=e50]
+        - generic [ref=e51]:
+          - generic [ref=e52]: SGSIN
+          - heading "Singapore" [level=3] [ref=e53]
+          - paragraph [ref=e54]:
+            - text: 39.0M TEU throughput
+            - text: 1.9 day dwell time
+      - article [ref=e55]:
+        - img "Rotterdam port" [ref=e56]
+        - generic [ref=e57]:
+          - generic [ref=e58]: NLRTM
+          - heading "Rotterdam" [level=3] [ref=e59]
+          - paragraph [ref=e60]:
+            - text: 14.5M TEU throughput
+            - text: 2.2 day dwell time
+      - article [ref=e61]:
+        - img "LA Long Beach port" [ref=e62]
+        - generic [ref=e63]:
+          - generic [ref=e64]: USLGB
+          - heading "LA / Long Beach" [level=3] [ref=e65]
+          - paragraph [ref=e66]:
+            - text: 19.1M TEU throughput
+            - text: 3.4 day dwell time
+    - generic [ref=e69]:
+      - text: Route comparison
+      - generic [ref=e70]:
+        - combobox [ref=e71]:
+          - option "Shanghai → Los Angeles" [selected]
+        - combobox [ref=e72]:
+          - option "Singapore → Hamburg" [selected]
+  - link "Request Index Access →" [ref=e76] [cursor=pointer]:
+    - /url: contact.html
+  - contentinfo [ref=e77]:
+    - generic [ref=e78]:
+      - generic [ref=e79]: Meridian Freight Index
+      - generic [ref=e80]:
+        - generic [ref=e81]: Global rate intelligence
+        - generic [ref=e82]: UTC indexed data
+        - generic [ref=e83]: © 2026

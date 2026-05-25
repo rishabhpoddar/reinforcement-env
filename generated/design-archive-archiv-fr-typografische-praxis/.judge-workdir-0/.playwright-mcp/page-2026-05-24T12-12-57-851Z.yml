@@ -1,0 +1,126 @@
+- generic [active] [ref=e1]:
+  - checkbox
+  - complementary [ref=e2]:
+    - generic [ref=e3]:
+      - link "ATP 1957→ Archiv für Typografische Praxis Schweizer Gestaltung 1950–1985" [ref=e4] [cursor=pointer]:
+        - /url: startseite.html
+        - generic [ref=e5]:
+          - generic [ref=e6]: ATP
+          - generic [ref=e7]: 1957→
+        - generic [ref=e8]:
+          - text: Archiv für Typografische Praxis
+          - text: Schweizer Gestaltung 1950–1985
+      - navigation [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "01 Startseite" [ref=e12] [cursor=pointer]:
+              - /url: startseite.html
+          - listitem [ref=e13]:
+            - link "02 Sammlung" [ref=e14] [cursor=pointer]:
+              - /url: sammlung.html
+          - listitem [ref=e15]:
+            - link "03 Objekt-Detail" [ref=e16] [cursor=pointer]:
+              - /url: objekt-detail.html
+          - listitem [ref=e17]:
+            - link "04 Essays" [ref=e18] [cursor=pointer]:
+              - /url: essays.html
+          - listitem [ref=e19]:
+            - link "05 Essay-Detail" [ref=e20] [cursor=pointer]:
+              - /url: essay-detail.html
+          - listitem [ref=e21]:
+            - link "06 Raster-System" [ref=e22] [cursor=pointer]:
+              - /url: raster-system.html
+          - listitem [ref=e23]:
+            - link "07 Über uns" [ref=e24] [cursor=pointer]:
+              - /url: uber-uns.html
+          - listitem [ref=e25]:
+            - link "08 Kontakt" [ref=e26] [cursor=pointer]:
+              - /url: kontakt.html
+    - paragraph [ref=e27]:
+      - text: Zürich
+      - text: Di–Fr 10:00–17:00
+      - text: Inv. Gesamt 3.412
+  - main [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]: Plakat
+        - generic [ref=e32]: Buchgestaltung
+        - generic [ref=e33]: Signaletik
+        - generic [ref=e34]: Schriftmuster
+        - generic [ref=e35]: Periode 1950–60
+        - generic [ref=e36]: Periode 1960–70
+      - generic [ref=e37]:
+        - text: "sortieren nach:"
+        - combobox "sortieren nach:" [ref=e38]:
+          - option "Jahr ↓" [selected]
+          - option "Gestalter:in"
+          - option "Inventarnr."
+    - generic [ref=e39]:
+      - article [ref=e40]:
+        - img "Plakatobjekt" [ref=e41]
+        - paragraph [ref=e42]: ATP-1960-088
+        - paragraph [ref=e43]:
+          - strong [ref=e44]: Elisabeth Frei
+          - text: 1960 · Plakat · Siebdruck
+      - article [ref=e45]:
+        - img "Archivplakat" [ref=e46]
+        - paragraph [ref=e47]: ATP-1962-014
+        - paragraph [ref=e48]:
+          - strong [ref=e49]: Max Keller
+          - text: 1962 · Plakat · Offset
+      - article [ref=e50]:
+        - img "Buchgestaltung" [ref=e51]
+        - paragraph [ref=e52]: ATP-1974-231
+        - paragraph [ref=e53]:
+          - strong [ref=e54]: Karl Gerstner
+          - text: 1974 · Buchgestaltung
+      - article [ref=e55]:
+        - img "Schriftmuster" [ref=e56]
+        - paragraph [ref=e57]: ATP-1957-003
+        - paragraph [ref=e58]:
+          - strong [ref=e59]: Haas’sche Giesserei
+          - text: 1957 · Schriftmuster
+      - article [ref=e60]:
+        - img "Rasterdiagramm" [ref=e61]
+        - paragraph [ref=e62]: ATP-1968-120
+        - paragraph [ref=e63]:
+          - strong [ref=e64]: Josef Müller-Brockmann
+          - text: 1968 · Rasterstudie
+      - article [ref=e65]:
+        - img "Plakatserie" [ref=e66]
+        - paragraph [ref=e67]: ATP-1965-044
+        - paragraph [ref=e68]:
+          - strong [ref=e69]: Armin Hofmann
+          - text: 1965 · Ausstellung
+      - article [ref=e70]:
+        - img "Typografiebuch" [ref=e71]
+        - paragraph [ref=e72]: ATP-1971-178
+        - paragraph [ref=e73]:
+          - strong [ref=e74]: Emil Ruder
+          - text: 1971 · Lehrmittel
+      - article [ref=e75]:
+        - img "Rotes Plakat" [ref=e76]
+        - paragraph [ref=e77]: ATP-1982-305
+        - paragraph [ref=e78]:
+          - strong [ref=e79]: Rosmarie Tissi
+          - text: 1982 · Kulturplakat
+    - generic [ref=e80]:
+      - paragraph [ref=e81]: Zeige 1–48 von 3.412
+      - generic [ref=e82]:
+        - generic [ref=e83]: "1"
+        - generic [ref=e84]: "2"
+        - generic [ref=e85]: "3"
+        - generic [ref=e86]: "4"
+    - generic [ref=e87]:
+      - article [ref=e88]:
+        - paragraph [ref=e89]: Sammlung
+        - strong [ref=e90]: Reproduktionen
+        - paragraph [ref=e91]: Nutzungsrechte auf Anfrage.
+      - article [ref=e92]:
+        - paragraph [ref=e93]: Forschung
+        - strong [ref=e94]: Lesesaal
+        - paragraph [ref=e95]: Terminpflicht für Originale.
+      - article [ref=e96]:
+        - paragraph [ref=e97]: Daten
+        - strong [ref=e98]: Inventar
+        - paragraph [ref=e99]: Metadaten folgen ISAD(G).

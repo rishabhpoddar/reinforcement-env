@@ -1,0 +1,88 @@
+- generic [active] [ref=e1]:
+  - checkbox
+  - generic [ref=e7]: ATP / Essays
+  - complementary [ref=e8]:
+    - generic [ref=e9]:
+      - link "ATP 1957→ Archiv für Typografische Praxis Schweizer Gestaltung 1950–1985" [ref=e10] [cursor=pointer]:
+        - /url: startseite.html
+        - generic [ref=e11]:
+          - generic [ref=e12]: ATP
+          - generic [ref=e13]: 1957→
+        - generic [ref=e14]:
+          - text: Archiv für Typografische Praxis
+          - text: Schweizer Gestaltung 1950–1985
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "01 Startseite" [ref=e18] [cursor=pointer]:
+              - /url: startseite.html
+          - listitem [ref=e19]:
+            - link "02 Sammlung" [ref=e20] [cursor=pointer]:
+              - /url: sammlung.html
+          - listitem [ref=e21]:
+            - link "03 Objekt-Detail" [ref=e22] [cursor=pointer]:
+              - /url: objekt-detail.html
+          - listitem [ref=e23]:
+            - link "04 Essays" [ref=e24] [cursor=pointer]:
+              - /url: essays.html
+          - listitem [ref=e25]:
+            - link "05 Essay-Detail" [ref=e26] [cursor=pointer]:
+              - /url: essay-detail.html
+          - listitem [ref=e27]:
+            - link "06 Raster-System" [ref=e28] [cursor=pointer]:
+              - /url: raster-system.html
+          - listitem [ref=e29]:
+            - link "07 Über uns" [ref=e30] [cursor=pointer]:
+              - /url: uber-uns.html
+          - listitem [ref=e31]:
+            - link "08 Kontakt" [ref=e32] [cursor=pointer]:
+              - /url: kontakt.html
+    - paragraph [ref=e33]:
+      - text: Zürich
+      - text: Di–Fr 10:00–17:00
+      - text: Inv. Gesamt 3.412
+  - main [ref=e34]:
+    - generic [ref=e35]:
+      - heading "Essays & Forschung" [level=1] [ref=e36]
+      - generic [ref=e37]:
+        - generic [ref=e38]: Raster
+        - generic [ref=e39]: Schrift
+        - generic [ref=e40]: Geschichte
+        - generic [ref=e41]: Praxis
+    - generic [ref=e42]:
+      - article [ref=e43]:
+        - generic [ref=e44]: № 042
+        - generic [ref=e45]:
+          - heading "Raster als Argument" [level=2] [ref=e46]:
+            - link "Raster als Argument" [ref=e47] [cursor=pointer]:
+              - /url: essay-detail.html
+          - paragraph [ref=e48]: Wie modulare Systeme im Schweizer Plakat nicht neutral, sondern rhetorisch arbeiten.
+          - paragraph [ref=e49]: Mara Vollenweider · 12.05.2026 · 18 Min.
+        - img "Essay Vorschaubild" [ref=e50]
+      - article [ref=e51]:
+        - generic [ref=e52]: № 039
+        - generic [ref=e53]:
+          - heading "Helvetica vor Helvetica" [level=2] [ref=e54]
+          - paragraph [ref=e55]: Die Akzidenz-Grotesk im industriellen Alltag vor der Kanonisierung.
+          - paragraph [ref=e56]: Lukas Frei · 02.05.2026 · 14 Min.
+        - img "Buchgestaltung" [ref=e57]
+      - article [ref=e58]:
+        - generic [ref=e59]: № 036
+        - generic [ref=e60]:
+          - heading "Ordnung und Ausnahme" [level=2] [ref=e61]
+          - paragraph [ref=e62]: Warum die besten Entwürfe das Raster nicht verlassen, sondern präzise beugen.
+          - paragraph [ref=e63]: Nora Zürcher · 18.04.2026 · 11 Min.
+        - img "Rasterdiagramm" [ref=e64]
+    - generic [ref=e65]:
+      - article [ref=e66]:
+        - paragraph [ref=e67]: Call
+        - strong [ref=e68]: Forschungsbeiträge
+        - paragraph [ref=e69]: Einreichungen bis 30. Juni.
+      - article [ref=e70]:
+        - paragraph [ref=e71]: Archiv
+        - strong [ref=e72]: Alle Ausgaben
+        - paragraph [ref=e73]: 47 Hefte digital zugänglich.
+      - article [ref=e74]:
+        - paragraph [ref=e75]: Seminar
+        - strong [ref=e76]: Lesen im Raster
+        - paragraph [ref=e77]: Workshop im September.

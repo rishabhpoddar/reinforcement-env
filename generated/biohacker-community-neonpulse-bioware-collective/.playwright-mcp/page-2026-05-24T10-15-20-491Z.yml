@@ -1,0 +1,138 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - navigation [ref=e7]:
+        - link "HOME" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "REGISTRY" [ref=e9] [cursor=pointer]:
+          - /url: implant-registry.html
+        - link "GUIDES" [ref=e10] [cursor=pointer]:
+          - /url: guides.html
+        - link "SUBMIT" [ref=e11] [cursor=pointer]:
+          - /url: submit-procedure.html
+        - link "MEMBERS" [ref=e12] [cursor=pointer]:
+          - /url: members.html
+        - link "EVENTS" [ref=e13] [cursor=pointer]:
+          - /url: events.html
+        - link "MANIFESTO" [ref=e14] [cursor=pointer]:
+          - /url: manifesto.html
+        - link "CONTACT" [ref=e15] [cursor=pointer]:
+          - /url: contact.html
+      - generic [ref=e17]: NET // LIVE
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: // DOCUMENT // v3.2
+          - heading "MANIFIESTO // v3.2" [level=2] [ref=e26]
+        - generic [ref=e27]:
+          - generic [ref=e28]: "timestamp: 2026-01-14 // 03:21:08 UTC"
+          - generic [ref=e29]: "hash: a3f28c917b · cc-by-sa 4.0"
+          - generic [ref=e30]: ratificado por 312 miembros
+          - link "⤓ DESCARGAR .TXT" [ref=e32] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e33]:
+        - paragraph [ref=e34]:
+          - text: 01 Somos un colectivo abierto de biohackers, ingenieras, artistas y curiosas. Vivimos en cuerpos que nadie eligió por nosotras y, sin embargo,
+          - mark [ref=e35]: el cuerpo es el último territorio donde la soberanía sigue siendo posible
+          - text: . Este manifiesto es un mapa, no un dogma.
+        - paragraph [ref=e36]: 02 Rechazamos la idea de que la tecnología corporal pertenece a las corporaciones, a los gobiernos o a las clínicas que cobran un salario completo por una incisión de tres milímetros. La carne es código abierto y siempre lo fue.
+        - paragraph [ref=e37]:
+          - text: 03 No celebramos el dolor, ni el riesgo, ni la cicatriz como estética. Celebramos el conocimiento que las precede y el cuidado que las sigue.
+          - mark [ref=e38]: "Antes del bisturí: la lectura. Después del bisturí: la comunidad."
+        - paragraph [ref=e39]: 04 Documentar es resistir. Cada implante que se registra en nuestra base de datos pública es una pequeña victoria contra la opacidad médica y un acto de generosidad hacia quienes vendrán después.
+        - paragraph [ref=e40]: 05 No vendemos datos. No los compartimos con aseguradoras, anunciantes ni estados. La encriptación no es una característica, es una postura ética.
+        - paragraph [ref=e41]:
+          - text: 06 Reconocemos que el biohacking en Latinoamérica e Iberia no puede copiar acríticamente al norte global.
+          - mark [ref=e42]: Nuestra precariedad es también nuestra escuela
+          - text: ": improvisamos con esterilización casera, intercambiamos materiales escasos y cuidamos cuando los sistemas de salud no llegan o llegan tarde."
+        - paragraph [ref=e43]: "07 Distinguimos firmemente entre la autonomía corporal y el solucionismo tecnológico. Ningún chip te va a salvar de la soledad. Ningún imán te va a dar una identidad que no construyas. La tecnología subdérmica no es magia: es una herramienta más en un cuerpo histórico."
+        - paragraph [ref=e44]:
+          - text: "08 Nos oponemos a toda forma de coerción para implantar: jefes que exijan chips de acceso, parejas que pidan rastreadores, estados que normalicen marcas corporales obligatorias."
+          - mark [ref=e45]: El consentimiento informado, libre y revocable, es innegociable.
+        - paragraph [ref=e46]: 09 Apoyamos a miembros menores de edad solo en su derecho a informarse. No instalamos, no asesoramos sobre procedimientos y derivamos a redes especializadas en derechos de infancias.
+        - paragraph [ref=e47]: "10 Cuidamos a quienes deciden explantarse. Quitar un implante no es un fracaso: es un acto válido del mismo derecho que lo instaló. Mantenemos guías de explante con el mismo rigor que las de instalación."
+        - paragraph [ref=e48]: 11 Construimos este colectivo en mutuo apoyo, sin liderazgos vitalicios, sin marcas registradas, sin monetización. Las personas que coordinan rotan cada dos años. Las cuentas son públicas, auditables y modestas.
+        - paragraph [ref=e49]:
+          - text: 12 Si algún día este manifiesto deja de servir, lo reescribiremos.
+          - mark [ref=e50]: La versión 3.2 es solo una pausa en una conversación que empezó antes de nosotras y seguirá después.
+      - complementary [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]: // COMMENT
+          - text: Reaffirms bodily sovereignty as foundational axis. — Revision board, 2026-01.
+        - generic [ref=e54]:
+          - generic [ref=e55]: // REF
+          - text: Compare with v2.8 paragraph 03, which framed pain aesthetically.
+        - generic [ref=e56]:
+          - generic [ref=e57]: // EDIT
+          - text: Paragraph 06 added in v3.0 to address regional specificity.
+        - generic [ref=e58]:
+          - generic [ref=e59]: // LEGAL
+          - text: Paragraph 08 — see jurisdictional disclaimer on contact page.
+        - generic [ref=e60]:
+          - generic [ref=e61]: // POLICY
+          - text: Paragraph 09 implemented as moderation rule on all forums.
+        - generic [ref=e62]:
+          - generic [ref=e63]: // FORK
+          - text: "Translations: EN, PT-BR and CA available via mirror."
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - text: "// SIGNED BY FOUNDING MEMBERS:"
+          - paragraph [ref=e66]: "@wirenode_98 · @bisturi.libre · @subderma.cdmx · @octava.via · @flux.iniciada · @cero.norte · @sangre.optica"
+        - generic [ref=e67]:
+          - generic [ref=e68]: v3.2 · ratificado el 14 ene 2026
+          - generic [ref=e69]: "hash sha256: a3f28c91...7b9d4e"
+          - link "▸ historial de versiones" [ref=e71] [cursor=pointer]:
+            - /url: "#"
+  - contentinfo [ref=e72]:
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e75]
+        - paragraph [ref=e76]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e77]:
+        - heading "// EXPLORE" [level=5] [ref=e78]
+        - list [ref=e79]:
+          - listitem [ref=e80]:
+            - link "Registry" [ref=e81] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e82]:
+            - link "Guides" [ref=e83] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e84]:
+            - link "Members" [ref=e85] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e86]:
+            - link "Events" [ref=e87] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e88]:
+        - heading "// COLLECTIVE" [level=5] [ref=e89]
+        - list [ref=e90]:
+          - listitem [ref=e91]:
+            - link "Manifesto" [ref=e92] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e93]:
+            - link "Submit" [ref=e94] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e95]:
+            - link "Contact" [ref=e96] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e97]:
+        - heading "// MIRROR" [level=5] [ref=e98]
+        - list [ref=e99]:
+          - listitem [ref=e100]:
+            - link "tor.onion" [ref=e101] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e102]:
+            - link "IPFS" [ref=e103] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e104]:
+            - link "Matrix" [ref=e105] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e106]:
+      - generic [ref=e107]: © 2019—2026 NEONPULSE
+      - generic [ref=e108]: v3.2.7 // 8842

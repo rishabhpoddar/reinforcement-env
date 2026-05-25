@@ -1,0 +1,112 @@
+- generic [active] [ref=e1]:
+  - checkbox
+  - complementary [ref=e2]:
+    - generic [ref=e3]:
+      - link "ATP 1957→ Archiv für Typografische Praxis Schweizer Gestaltung 1950–1985" [ref=e4] [cursor=pointer]:
+        - /url: startseite.html
+        - generic [ref=e5]:
+          - generic [ref=e6]: ATP
+          - generic [ref=e7]: 1957→
+        - generic [ref=e8]:
+          - text: Archiv für Typografische Praxis
+          - text: Schweizer Gestaltung 1950–1985
+      - navigation [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "01 Startseite" [ref=e12] [cursor=pointer]:
+              - /url: startseite.html
+          - listitem [ref=e13]:
+            - link "02 Sammlung" [ref=e14] [cursor=pointer]:
+              - /url: sammlung.html
+          - listitem [ref=e15]:
+            - link "03 Objekt-Detail" [ref=e16] [cursor=pointer]:
+              - /url: objekt-detail.html
+          - listitem [ref=e17]:
+            - link "04 Essays" [ref=e18] [cursor=pointer]:
+              - /url: essays.html
+          - listitem [ref=e19]:
+            - link "05 Essay-Detail" [ref=e20] [cursor=pointer]:
+              - /url: essay-detail.html
+          - listitem [ref=e21]:
+            - link "06 Raster-System" [ref=e22] [cursor=pointer]:
+              - /url: raster-system.html
+          - listitem [ref=e23]:
+            - link "07 Über uns" [ref=e24] [cursor=pointer]:
+              - /url: uber-uns.html
+          - listitem [ref=e25]:
+            - link "08 Kontakt" [ref=e26] [cursor=pointer]:
+              - /url: kontakt.html
+    - paragraph [ref=e27]:
+      - text: Zürich
+      - text: Di–Fr 10:00–17:00
+      - text: Inv. Gesamt 3.412
+  - main [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - paragraph [ref=e31]: Kontakt
+        - heading "Anfrage an das Archiv" [level=1] [ref=e32]
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - text: Name
+            - textbox "Name" [ref=e35]
+          - generic [ref=e36]:
+            - text: E-Mail
+            - textbox "E-Mail" [ref=e37]
+          - generic [ref=e38]:
+            - text: Anfrage-Art
+            - combobox "Anfrage-Art" [ref=e39]:
+              - option "Forschungszugang" [selected]
+              - option "Reproduktion"
+              - option "Presse"
+              - option "Spende"
+          - generic [ref=e40]:
+            - text: Nachricht
+            - textbox "Nachricht" [ref=e41]
+          - button "Anfrage senden" [ref=e42]
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - heading "Besucheradresse" [level=2] [ref=e45]
+          - paragraph [ref=e46]:
+            - text: Archiv für Typografische Praxis
+            - text: Pfingstweidstrasse 57
+            - text: 8005 Zürich
+        - generic [ref=e47]:
+          - heading "Öffnungszeiten" [level=2] [ref=e48]
+          - table [ref=e49]:
+            - rowgroup [ref=e50]:
+              - row "Dienstag 10:00–17:00" [ref=e51]:
+                - rowheader "Dienstag" [ref=e52]
+                - cell "10:00–17:00" [ref=e53]
+              - row "Mittwoch 10:00–17:00" [ref=e54]:
+                - rowheader "Mittwoch" [ref=e55]
+                - cell "10:00–17:00" [ref=e56]
+              - row "Donnerstag 12:00–19:00" [ref=e57]:
+                - rowheader "Donnerstag" [ref=e58]
+                - cell "12:00–19:00" [ref=e59]
+              - row "Freitag 10:00–15:00" [ref=e60]:
+                - rowheader "Freitag" [ref=e61]
+                - cell "10:00–15:00" [ref=e62]
+              - row "Lesesaal nur mit Termin" [ref=e63]:
+                - rowheader "Lesesaal" [ref=e64]
+                - cell "nur mit Termin" [ref=e65]
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - strong [ref=e68]: Telefon
+            - paragraph [ref=e69]: +41 44 000 57 57
+          - generic [ref=e70]:
+            - strong [ref=e71]: E-Mail
+            - paragraph [ref=e72]: kontakt@atp-archiv.ch
+        - generic [ref=e73]: Karte / Zürich West
+    - generic [ref=e74]:
+      - article [ref=e75]:
+        - paragraph [ref=e76]: Forschung
+        - strong [ref=e77]: Anmeldung
+        - paragraph [ref=e78]: Mindestens sieben Tage vorher.
+      - article [ref=e79]:
+        - paragraph [ref=e80]: Presse
+        - strong [ref=e81]: Bildanfragen
+        - paragraph [ref=e82]: Rechteprüfung erforderlich.
+      - article [ref=e83]:
+        - paragraph [ref=e84]: Spenden
+        - strong [ref=e85]: Nachlässe
+        - paragraph [ref=e86]: Bitte Provenienz beilegen.

@@ -1,0 +1,153 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "ध्रु ध्रुपद धरोहर Dhrupad Dharohar" [ref=e4] [cursor=pointer]:
+      - /url: मुख्य-पृष्ठ.html
+      - generic [ref=e5]: ध्रु
+      - generic [ref=e6]:
+        - generic [ref=e7]: ध्रुपद धरोहर
+        - generic [ref=e8]: Dhrupad Dharohar
+  - generic [ref=e10]:
+    - generic [ref=e11]: हमसे जुड़ें
+    - heading "संपर्क करें" [level=1] [ref=e12]
+    - paragraph [ref=e13]: शोध, सहयोग, कार्यशाला पंजीकरण या किसी भी प्रश्न के लिए हमसे संपर्क करें — हम शीघ्र उत्तर देने का प्रयास करते हैं।
+  - generic [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - heading "संदेश भेजें" [level=2] [ref=e18]
+        - paragraph [ref=e19]: अपनी जिज्ञासा या सुझाव हमें भेजें।
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - generic [ref=e22]:
+              - generic [ref=e23]: आपका नाम
+              - textbox "पूरा नाम" [ref=e24]
+            - generic [ref=e25]:
+              - generic [ref=e26]: ईमेल पता
+              - textbox "name@example.com" [ref=e27]
+            - generic [ref=e28]:
+              - generic [ref=e29]: विषय
+              - textbox "संदेश का विषय" [ref=e30]
+            - generic [ref=e31]:
+              - generic [ref=e32]: श्रेणी
+              - combobox [ref=e33]:
+                - option "सामान्य पूछताछ" [selected]
+                - option "शोध सहयोग"
+                - option "रिकॉर्डिंग योगदान"
+                - option "कार्यशाला पंजीकरण"
+                - option "तकनीकी सहायता"
+            - generic [ref=e34]:
+              - generic [ref=e35]: आपका संदेश
+              - textbox "यहाँ अपना संदेश लिखें..." [ref=e36]
+          - button "संदेश भेजें" [ref=e38] [cursor=pointer]
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]: ⌂
+          - generic [ref=e42]:
+            - heading "पता" [level=5] [ref=e43]
+            - paragraph [ref=e44]:
+              - text: ध्रुपद धरोहर संस्थान
+              - text: 123, संगीत भवन मार्ग
+              - text: नई दिल्ली, 110001
+              - text: भारत
+        - generic [ref=e45]:
+          - generic [ref=e46]: ☏
+          - generic [ref=e47]:
+            - heading "फ़ोन" [level=5] [ref=e48]
+            - paragraph [ref=e49]:
+              - text: +91 11 2345 6789
+              - text: +91 98765 43210
+        - generic [ref=e50]:
+          - generic [ref=e51]: "@"
+          - generic [ref=e52]:
+            - heading "ईमेल" [level=5] [ref=e53]
+            - paragraph [ref=e54]:
+              - text: संपर्क@ध्रुपद-धरोहर.in
+              - text: research@dhrupad-dharohar.in
+        - generic [ref=e55]:
+          - generic [ref=e56]: ◷
+          - generic [ref=e57]:
+            - heading "कार्यसमय" [level=5] [ref=e58]
+            - paragraph [ref=e59]:
+              - text: सोमवार – शुक्रवार
+              - text: प्रातः 10:00 – सायं 6:00
+              - text: "शनिवार: प्रातः 10:00 – दोप. 2:00"
+    - generic [ref=e61]: ⊙
+    - generic [ref=e62]:
+      - link "यूट्यूब" [ref=e63] [cursor=pointer]:
+        - /url: "#"
+        - text: YT
+      - link "इंस्टाग्राम" [ref=e64] [cursor=pointer]:
+        - /url: "#"
+        - text: IG
+      - link "ट्विटर" [ref=e65] [cursor=pointer]:
+        - /url: "#"
+        - text: X
+      - link "फेसबुक" [ref=e66] [cursor=pointer]:
+        - /url: "#"
+        - text: FB
+      - link "लिंक्डइन" [ref=e67] [cursor=pointer]:
+        - /url: "#"
+        - text: LI
+  - contentinfo [ref=e68]:
+    - generic [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]: ध्रु
+            - generic [ref=e74]:
+              - generic [ref=e75]: ध्रुपद धरोहर
+              - generic [ref=e76]: Dhrupad Dharohar
+          - paragraph [ref=e77]: उत्तर भारतीय शास्त्रीय संगीत की प्राचीनतम विधा को संरक्षित और प्रसारित करने के लिए समर्पित।
+        - generic [ref=e78]:
+          - heading "अध्ययन" [level=5] [ref=e79]
+          - list [ref=e80]:
+            - listitem [ref=e81]:
+              - link "घराने" [ref=e82] [cursor=pointer]:
+                - /url: घराने.html
+            - listitem [ref=e83]:
+              - link "राग कोश" [ref=e84] [cursor=pointer]:
+                - /url: राग-कोश.html
+        - generic [ref=e85]:
+          - heading "संग्रह" [level=5] [ref=e86]
+          - list [ref=e87]:
+            - listitem [ref=e88]:
+              - link "रिकॉर्डिंग्स" [ref=e89] [cursor=pointer]:
+                - /url: अभिलेखागार.html
+            - listitem [ref=e90]:
+              - link "शोध लेख" [ref=e91] [cursor=pointer]:
+                - /url: लेख.html
+        - generic [ref=e92]:
+          - heading "संस्थान" [level=5] [ref=e93]
+          - list [ref=e94]:
+            - listitem [ref=e95]:
+              - link "संपर्क" [ref=e96] [cursor=pointer]:
+                - /url: संपर्क.html
+      - generic [ref=e97]:
+        - generic [ref=e98]: © 2026 ध्रुपद धरोहर · सर्वाधिकार सुरक्षित
+        - generic [ref=e99]:
+          - link "Y" [ref=e100] [cursor=pointer]:
+            - /url: "#"
+          - link "In" [ref=e101] [cursor=pointer]:
+            - /url: "#"
+          - link "X" [ref=e102] [cursor=pointer]:
+            - /url: "#"
+  - navigation [ref=e103]:
+    - link "मु मुख्य" [ref=e104] [cursor=pointer]:
+      - /url: मुख्य-पृष्ठ.html
+      - generic [ref=e105]: मु
+      - generic [ref=e106]: मुख्य
+    - link "घ घराने" [ref=e107] [cursor=pointer]:
+      - /url: घराने.html
+      - generic [ref=e108]: घ
+      - generic [ref=e109]: घराने
+    - link "रा राग" [ref=e110] [cursor=pointer]:
+      - /url: राग-कोश.html
+      - generic [ref=e111]: रा
+      - generic [ref=e112]: राग
+    - link "अ अभिलेख" [ref=e113] [cursor=pointer]:
+      - /url: अभिलेखागार.html
+      - generic [ref=e114]: अ
+      - generic [ref=e115]: अभिलेख
+    - link "≡ मेनू" [ref=e116] [cursor=pointer]:
+      - /url: संपर्क.html
+      - generic [ref=e117]: ≡
+      - generic [ref=e118]: मेनू

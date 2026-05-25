@@ -1,0 +1,80 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e6]: ★
+        - generic [ref=e7]: حضانة نجوم الصغار
+      - navigation [ref=e8]:
+        - link "الرئيسية" [ref=e9] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "البرامج" [ref=e10] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "التسجيل" [ref=e11] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e12] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "المعلمات" [ref=e13] [cursor=pointer]:
+          - /url: المعلمات.html
+        - link "الأسئلة" [ref=e14] [cursor=pointer]:
+          - /url: الأسئلة.html
+        - link "تواصل" [ref=e15] [cursor=pointer]:
+          - /url: تواصل.html
+        - link "سجّل الآن" [ref=e16] [cursor=pointer]:
+          - /url: التسجيل.html
+  - main [ref=e17]:
+    - radio "🚂 ١ بيانات الطفل السابق" [checked] [ref=e18]
+    - radio "🚃 ٢ ولي الأمر التالي السابق" [ref=e19]
+    - radio "🚃 ٣ الصحة التالي السابق" [ref=e20]
+    - radio "🚃 ٤ البرنامج التالي السابق" [ref=e21]
+    - radio "🚃 ٥ الموافقات التالي" [ref=e22]
+    - generic [ref=e24]:
+      - generic [ref=e25]: طلب التحاق
+      - heading "نموذج تسجيل بخمس عربات صغيرة" [level=1] [ref=e26]
+      - paragraph [ref=e27]: املأوا خطوة واحدة في كل مرة. العربة الوردية توضّح مكانكم في القطار، وأزرار التالي والسابق تعمل بدون جافاسكريبت.
+      - generic [ref=e28]:
+        - generic [ref=e29] [cursor=pointer]: 🚂 ١ بيانات الطفل
+        - generic [ref=e30] [cursor=pointer]: 🚃 ٢ ولي الأمر
+        - generic [ref=e31] [cursor=pointer]: 🚃 ٣ الصحة
+        - generic [ref=e32] [cursor=pointer]: 🚃 ٤ البرنامج
+        - generic [ref=e33] [cursor=pointer]: 🚃 ٥ الموافقات
+    - generic [ref=e35]:
+      - 'heading "الخطوة ١: بيانات الطفل" [level=2] [ref=e36]'
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]: اسم الطفل
+            - generic [ref=e41]:
+              - generic [ref=e42]: 👧
+              - 'textbox "مثال: ليان أحمد" [ref=e43]'
+          - generic [ref=e44]:
+            - generic [ref=e45]: تاريخ الميلاد
+            - generic [ref=e46]:
+              - generic [ref=e47]: 📅
+              - textbox [ref=e48]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: الجنس
+            - generic [ref=e52]:
+              - generic [ref=e53] [cursor=pointer]:
+                - radio "بنت" [ref=e54]
+                - text: بنت
+              - generic [ref=e55] [cursor=pointer]:
+                - radio "ولد" [ref=e56]
+                - text: ولد
+          - generic [ref=e57]:
+            - generic [ref=e58]: صورة الطفل
+            - button "Choose File" [ref=e59]
+      - generic [ref=e61] [cursor=pointer]: التالي
+  - contentinfo [ref=e62]:
+    - generic [ref=e63]:
+      - generic [ref=e64]:
+        - strong [ref=e65]: حضانة نجوم الصغار
+        - paragraph [ref=e66]: نراجع الطلبات خلال يوم عمل واحد.
+      - generic [ref=e67]:
+        - link "البرامج" [ref=e68] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "خطة طفلي" [ref=e69] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "تواصل" [ref=e70] [cursor=pointer]:
+          - /url: تواصل.html

@@ -1,0 +1,87 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e5]: ★
+        - generic [ref=e6]: حضانة نجوم الصغار
+      - navigation [ref=e7]:
+        - link "الرئيسية" [ref=e8] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "البرامج" [ref=e9] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "التسجيل" [ref=e10] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e11] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "المعلمات" [ref=e12] [cursor=pointer]:
+          - /url: المعلمات.html
+        - link "الأسئلة" [ref=e13] [cursor=pointer]:
+          - /url: الأسئلة.html
+        - link "تواصل" [ref=e14] [cursor=pointer]:
+          - /url: تواصل.html
+        - link "سجّل الآن" [ref=e15] [cursor=pointer]:
+          - /url: التسجيل.html
+  - main [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: زورونا
+      - heading "نحب أن نسمع عن طفلكم قبل أن نلتقيه" [level=1] [ref=e20]
+      - paragraph [ref=e21]: اكتبوا لنا سؤالاً أو احجزوا جولة داخل الصفوف. سنقترح الوقت الأنسب حسب عمر الطفل والبرنامج.
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - heading "نموذج التواصل" [level=2] [ref=e24]
+        - generic [ref=e25]:
+          - generic [ref=e26]: الاسم
+          - textbox [ref=e27]
+        - generic [ref=e28]:
+          - generic [ref=e29]: الهاتف
+          - textbox [ref=e30]
+        - generic [ref=e31]:
+          - generic [ref=e32]: عمر الطفل
+          - 'textbox "مثال: سنتان ونصف" [ref=e33]'
+        - generic [ref=e34]:
+          - generic [ref=e35]: نوع الاستفسار
+          - combobox [ref=e36]:
+            - option "تسجيل جديد" [selected]
+            - option "رسوم وبرامج"
+            - option "خطة رعاية"
+            - option "زيارة الحضانة"
+        - generic [ref=e37]:
+          - generic [ref=e38]: الرسالة
+          - textbox [ref=e39]
+        - checkbox "☑ أرغب بحجز جولة" [ref=e40]
+        - generic [ref=e41] [cursor=pointer]: ☑ أرغب بحجز جولة
+        - button "إرسال الرسالة" [ref=e42] [cursor=pointer]
+      - complementary [ref=e43]:
+        - heading "نحن في قلب الحي" [level=2] [ref=e44]
+        - img "قاعة حضانة مشرقة" [ref=e45]
+        - list [ref=e46]:
+          - listitem [ref=e47]: 📍 عمّان، شارع هادئ قريب من الدوار السابع
+          - listitem [ref=e48]: "📱 واتساب: 079 555 2244"
+          - listitem [ref=e49]: "☎️ هاتف: 06 552 7788"
+        - generic [ref=e50]:
+          - generic [ref=e51]:
+            - generic [ref=e52]: الأحد - الخميس
+            - strong [ref=e53]: ٧:٣٠ - ٥:٠٠
+          - generic [ref=e54]:
+            - generic [ref=e55]: السبت
+            - strong [ref=e56]: جولات فقط
+        - generic [ref=e57]:
+          - link "IG" [ref=e58] [cursor=pointer]:
+            - /url: "#"
+          - link "TT" [ref=e59] [cursor=pointer]:
+            - /url: "#"
+          - link "WA" [ref=e60] [cursor=pointer]:
+            - /url: "#"
+  - contentinfo [ref=e61]:
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - strong [ref=e64]: حضانة نجوم الصغار
+        - paragraph [ref=e65]: نرد على الرسائل خلال ساعات الدوام.
+      - generic [ref=e66]:
+        - link "الرئيسية" [ref=e67] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "التسجيل" [ref=e68] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "الأسئلة" [ref=e69] [cursor=pointer]:
+          - /url: الأسئلة.html

@@ -1,0 +1,179 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "Meridian.Index" [ref=e5] [cursor=pointer]:
+        - /url: home.html
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: home.html
+        - link "Rates" [ref=e8] [cursor=pointer]:
+          - /url: rates.html
+        - link "Routes" [ref=e9] [cursor=pointer]:
+          - /url: routes.html
+        - link "Analytics" [ref=e10] [cursor=pointer]:
+          - /url: analytics.html
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: pricing.html
+        - link "Methodology" [ref=e12] [cursor=pointer]:
+          - /url: methodology.html
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: contact.html
+      - link "Access" [ref=e14] [cursor=pointer]:
+        - /url: contact.html
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - heading "Container Rate Index" [level=1] [ref=e18]
+      - generic [ref=e19]:
+        - generic [ref=e20]: 40ft
+        - generic [ref=e21]: 20ft
+        - generic [ref=e22]: Reefer
+        - generic [ref=e23]: Bulk
+      - table [ref=e26]:
+        - rowgroup [ref=e27]:
+          - row "Origin Destination Lane Code Current Rate WoW% MoM% YoY% Volatility Volume Index Carrier Count Transit Days Fuel Surcharge Last Updated Trend Sparkline" [ref=e28]:
+            - columnheader "Origin" [ref=e29]
+            - columnheader "Destination" [ref=e30]
+            - columnheader "Lane Code" [ref=e31]
+            - columnheader "Current Rate" [ref=e32]
+            - columnheader "WoW%" [ref=e33]
+            - columnheader "MoM%" [ref=e34]
+            - columnheader "YoY%" [ref=e35]
+            - columnheader "Volatility" [ref=e36]
+            - columnheader "Volume Index" [ref=e37]
+            - columnheader "Carrier Count" [ref=e38]
+            - columnheader "Transit Days" [ref=e39]
+            - columnheader "Fuel Surcharge" [ref=e40]
+            - columnheader "Last Updated" [ref=e41]
+            - columnheader "Trend Sparkline" [ref=e42]
+        - rowgroup [ref=e43]:
+          - row "Shanghai Los Angeles SHA-LAX $2,184 +3.1 +8.4 -12.0 14.2 91 18 16 $214 2026-05-24 08:45 UTC" [ref=e44]:
+            - cell "Shanghai" [ref=e45]
+            - cell "Los Angeles" [ref=e46]
+            - cell "SHA-LAX" [ref=e47]
+            - cell "$2,184" [ref=e48]
+            - cell "+3.1" [ref=e49]
+            - cell "+8.4" [ref=e50]
+            - cell "-12.0" [ref=e51]
+            - cell "14.2" [ref=e52]
+            - cell "91" [ref=e53]
+            - cell "18" [ref=e54]
+            - cell "16" [ref=e55]
+            - cell "$214" [ref=e56]
+            - cell "2026-05-24 08:45 UTC" [ref=e57]
+            - cell [ref=e58]:
+              - img [ref=e59]
+          - row "Rotterdam New York RTM-NYC $1,906 -1.8 +2.2 -9.4 9.8 77 11 13 $188 2026-05-24 08:42 UTC" [ref=e61]:
+            - cell "Rotterdam" [ref=e62]
+            - cell "New York" [ref=e63]
+            - cell "RTM-NYC" [ref=e64]
+            - cell "$1,906" [ref=e65]
+            - cell "-1.8" [ref=e66]
+            - cell "+2.2" [ref=e67]
+            - cell "-9.4" [ref=e68]
+            - cell "9.8" [ref=e69]
+            - cell "77" [ref=e70]
+            - cell "11" [ref=e71]
+            - cell "13" [ref=e72]
+            - cell "$188" [ref=e73]
+            - cell "2026-05-24 08:42 UTC" [ref=e74]
+            - cell [ref=e75]:
+              - img [ref=e76]
+          - row "Singapore Hamburg SGP-HAM $2,742 +4.6 +11.1 +3.7 16.0 104 16 22 $241 2026-05-24 08:38 UTC" [ref=e78]:
+            - cell "Singapore" [ref=e79]
+            - cell "Hamburg" [ref=e80]
+            - cell "SGP-HAM" [ref=e81]
+            - cell "$2,742" [ref=e82]
+            - cell "+4.6" [ref=e83]
+            - cell "+11.1" [ref=e84]
+            - cell "+3.7" [ref=e85]
+            - cell "16.0" [ref=e86]
+            - cell "104" [ref=e87]
+            - cell "16" [ref=e88]
+            - cell "22" [ref=e89]
+            - cell "$241" [ref=e90]
+            - cell "2026-05-24 08:38 UTC" [ref=e91]
+            - cell [ref=e92]:
+              - img [ref=e93]
+          - row "Busan Amsterdam BUS-AMS $2,551 +2.4 -1.5 -5.9 11.3 86 13 24 $229 2026-05-24 08:35 UTC" [ref=e95]:
+            - cell "Busan" [ref=e96]
+            - cell "Amsterdam" [ref=e97]
+            - cell "BUS-AMS" [ref=e98]
+            - cell "$2,551" [ref=e99]
+            - cell "+2.4" [ref=e100]
+            - cell "-1.5" [ref=e101]
+            - cell "-5.9" [ref=e102]
+            - cell "11.3" [ref=e103]
+            - cell "86" [ref=e104]
+            - cell "13" [ref=e105]
+            - cell "24" [ref=e106]
+            - cell "$229" [ref=e107]
+            - cell "2026-05-24 08:35 UTC" [ref=e108]
+            - cell [ref=e109]:
+              - img [ref=e110]
+          - row "Jebel Ali Felixstowe JEA-FEL $1,774 -3.7 -6.0 -17.2 18.7 63 9 19 $171 2026-05-24 08:27 UTC" [ref=e112]:
+            - cell "Jebel Ali" [ref=e113]
+            - cell "Felixstowe" [ref=e114]
+            - cell "JEA-FEL" [ref=e115]
+            - cell "$1,774" [ref=e116]
+            - cell "-3.7" [ref=e117]
+            - cell "-6.0" [ref=e118]
+            - cell "-17.2" [ref=e119]
+            - cell "18.7" [ref=e120]
+            - cell "63" [ref=e121]
+            - cell "9" [ref=e122]
+            - cell "19" [ref=e123]
+            - cell "$171" [ref=e124]
+            - cell "2026-05-24 08:27 UTC" [ref=e125]
+            - cell [ref=e126]:
+              - img [ref=e127]
+          - row "Ningbo Santos NGB-SSZ $3,082 +5.8 +13.5 +8.1 19.4 72 7 31 $266 2026-05-24 08:19 UTC" [ref=e129]:
+            - cell "Ningbo" [ref=e130]
+            - cell "Santos" [ref=e131]
+            - cell "NGB-SSZ" [ref=e132]
+            - cell "$3,082" [ref=e133]
+            - cell "+5.8" [ref=e134]
+            - cell "+13.5" [ref=e135]
+            - cell "+8.1" [ref=e136]
+            - cell "19.4" [ref=e137]
+            - cell "72" [ref=e138]
+            - cell "7" [ref=e139]
+            - cell "31" [ref=e140]
+            - cell "$266" [ref=e141]
+            - cell "2026-05-24 08:19 UTC" [ref=e142]
+            - cell [ref=e143]:
+              - img [ref=e144]
+          - row [ref=e146]:
+            - cell [ref=e147]
+      - complementary [ref=e149]:
+        - generic [ref=e150]:
+          - generic [ref=e151]: Top Movers
+          - generic [ref=e152]: WoW
+        - generic [ref=e153]:
+          - generic [ref=e154]: NGB → SSZ
+          - generic [ref=e155]: $3,082
+          - generic [ref=e156]: +5.8%
+        - generic [ref=e157]:
+          - generic [ref=e158]: SGP → HAM
+          - generic [ref=e159]: $2,742
+          - generic [ref=e160]: +4.6%
+        - generic [ref=e161]:
+          - generic [ref=e162]: JEA → FEL
+          - generic [ref=e163]: $1,774
+          - generic [ref=e164]: "-3.7%"
+        - generic [ref=e165]:
+          - generic [ref=e166]: RTM → NYC
+          - generic [ref=e167]: $1,906
+          - generic [ref=e168]: "-1.8%"
+        - generic [ref=e169]:
+          - generic [ref=e170]: BUS → AMS
+          - generic [ref=e171]: $2,551
+          - generic [ref=e172]: +2.4%
+  - link "Request Index Access →" [ref=e175] [cursor=pointer]:
+    - /url: contact.html
+  - contentinfo [ref=e176]:
+    - generic [ref=e177]:
+      - generic [ref=e178]: Meridian Freight Index
+      - generic [ref=e179]:
+        - generic [ref=e180]: Global rate intelligence
+        - generic [ref=e181]: UTC indexed data
+        - generic [ref=e182]: © 2026

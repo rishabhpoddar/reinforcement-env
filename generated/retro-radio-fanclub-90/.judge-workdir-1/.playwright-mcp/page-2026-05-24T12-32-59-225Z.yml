@@ -1,0 +1,65 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: फोटो एलबम खुल गया
+    - generic [ref=e5]: "00042876"
+  - banner [ref=e6]:
+    - img "रेडियो तरंग लोगो" [ref=e7]
+    - generic [ref=e8]:
+      - heading "तस्वीर दीर्घा" [level=1] [ref=e9]
+      - generic [ref=e10]: स्टूडियो, उद्घोषक, रेडियो सेट और कैसेट की झलकियां
+    - generic [ref=e12]: धीरे लोड हो रही तस्वीरें
+  - navigation [ref=e13]:
+    - link "मुख्य पृष्ठ" [ref=e14] [cursor=pointer]:
+      - /url: mukhya-prishth.html
+    - link "कार्यक्रम सूची" [ref=e15] [cursor=pointer]:
+      - /url: kaaryakram-suchi.html
+    - link "जिंगल" [ref=e16] [cursor=pointer]:
+      - /url: jingle-sangrah.html
+    - link "नाटक" [ref=e17] [cursor=pointer]:
+      - /url: redio-natak.html
+    - link "पत्र" [ref=e18] [cursor=pointer]:
+      - /url: shrota-patra.html
+    - link "दीर्घा" [ref=e19] [cursor=pointer]:
+      - /url: tasveer-deergha.html
+    - link "सदस्यता" [ref=e20] [cursor=pointer]:
+      - /url: sadasyata.html
+    - link "संपर्क" [ref=e21] [cursor=pointer]:
+      - /url: sampark.html
+  - paragraph [ref=e22]: इन तस्वीरों में रेडियो स्टेशन के अंदर, प्रसिद्ध उद्घोषक, विंटेज रेडियो सेट, कैसेट और रिकॉर्ड की 90 के दशक वाली गर्माहट रखी है।
+  - main [ref=e23]:
+    - generic [ref=e24]:
+      - figure "रेडियो स्टेशन के अंदर, 1994" [ref=e25]:
+        - img "रेडियो स्टेशन अंदर" [ref=e26]
+        - generic [ref=e27]: रेडियो स्टेशन के अंदर, 1994
+      - figure "विंटेज रेडियो सेट, 1992" [ref=e28]:
+        - img "विंटेज रेडियो सेट" [ref=e29]
+        - generic [ref=e30]: विंटेज रेडियो सेट, 1992
+      - figure "प्रसिद्ध उद्घोषक श्रद्धांजलि, 1996" [ref=e31]:
+        - img "प्रसिद्ध उद्घोषक" [ref=e32]
+        - generic [ref=e33]: प्रसिद्ध उद्घोषक श्रद्धांजलि, 1996
+      - figure "कैसेट और रिकॉर्ड, 1998" [ref=e34]:
+        - img "कैसेट और रिकॉर्ड" [ref=e35]
+        - generic [ref=e36]: कैसेट और रिकॉर्ड, 1998
+      - figure "ऑन एयर माइक्रोफोन, 1995" [ref=e37]:
+        - img "स्टूडियो माइक्रोफोन" [ref=e38]
+        - generic [ref=e39]: ऑन एयर माइक्रोफोन, 1995
+    - complementary [ref=e40]:
+      - heading "दुर्लभ वीडियो" [level=2] [ref=e41]
+      - generic [ref=e42]:
+        - text: अमीन सयानी का साक्षात्कार 1994
+        - text: ▶
+      - link "वीडियो लिंक 1" [ref=e43] [cursor=pointer]:
+        - /url: "#"
+      - link "वीडियो लिंक 2" [ref=e44] [cursor=pointer]:
+        - /url: "#"
+      - link "वीडियो लिंक 3" [ref=e45] [cursor=pointer]:
+        - /url: "#"
+      - link "वीडियो लिंक 4" [ref=e46] [cursor=pointer]:
+        - /url: "#"
+      - link "वीडियो लिंक 5" [ref=e47] [cursor=pointer]:
+        - /url: "#"
+  - contentinfo [ref=e48]:
+    - text: © रेडियो तरंग 90 फैन मंडली
+    - generic [ref=e49]:
+      - generic [ref=e50]: 800x600 में सर्वोत्तम दृश्य
+      - generic [ref=e51]: नोटपैड से निर्मित

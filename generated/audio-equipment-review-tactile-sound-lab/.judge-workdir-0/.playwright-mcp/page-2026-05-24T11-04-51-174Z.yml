@@ -1,0 +1,73 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Tactile Sound Lab" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - generic [ref=e6]: Tactile Sound Lab
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "Reviews" [ref=e9] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Database" [ref=e10] [cursor=pointer]:
+          - /url: gear-database.html
+        - link "Lab Tests" [ref=e11] [cursor=pointer]:
+          - /url: lab-tests.html
+        - link "Compare" [ref=e12] [cursor=pointer]:
+          - /url: comparisons.html
+        - link "Community" [ref=e13] [cursor=pointer]:
+          - /url: community.html
+        - link "About" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - img "Cluttered home studio at night" [ref=e17]
+      - generic [ref=e18]:
+        - generic [ref=e19]: Patch cables welcome
+        - heading "Community" [level=1] [ref=e20]
+        - paragraph [ref=e21]: Discussion, setups, repair notes, and buy-sell-trade posts for people who still read service manuals.
+    - navigation [ref=e24]:
+      - generic [ref=e25]: Discussion
+      - generic [ref=e26]: Show Your Setup
+      - generic [ref=e27]: Buy-Sell-Trade
+      - generic [ref=e28]: Repair Help
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - article [ref=e32]:
+          - generic [ref=e33]: MC
+          - generic [ref=e34]:
+            - heading "Battery leak rescue checklist for Polysix boards?" [level=3] [ref=e35]
+            - paragraph [ref=e36]: Mira · last activity 14 min ago
+          - generic [ref=e37]: "28"
+        - article [ref=e38]:
+          - generic [ref=e39]: DR
+          - generic [ref=e40]:
+            - heading "Show us your smallest live rig that still feels playable" [level=3] [ref=e41]
+            - paragraph [ref=e42]: Dev · last activity 41 min ago
+          - generic [ref=e43]: "64"
+        - article [ref=e44]:
+          - generic [ref=e45]: IP
+          - generic [ref=e46]:
+            - heading "TR-808 kick decay pot scratch after cleaning" [level=3] [ref=e47]
+            - paragraph [ref=e48]: Inez · last activity 2 hr ago
+          - generic [ref=e49]: "11"
+      - complementary [ref=e50]:
+        - heading "Top Contributors" [level=3] [ref=e51]
+        - generic [ref=e52]:
+          - generic [ref=e53]: "1"
+          - paragraph [ref=e54]: PatchArchivist
+        - generic [ref=e55]:
+          - generic [ref=e56]: "2"
+          - paragraph [ref=e57]: ScopeWizard
+        - generic [ref=e58]:
+          - generic [ref=e59]: "3"
+          - paragraph [ref=e60]: FoamRoom
+        - heading "Setup of the Week" [level=3] [ref=e61]
+        - img "Featured home studio" [ref=e62]
+    - link "+" [ref=e63] [cursor=pointer]:
+      - /url: "#"
+  - contentinfo [ref=e64]:
+    - generic [ref=e65]:
+      - strong [ref=e66]: Tactile Sound Lab
+      - generic [ref=e67]: Independent reviews for analog obsessives.
+      - generic [ref=e68]: Be kind, cite measurements

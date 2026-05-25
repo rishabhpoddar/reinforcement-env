@@ -1,0 +1,113 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]: // 04 — DATA INPUT
+    - heading "SUBMIT PROCEDURE SUBMIT PROCEDURE SUBMIT PROCEDURE" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Registrá tu procedimiento. Datos anónimos por defecto, encriptados en reposo. Ayudás al colectivo a documentar y a aprender.
+    - generic [ref=e12]:
+      - link "01 IDENTITY" [ref=e13] [cursor=pointer]:
+        - /url: "#section-1"
+        - generic [ref=e14]: "01"
+        - text: IDENTITY
+      - link "02 PROCEDURE" [ref=e15] [cursor=pointer]:
+        - /url: "#section-2"
+        - generic [ref=e16]: "02"
+        - text: PROCEDURE
+      - link "03 METRICS" [ref=e17] [cursor=pointer]:
+        - /url: "#section-3"
+        - generic [ref=e18]: "03"
+        - text: METRICS
+      - link "04 NARRATIVE" [ref=e19] [cursor=pointer]:
+        - /url: "#section-4"
+        - generic [ref=e20]: "04"
+        - text: NARRATIVE
+    - generic [ref=e21]:
+      - text: ▸ ▸ ▸ ▸ ▸ ▸ ▸ ▸
+      - group "SECTION 03 // METRICS" [ref=e81]:
+        - generic [ref=e82]: SECTION 03 // METRICS
+        - generic [ref=e83]:
+          - generic [ref=e84]: PAIN LEVEL (0—10)
+          - generic [ref=e85]: Nivel máximo de dolor durante el procedimiento.
+          - generic [ref=e86]:
+            - slider [ref=e87]: "3"
+            - generic [ref=e88]: "03"
+        - generic [ref=e89]:
+          - generic [ref=e90]: HEALING TIME (días hasta cicatrización completa)
+          - generic [ref=e91]: Tiempo total en días, según tu observación.
+          - generic [ref=e92]:
+            - slider [ref=e93]: "21"
+            - generic [ref=e94]: 21d
+        - generic [ref=e95]:
+          - generic [ref=e96]: SATISFACTION RATING
+          - generic [ref=e97]: ¿Repetirías este procedimiento sabiendo lo que sabés ahora?
+          - generic [ref=e98]:
+            - generic [ref=e99]: ★
+            - generic [ref=e100]: ★
+            - generic [ref=e101]: ★
+            - generic [ref=e102]: ★
+            - generic [ref=e103]: ★
+        - generic [ref=e104]:
+          - generic [ref=e105]: COMPLICATIONS
+          - generic [ref=e106]: ¿Experimentaste complicaciones (infección, migración, rechazo)?
+          - text: Sin complicaciones reportadas
+        - generic [ref=e108]:
+          - link "◂ ATRÁS" [ref=e109] [cursor=pointer]:
+            - /url: "#section-2"
+          - generic [ref=e110]: PASO 03 / 04
+          - link "CONTINUAR ▸" [ref=e111] [cursor=pointer]:
+            - /url: "#section-4"
+  - contentinfo [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e47]
+        - paragraph [ref=e48]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e49]:
+        - heading "// EXPLORE" [level=5] [ref=e50]
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Registry" [ref=e53] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e54]:
+            - link "Guides" [ref=e55] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e56]:
+            - link "Members" [ref=e57] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e58]:
+            - link "Events" [ref=e59] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e60]:
+        - heading "// COLLECTIVE" [level=5] [ref=e61]
+        - list [ref=e62]:
+          - listitem [ref=e63]:
+            - link "Manifesto" [ref=e64] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e65]:
+            - link "Submit" [ref=e66] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e67]:
+            - link "Contact" [ref=e68] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e69]:
+        - heading "// MIRROR" [level=5] [ref=e70]
+        - list [ref=e71]:
+          - listitem [ref=e72]:
+            - link "tor.onion" [ref=e73] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e74]:
+            - link "IPFS" [ref=e75] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e76]:
+            - link "Matrix" [ref=e77] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e78]:
+      - generic [ref=e79]: © 2019—2026 NEONPULSE
+      - generic [ref=e80]: v3.2.7 // 8842

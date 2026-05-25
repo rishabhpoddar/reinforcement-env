@@ -1,0 +1,119 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "PixelMétéo 95" [level=1] [ref=e5]
+      - generic [ref=e6]: ARCHIVES TEMPÊTES
+    - navigation "Navigation principale" [ref=e7]:
+      - link "Accueil" [ref=e8] [cursor=pointer]:
+        - /url: accueil.html
+      - link "Tableau de bord" [ref=e9] [cursor=pointer]:
+        - /url: tableau-de-bord.html
+      - link "Observations" [ref=e10] [cursor=pointer]:
+        - /url: observations.html
+      - link "Tempêtes" [ref=e11] [cursor=pointer]:
+        - /url: tempetes.html
+      - link "Membres" [ref=e12] [cursor=pointer]:
+        - /url: membres.html
+      - link "Archives" [ref=e13] [cursor=pointer]:
+        - /url: archives.html
+      - link "Forum" [ref=e14] [cursor=pointer]:
+        - /url: forum.html
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+    - generic [ref=e17]: "CATALOGUE OUVERT : 1999 À 2026 ⚡ CLIQUEZ LES EN-TÊTES POUR TRIER À L'ANCIENNE ⚡ DOSSIER CIARA DISPONIBLE"
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]: 1999 Lothar
+      - generic [ref=e21]: 2009 Klaus
+      - generic [ref=e22]: 2010 Xynthia
+      - generic [ref=e23]: 2014 Dirk
+      - generic [ref=e24]: 2020 Ciara
+      - generic [ref=e25]: 2023 Ciarán
+      - generic [ref=e26]: 2026 Vega
+    - generic [ref=e27]:
+      - article [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]: catalogue-tempetes.dbf
+          - generic [ref=e31]:
+            - generic [ref=e32]: _
+            - generic [ref=e33]: □
+            - generic [ref=e34]: ×
+        - table [ref=e36]:
+          - rowgroup [ref=e37]:
+            - row "N° NOM DATE RÉGION VENT MAX PRESSION MIN DÉGÂTS RAPPORTS" [ref=e38]:
+              - columnheader "N°" [ref=e39]
+              - columnheader "NOM" [ref=e40]
+              - columnheader "DATE" [ref=e41]
+              - columnheader "RÉGION" [ref=e42]
+              - columnheader "VENT MAX" [ref=e43]
+              - columnheader "PRESSION MIN" [ref=e44]
+              - columnheader "DÉGÂTS" [ref=e45]
+              - columnheader "RAPPORTS" [ref=e46]
+          - rowgroup [ref=e47]:
+            - row "095 CIARA 10/02/2020 Nord-Ouest 219 943 forts 128" [ref=e48]:
+              - cell "095" [ref=e49]
+              - cell "CIARA" [ref=e50]
+              - cell "10/02/2020" [ref=e51]
+              - cell "Nord-Ouest" [ref=e52]
+              - cell "219" [ref=e53]
+              - cell "943" [ref=e54]
+              - cell "forts" [ref=e55]
+              - cell "128" [ref=e56]
+            - row "094 CIARÁN 02/11/2023 Bretagne 207 951 majeurs 211" [ref=e57]:
+              - cell "094" [ref=e58]
+              - cell "CIARÁN" [ref=e59]
+              - cell "02/11/2023" [ref=e60]
+              - cell "Bretagne" [ref=e61]
+              - cell "207" [ref=e62]
+              - cell "951" [ref=e63]
+              - cell "majeurs" [ref=e64]
+              - cell "211" [ref=e65]
+            - row "093 KLAUS 24/01/2009 Sud-Ouest 198 967 majeurs 88" [ref=e66]:
+              - cell "093" [ref=e67]
+              - cell "KLAUS" [ref=e68]
+              - cell "24/01/2009" [ref=e69]
+              - cell "Sud-Ouest" [ref=e70]
+              - cell "198" [ref=e71]
+              - cell "967" [ref=e72]
+              - cell "majeurs" [ref=e73]
+              - cell "88" [ref=e74]
+            - row "092 XYNTHIA 28/02/2010 Atlantique 160 969 critiques 142" [ref=e75]:
+              - cell "092" [ref=e76]
+              - cell "XYNTHIA" [ref=e77]
+              - cell "28/02/2010" [ref=e78]
+              - cell "Atlantique" [ref=e79]
+              - cell "160" [ref=e80]
+              - cell "969" [ref=e81]
+              - cell "critiques" [ref=e82]
+              - cell "142" [ref=e83]
+            - row "091 LOTHAR 26/12/1999 Nord 173 960 historiques 302" [ref=e84]:
+              - cell "091" [ref=e85]
+              - cell "LOTHAR" [ref=e86]
+              - cell "26/12/1999" [ref=e87]
+              - cell "Nord" [ref=e88]
+              - cell "173" [ref=e89]
+              - cell "960" [ref=e90]
+              - cell "historiques" [ref=e91]
+              - cell "302" [ref=e92]
+      - complementary [ref=e93]:
+        - generic [ref=e94]:
+          - generic [ref=e95]: tempete-vedette.card
+          - generic [ref=e96]:
+            - generic [ref=e97]: _
+            - generic [ref=e98]: □
+            - generic [ref=e99]: ×
+        - generic [ref=e100]:
+          - img "Carte de collection de la tempête Ciara" [ref=e101]
+          - 'heading "Tempête en vedette : Ciara" [level=2] [ref=e102]'
+          - generic [ref=e103]:
+            - generic [ref=e104]: Vent 219
+            - generic [ref=e105]: Pression 943
+            - generic [ref=e106]: Rang S
+            - generic [ref=e107]: 128 rapports
+          - link "Lire le dossier complet" [ref=e108] [cursor=pointer]:
+            - /url: archives.html
+  - contentinfo [ref=e109]:
+    - generic [ref=e110]:
+      - generic [ref=e111]: Best viewed in 1024x768
+      - generic [ref=e112]: Made with ♥ et un anémomètre
+      - generic [ref=e113]: UNDER CONSTRUCTION

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raster-System — ATP</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f2f2f0'/%3E%3Ctext x='6' y='42' font-family='Helvetica,Arial,sans-serif' font-weight='800' font-size='24' fill='%23000'%3EATP%3C/text%3E%3Crect x='50' y='8' width='4' height='48' fill='%23d6001c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <input class="drawer-toggle" id="drawer" type="checkbox">
+  <div class="mobile-bar"><label class="hamburger" for="drawer"><span></span><span></span><span></span></label><span>ATP / Raster</span></div>
+  <aside class="sidebar"><div><a class="brand" href="startseite.html"><span class="brand-lockup"><span class="brand-mark">ATP</span><span class="brand-year">1957→</span></span><span class="brand-sub">Archiv für Typografische Praxis<br>Schweizer Gestaltung 1950–1985</span></a><nav><ul class="nav-list"><li><a data-no="01" href="startseite.html">Startseite</a></li><li><a data-no="02" href="sammlung.html">Sammlung</a></li><li><a data-no="03" href="objekt-detail.html">Objekt-Detail</a></li><li><a data-no="04" href="essays.html">Essays</a></li><li><a data-no="05" href="essay-detail.html">Essay-Detail</a></li><li><a class="active" data-no="06" href="raster-system.html">Raster-System</a></li><li><a data-no="07" href="uber-uns.html">Über uns</a></li><li><a data-no="08" href="kontakt.html">Kontakt</a></li></ul></nav></div><p class="sidebar-foot">Zürich<br>Di–Fr 10:00–17:00<br>Inv. Gesamt 3.412</p></aside>
+  <label class="drawer-overlay" for="drawer"></label>
+  <main class="site-main">
+    <section class="grid-12 rule">
+      <div class="span-5"><p class="kicker">Interaktive Methodik</p><h1>Das Raster des Archivs</h1><p class="lead">Zwölf Spalten, acht Punkt Baseline, modulare Grössen. Die Schalter legen die Konstruktionslogik offen.</p></div>
+      <div class="span-7 diagram"><img src="assets/grid-diagram.png" alt="Technische Darstellung eines 12-Spalten-Rasters"></div>
+    </section>
+    <section class="grid-12 section">
+      <div class="span-5"><h2>Schichten einblenden</h2><p class="lead">Ohne Skript: Radiosteuerung zeigt Spalten, Baseline oder modulare Skala als austauschbare Leseschichten.</p></div>
+      <div class="span-7 grid-switch">
+        <input checked id="grid-columns" name="grid-layer" type="radio">
+        <input id="grid-baseline" name="grid-layer" type="radio">
+        <input id="grid-scale" name="grid-layer" type="radio">
+        <div class="switch-labels"><label for="grid-columns">12 Spalten</label><label for="grid-baseline">Baseline 8 pt</label><label for="grid-scale">Modulare Skala</label></div>
+        <div class="switch-panel columns"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
+        <div class="switch-panel baseline"><p class="lead">Jede horizontale Linie entspricht einem Grundschritt von 8 px. Fliesstext, Label und Tabellenzeile fallen sichtbar auf denselben Takt.</p></div>
+        <div class="switch-panel scale"><span style="font-size:16px">16 / Text</span><span style="font-size:24px">24 / Lead</span><span style="font-size:36px">36 / Titel</span></div>
+      </div>
+    </section>
+    <section class="grid-12 section"><pre class="code-block span-5">.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+body { line-height: 24px; }</pre><div class="span-7"><h2>Baseline</h2><p class="lead">Alle typografischen Grössen fallen auf ein Vielfaches von acht Pixeln. Die sichtbaren Hilfslinien erinnern an Satzspiegel, nicht an Dekor.</p></div></section>
+    <section class="section"><h2>Historische Raster im Vergleich</h2><div class="grid-12" style="margin-top:24px"><article class="object-card span-4"><img src="assets/grid-diagram.png" alt="Müller-Brockmann Raster"><p class="caption"><strong>Müller-Brockmann</strong>Strenge modulare Wiederholung, hohe Lesbarkeit.</p></article><article class="object-card span-4"><img src="assets/poster-grid-sample.png" alt="Hofmann Raster"><p class="caption"><strong>Hofmann</strong>Kontrast, Spannung und optische Korrektur.</p></article><article class="object-card span-4"><img src="assets/book-design-spread.png" alt="Ruder Raster"><p class="caption"><strong>Ruder</strong>Typografische Lehre aus Zeile, Spalte und Rhythmus.</p></article></div></section>
+    <footer class="footer-band"><article><p class="red">Dokument</p><strong>Version 3.1</strong><p>Stand Mai 2026.</p></article><article><p class="red">Anwendung</p><strong>Archivweb</strong><p>Alle Seiten folgen diesem Raster.</p></article><article><p class="red">Quelle</p><strong>Lehrmaterial</strong><p>Basel und Zürich, 1957–1985.</p></article></footer>
+  </main>
+</body>
+</html>

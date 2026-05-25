@@ -1,0 +1,114 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]: // 04 — DATA INPUT
+    - heading "SUBMIT PROCEDURE SUBMIT PROCEDURE SUBMIT PROCEDURE" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Registrá tu procedimiento. Datos anónimos por defecto, encriptados en reposo. Ayudás al colectivo a documentar y a aprender.
+    - generic [ref=e12]:
+      - link "01 IDENTITY" [ref=e13] [cursor=pointer]:
+        - /url: "#section-1"
+        - generic [ref=e14]: "01"
+        - text: IDENTITY
+      - link "02 PROCEDURE" [ref=e15] [cursor=pointer]:
+        - /url: "#section-2"
+        - generic [ref=e16]: "02"
+        - text: PROCEDURE
+      - link "03 METRICS" [ref=e17] [cursor=pointer]:
+        - /url: "#section-3"
+        - generic [ref=e18]: "03"
+        - text: METRICS
+      - link "04 NARRATIVE" [ref=e19] [cursor=pointer]:
+        - /url: "#section-4"
+        - generic [ref=e20]: "04"
+        - text: NARRATIVE
+    - generic [ref=e21]:
+      - group "SECTION 01 // IDENTITY" [ref=e22]:
+        - generic [ref=e23]: SECTION 01 // IDENTITY
+        - generic [ref=e24]:
+          - generic [ref=e25]: HANDLE
+          - generic [ref=e26]: Tu alias público dentro del colectivo. No uses tu nombre real.
+          - textbox "HANDLE" [ref=e27]:
+            - /placeholder: ej. @wirenode_98
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e30]: REGION
+            - generic [ref=e31]: Ciudad o área general. No registramos ubicación exacta.
+            - combobox "REGION" [ref=e32]:
+              - option "Selecciona tu región..." [selected]
+              - option "México — Norte"
+              - option "México — Centro / CDMX"
+              - option "Centroamérica"
+              - option "Caribe"
+              - option "Andina (Colombia / Ecuador / Perú)"
+              - option "Cono Sur (Argentina / Chile / Uruguay)"
+              - option "Brasil"
+              - option "Iberia (España / Portugal)"
+              - option "Otro"
+          - generic [ref=e33]:
+            - generic [ref=e34]: YEAR OF BIRTH
+            - generic [ref=e35]: Solo el año, para análisis demográfico anónimo.
+            - spinbutton "YEAR OF BIRTH" [ref=e36]
+        - generic [ref=e37]:
+          - generic [ref=e38]: ANONYMOUS MODE
+          - generic [ref=e39]: Si está activado, tu handle no aparece en el registro público.
+          - text: Modo anónimo activado
+        - generic [ref=e41]:
+          - generic [ref=e42]: PASO 01 / 04
+          - link "CONTINUAR ▸" [ref=e43] [cursor=pointer]:
+            - /url: "#section-2"
+      - text: ▸ ▸ ▸ ▸ ▸ ▸ ▸ ▸
+  - contentinfo [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e47]
+        - paragraph [ref=e48]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e49]:
+        - heading "// EXPLORE" [level=5] [ref=e50]
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Registry" [ref=e53] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e54]:
+            - link "Guides" [ref=e55] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e56]:
+            - link "Members" [ref=e57] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e58]:
+            - link "Events" [ref=e59] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e60]:
+        - heading "// COLLECTIVE" [level=5] [ref=e61]
+        - list [ref=e62]:
+          - listitem [ref=e63]:
+            - link "Manifesto" [ref=e64] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e65]:
+            - link "Submit" [ref=e66] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e67]:
+            - link "Contact" [ref=e68] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e69]:
+        - heading "// MIRROR" [level=5] [ref=e70]
+        - list [ref=e71]:
+          - listitem [ref=e72]:
+            - link "tor.onion" [ref=e73] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e74]:
+            - link "IPFS" [ref=e75] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e76]:
+            - link "Matrix" [ref=e77] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e78]:
+      - generic [ref=e79]: © 2019—2026 NEONPULSE
+      - generic [ref=e80]: v3.2.7 // 8842

@@ -1,0 +1,75 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "PixelMétéo 95" [level=1] [ref=e5]
+      - generic [ref=e6]: MESSAGERIE ASSOCIATION
+    - navigation "Navigation principale" [ref=e7]:
+      - link "Accueil" [ref=e8] [cursor=pointer]:
+        - /url: accueil.html
+      - link "Tableau de bord" [ref=e9] [cursor=pointer]:
+        - /url: tableau-de-bord.html
+      - link "Observations" [ref=e10] [cursor=pointer]:
+        - /url: observations.html
+      - link "Tempêtes" [ref=e11] [cursor=pointer]:
+        - /url: tempetes.html
+      - link "Membres" [ref=e12] [cursor=pointer]:
+        - /url: membres.html
+      - link "Archives" [ref=e13] [cursor=pointer]:
+        - /url: archives.html
+      - link "Forum" [ref=e14] [cursor=pointer]:
+        - /url: forum.html
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+    - generic [ref=e17]: ÉCRIVEZ AU QG ⚡ PARTENARIATS STATIONS ACCEPTÉS ⚡ DISCORD OUVERT AUX OBSERVATEURS RESPECTUEUX
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: envoyer-message.exe
+        - generic [ref=e22]:
+          - generic [ref=e23]: _
+          - generic [ref=e24]: □
+          - generic [ref=e25]: ×
+      - generic [ref=e26]:
+        - generic [ref=e27]: Nom
+        - textbox "Nom" [ref=e28]:
+          - /placeholder: Votre pseudo ou nom
+        - generic [ref=e29]: Email
+        - textbox "Email" [ref=e30]:
+          - /placeholder: vous@exemple.fr
+        - generic [ref=e31]: Sujet
+        - combobox "Sujet" [ref=e32]:
+          - option "Observation à valider" [selected]
+          - option "Rejoindre l'association"
+          - option "Problème technique"
+          - option "Partenariat station météo"
+        - generic [ref=e33]: Message
+        - textbox "Message" [ref=e34]:
+          - /placeholder: Décrivez le phénomène, la commune, l'heure et votre niveau d'excitation météo...
+        - button "ENVOYER 💾" [ref=e35] [cursor=pointer]
+    - complementary [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]: infos-qg.txt
+        - generic [ref=e39]:
+          - generic [ref=e40]: _
+          - generic [ref=e41]: □
+          - generic [ref=e42]: ×
+      - generic [ref=e43]:
+        - heading "Association" [level=2] [ref=e44]
+        - paragraph [ref=e45]:
+          - text: PixelMétéo 95
+          - text: 12 rue des Cumulus
+          - text: 69003 Lyon
+        - paragraph [ref=e46]:
+          - text: "Email :"
+          - link "contact@pixelmeteo95.fr" [ref=e47] [cursor=pointer]:
+            - /url: mailto:contact@pixelmeteo95.fr
+        - paragraph [ref=e48]:
+          - text: "Discord :"
+          - link "discord.gg/pixelmeteo95" [ref=e49] [cursor=pointer]:
+            - /url: "#"
+        - generic "Animation éclair placeholder" [ref=e50]: ϟ
+  - contentinfo [ref=e51]:
+    - generic [ref=e52]:
+      - generic [ref=e53]: Best viewed in 1024x768
+      - generic [ref=e54]: Made with ♥ et un anémomètre
+      - generic [ref=e55]: UNDER CONSTRUCTION

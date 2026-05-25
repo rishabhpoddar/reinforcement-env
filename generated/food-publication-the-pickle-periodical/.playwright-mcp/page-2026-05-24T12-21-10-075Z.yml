@@ -1,0 +1,266 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]: Free shipping over $60 · Glass jars ship in recycled straw 🌾
+  - generic [ref=e3]:
+    - text: "NEW: The 2024 Sauerkraut Census is here! →"
+    - link "Read the findings" [ref=e4] [cursor=pointer]:
+      - /url: recipes.html
+  - navigation [ref=e5]:
+    - link "The Pickle Periodical" [ref=e6] [cursor=pointer]:
+      - /url: home.html
+      - text: The Pickle Periodical
+    - list [ref=e8]:
+      - listitem [ref=e9]:
+        - link "Recipes" [ref=e10] [cursor=pointer]:
+          - /url: recipes.html
+      - listitem [ref=e11]:
+        - link "Techniques" [ref=e12] [cursor=pointer]:
+          - /url: techniques.html
+      - listitem [ref=e13]:
+        - link "Ferment Atlas" [ref=e14] [cursor=pointer]:
+          - /url: ferment-atlas.html
+      - listitem [ref=e15]:
+        - link "Ask the Brinemaster" [ref=e16] [cursor=pointer]:
+          - /url: ask-the-brinemaster.html
+      - listitem [ref=e17]:
+        - link "Shop" [ref=e18] [cursor=pointer]:
+          - /url: shop.html
+      - listitem [ref=e19]:
+        - link "About" [ref=e20] [cursor=pointer]:
+          - /url: about.html
+  - generic [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - link "Home" [ref=e24] [cursor=pointer]:
+          - /url: home.html
+        - text: / Shop
+      - heading "The Pantry & Provisions" [level=1] [ref=e25]:
+        - generic [ref=e26]: The Pantry & Provisions
+      - paragraph [ref=e27]: Carefully curated equipment for the obsessive home fermenter.
+    - generic [ref=e28]:
+      - generic [ref=e29] [cursor=pointer]: Jars & Crocks
+      - generic [ref=e30] [cursor=pointer]: Weights & Airlocks
+      - generic [ref=e31] [cursor=pointer]: Salts & Cultures
+      - generic [ref=e32] [cursor=pointer]: Books
+      - generic [ref=e33] [cursor=pointer]: Apparel
+      - generic [ref=e34] [cursor=pointer]: Gift Sets
+    - generic [ref=e35]:
+      - article [ref=e36]:
+        - generic [ref=e37]: Bestseller
+        - generic [ref=e39]:
+          - heading "Stoneware Crock 5L" [level=4] [ref=e40]
+          - generic [ref=e41]: $148.00
+          - generic [ref=e42]: ★★★★★ (132)
+          - button "+ Quick Add" [ref=e43] [cursor=pointer]
+      - article [ref=e44]:
+        - generic [ref=e46]:
+          - heading "2L Wide-Mouth Jar Set (×4)" [level=4] [ref=e47]
+          - generic [ref=e48]: $58.00
+          - generic [ref=e49]: ★★★★★ (132)
+          - button "+ Quick Add" [ref=e50] [cursor=pointer]
+      - article [ref=e51]:
+        - generic [ref=e52]: Staff Pick
+        - generic [ref=e54]:
+          - heading "Silicone Airlock 3-Pack" [level=4] [ref=e55]
+          - generic [ref=e56]: $24.00
+          - generic [ref=e57]: ★★★★☆ (132)
+          - button "+ Quick Add" [ref=e58] [cursor=pointer]
+      - article [ref=e59]:
+        - generic [ref=e61]:
+          - heading "Sicilian Pickling Salt 2kg" [level=4] [ref=e62]
+          - generic [ref=e63]: $16.00
+          - generic [ref=e64]: ★★★★★ (132)
+          - button "+ Quick Add" [ref=e65] [cursor=pointer]
+      - article [ref=e66]:
+        - generic [ref=e67]: Low Stock
+        - generic [ref=e69]:
+          - heading "Glass Fermentation Weights (×2)" [level=4] [ref=e70]
+          - generic [ref=e71]: $22.00
+          - generic [ref=e72]: ★★★★★ (132)
+          - button "+ Quick Add" [ref=e73] [cursor=pointer]
+      - article [ref=e74]:
+        - generic [ref=e75]: Bestseller
+        - generic [ref=e77]:
+          - heading "The Periodical Tote" [level=4] [ref=e78]
+          - generic [ref=e79]: $32.00
+          - generic [ref=e80]: ★★★★★ (132)
+          - button "+ Quick Add" [ref=e81] [cursor=pointer]
+      - article [ref=e82]:
+        - generic [ref=e84]:
+          - heading "Koji Starter Culture 50g" [level=4] [ref=e85]
+          - generic [ref=e86]: $28.00
+          - generic [ref=e87]: ★★★★★ (132)
+          - button "+ Quick Add" [ref=e88] [cursor=pointer]
+      - article [ref=e89]:
+        - generic [ref=e90]: Staff Pick
+        - generic [ref=e92]:
+          - heading "The Brinemaster Cookbook" [level=4] [ref=e93]
+          - generic [ref=e94]: $38.00
+          - generic [ref=e95]: ★★★★★ (132)
+          - button "+ Quick Add" [ref=e96] [cursor=pointer]
+    - generic [ref=e99]:
+      - img "Featured stoneware crock" [ref=e101]
+      - generic [ref=e102]:
+        - text: — FEATURED PRODUCT —
+        - heading "The Brooklyn Crock" [level=2] [ref=e103]
+        - paragraph [ref=e104]: Our flagship stoneware fermentation vessel, hand-thrown by a small studio in Ohio. The deep water-moat lid seals out oxygen while letting CO₂ escape — no airlocks, no fiddling. Glazed inside, raw outside, beautiful forever. Includes two matching ceramic weights.
+        - generic [ref=e105]: $148.00
+        - strong [ref=e106]: Size
+        - generic [ref=e107]:
+          - generic [ref=e108] [cursor=pointer]: 2L
+          - generic [ref=e109] [cursor=pointer]: 5L
+          - generic [ref=e110] [cursor=pointer]: 10L
+          - generic [ref=e111] [cursor=pointer]: 20L
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - button "−" [ref=e114] [cursor=pointer]
+            - generic [ref=e115]: "1"
+            - button "+" [ref=e116] [cursor=pointer]
+          - button "Add to Cart" [ref=e117] [cursor=pointer]
+        - generic [ref=e118]:
+          - strong [ref=e119]: Bundle & Save 15%
+          - text: Add the Beginner Starter Kit (jar, airlock, weights, salt, & book) for $84 → save $24.
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]: — Verified Crocks —
+        - heading "What the Community Says" [level=2] [ref=e123]
+      - generic [ref=e124]:
+        - generic [ref=e125]:
+          - generic [ref=e126]: ★★★★★
+          - paragraph [ref=e127]: “Made my first batch of kraut and it’s already gone. Pre-ordering a second crock so I can stagger my fermentation.”
+          - generic [ref=e130]:
+            - generic [ref=e131]: Mira J.
+            - generic [ref=e132]: Portland, OR
+        - generic [ref=e133]:
+          - generic [ref=e134]: ★★★★★
+          - paragraph [ref=e135]: “The water-moat design is genius. Twenty days, zero kahm yeast, zero burping. Worth every penny.”
+          - generic [ref=e138]:
+            - generic [ref=e139]: Otis B.
+            - generic [ref=e140]: Asheville, NC
+        - generic [ref=e141]:
+          - generic [ref=e142]: ★★★★★
+          - paragraph [ref=e143]: “Beautiful enough to leave on the counter, deep enough to ferment a season’s worth of cabbage. Couldn’t love it more.”
+          - generic [ref=e146]:
+            - generic [ref=e147]: Henna W.
+            - generic [ref=e148]: Brooklyn, NY
+  - generic [ref=e150]:
+    - generic [ref=e151]:
+      - generic [ref=e152]: — Give the Gift of Microbes —
+      - heading "Gift the Ferment Curious" [level=2] [ref=e153]
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - generic [ref=e156]: 🥬
+        - generic [ref=e157]: Beginner
+        - heading "The Kraut Convert Kit" [level=3] [ref=e158]
+        - generic [ref=e159]: $58.00
+        - paragraph [ref=e160]: 2L jar, weight, airlock lid, 500g salt, and a hand-bound zine with three beginner recipes. Everything to make your first crock by Sunday.
+        - button "Add to Cart" [ref=e161] [cursor=pointer]
+      - generic [ref=e162]:
+        - generic [ref=e163]: 🌶
+        - generic [ref=e164]: Intermediate
+        - heading "The Hot Sauce Lab" [level=3] [ref=e165]
+        - generic [ref=e166]: $84.00
+        - paragraph [ref=e167]: Fermentation jar set, mortar & pestle, custom blends of fermented pepper cultures, and a 40-page guide to ferments by Scoville rating.
+        - button "Add to Cart" [ref=e168] [cursor=pointer]
+      - generic [ref=e169]:
+        - generic [ref=e170]: 🍶
+        - generic [ref=e171]: Advanced
+        - heading "The Misomaker Bundle" [level=3] [ref=e172]
+        - generic [ref=e173]: $148.00
+        - paragraph [ref=e174]: Koji starter, 1.5 kg of organic soybeans, a ceramic miso aging vessel, salt, weights, and the Brinemaster’s aged-miso year-long calendar.
+        - button "Add to Cart" [ref=e175] [cursor=pointer]
+  - contentinfo [ref=e176]:
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - link "The Pickle Periodical" [ref=e179] [cursor=pointer]:
+          - /url: home.html
+          - text: The Pickle Periodical
+        - paragraph [ref=e181]:
+          - text: A quarterly devotion to fermentation, brine, and slow flavor.
+          - text: Brooklyn, NY · Est. 2016
+        - generic [ref=e182]:
+          - link "IG" [ref=e183] [cursor=pointer]:
+            - /url: "#"
+          - link "TW" [ref=e184] [cursor=pointer]:
+            - /url: "#"
+          - link "YT" [ref=e185] [cursor=pointer]:
+            - /url: "#"
+          - link "RSS" [ref=e186] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e188]:
+        - heading "Sections" [level=4] [ref=e189]
+        - list [ref=e190]:
+          - listitem [ref=e191]:
+            - link "Recipes" [ref=e192] [cursor=pointer]:
+              - /url: recipes.html
+          - listitem [ref=e193]:
+            - link "Techniques" [ref=e194] [cursor=pointer]:
+              - /url: techniques.html
+          - listitem [ref=e195]:
+            - link "Atlas" [ref=e196] [cursor=pointer]:
+              - /url: ferment-atlas.html
+          - listitem [ref=e197]:
+            - link "Brinemaster" [ref=e198] [cursor=pointer]:
+              - /url: ask-the-brinemaster.html
+      - generic [ref=e199]:
+        - heading "About" [level=4] [ref=e200]
+        - list [ref=e201]:
+          - listitem [ref=e202]:
+            - link "Our story" [ref=e203] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e204]:
+            - link "Masthead" [ref=e205] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e206]:
+            - link "Pitch us" [ref=e207] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e208]:
+            - link "Press" [ref=e209] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e210]:
+        - heading "Shop" [level=4] [ref=e211]
+        - list [ref=e212]:
+          - listitem [ref=e213]:
+            - link "All Goods" [ref=e214] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e215]:
+            - link "Beginner Kits" [ref=e216] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e217]:
+            - link "Subscriptions" [ref=e218] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e219]:
+            - link "Gift Cards" [ref=e220] [cursor=pointer]:
+              - /url: shop.html
+      - generic [ref=e221]:
+        - heading "Community" [level=4] [ref=e222]
+        - list [ref=e223]:
+          - listitem [ref=e224]:
+            - link "Forums" [ref=e225] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e226]:
+            - link "Events" [ref=e227] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e228]:
+            - link "Workshops" [ref=e229] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e230]:
+            - link "Submitted" [ref=e231] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e232]:
+        - heading "Legal" [level=4] [ref=e233]
+        - list [ref=e234]:
+          - listitem [ref=e235]:
+            - link "Privacy" [ref=e236] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e237]:
+            - link "Terms" [ref=e238] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e239]:
+            - link "Cookies" [ref=e240] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e241]:
+            - link "Accessibility" [ref=e242] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e243]:
+      - generic [ref=e244]: © 2024 The Pickle Periodical · A worker-owned cooperative.
+      - generic [ref=e245]: Letterpress aesthetic since vol. 1

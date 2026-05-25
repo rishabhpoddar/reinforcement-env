@@ -1,0 +1,159 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "PixelMétéo 95" [level=1] [ref=e5]
+      - generic [ref=e6]: LIVE DATA
+    - navigation "Navigation principale" [ref=e7]:
+      - link "Accueil" [ref=e8] [cursor=pointer]:
+        - /url: accueil.html
+      - link "Tableau de bord" [ref=e9] [cursor=pointer]:
+        - /url: tableau-de-bord.html
+      - link "Observations" [ref=e10] [cursor=pointer]:
+        - /url: observations.html
+      - link "Tempêtes" [ref=e11] [cursor=pointer]:
+        - /url: tempetes.html
+      - link "Membres" [ref=e12] [cursor=pointer]:
+        - /url: membres.html
+      - link "Archives" [ref=e13] [cursor=pointer]:
+        - /url: archives.html
+      - link "Forum" [ref=e14] [cursor=pointer]:
+        - /url: forum.html
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+    - generic [ref=e17]: PRESSION EN CHUTE SUR LE SUD-OUEST ⚡ 42 STATIONS MEMBRES ACTIVES ⚡ DONNÉES RAFRAÎCHIES TOUTES LES 5 MINUTES
+  - main [ref=e18]:
+    - complementary [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: stations.exe
+        - generic [ref=e22]:
+          - generic [ref=e23]: _
+          - generic [ref=e24]: □
+          - generic [ref=e25]: ×
+      - generic [ref=e26]:
+        - heading "Stations membres" [level=3] [ref=e27]
+        - list [ref=e28]:
+          - listitem [ref=e29]: ▣ Auvergne > PuyRadar
+          - listitem [ref=e30]: ▣ Bretagne > BreizhCell
+          - listitem [ref=e31]: ▣ Cévennes > PluvioMax
+          - listitem [ref=e32]: ▣ Grand Est > GrêleNet
+          - listitem [ref=e33]: ▣ Île-de-France > Orage95
+          - listitem [ref=e34]: ▣ Occitanie > VentFou
+          - listitem [ref=e35]: ▣ PACA > MistralData
+          - listitem [ref=e36]: ▣ Normandie > CielBas
+    - generic [ref=e37]:
+      - article [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]: carte-france-live.bmp
+          - generic [ref=e41]:
+            - generic [ref=e42]: _
+            - generic [ref=e43]: □
+            - generic [ref=e44]: ×
+        - img "Carte de France en direct avec stations météo" [ref=e46]
+      - complementary [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e50]: pression
+          - generic [ref=e51]:
+            - text: ◜────●────◝
+            - heading "1002 hPa" [level=3] [ref=e52]
+            - paragraph [ref=e53]: "Tendance : chute rapide"
+        - generic [ref=e54]:
+          - generic [ref=e56]: thermo
+          - paragraph [ref=e59]: 18°C
+        - generic [ref=e60]:
+          - generic [ref=e62]: vent-led
+          - generic [ref=e63]:
+            - paragraph [ref=e64]: "76"
+            - paragraph [ref=e65]: km/h rafale ouest
+      - article [ref=e66]:
+        - generic [ref=e67]:
+          - generic [ref=e68]: temperatures-7j.exe
+          - generic [ref=e69]:
+            - generic [ref=e70]: _
+            - generic [ref=e71]: □
+            - generic [ref=e72]: ×
+        - img "Courbe pixelisée des températures sur sept jours" [ref=e74]
+      - article [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]: precipitations-bars.exe
+          - generic [ref=e78]:
+            - generic [ref=e79]: _
+            - generic [ref=e80]: □
+            - generic [ref=e81]: ×
+      - article [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e86]: dernieres-observations.csv
+          - generic [ref=e87]:
+            - generic [ref=e88]: _
+            - generic [ref=e89]: □
+            - generic [ref=e90]: ×
+        - table [ref=e92]:
+          - rowgroup [ref=e93]:
+            - row "HEURE STATION TEMP VENT PRESSION OBSERVATEUR" [ref=e94]:
+              - columnheader "HEURE" [ref=e95]
+              - columnheader "STATION" [ref=e96]
+              - columnheader "TEMP" [ref=e97]
+              - columnheader "VENT" [ref=e98]
+              - columnheader "PRESSION" [ref=e99]
+              - columnheader "OBSERVATEUR" [ref=e100]
+          - rowgroup [ref=e101]:
+            - row "21:55 BreizhCell 16.2 61 km/h 998 ArcusMan" [ref=e102]:
+              - cell "21:55" [ref=e103]
+              - cell "BreizhCell" [ref=e104]
+              - cell "16.2" [ref=e105]
+              - cell "61 km/h" [ref=e106]
+              - cell "998" [ref=e107]
+              - cell "ArcusMan" [ref=e108]
+            - row "21:50 PuyRadar 13.8 44 km/h 1004 NimbusLyon" [ref=e109]:
+              - cell "21:50" [ref=e110]
+              - cell "PuyRadar" [ref=e111]
+              - cell "13.8" [ref=e112]
+              - cell "44 km/h" [ref=e113]
+              - cell "1004" [ref=e114]
+              - cell "NimbusLyon" [ref=e115]
+            - row "21:44 GrêleNet 11.1 32 km/h 1008 PixelPluie" [ref=e116]:
+              - cell "21:44" [ref=e117]
+              - cell "GrêleNet" [ref=e118]
+              - cell "11.1" [ref=e119]
+              - cell "32 km/h" [ref=e120]
+              - cell "1008" [ref=e121]
+              - cell "PixelPluie" [ref=e122]
+            - row "21:39 PluvioMax 18.0 78 km/h 996 Cévenol95" [ref=e123]:
+              - cell "21:39" [ref=e124]
+              - cell "PluvioMax" [ref=e125]
+              - cell "18.0" [ref=e126]
+              - cell "78 km/h" [ref=e127]
+              - cell "996" [ref=e128]
+              - cell "Cévenol95" [ref=e129]
+            - row "21:32 Orage95 19.4 27 km/h 1009 DataMistral" [ref=e130]:
+              - cell "21:32" [ref=e131]
+              - cell "Orage95" [ref=e132]
+              - cell "19.4" [ref=e133]
+              - cell "27 km/h" [ref=e134]
+              - cell "1009" [ref=e135]
+              - cell "DataMistral" [ref=e136]
+            - row "21:25 MistralData 22.0 84 km/h 1001 FoudreDouce" [ref=e137]:
+              - cell "21:25" [ref=e138]
+              - cell "MistralData" [ref=e139]
+              - cell "22.0" [ref=e140]
+              - cell "84 km/h" [ref=e141]
+              - cell "1001" [ref=e142]
+              - cell "FoudreDouce" [ref=e143]
+            - row "21:20 CielBas 14.5 18 km/h 1012 StratusKid" [ref=e144]:
+              - cell "21:20" [ref=e145]
+              - cell "CielBas" [ref=e146]
+              - cell "14.5" [ref=e147]
+              - cell "18 km/h" [ref=e148]
+              - cell "1012" [ref=e149]
+              - cell "StratusKid" [ref=e150]
+            - row "21:15 VentFou 20.7 69 km/h 999 RafaleRose" [ref=e151]:
+              - cell "21:15" [ref=e152]
+              - cell "VentFou" [ref=e153]
+              - cell "20.7" [ref=e154]
+              - cell "69 km/h" [ref=e155]
+              - cell "999" [ref=e156]
+              - cell "RafaleRose" [ref=e157]
+  - contentinfo [ref=e158]:
+    - generic [ref=e159]:
+      - generic [ref=e160]: Best viewed in 1024x768
+      - generic [ref=e161]: Made with ♥ et un anémomètre
+      - generic [ref=e162]: UNDER CONSTRUCTION

@@ -1,0 +1,250 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "ध्रु ध्रुपद धरोहर Dhrupad Dharohar" [ref=e4] [cursor=pointer]:
+      - /url: मुख्य-पृष्ठ.html
+      - generic [ref=e5]: ध्रु
+      - generic [ref=e6]:
+        - generic [ref=e7]: ध्रुपद धरोहर
+        - generic [ref=e8]: Dhrupad Dharohar
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - img "अभिलेखागार" [ref=e12]
+      - generic [ref=e13]:
+        - generic [ref=e14]: विशेष संग्रह
+        - heading "दुर्लभ रिकॉर्डिंग्स का अभिलेखागार" [level=1] [ref=e15]
+        - paragraph [ref=e16]: 1947 से वर्तमान तक — ध्रुपद के सर्वश्रेष्ठ गायकों की 1,200+ ऑडियो रिकॉर्डिंग्स का डिजिटल संग्रह।
+    - generic [ref=e17]:
+      - complementary [ref=e18]:
+        - generic [ref=e19]:
+          - heading "दशक" [level=5] [ref=e20]
+          - generic [ref=e21] [cursor=pointer]:
+            - checkbox "1950 - 1960" [ref=e22]
+            - text: 1950 - 1960
+          - generic [ref=e23] [cursor=pointer]:
+            - checkbox "1960 - 1970" [checked] [ref=e24]
+            - text: 1960 - 1970
+          - generic [ref=e25] [cursor=pointer]:
+            - checkbox "1970 - 1980" [checked] [ref=e26]
+            - text: 1970 - 1980
+          - generic [ref=e27] [cursor=pointer]:
+            - checkbox "1980 - 1990" [ref=e28]
+            - text: 1980 - 1990
+          - generic [ref=e29] [cursor=pointer]:
+            - checkbox "1990 - 2000" [ref=e30]
+            - text: 1990 - 2000
+          - generic [ref=e31] [cursor=pointer]:
+            - checkbox "2000 - वर्तमान" [ref=e32]
+            - text: 2000 - वर्तमान
+        - generic [ref=e33]:
+          - heading "गायक" [level=5] [ref=e34]
+          - generic [ref=e35] [cursor=pointer]:
+            - checkbox "उस्ताद डागर बंधु" [checked] [ref=e36]
+            - text: उस्ताद डागर बंधु
+          - generic [ref=e37] [cursor=pointer]:
+            - checkbox "पं. रामचतुर मलिक" [ref=e38]
+            - text: पं. रामचतुर मलिक
+          - generic [ref=e39] [cursor=pointer]:
+            - checkbox "पं. सियाराम तिवारी" [ref=e40]
+            - text: पं. सियाराम तिवारी
+          - generic [ref=e41] [cursor=pointer]:
+            - checkbox "पं. उदय भवालकर" [ref=e42]
+            - text: पं. उदय भवालकर
+          - generic [ref=e43] [cursor=pointer]:
+            - checkbox "गुंदेचा बंधु" [ref=e44]
+            - text: गुंदेचा बंधु
+        - generic [ref=e45]:
+          - heading "राग" [level=5] [ref=e46]
+          - generic [ref=e47] [cursor=pointer]:
+            - checkbox "भैरव" [ref=e48]
+            - text: भैरव
+          - generic [ref=e49] [cursor=pointer]:
+            - checkbox "मियाँ तोड़ी" [ref=e50]
+            - text: मियाँ तोड़ी
+          - generic [ref=e51] [cursor=pointer]:
+            - checkbox "मालकौंस" [ref=e52]
+            - text: मालकौंस
+          - generic [ref=e53] [cursor=pointer]:
+            - checkbox "दरबारी" [ref=e54]
+            - text: दरबारी
+          - generic [ref=e55] [cursor=pointer]:
+            - checkbox "यमन" [ref=e56]
+            - text: यमन
+        - generic [ref=e57]:
+          - heading "गुणवत्ता" [level=5] [ref=e58]
+          - generic [ref=e59] [cursor=pointer]:
+            - radio "सभी" [ref=e60]
+            - text: सभी
+          - generic [ref=e61] [cursor=pointer]:
+            - radio "उच्च गुणवत्ता" [checked] [ref=e62]
+            - text: उच्च गुणवत्ता
+          - generic [ref=e63] [cursor=pointer]:
+            - radio "मास्टर टेप" [ref=e64]
+            - text: मास्टर टेप
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - button "चलाएँ" [ref=e67] [cursor=pointer]
+          - generic [ref=e68]:
+            - heading "राग मियाँ की तोड़ी — पूर्ण आलाप" [level=4] [ref=e69]
+            - generic [ref=e70]: उस्ताद ज़िया मोहिउद्दीन डागर
+            - generic [ref=e73]:
+              - generic [ref=e74]: "1972"
+              - generic [ref=e75]: ·
+              - generic [ref=e76]: मुंबई लाइव
+              - generic [ref=e77]: ·
+              - generic [ref=e78]: मास्टर टेप
+          - generic [ref=e79]: 52:14
+        - generic [ref=e80]:
+          - button "चलाएँ" [ref=e81] [cursor=pointer]
+          - generic [ref=e82]:
+            - heading "राग दरबारी — जोड़ झाला" [level=4] [ref=e83]
+            - generic [ref=e84]: पं. रामचतुर मलिक
+            - generic [ref=e87]:
+              - generic [ref=e88]: "1968"
+              - generic [ref=e89]: ·
+              - generic [ref=e90]: दरभंगा
+              - generic [ref=e91]: ·
+              - generic [ref=e92]: दुर्लभ
+          - generic [ref=e93]: 38:42
+        - generic [ref=e94]:
+          - button "चलाएँ" [ref=e95] [cursor=pointer]
+          - generic [ref=e96]:
+            - heading "राग बागेश्री — बंदिश \"जब से मोहे लागी\"" [level=4] [ref=e97]
+            - generic [ref=e98]: उस्ताद नसीर अमीनुद्दीन डागर
+            - generic [ref=e101]:
+              - generic [ref=e102]: "1985"
+              - generic [ref=e103]: ·
+              - generic [ref=e104]: दिल्ली
+              - generic [ref=e105]: ·
+              - generic [ref=e106]: उच्च गुणवत्ता
+          - generic [ref=e107]: 28:55
+        - generic [ref=e108]:
+          - button "चलाएँ" [ref=e109] [cursor=pointer]
+          - generic [ref=e110]:
+            - heading "राग मालकौंस — आलाप, जोड़, झाला" [level=4] [ref=e111]
+            - generic [ref=e112]: गुंदेचा बंधु
+            - generic [ref=e114]:
+              - generic [ref=e115]: "2001"
+              - generic [ref=e116]: ·
+              - generic [ref=e117]: भोपाल
+              - generic [ref=e118]: ·
+              - generic [ref=e119]: स्टूडियो
+          - generic [ref=e120]: 47:30
+        - generic [ref=e121]:
+          - button "चलाएँ" [ref=e122] [cursor=pointer]
+          - generic [ref=e123]:
+            - heading "राग पूरिया धनाश्री — संध्या काल" [level=4] [ref=e124]
+            - generic [ref=e125]: पं. उदय भवालकर
+            - generic [ref=e128]:
+              - generic [ref=e129]: "1998"
+              - generic [ref=e130]: ·
+              - generic [ref=e131]: पुणे
+              - generic [ref=e132]: ·
+              - generic [ref=e133]: उच्च गुणवत्ता
+          - generic [ref=e134]: 41:18
+        - generic [ref=e135]:
+          - button "चलाएँ" [ref=e136] [cursor=pointer]
+          - generic [ref=e137]:
+            - heading "राग भैरव — प्रातः कालीन" [level=4] [ref=e138]
+            - generic [ref=e139]: पं. सियाराम तिवारी
+            - generic [ref=e142]:
+              - generic [ref=e143]: "1976"
+              - generic [ref=e144]: ·
+              - generic [ref=e145]: बनारस
+              - generic [ref=e146]: ·
+              - generic [ref=e147]: दुर्लभ
+          - generic [ref=e148]: 33:07
+        - generic [ref=e149]:
+          - button "चलाएँ" [ref=e150] [cursor=pointer]
+          - generic [ref=e151]:
+            - heading "राग ललित — एकल आलाप" [level=4] [ref=e152]
+            - generic [ref=e153]: उस्ताद नसीर मोइनुद्दीन डागर
+            - generic [ref=e156]:
+              - generic [ref=e157]: "1963"
+              - generic [ref=e158]: ·
+              - generic [ref=e159]: उदयपुर
+              - generic [ref=e160]: ·
+              - generic [ref=e161]: मास्टर टेप
+          - generic [ref=e162]: 45:50
+        - generic [ref=e163]:
+          - button "चलाएँ" [ref=e164] [cursor=pointer]
+          - generic [ref=e165]:
+            - heading "राग मियाँ मल्हार — वर्षा ऋतु" [level=4] [ref=e166]
+            - generic [ref=e167]: पं. रामकुमार मलिक
+            - generic [ref=e170]:
+              - generic [ref=e171]: "1991"
+              - generic [ref=e172]: ·
+              - generic [ref=e173]: दिल्ली
+              - generic [ref=e174]: ·
+              - generic [ref=e175]: उच्च गुणवत्ता
+          - generic [ref=e176]: 36:22
+    - generic [ref=e177]:
+      - button "‹" [ref=e178] [cursor=pointer]
+      - button "१" [ref=e179] [cursor=pointer]
+      - button "२" [ref=e180] [cursor=pointer]
+      - button "३" [ref=e181] [cursor=pointer]
+      - button "४" [ref=e182] [cursor=pointer]
+      - button "›" [ref=e183] [cursor=pointer]
+  - contentinfo [ref=e184]:
+    - generic [ref=e185]:
+      - generic [ref=e186]:
+        - generic [ref=e187]:
+          - generic [ref=e188]:
+            - generic [ref=e189]: ध्रु
+            - generic [ref=e190]:
+              - generic [ref=e191]: ध्रुपद धरोहर
+              - generic [ref=e192]: Dhrupad Dharohar
+          - paragraph [ref=e193]: उत्तर भारतीय शास्त्रीय संगीत की प्राचीनतम विधा को संरक्षित और प्रसारित करने के लिए समर्पित।
+        - generic [ref=e194]:
+          - heading "अध्ययन" [level=5] [ref=e195]
+          - list [ref=e196]:
+            - listitem [ref=e197]:
+              - link "घराने" [ref=e198] [cursor=pointer]:
+                - /url: घराने.html
+            - listitem [ref=e199]:
+              - link "राग कोश" [ref=e200] [cursor=pointer]:
+                - /url: राग-कोश.html
+        - generic [ref=e201]:
+          - heading "संग्रह" [level=5] [ref=e202]
+          - list [ref=e203]:
+            - listitem [ref=e204]:
+              - link "रिकॉर्डिंग्स" [ref=e205] [cursor=pointer]:
+                - /url: अभिलेखागार.html
+            - listitem [ref=e206]:
+              - link "शोध लेख" [ref=e207] [cursor=pointer]:
+                - /url: लेख.html
+        - generic [ref=e208]:
+          - heading "संस्थान" [level=5] [ref=e209]
+          - list [ref=e210]:
+            - listitem [ref=e211]:
+              - link "संपर्क" [ref=e212] [cursor=pointer]:
+                - /url: संपर्क.html
+      - generic [ref=e213]:
+        - generic [ref=e214]: © 2026 ध्रुपद धरोहर · सर्वाधिकार सुरक्षित
+        - generic [ref=e215]:
+          - link "Y" [ref=e216] [cursor=pointer]:
+            - /url: "#"
+          - link "In" [ref=e217] [cursor=pointer]:
+            - /url: "#"
+          - link "X" [ref=e218] [cursor=pointer]:
+            - /url: "#"
+  - navigation [ref=e219]:
+    - link "मु मुख्य" [ref=e220] [cursor=pointer]:
+      - /url: मुख्य-पृष्ठ.html
+      - generic [ref=e221]: मु
+      - generic [ref=e222]: मुख्य
+    - link "घ घराने" [ref=e223] [cursor=pointer]:
+      - /url: घराने.html
+      - generic [ref=e224]: घ
+      - generic [ref=e225]: घराने
+    - link "रा राग" [ref=e226] [cursor=pointer]:
+      - /url: राग-कोश.html
+      - generic [ref=e227]: रा
+      - generic [ref=e228]: राग
+    - link "अ अभिलेख" [ref=e229] [cursor=pointer]:
+      - /url: अभिलेखागार.html
+      - generic [ref=e230]: अ
+      - generic [ref=e231]: अभिलेख
+    - link "≡ मेनू" [ref=e232] [cursor=pointer]:
+      - /url: संपर्क.html
+      - generic [ref=e233]: ≡
+      - generic [ref=e234]: मेनू

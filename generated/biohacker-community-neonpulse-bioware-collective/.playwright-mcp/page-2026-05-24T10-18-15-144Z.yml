@@ -1,0 +1,82 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]: // 06 — UPCOMING MEETUPS
+    - heading "EVENTS // TIMELINE EVENTS // TIMELINE EVENTS // TIMELINE" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Talleres prácticos, conversatorios y clínicas de mutuo apoyo. Aforos limitados; protocolo de consentimiento y seguridad obligatorio.
+    - generic [ref=e12]:
+      - img "Taller subterráneo de instalación de implantes" [ref=e13]
+      - generic [ref=e15]: // LATAM 2026 · Encuentro anual confirmado · CDMX · 18—20 sept
+    - generic [ref=e27]:
+      - heading "// PAST EVENTS // ARCHIVE" [level=2] [ref=e28]
+      - group [ref=e29]:
+        - generic "2025 · 14 eventos archivados [+]" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: 2025 · 14 eventos archivados
+          - text: "[+]"
+      - group [ref=e32]:
+        - generic "2024 · 18 eventos archivados [+]" [ref=e33] [cursor=pointer]:
+          - generic [ref=e34]: 2024 · 18 eventos archivados
+          - text: "[+]"
+      - group [ref=e35]:
+        - generic "2023 · 12 eventos archivados [+]" [ref=e36] [cursor=pointer]:
+          - generic [ref=e37]: 2023 · 12 eventos archivados
+          - text: "[+]"
+      - group [ref=e38]:
+        - generic "2019—2022 · primeros años · 21 eventos [+]" [ref=e39] [cursor=pointer]:
+          - generic [ref=e40]: 2019—2022 · primeros años · 21 eventos
+          - text: "[+]"
+  - contentinfo [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e44]
+        - paragraph [ref=e45]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e46]:
+        - heading "// EXPLORE" [level=5] [ref=e47]
+        - list [ref=e48]:
+          - listitem [ref=e49]:
+            - link "Registry" [ref=e50] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e51]:
+            - link "Guides" [ref=e52] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e53]:
+            - link "Members" [ref=e54] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e55]:
+            - link "Events" [ref=e56] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e57]:
+        - heading "// COLLECTIVE" [level=5] [ref=e58]
+        - list [ref=e59]:
+          - listitem [ref=e60]:
+            - link "Manifesto" [ref=e61] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e62]:
+            - link "Submit" [ref=e63] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e64]:
+            - link "Contact" [ref=e65] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e66]:
+        - heading "// MIRROR" [level=5] [ref=e67]
+        - list [ref=e68]:
+          - listitem [ref=e69]:
+            - link "tor.onion" [ref=e70] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e71]:
+            - link "IPFS" [ref=e72] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e73]:
+            - link "Matrix" [ref=e74] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e75]:
+      - generic [ref=e76]: © 2019—2026 NEONPULSE
+      - generic [ref=e77]: v3.2.7 // 8842

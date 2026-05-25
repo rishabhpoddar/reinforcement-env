@@ -1,0 +1,112 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Tactile Sound Lab" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - generic [ref=e6]: Tactile Sound Lab
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "Reviews" [ref=e9] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Database" [ref=e10] [cursor=pointer]:
+          - /url: gear-database.html
+        - link "Lab Tests" [ref=e11] [cursor=pointer]:
+          - /url: lab-tests.html
+        - link "Compare" [ref=e12] [cursor=pointer]:
+          - /url: comparisons.html
+        - link "Community" [ref=e13] [cursor=pointer]:
+          - /url: community.html
+        - link "About" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - img "Overhead repair workbench" [ref=e17]
+      - generic [ref=e18]:
+        - generic [ref=e19]: No affiliate scoring
+        - heading "About the Lab" [level=1] [ref=e20]
+        - paragraph [ref=e21]: We combine repair-bench pragmatism, measurement discipline, and musician-first listening notes.
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - heading "Our Methodology" [level=2] [ref=e25]
+        - paragraph [ref=e26]: Every instrument is handled like a tool, measured like a circuit, and reviewed like a companion.
+      - generic [ref=e27]:
+        - article [ref=e28]:
+          - heading "Acquire" [level=3] [ref=e29]
+          - paragraph [ref=e30]: Borrowed, bought, or repaired units are documented before testing.
+        - article [ref=e31]:
+          - heading "Test" [level=3] [ref=e32]
+          - paragraph [ref=e33]: Calibrated captures measure noise, response, and latency.
+        - article [ref=e34]:
+          - heading "Listen" [level=3] [ref=e35]
+          - paragraph [ref=e36]: Long sessions through monitors, headphones, and real mixes.
+        - article [ref=e37]:
+          - heading "Publish" [level=3] [ref=e38]
+          - paragraph [ref=e39]: Scores, caveats, and raw data are released together.
+    - generic [ref=e41]:
+      - heading "Team" [level=2] [ref=e42]
+      - generic [ref=e43]:
+        - article [ref=e44]:
+          - img "Audio engineer portrait" [ref=e45]
+          - generic [ref=e46]:
+            - heading "Mira" [level=3] [ref=e47]
+            - paragraph [ref=e48]: Measurements
+        - article [ref=e49]:
+          - img "Audio engineer portrait" [ref=e50]
+          - generic [ref=e51]:
+            - heading "Dev" [level=3] [ref=e52]
+            - paragraph [ref=e53]: Repair bench
+        - article [ref=e54]:
+          - img "Audio engineer portrait" [ref=e55]
+          - generic [ref=e56]:
+            - heading "Inez" [level=3] [ref=e57]
+            - paragraph [ref=e58]: Listening tests
+        - article [ref=e59]:
+          - img "Audio engineer portrait" [ref=e60]
+          - generic [ref=e61]:
+            - heading "Sol" [level=3] [ref=e62]
+            - paragraph [ref=e63]: Database
+        - article [ref=e64]:
+          - img "Audio engineer portrait" [ref=e65]
+          - generic [ref=e66]:
+            - heading "Arden" [level=3] [ref=e67]
+            - paragraph [ref=e68]: Community
+    - generic [ref=e70]:
+      - article [ref=e71]:
+        - heading "Measurement" [level=3] [ref=e72]
+        - list [ref=e73]:
+          - listitem [ref=e74]: Oscilloscopes
+          - listitem [ref=e75]: Audio analyzers
+          - listitem [ref=e76]: Calibrated DI boxes
+      - article [ref=e77]:
+        - heading "Capture" [level=3] [ref=e78]
+        - list [ref=e79]:
+          - listitem [ref=e80]: Low-noise interfaces
+          - listitem [ref=e81]: Reamp boxes
+          - listitem [ref=e82]: Patch bays
+      - article [ref=e83]:
+        - heading "Room" [level=3] [ref=e84]
+        - list [ref=e85]:
+          - listitem [ref=e86]: Anechoic foam
+          - listitem [ref=e87]: Nearfield monitors
+          - listitem [ref=e88]: Headphone references
+    - generic [ref=e90]:
+      - group [ref=e91]:
+        - generic "Do brands pay for reviews? ⌄" [ref=e92] [cursor=pointer]
+      - group [ref=e93]:
+        - generic "Do you publish raw data? ⌄" [ref=e94] [cursor=pointer]
+      - group [ref=e95]:
+        - generic "Can readers submit gear? ⌄" [ref=e96] [cursor=pointer]
+    - generic [ref=e98]:
+      - heading "Contact" [level=2] [ref=e99]
+      - generic [ref=e100]:
+        - textbox "Name" [ref=e101]
+        - textbox "Email" [ref=e102]
+        - textbox "Message" [ref=e103]:
+          - /placeholder: Tell us what is on your bench
+        - button "Send Message" [ref=e104] [cursor=pointer]
+  - contentinfo [ref=e105]:
+    - generic [ref=e106]:
+      - strong [ref=e107]: Tactile Sound Lab
+      - generic [ref=e108]: Independent reviews for analog obsessives.
+      - generic [ref=e109]: Warm ears, cold measurements

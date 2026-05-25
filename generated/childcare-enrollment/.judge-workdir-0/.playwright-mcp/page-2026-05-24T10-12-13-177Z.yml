@@ -1,0 +1,150 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e5]: ★
+        - generic [ref=e6]: حضانة نجوم الصغار
+      - navigation [ref=e7]:
+        - link "الرئيسية" [ref=e8] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "البرامج" [ref=e9] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "التسجيل" [ref=e10] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e11] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "المعلمات" [ref=e12] [cursor=pointer]:
+          - /url: المعلمات.html
+        - link "الأسئلة" [ref=e13] [cursor=pointer]:
+          - /url: الأسئلة.html
+        - link "تواصل" [ref=e14] [cursor=pointer]:
+          - /url: تواصل.html
+        - link "سجّل الآن" [ref=e15] [cursor=pointer]:
+          - /url: التسجيل.html
+  - main [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: طلب التحاق
+      - heading "نموذج تسجيل بخمس عربات صغيرة" [level=1] [ref=e20]
+      - paragraph [ref=e21]: املأوا البيانات الأساسية الآن، وسيتواصل فريق القبول لتأكيد الموعد والوثائق.
+      - generic [ref=e22]:
+        - generic [ref=e23]: ١ بيانات الطفل
+        - generic [ref=e24]: ٢ ولي الأمر
+        - generic [ref=e25]: ٣ الصحة
+        - generic [ref=e26]: ٤ البرنامج
+        - generic [ref=e27]: ٥ الموافقات
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - 'heading "الخطوة ١: بيانات الطفل" [level=2] [ref=e31]'
+        - generic [ref=e32]:
+          - generic [ref=e33]: اسم الطفل
+          - generic [ref=e34]:
+            - generic [ref=e35]: 👧
+            - 'textbox "مثال: ليان أحمد" [ref=e36]'
+        - generic [ref=e37]:
+          - generic [ref=e38]: تاريخ الميلاد
+          - generic [ref=e39]:
+            - generic [ref=e40]: 📅
+            - textbox [ref=e41]
+        - generic [ref=e42]:
+          - generic [ref=e43]: الجنس
+          - generic [ref=e44]:
+            - generic [ref=e45] [cursor=pointer]:
+              - radio "بنت" [ref=e46]
+              - text: بنت
+            - generic [ref=e47] [cursor=pointer]:
+              - radio "ولد" [ref=e48]
+              - text: ولد
+        - generic [ref=e49]:
+          - generic [ref=e50]: صورة الطفل
+          - button "Choose File" [ref=e51]
+      - generic [ref=e52]:
+        - 'heading "الخطوة ٢: ولي الأمر" [level=2] [ref=e53]'
+        - generic [ref=e54]:
+          - generic [ref=e55]: اسم ولي الأمر
+          - generic [ref=e56]:
+            - generic [ref=e57]: 👤
+            - textbox [ref=e58]
+        - generic [ref=e59]:
+          - generic [ref=e60]: رقم الهاتف
+          - generic [ref=e61]:
+            - generic [ref=e62]: 📱
+            - textbox [ref=e63]
+        - generic [ref=e64]:
+          - generic [ref=e65]: البريد الإلكتروني
+          - generic [ref=e66]:
+            - generic [ref=e67]: ✉️
+            - textbox [ref=e68]
+        - generic [ref=e69]:
+          - generic [ref=e70]: العنوان
+          - generic [ref=e71]:
+            - generic [ref=e72]: 📍
+            - textbox [ref=e73]
+      - generic [ref=e74]:
+        - 'heading "الخطوة ٣: المعلومات الصحية" [level=2] [ref=e75]'
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - text: حساسيات معروفة
+            - checkbox "حساسيات معروفة" [ref=e78]
+          - generic [ref=e79]:
+            - text: أدوية يومية
+            - checkbox "أدوية يومية" [ref=e80]
+          - generic [ref=e81]:
+            - text: احتياج متابعة خاصة
+            - checkbox "احتياج متابعة خاصة" [ref=e82]
+        - generic [ref=e83]:
+          - generic [ref=e84]: ملاحظات طبية
+          - textbox "اكتبوا أي تفاصيل مهمة للفريق الصحي" [ref=e85]
+      - generic [ref=e86]:
+        - 'heading "الخطوة ٤: البرنامج والأيام" [level=2] [ref=e87]'
+        - generic [ref=e88]:
+          - generic [ref=e89]: البرنامج
+          - combobox [ref=e90]:
+            - option "نجمة الصغيرة" [selected]
+            - option "نجمة المستكشف"
+            - option "نجمة المبدع"
+        - generic [ref=e91]:
+          - generic [ref=e92]: أيام الأسبوع
+          - generic [ref=e93]:
+            - generic [ref=e94] [cursor=pointer]:
+              - checkbox "الأحد" [ref=e95]
+              - text: الأحد
+            - generic [ref=e96] [cursor=pointer]:
+              - checkbox "الاثنين" [ref=e97]
+              - text: الاثنين
+            - generic [ref=e98] [cursor=pointer]:
+              - checkbox "الثلاثاء" [ref=e99]
+              - text: الثلاثاء
+            - generic [ref=e100] [cursor=pointer]:
+              - checkbox "الأربعاء" [ref=e101]
+              - text: الأربعاء
+            - generic [ref=e102] [cursor=pointer]:
+              - checkbox "الخميس" [ref=e103]
+              - text: الخميس
+        - generic [ref=e104]:
+          - generic [ref=e105]: "ساعات الحضور: ٤ إلى ١٠"
+          - slider [ref=e106]: "7"
+      - generic [ref=e107]:
+        - 'heading "الخطوة ٥: الموافقات والتوقيع" [level=2] [ref=e108]'
+        - generic [ref=e109] [cursor=pointer]:
+          - checkbox "أوافق على سياسة الاستلام والصور الداخلية الآمنة" [ref=e110]
+          - text: أوافق على سياسة الاستلام والصور الداخلية الآمنة
+        - generic [ref=e111]:
+          - generic [ref=e112]: توقيع رقمي
+          - generic [ref=e113]: ارسموا التوقيع هنا عند الزيارة
+        - generic [ref=e114]:
+          - link "السابق" [ref=e115] [cursor=pointer]:
+            - /url: "#"
+          - button "إرسال الطلب" [ref=e116] [cursor=pointer]
+  - contentinfo [ref=e117]:
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - strong [ref=e120]: حضانة نجوم الصغار
+        - paragraph [ref=e121]: نراجع الطلبات خلال يوم عمل واحد.
+      - generic [ref=e122]:
+        - link "البرامج" [ref=e123] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "خطة طفلي" [ref=e124] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "تواصل" [ref=e125] [cursor=pointer]:
+          - /url: تواصل.html

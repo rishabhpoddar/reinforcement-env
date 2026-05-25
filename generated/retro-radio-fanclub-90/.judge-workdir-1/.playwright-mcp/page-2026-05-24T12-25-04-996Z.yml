@@ -1,0 +1,87 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: जिंगल बजते ही यादें चालू
+    - generic [ref=e5]: "00042873"
+  - banner [ref=e6]:
+    - img "रेडियो तरंग लोगो" [ref=e7]
+    - generic [ref=e8]:
+      - heading "जिंगल संग्रह" [level=1] [ref=e9]
+      - generic [ref=e10]: कैसेट, साबुन, खाद्य और सरकारी धुनों का खजाना
+    - img "रंगीन कैसेट टेप" [ref=e12]
+  - navigation [ref=e13]:
+    - link "मुख्य पृष्ठ" [ref=e14] [cursor=pointer]:
+      - /url: mukhya-prishth.html
+    - link "कार्यक्रम सूची" [ref=e15] [cursor=pointer]:
+      - /url: kaaryakram-suchi.html
+    - link "जिंगल" [ref=e16] [cursor=pointer]:
+      - /url: jingle-sangrah.html
+    - link "नाटक" [ref=e17] [cursor=pointer]:
+      - /url: redio-natak.html
+    - link "पत्र" [ref=e18] [cursor=pointer]:
+      - /url: shrota-patra.html
+    - link "दीर्घा" [ref=e19] [cursor=pointer]:
+      - /url: tasveer-deergha.html
+    - link "सदस्यता" [ref=e20] [cursor=pointer]:
+      - /url: sadasyata.html
+    - link "संपर्क" [ref=e21] [cursor=pointer]:
+      - /url: sampark.html
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - text: जिंगल ढूंढें
+      - searchbox "जिंगल ढूंढें" [ref=e24]
+    - generic [ref=e25]:
+      - text: श्रेणी
+      - combobox "श्रेणी" [ref=e26]:
+        - option "साबुन" [selected]
+        - option "खाद्य"
+        - option "वाहन"
+        - option "सरकारी"
+  - main [ref=e27]:
+    - generic [ref=e28]:
+      - article [ref=e29]:
+        - heading "निरमा वाशिंग पाउडर" [level=2] [ref=e31]
+        - paragraph [ref=e32]:
+          - text: वर्ष 1992
+          - text: अवधि 00:28
+        - generic [ref=e33]: ▶ चलाएं
+      - article [ref=e34]:
+        - heading "विको टरमरिक" [level=2] [ref=e36]
+        - paragraph [ref=e37]:
+          - text: वर्ष 1991
+          - text: अवधि 00:31
+        - generic [ref=e38]: ▶ चलाएं
+      - article [ref=e39]:
+        - heading "लिज्जत पापड़" [level=2] [ref=e41]
+        - paragraph [ref=e42]:
+          - text: वर्ष 1994
+          - text: अवधि 00:25
+        - generic [ref=e43]: ▶ चलाएं
+      - article [ref=e44]:
+        - heading "हमारा बजाज" [level=2] [ref=e46]
+        - paragraph [ref=e47]:
+          - text: वर्ष 1990
+          - text: अवधि 00:42
+        - generic [ref=e48]: ▶ चलाएं
+      - article [ref=e49]:
+        - heading "मिले सुर मेरा" [level=2] [ref=e51]
+        - paragraph [ref=e52]:
+          - text: वर्ष 1993
+          - text: अवधि 01:10
+        - generic [ref=e53]: ▶ चलाएं
+      - article [ref=e54]:
+        - heading "धारा तेल" [level=2] [ref=e56]
+        - paragraph [ref=e57]:
+          - text: वर्ष 1996
+          - text: अवधि 00:36
+        - generic [ref=e58]: ▶ चलाएं
+    - complementary [ref=e59]:
+      - heading "सप्ताह का जिंगल" [level=2] [ref=e60]
+      - paragraph [ref=e61]:
+        - strong [ref=e62]: निरमा वाशिंग पाउडर
+        - text: इस हफ्ते फिर नंबर एक। सफेद झाग और गुलाबी यादें।
+      - img "जिंगल कैसेट" [ref=e63]
+  - contentinfo [ref=e64]:
+    - text: © रेडियो तरंग 90 फैन मंडली
+    - generic [ref=e65]:
+      - generic [ref=e66]: 800x600 में सर्वोत्तम दृश्य
+      - generic [ref=e67]: नोटपैड से निर्मित

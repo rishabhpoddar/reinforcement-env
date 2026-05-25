@@ -1,0 +1,46 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e6]: ★
+        - generic [ref=e7]: حضانة نجوم الصغار
+      - generic [ref=e8]: ☰
+  - main [ref=e9]:
+    - radio "التسجيل" [checked] [ref=e10]
+    - radio "الرسوم" [ref=e11]
+    - radio "الأمان" [ref=e12]
+    - radio "التغذية" [ref=e13]
+    - radio "الصحة" [ref=e14]
+    - generic [ref=e16]:
+      - generic [ref=e17]: مركز المساعدة
+      - heading "أسئلة الأهل قبل أول يوم" [level=1] [ref=e18]
+      - paragraph [ref=e19]: ابحثوا أو اضغطوا على تبويب ملوّن لتبديل فئة الأسئلة بدون مغادرة الصفحة.
+      - generic [ref=e21]:
+        - generic [ref=e22]: 🔎
+        - searchbox "ابحث عن القيلولة، الوجبات، الرسوم..." [ref=e23]
+      - generic [ref=e24]:
+        - generic [ref=e25] [cursor=pointer]: التسجيل
+        - generic [ref=e26] [cursor=pointer]: الرسوم
+        - generic [ref=e27] [cursor=pointer]: الأمان
+        - generic [ref=e28] [cursor=pointer]: التغذية
+        - generic [ref=e29] [cursor=pointer]: الصحة
+    - generic [ref=e30]:
+      - group [ref=e32]:
+        - generic "× ما الوثائق المطلوبة للتسجيل؟" [ref=e33] [cursor=pointer]
+        - paragraph [ref=e34]: صورة شهادة الميلاد، دفتر المطاعيم، صورة ولي الأمر، ونموذج المعلومات الصحية.
+      - group [ref=e36]:
+        - generic "+ هل يمكن اختيار أيام جزئية؟" [ref=e37] [cursor=pointer]
+      - text: × + × × ×
+  - contentinfo [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - strong [ref=e41]: حضانة نجوم الصغار
+        - paragraph [ref=e42]: إن لم تجدوا جواباً، اكتبوا لنا وسنرد بسرعة.
+      - generic [ref=e43]:
+        - link "التسجيل" [ref=e44] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e45] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "تواصل" [ref=e46] [cursor=pointer]:
+          - /url: تواصل.html

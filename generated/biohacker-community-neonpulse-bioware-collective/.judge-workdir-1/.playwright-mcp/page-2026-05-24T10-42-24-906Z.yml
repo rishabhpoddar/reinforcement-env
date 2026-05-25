@@ -1,0 +1,178 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - navigation [ref=e7]:
+        - link "HOME" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "REGISTRY" [ref=e9] [cursor=pointer]:
+          - /url: implant-registry.html
+        - link "GUIDES" [ref=e10] [cursor=pointer]:
+          - /url: guides.html
+        - link "SUBMIT" [ref=e11] [cursor=pointer]:
+          - /url: submit-procedure.html
+        - link "MEMBERS" [ref=e12] [cursor=pointer]:
+          - /url: members.html
+        - link "EVENTS" [ref=e13] [cursor=pointer]:
+          - /url: events.html
+        - link "MANIFESTO" [ref=e14] [cursor=pointer]:
+          - /url: manifesto.html
+        - link "CONTACT" [ref=e15] [cursor=pointer]:
+          - /url: contact.html
+      - generic [ref=e17]: NET // LIVE
+  - main [ref=e19]:
+    - generic [ref=e20]: // 03 — DIY KNOWLEDGE BASE
+    - heading "GUIDES // DIY GUIDES // DIY GUIDES // DIY" [level=1] [ref=e21]
+    - paragraph [ref=e22]: 47 protocolos revisados por pares. La práctica responsable empieza por leer todo antes de tocar nada.
+    - generic [ref=e23]:
+      - generic [ref=e24]: "!!"
+      - generic [ref=e25]: "ADVERTENCIA // LEÉ ESTO PRIMERO: Ninguna guía aquí sustituye atención médica profesional. Toda intervención corporal conlleva riesgos de infección, rechazo o daño permanente. Si no podés mantener un campo estéril o no entendés tu anatomía local, NO procedas. La comunidad recomienda consultar a un body modification artist licenciado."
+    - generic [ref=e26]:
+      - button "TODAS" [ref=e27] [cursor=pointer]
+      - button "BEGINNER" [ref=e28] [cursor=pointer]
+      - button "INTERMEDIATE" [ref=e29] [cursor=pointer]
+      - button "ADVANCED" [ref=e30] [cursor=pointer]
+      - button "MEDICAL-GRADE" [ref=e31] [cursor=pointer]
+      - button "EMERGENCY" [ref=e32] [cursor=pointer]
+      - button "AFTERCARE" [ref=e33] [cursor=pointer]
+    - generic [ref=e34]:
+      - article [ref=e35]:
+        - img "Magneto biocompatible" [ref=e38]
+        - generic [ref=e39]:
+          - generic [ref=e40]: GUIDE_007
+          - generic [ref=e41]: BEGINNER
+        - heading "Cómo esterilizar tu kit de instalación en casa" [level=3] [ref=e42]
+        - paragraph [ref=e43]: Protocolo paso a paso para autoclave casero, alcohol isopropílico, chlorhexidine y manejo de campo estéril improvisado. Incluye lista de materiales y errores comunes.
+        - generic [ref=e44]:
+          - generic [ref=e45]: "DIFF:"
+          - generic [ref=e51]: ~ 35 MIN LECTURA
+          - generic [ref=e52]: SANITARIO
+      - article [ref=e53]:
+        - img "NFC implant" [ref=e54]
+        - generic [ref=e55]:
+          - generic [ref=e56]: GUIDE_012
+          - generic [ref=e57]: INTERMEDIATE
+        - heading "Instalación de NFC NTAG216 en web de la mano" [level=3] [ref=e58]
+        - paragraph [ref=e59]: Anatomía vascular del pulgar, técnica de aplicador, posicionamiento subdérmico y aftercare durante las primeras 72 horas.
+        - generic [ref=e60]:
+          - generic [ref=e61]: "DIFF:"
+          - generic [ref=e67]: ~ 50 MIN
+      - article [ref=e68]:
+        - generic [ref=e69]:
+          - generic [ref=e70]: GUIDE_019
+          - generic [ref=e71]: ADVANCED
+        - 'heading "Diagnóstico de rechazo: signos tempranos y protocolo de explante" [level=3] [ref=e72]'
+        - paragraph [ref=e73]: Cómo distinguir inflamación normal de infección sistémica. Banderas rojas, cuándo ir a emergencias, y cómo retirar un implante de forma segura.
+        - generic [ref=e74]:
+          - generic [ref=e75]: "DIFF:"
+          - generic [ref=e81]: ~ 40 MIN
+          - generic [ref=e82]: EMERG
+      - article [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]: GUIDE_022
+          - generic [ref=e86]: BEGINNER
+        - 'heading "Tu primer magneto: qué esperar y qué NO esperar" [level=3] [ref=e87]'
+        - paragraph [ref=e88]: Sensibilidad real, qué materiales detectás, y mitos comunes desmentidos por la comunidad.
+        - generic [ref=e89]:
+          - generic [ref=e90]: "DIFF:"
+          - generic [ref=e96]: ~ 15 MIN
+      - article [ref=e97]:
+        - generic [ref=e98]:
+          - generic [ref=e99]: GUIDE_034
+          - generic [ref=e100]: MEDICAL
+        - 'heading "Anestesia local: opciones legales en Latam" [level=3] [ref=e101]'
+        - paragraph [ref=e102]: Comparativa de lidocaína tópica, hielo y bloqueos. Marco legal por país.
+        - generic [ref=e103]:
+          - generic [ref=e104]: "DIFF:"
+          - generic [ref=e110]: ~ 22 MIN
+      - article [ref=e111]:
+        - generic [ref=e112]:
+          - generic [ref=e113]: GUIDE_041
+          - generic [ref=e114]: AFTERCARE
+        - 'heading "Protocolo de cuidado: días 1 al 30" [level=3] [ref=e115]'
+        - paragraph [ref=e116]: Limpieza diaria, signos de alerta, alimentación recomendada y actividades a evitar.
+        - generic [ref=e117]:
+          - generic [ref=e118]: "DIFF:"
+          - generic [ref=e124]: ~ 18 MIN
+      - article [ref=e125]:
+        - generic [ref=e126]:
+          - generic [ref=e127]: GUIDE_046
+          - generic [ref=e128]: ADVANCED
+        - 'heading "Programación de tu NFC: payloads, URLs y vCards" [level=3] [ref=e129]'
+        - paragraph [ref=e130]: "De firmar contratos a abrir puertas: tutorial completo sobre escritura de chips NTAG con apps libres, formatos NDEF y consideraciones de privacidad. Incluye scripts en Python para flashear desde escritorio sin apps móviles."
+        - generic [ref=e131]:
+          - generic [ref=e132]: "DIFF:"
+          - generic [ref=e138]: ~ 65 MIN
+          - generic [ref=e139]: PROGRAMMING
+      - article [ref=e140]:
+        - generic [ref=e141]:
+          - generic [ref=e142]: GUIDE_028
+          - generic [ref=e143]: INTERMEDIATE
+        - heading "Botiquín mínimo del biohacker responsable" [level=3] [ref=e144]
+        - paragraph [ref=e145]: Lista de 23 ítems esenciales, marcas accesibles en Latam, y rotación de fechas de caducidad.
+        - generic [ref=e146]:
+          - generic [ref=e147]: "DIFF:"
+          - generic [ref=e153]: ~ 25 MIN
+      - article [ref=e154]:
+        - generic [ref=e155]:
+          - generic [ref=e156]: GUIDE_037
+          - generic [ref=e157]: MEDICAL
+        - 'heading "RMN y aeropuertos: cómo viajar con tu implante" [level=3] [ref=e158]'
+        - paragraph [ref=e159]: Documentación recomendada, comportamiento de detectores y casos reportados por la comunidad.
+        - generic [ref=e160]:
+          - generic [ref=e161]: "DIFF:"
+          - generic [ref=e167]: ~ 30 MIN
+          - generic [ref=e168]: VIAJES
+    - link "▾ CARGAR 38 GUÍAS MÁS" [ref=e170] [cursor=pointer]:
+      - /url: "#"
+  - contentinfo [ref=e171]:
+    - generic [ref=e172]:
+      - generic [ref=e173]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e174]
+        - paragraph [ref=e175]: Colectivo abierto. CC BY-SA 4.0. Información testimonial, no clínica.
+      - generic [ref=e176]:
+        - heading "// EXPLORE" [level=5] [ref=e177]
+        - list [ref=e178]:
+          - listitem [ref=e179]:
+            - link "Registry" [ref=e180] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e181]:
+            - link "Guides" [ref=e182] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e183]:
+            - link "Members" [ref=e184] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e185]:
+            - link "Events" [ref=e186] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e187]:
+        - heading "// COLLECTIVE" [level=5] [ref=e188]
+        - list [ref=e189]:
+          - listitem [ref=e190]:
+            - link "Manifesto" [ref=e191] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e192]:
+            - link "Submit" [ref=e193] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e194]:
+            - link "Contact" [ref=e195] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e196]:
+        - heading "// MIRROR" [level=5] [ref=e197]
+        - list [ref=e198]:
+          - listitem [ref=e199]:
+            - link "tor.onion" [ref=e200] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e201]:
+            - link "IPFS" [ref=e202] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e203]:
+            - link "Matrix" [ref=e204] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e205]:
+      - generic [ref=e206]: © 2019—2026 NEONPULSE
+      - generic [ref=e207]: v3.2.7 // 8842

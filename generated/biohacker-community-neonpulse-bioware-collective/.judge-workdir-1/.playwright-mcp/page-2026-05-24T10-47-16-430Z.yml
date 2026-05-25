@@ -1,0 +1,174 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]: // 05 — THE COLLECTIVE
+    - heading "MEMBERS // 312 MEMBERS // 312 MEMBERS // 312" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Conocé al colectivo. Avatares pixelados, identidades reales protegidas. Cada miembro es una historia bajo la piel.
+    - generic [ref=e12]:
+      - textbox "Buscar por handle, región o tipo de implante..." [ref=e13]
+      - combobox [ref=e14]:
+        - 'option "Ordenar: RECIENTES" [selected]'
+        - option "MÁS AUMENTADOS"
+        - option "POR REGIÓN"
+        - option "POR FECHA DE INGRESO"
+      - button "FILTRAR ▾" [ref=e15] [cursor=pointer]
+    - generic [ref=e16]:
+      - article [ref=e17]:
+        - img "Avatar" [ref=e20]
+        - generic [ref=e21]:
+          - heading "@wirenode_98" [level=3] [ref=e22]
+          - generic [ref=e23]:
+            - generic [ref=e24]: ◦ Lima, Perú
+            - generic [ref=e25]: ◦ 4 implantes activos
+            - generic [ref=e26]: ◦ miembro desde 2021
+          - generic [ref=e27]: ★ FOUNDER
+          - blockquote [ref=e28]: "\"El primer magneto me cambió la forma de escuchar el mundo. Cada motor, cada cable, vibra una verdad.\""
+      - article [ref=e29]:
+        - img "Avatar" [ref=e30]
+        - heading "@subderma.cdmx" [level=3] [ref=e31]
+        - generic [ref=e32]:
+          - generic [ref=e33]: ◦ Ciudad de México
+          - generic [ref=e34]: ◦ 6 implantes
+          - generic [ref=e35]: ◦ desde 2020
+        - generic [ref=e36]: CORE
+        - blockquote [ref=e37]: "\"Mi cuerpo es mi sistema operativo y yo soy mi propio root.\""
+      - article [ref=e38]:
+        - img "Avatar" [ref=e39]
+        - heading "@flux_corazon" [level=3] [ref=e40]
+        - generic [ref=e41]:
+          - generic [ref=e42]: ◦ Buenos Aires
+          - generic [ref=e43]: ◦ 2 implantes
+          - generic [ref=e44]: ◦ desde 2023
+        - generic [ref=e45]: CONTRIB
+        - blockquote [ref=e46]: "\"Vine por curiosidad, me quedé por la red de cuidado mutuo.\""
+      - article [ref=e47]:
+        - img "Avatar" [ref=e48]
+        - generic [ref=e49]:
+          - heading "@bisturi.libre" [level=3] [ref=e50]
+          - generic [ref=e51]:
+            - generic [ref=e52]: ◦ Bogotá, Colombia
+            - generic [ref=e53]: ◦ 7 implantes activos / 2 explantes
+            - generic [ref=e54]: ◦ miembro desde 2019
+          - generic [ref=e55]: ★ FOUNDER
+          - blockquote [ref=e56]: "\"Empezamos cuatro en un departamento. Hoy somos trescientas voces que se cuidan a distancia.\""
+      - article [ref=e57]:
+        - img "Avatar" [ref=e58]
+        - heading "@ndef.writer" [level=3] [ref=e59]
+        - generic [ref=e60]:
+          - generic [ref=e61]: ◦ Madrid, España
+          - generic [ref=e62]: ◦ 3 implantes
+          - generic [ref=e63]: ◦ desde 2022
+        - generic [ref=e64]: DEV
+        - blockquote [ref=e65]: "\"Mantengo las herramientas de programación de chips del colectivo. Forks bienvenidos.\""
+      - article [ref=e66]:
+        - img "Avatar" [ref=e67]
+        - heading "@magnetita" [level=3] [ref=e68]
+        - generic [ref=e69]:
+          - generic [ref=e70]: ◦ Quito, Ecuador
+          - generic [ref=e71]: ◦ 2 implantes
+          - generic [ref=e72]: ◦ desde 2024
+        - generic [ref=e73]: NEW
+        - blockquote [ref=e74]: "\"Recién empiezo y el colectivo me sostuvo durante mi primer aftercare.\""
+      - article [ref=e75]:
+        - img "Avatar" [ref=e76]
+        - heading "@flexnext.fan" [level=3] [ref=e77]
+        - generic [ref=e78]:
+          - generic [ref=e79]: ◦ Santiago de Chile
+          - generic [ref=e80]: ◦ 5 implantes
+          - generic [ref=e81]: ◦ desde 2021
+        - generic [ref=e82]: CONTRIB
+        - blockquote [ref=e83]: "\"El flexNExT me convirtió la mano en una pequeña constelación.\""
+      - article [ref=e84]:
+        - img "Avatar" [ref=e85]
+        - heading "@silice.dorada" [level=3] [ref=e86]
+        - generic [ref=e87]:
+          - generic [ref=e88]: ◦ Guadalajara
+          - generic [ref=e89]: ◦ 3 implantes
+          - generic [ref=e90]: ◦ desde 2023
+        - generic [ref=e91]: MENTOR
+        - blockquote [ref=e92]: "\"Acompaño a quienes recién instalan. Cuidar también es código abierto.\""
+      - article [ref=e93]:
+        - img "Avatar" [ref=e94]
+        - heading "@piel.de.cobre" [level=3] [ref=e95]
+        - generic [ref=e96]:
+          - generic [ref=e97]: ◦ Caracas
+          - generic [ref=e98]: ◦ 4 implantes
+          - generic [ref=e99]: ◦ desde 2022
+        - generic [ref=e100]: CORE
+        - blockquote [ref=e101]: "\"En contextos difíciles, la autonomía corporal es militancia.\""
+      - article [ref=e102]:
+        - img "Avatar" [ref=e103]
+        - heading "@cero.cero.uno" [level=3] [ref=e104]
+        - generic [ref=e105]:
+          - generic [ref=e106]: ◦ Barcelona
+          - generic [ref=e107]: ◦ 2 implantes
+          - generic [ref=e108]: ◦ desde 2024
+        - generic [ref=e109]: NEW
+        - blockquote [ref=e110]: "\"Esto no va de transhumanismo de Silicon Valley. Va de quién decide sobre tu carne.\""
+      - article [ref=e111]:
+        - img "Avatar" [ref=e112]
+        - generic [ref=e113]:
+          - heading "@octava.via" [level=3] [ref=e114]
+          - generic [ref=e115]:
+            - generic [ref=e116]: ◦ Montevideo, Uruguay
+            - generic [ref=e117]: ◦ 8 implantes activos
+            - generic [ref=e118]: ◦ miembro desde 2020
+          - generic [ref=e119]: ★ POLY-AUG
+          - blockquote [ref=e120]: "\"Ocho implantes y contando. Cada uno me enseñó algo distinto sobre mis propios límites.\""
+    - link "▾ CARGAR 301 MIEMBROS MÁS" [ref=e122] [cursor=pointer]:
+      - /url: "#"
+  - contentinfo [ref=e123]:
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e126]
+        - paragraph [ref=e127]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e128]:
+        - heading "// EXPLORE" [level=5] [ref=e129]
+        - list [ref=e130]:
+          - listitem [ref=e131]:
+            - link "Registry" [ref=e132] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e133]:
+            - link "Guides" [ref=e134] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e135]:
+            - link "Members" [ref=e136] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e137]:
+            - link "Events" [ref=e138] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e139]:
+        - heading "// COLLECTIVE" [level=5] [ref=e140]
+        - list [ref=e141]:
+          - listitem [ref=e142]:
+            - link "Manifesto" [ref=e143] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e144]:
+            - link "Submit" [ref=e145] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e146]:
+            - link "Contact" [ref=e147] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e148]:
+        - heading "// MIRROR" [level=5] [ref=e149]
+        - list [ref=e150]:
+          - listitem [ref=e151]:
+            - link "tor.onion" [ref=e152] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e153]:
+            - link "IPFS" [ref=e154] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e155]:
+            - link "Matrix" [ref=e156] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e157]:
+      - generic [ref=e158]: © 2019—2026 NEONPULSE
+      - generic [ref=e159]: v3.2.7 // 8842

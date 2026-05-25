@@ -1,0 +1,103 @@
+- generic [active] [ref=e1]:
+  - checkbox
+  - generic [ref=e7]: ATP / Raster
+  - complementary [ref=e8]:
+    - generic [ref=e9]:
+      - link "ATP 1957→ Archiv für Typografische Praxis Schweizer Gestaltung 1950–1985" [ref=e10] [cursor=pointer]:
+        - /url: startseite.html
+        - generic [ref=e11]:
+          - generic [ref=e12]: ATP
+          - generic [ref=e13]: 1957→
+        - generic [ref=e14]:
+          - text: Archiv für Typografische Praxis
+          - text: Schweizer Gestaltung 1950–1985
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "01 Startseite" [ref=e18] [cursor=pointer]:
+              - /url: startseite.html
+          - listitem [ref=e19]:
+            - link "02 Sammlung" [ref=e20] [cursor=pointer]:
+              - /url: sammlung.html
+          - listitem [ref=e21]:
+            - link "03 Objekt-Detail" [ref=e22] [cursor=pointer]:
+              - /url: objekt-detail.html
+          - listitem [ref=e23]:
+            - link "04 Essays" [ref=e24] [cursor=pointer]:
+              - /url: essays.html
+          - listitem [ref=e25]:
+            - link "05 Essay-Detail" [ref=e26] [cursor=pointer]:
+              - /url: essay-detail.html
+          - listitem [ref=e27]:
+            - link "06 Raster-System" [ref=e28] [cursor=pointer]:
+              - /url: raster-system.html
+          - listitem [ref=e29]:
+            - link "07 Über uns" [ref=e30] [cursor=pointer]:
+              - /url: uber-uns.html
+          - listitem [ref=e31]:
+            - link "08 Kontakt" [ref=e32] [cursor=pointer]:
+              - /url: kontakt.html
+    - paragraph [ref=e33]:
+      - text: Zürich
+      - text: Di–Fr 10:00–17:00
+      - text: Inv. Gesamt 3.412
+  - main [ref=e34]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - paragraph [ref=e37]: Methodik
+        - heading "Das Raster des Archivs" [level=1] [ref=e38]
+        - paragraph [ref=e39]: Zwölf Spalten, acht Punkt Baseline, keine dekorative Unschärfe.
+      - img "Technische Darstellung eines 12-Spalten-Rasters" [ref=e41]
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - heading "Spaltenverhältnisse" [level=2] [ref=e44]
+        - paragraph [ref=e45]: "Die Grundstruktur erlaubt asymmetrische Satzflächen: 7/5 für Objektseiten, 8/4 für Startseiten, 2/7/3 für Essaylisten."
+      - generic [ref=e46]:
+        - generic [ref=e47]: "1"
+        - generic [ref=e48]: "2"
+        - generic [ref=e49]: "3"
+        - generic [ref=e50]: "4"
+        - generic [ref=e51]: "5"
+        - generic [ref=e52]: "6"
+        - generic [ref=e53]: "7"
+        - generic [ref=e54]: "8"
+        - generic [ref=e55]: "9"
+        - generic [ref=e56]: "10"
+        - generic [ref=e57]: "11"
+        - generic [ref=e58]: "12"
+    - generic [ref=e59]:
+      - generic [ref=e60]: ".grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; } body { line-height: 24px; }"
+      - generic [ref=e61]:
+        - heading "Baseline" [level=2] [ref=e62]
+        - paragraph [ref=e63]: Alle typografischen Grössen fallen auf ein Vielfaches von acht Pixeln. Die sichtbaren Hilfslinien erinnern an Satzspiegel, nicht an Dekor.
+    - generic [ref=e64]:
+      - heading "Historische Raster im Vergleich" [level=2] [ref=e65]
+      - generic [ref=e66]:
+        - article [ref=e67]:
+          - img "Müller-Brockmann Raster" [ref=e68]
+          - paragraph [ref=e69]:
+            - strong [ref=e70]: Müller-Brockmann
+            - text: Strenge modulare Wiederholung, hohe Lesbarkeit.
+        - article [ref=e71]:
+          - img "Hofmann Raster" [ref=e72]
+          - paragraph [ref=e73]:
+            - strong [ref=e74]: Hofmann
+            - text: Kontrast, Spannung und optische Korrektur.
+        - article [ref=e75]:
+          - img "Ruder Raster" [ref=e76]
+          - paragraph [ref=e77]:
+            - strong [ref=e78]: Ruder
+            - text: Typografische Lehre aus Zeile, Spalte und Rhythmus.
+    - generic [ref=e79]:
+      - article [ref=e80]:
+        - paragraph [ref=e81]: Dokument
+        - strong [ref=e82]: Version 3.1
+        - paragraph [ref=e83]: Stand Mai 2026.
+      - article [ref=e84]:
+        - paragraph [ref=e85]: Anwendung
+        - strong [ref=e86]: Archivweb
+        - paragraph [ref=e87]: Alle Seiten folgen diesem Raster.
+      - article [ref=e88]:
+        - paragraph [ref=e89]: Quelle
+        - strong [ref=e90]: Lehrmaterial
+        - paragraph [ref=e91]: Basel und Zürich, 1957–1985.

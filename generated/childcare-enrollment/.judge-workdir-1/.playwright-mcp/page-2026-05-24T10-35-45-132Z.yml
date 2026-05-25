@@ -1,0 +1,71 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e5]: ★
+        - generic [ref=e6]: حضانة نجوم الصغار
+      - generic [ref=e7]: ☰
+  - main [ref=e8]:
+    - generic [ref=e10]:
+      - generic [ref=e11]: زورونا
+      - heading "نحب أن نسمع عن طفلكم قبل أن نلتقيه" [level=1] [ref=e12]
+      - paragraph [ref=e13]: اكتبوا لنا سؤالاً أو احجزوا جولة داخل الصفوف. سنقترح الوقت الأنسب حسب عمر الطفل والبرنامج.
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - heading "نموذج التواصل" [level=2] [ref=e16]
+        - generic [ref=e17]:
+          - generic [ref=e18]: الاسم
+          - textbox [ref=e19]
+        - generic [ref=e20]:
+          - generic [ref=e21]: الهاتف
+          - textbox [ref=e22]
+        - generic [ref=e23]:
+          - generic [ref=e24]: عمر الطفل
+          - 'textbox "مثال: سنتان ونصف" [ref=e25]'
+        - generic [ref=e26]:
+          - generic [ref=e27]: نوع الاستفسار
+          - combobox [ref=e28]:
+            - option "تسجيل جديد" [selected]
+            - option "رسوم وبرامج"
+            - option "خطة رعاية"
+            - option "زيارة الحضانة"
+        - generic [ref=e29]:
+          - generic [ref=e30]: الرسالة
+          - textbox [ref=e31]
+        - checkbox "☑ أرغب بحجز جولة" [ref=e32]
+        - generic [ref=e33] [cursor=pointer]: ☑ أرغب بحجز جولة
+        - button "إرسال الرسالة" [ref=e34] [cursor=pointer]
+      - complementary [ref=e35]:
+        - heading "نحن في قلب الحي" [level=2] [ref=e36]
+        - img "قاعة حضانة مشرقة" [ref=e37]
+        - list [ref=e38]:
+          - listitem [ref=e39]: 📍 عمّان، شارع هادئ قريب من الدوار السابع
+          - listitem [ref=e40]: "📱 واتساب: 079 555 2244"
+          - listitem [ref=e41]: "☎️ هاتف: 06 552 7788"
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: الأحد - الخميس
+            - strong [ref=e45]: ٧:٣٠ - ٥:٠٠
+          - generic [ref=e46]:
+            - generic [ref=e47]: السبت
+            - strong [ref=e48]: جولات فقط
+        - generic [ref=e49]:
+          - link "IG" [ref=e50] [cursor=pointer]:
+            - /url: "#"
+          - link "TT" [ref=e51] [cursor=pointer]:
+            - /url: "#"
+          - link "WA" [ref=e52] [cursor=pointer]:
+            - /url: "#"
+  - contentinfo [ref=e53]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - strong [ref=e56]: حضانة نجوم الصغار
+        - paragraph [ref=e57]: نرد على الرسائل خلال ساعات الدوام.
+      - generic [ref=e58]:
+        - link "الرئيسية" [ref=e59] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "التسجيل" [ref=e60] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "الأسئلة" [ref=e61] [cursor=pointer]:
+          - /url: الأسئلة.html

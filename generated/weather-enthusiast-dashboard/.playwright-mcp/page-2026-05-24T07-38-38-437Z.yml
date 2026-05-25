@@ -1,0 +1,89 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "PixelMétéo 95" [level=1] [ref=e5]
+      - generic [ref=e6]: QG connecté - 084 521 visiteurs
+    - navigation "Navigation principale" [ref=e7]:
+      - link "Accueil" [ref=e8] [cursor=pointer]:
+        - /url: accueil.html
+      - link "Tableau de bord" [ref=e9] [cursor=pointer]:
+        - /url: tableau-de-bord.html
+      - link "Observations" [ref=e10] [cursor=pointer]:
+        - /url: observations.html
+      - link "Tempêtes" [ref=e11] [cursor=pointer]:
+        - /url: tempetes.html
+      - link "Membres" [ref=e12] [cursor=pointer]:
+        - /url: membres.html
+      - link "Archives" [ref=e13] [cursor=pointer]:
+        - /url: archives.html
+      - link "Forum" [ref=e14] [cursor=pointer]:
+        - /url: forum.html
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+    - generic [ref=e17]: "ALERTE ORAGE EN COURS : MASSIF CENTRAL ⚡ 3 NOUVEAUX MEMBRES AUJOURD'HUI ⚡ TEMPÊTE NOMMÉE CIARA ARCHIVÉE"
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - article [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]: météo-live.exe
+          - generic [ref=e23]:
+            - generic [ref=e24]: _
+            - generic [ref=e25]: □
+            - generic [ref=e26]: ×
+        - img "Supercellule pixelisée au-dessus de la campagne française" [ref=e28]
+      - article [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]: club-chasseurs.dat
+          - generic [ref=e32]:
+            - generic [ref=e33]: _
+            - generic [ref=e34]: □
+            - generic [ref=e35]: ×
+        - generic [ref=e36]:
+          - heading "PIXELMÉTÉO 95 - LE QG DES CHASSEURS D'ORAGES" [level=2] [ref=e37]
+          - paragraph [ref=e38]: Réseau amateur, relevés en direct, cartes bricolées à minuit et passion cumulonimbus garantie.
+          - paragraph [ref=e39]: Vous êtes le visiteur n°
+          - generic [ref=e40]: "084521"
+          - generic [ref=e41]:
+            - link "Rejoindre le club" [ref=e42] [cursor=pointer]:
+              - /url: membres.html
+            - link "Voir les tempêtes" [ref=e43] [cursor=pointer]:
+              - /url: tempetes.html
+      - complementary [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]: france-alert.gif
+          - generic [ref=e47]:
+            - generic [ref=e48]: _
+            - generic [ref=e49]: □
+            - generic [ref=e50]: ×
+        - generic [ref=e51]:
+          - img "Carte pixel art de la France météo" [ref=e53]
+          - heading "Phénomène du jour" [level=3] [ref=e54]
+          - paragraph [ref=e55]:
+            - strong [ref=e56]: Supercellule en Bretagne
+            - text: avec base très basse et mammatus signalés à 18 h 42.
+    - region "Modules rapides" [ref=e57]:
+      - article [ref=e58]:
+        - heading "Observations récentes" [level=3] [ref=e59]
+        - paragraph [ref=e60]: Grêle à Millau, rafales à 92 km/h à Vannes, arcus photographié près de Tours.
+        - text: ★★★★★
+      - article [ref=e61]:
+        - heading "Top contributeurs" [level=3] [ref=e62]
+        - paragraph [ref=e63]:
+          - text: 1. NimbusLyon
+          - text: 2. RadarFou
+          - text: 3. Cévenol95
+      - article [ref=e64]:
+        - heading "Dernier podcast" [level=3] [ref=e65]
+        - paragraph [ref=e66]: « Lire une cellule sur radar Doppler sans renverser son café ».
+        - link "Écouter le dossier" [ref=e67] [cursor=pointer]:
+          - /url: archives.html
+      - article [ref=e68]:
+        - heading "Quiz du jour" [level=3] [ref=e69]
+        - paragraph [ref=e70]: Quel nuage annonce le mieux un orage organisé ?
+        - button "Jouer" [ref=e71] [cursor=pointer]
+  - contentinfo [ref=e72]:
+    - generic [ref=e73]:
+      - generic [ref=e74]: Best viewed in 1024x768
+      - generic [ref=e75]: Made with ♥ et un anémomètre
+      - generic [ref=e76]: UNDER CONSTRUCTION
+      - generic [ref=e77]: globe.gif tourne encore

@@ -1,0 +1,234 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]: // 02 — IMPLANT REGISTRY
+        - heading "IMPLANT REGISTRY IMPLANT REGISTRY IMPLANT REGISTRY" [level=1] [ref=e12]
+        - paragraph [ref=e13]: Base de datos auto-reportada y anónima. Cada entrada es voluntaria y revisable. Filtrá, consultá y aprendé de lo que el colectivo lleva bajo la piel.
+      - link "▸ Añadir mi implante" [ref=e14] [cursor=pointer]:
+        - /url: submit-procedure.html
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]: 1,847
+        - generic [ref=e18]: Implantes registrados
+      - generic [ref=e19]:
+        - generic [ref=e20]: "312"
+        - generic [ref=e21]: Miembros activos
+      - generic [ref=e22]:
+        - generic [ref=e23]: "28"
+        - generic [ref=e24]: Países
+      - generic [ref=e25]:
+        - generic [ref=e26]: 94.3%
+        - generic [ref=e27]: Tasa sin complicaciones
+    - generic [ref=e28]:
+      - complementary [ref=e29]:
+        - heading "REGION" [level=4] [ref=e32]
+        - generic [ref=e34]: Latam Norte
+        - generic [ref=e37]: Latam Sur
+        - generic [ref=e40]: Iberia
+        - generic [ref=e43]: Caribe
+        - generic [ref=e46]: Otros
+        - heading "CATEGORY" [level=4] [ref=e48]
+        - generic [ref=e50]: NFC / RFID
+        - generic [ref=e53]: Magneto
+        - generic [ref=e56]: LED subdérmico
+        - generic [ref=e59]: Biométrico
+        - generic [ref=e62]: Experimental
+        - heading "STATUS" [level=4] [ref=e64]
+        - generic [ref=e66]: ACTIVE
+        - generic [ref=e69]: DORMANT
+        - generic [ref=e72]: EXPLANTED
+        - heading "VISUAL // REF" [level=4] [ref=e74]
+        - img "Diagrama de implantes" [ref=e75]
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - generic [ref=e78]: Mostrando 12 de 1,847 entradas
+          - generic [ref=e79]: "Ordenar: recientes ▾"
+        - table [ref=e80]:
+          - rowgroup [ref=e81]:
+            - 'row "ID #NP-1847 TYPE NFC subdérmico v4 LOC Mano izquierda, web pulgar — Lima DATE 2026-05-23 STATUS ACTIVE" [ref=e82]':
+              - 'cell "ID #NP-1847" [ref=e83]':
+                - text: ID
+                - generic [ref=e84]: "#NP-1847"
+              - cell "TYPE NFC subdérmico v4" [ref=e85]
+              - cell "LOC Mano izquierda, web pulgar — Lima" [ref=e86]
+              - cell "DATE 2026-05-23" [ref=e87]
+              - cell "STATUS ACTIVE" [ref=e88]:
+                - text: STATUS
+                - generic [ref=e89]: ACTIVE
+            - 'row "ID #NP-1846 TYPE Magneto N52 biocompatible LOC Yema del dedo índice — CDMX DATE 2026-05-23 STATUS ACTIVE" [ref=e90]':
+              - 'cell "ID #NP-1846" [ref=e91]':
+                - text: ID
+                - generic [ref=e92]: "#NP-1846"
+              - cell "TYPE Magneto N52 biocompatible" [ref=e93]
+              - cell "LOC Yema del dedo índice — CDMX" [ref=e94]
+              - cell "DATE 2026-05-23" [ref=e95]
+              - cell "STATUS ACTIVE" [ref=e96]:
+                - text: STATUS
+                - generic [ref=e97]: ACTIVE
+            - 'row "ID #NP-1845 TYPE LED subdérmico (forearm) LOC Antebrazo derecho — Buenos Aires DATE 2026-05-22 STATUS ACTIVE" [ref=e98]':
+              - 'cell "ID #NP-1845" [ref=e99]':
+                - text: ID
+                - generic [ref=e100]: "#NP-1845"
+              - cell "TYPE LED subdérmico (forearm)" [ref=e101]
+              - cell "LOC Antebrazo derecho — Buenos Aires" [ref=e102]
+              - cell "DATE 2026-05-22" [ref=e103]
+              - cell "STATUS ACTIVE" [ref=e104]:
+                - text: STATUS
+                - generic [ref=e105]: ACTIVE
+            - 'row "ID #NP-1844 TYPE xSIID 2.0 (luminoso) LOC Mano izquierda — Bogotá DATE 2026-05-22 STATUS ACTIVE" [ref=e106]':
+              - 'cell "ID #NP-1844" [ref=e107]':
+                - text: ID
+                - generic [ref=e108]: "#NP-1844"
+              - cell "TYPE xSIID 2.0 (luminoso)" [ref=e109]
+              - cell "LOC Mano izquierda — Bogotá" [ref=e110]
+              - cell "DATE 2026-05-22" [ref=e111]
+              - cell "STATUS ACTIVE" [ref=e112]:
+                - text: STATUS
+                - generic [ref=e113]: ACTIVE
+            - 'row "ID #NP-1843 TYPE Termómetro biométrico β LOC Brazo superior izq — Madrid DATE 2026-05-21 STATUS DORMANT" [ref=e114]':
+              - 'cell "ID #NP-1843" [ref=e115]':
+                - text: ID
+                - generic [ref=e116]: "#NP-1843"
+              - cell "TYPE Termómetro biométrico β" [ref=e117]
+              - cell "LOC Brazo superior izq — Madrid" [ref=e118]
+              - cell "DATE 2026-05-21" [ref=e119]
+              - cell "STATUS DORMANT" [ref=e120]:
+                - text: STATUS
+                - generic [ref=e121]: DORMANT
+            - 'row "ID #NP-1842 TYPE RFID T5577 LOC Mano derecha — Quito DATE 2026-05-21 STATUS ACTIVE" [ref=e122]':
+              - 'cell "ID #NP-1842" [ref=e123]':
+                - text: ID
+                - generic [ref=e124]: "#NP-1842"
+              - cell "TYPE RFID T5577" [ref=e125]
+              - cell "LOC Mano derecha — Quito" [ref=e126]
+              - cell "DATE 2026-05-21" [ref=e127]
+              - cell "STATUS ACTIVE" [ref=e128]:
+                - text: STATUS
+                - generic [ref=e129]: ACTIVE
+            - 'row "ID #NP-1841 TYPE Magneto en yema del dedo LOC Anular izquierdo — Santiago DATE 2026-05-20 STATUS EXPLANTED" [ref=e130]':
+              - 'cell "ID #NP-1841" [ref=e131]':
+                - text: ID
+                - generic [ref=e132]: "#NP-1841"
+              - cell "TYPE Magneto en yema del dedo" [ref=e133]
+              - cell "LOC Anular izquierdo — Santiago" [ref=e134]
+              - cell "DATE 2026-05-20" [ref=e135]
+              - cell "STATUS EXPLANTED" [ref=e136]:
+                - text: STATUS
+                - generic [ref=e137]: EXPLANTED
+            - 'row "ID #NP-1840 TYPE NFC en mano izquierda LOC Web pulgar/índice — Montevideo DATE 2026-05-19 STATUS ACTIVE" [ref=e138]':
+              - 'cell "ID #NP-1840" [ref=e139]':
+                - text: ID
+                - generic [ref=e140]: "#NP-1840"
+              - cell "TYPE NFC en mano izquierda" [ref=e141]
+              - cell "LOC Web pulgar/índice — Montevideo" [ref=e142]
+              - cell "DATE 2026-05-19" [ref=e143]
+              - cell "STATUS ACTIVE" [ref=e144]:
+                - text: STATUS
+                - generic [ref=e145]: ACTIVE
+            - 'row "ID #NP-1839 TYPE Compass Northstar (magneto) LOC Pectoral izq — Barcelona DATE 2026-05-18 STATUS REVISIÓN" [ref=e146]':
+              - 'cell "ID #NP-1839" [ref=e147]':
+                - text: ID
+                - generic [ref=e148]: "#NP-1839"
+              - cell "TYPE Compass Northstar (magneto)" [ref=e149]
+              - cell "LOC Pectoral izq — Barcelona" [ref=e150]
+              - cell "DATE 2026-05-18" [ref=e151]
+              - cell "STATUS REVISIÓN" [ref=e152]:
+                - text: STATUS
+                - generic [ref=e153]: REVISIÓN
+            - 'row "ID #NP-1838 TYPE flexNExT (LED + NFC) LOC Dorso mano — Guadalajara DATE 2026-05-17 STATUS ACTIVE" [ref=e154]':
+              - 'cell "ID #NP-1838" [ref=e155]':
+                - text: ID
+                - generic [ref=e156]: "#NP-1838"
+              - cell "TYPE flexNExT (LED + NFC)" [ref=e157]
+              - cell "LOC Dorso mano — Guadalajara" [ref=e158]
+              - cell "DATE 2026-05-17" [ref=e159]
+              - cell "STATUS ACTIVE" [ref=e160]:
+                - text: STATUS
+                - generic [ref=e161]: ACTIVE
+            - 'row "ID #NP-1837 TYPE Magneto silicona M31 LOC Meñique izquierdo — Caracas DATE 2026-05-15 STATUS DORMANT" [ref=e162]':
+              - 'cell "ID #NP-1837" [ref=e163]':
+                - text: ID
+                - generic [ref=e164]: "#NP-1837"
+              - cell "TYPE Magneto silicona M31" [ref=e165]
+              - cell "LOC Meñique izquierdo — Caracas" [ref=e166]
+              - cell "DATE 2026-05-15" [ref=e167]
+              - cell "STATUS DORMANT" [ref=e168]:
+                - text: STATUS
+                - generic [ref=e169]: DORMANT
+            - 'row "ID #NP-1836 TYPE NFC NTAG216 estándar LOC Mano derecha — Asunción DATE 2026-05-14 STATUS ACTIVE" [ref=e170]':
+              - 'cell "ID #NP-1836" [ref=e171]':
+                - text: ID
+                - generic [ref=e172]: "#NP-1836"
+              - cell "TYPE NFC NTAG216 estándar" [ref=e173]
+              - cell "LOC Mano derecha — Asunción" [ref=e174]
+              - cell "DATE 2026-05-14" [ref=e175]
+              - cell "STATUS ACTIVE" [ref=e176]:
+                - text: STATUS
+                - generic [ref=e177]: ACTIVE
+        - generic [ref=e178]:
+          - generic [ref=e179]: "Última actualización: 03:42 UTC"
+          - generic [ref=e180]:
+            - button "◂ ANT" [ref=e181] [cursor=pointer]
+            - button "1" [ref=e182] [cursor=pointer]
+            - button "2" [ref=e183] [cursor=pointer]
+            - button "3" [ref=e184] [cursor=pointer]
+            - button "···" [ref=e185] [cursor=pointer]
+            - button "154" [ref=e186] [cursor=pointer]
+            - button "SIG ▸" [ref=e187] [cursor=pointer]
+  - contentinfo [ref=e188]:
+    - generic [ref=e189]:
+      - generic [ref=e190]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e191]
+        - paragraph [ref=e192]: Colectivo abierto. CC BY-SA 4.0. La información aquí es testimonial, no clínica.
+      - generic [ref=e193]:
+        - heading "// EXPLORE" [level=5] [ref=e194]
+        - list [ref=e195]:
+          - listitem [ref=e196]:
+            - link "Registry" [ref=e197] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e198]:
+            - link "Guides" [ref=e199] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e200]:
+            - link "Members" [ref=e201] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e202]:
+            - link "Events" [ref=e203] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e204]:
+        - heading "// COLLECTIVE" [level=5] [ref=e205]
+        - list [ref=e206]:
+          - listitem [ref=e207]:
+            - link "Manifesto" [ref=e208] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e209]:
+            - link "Submit" [ref=e210] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e211]:
+            - link "Contact" [ref=e212] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e213]:
+        - heading "// MIRROR" [level=5] [ref=e214]
+        - list [ref=e215]:
+          - listitem [ref=e216]:
+            - link "tor.onion" [ref=e217] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e218]:
+            - link "IPFS" [ref=e219] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e220]:
+            - link "Matrix" [ref=e221] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e222]:
+      - generic [ref=e223]: © 2019—2026 NEONPULSE
+      - generic [ref=e224]: v3.2.7 // 8842

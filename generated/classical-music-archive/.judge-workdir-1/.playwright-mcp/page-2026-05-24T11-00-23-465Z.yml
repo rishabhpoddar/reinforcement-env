@@ -1,0 +1,262 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "ध्रु ध्रुपद धरोहर Dhrupad Dharohar" [ref=e4] [cursor=pointer]:
+      - /url: मुख्य-पृष्ठ.html
+      - generic [ref=e5]: ध्रु
+      - generic [ref=e6]:
+        - generic [ref=e7]: ध्रुपद धरोहर
+        - generic [ref=e8]: Dhrupad Dharohar
+  - generic [ref=e10]:
+    - generic [ref=e11]: शास्त्र एवं सिद्धांत
+    - heading "राग कोश" [level=1] [ref=e12]
+    - paragraph [ref=e13]: उत्तर भारतीय शास्त्रीय संगीत के रागों की विस्तृत वर्णानुक्रमिक सूची — स्वर, समय, थाट, वादी-संवादी और बंदिशों सहित।
+  - generic [ref=e15]:
+    - 'textbox "राग का नाम खोजें… (जैसे: यमन, मालकौंस, भैरव)" [ref=e17]'
+    - generic [ref=e18]:
+      - button "सभी" [ref=e19] [cursor=pointer]
+      - button "प्रातः कालीन" [ref=e20] [cursor=pointer]
+      - button "मध्याह्न" [ref=e21] [cursor=pointer]
+      - button "सायं कालीन" [ref=e22] [cursor=pointer]
+      - button "रात्रि कालीन" [ref=e23] [cursor=pointer]
+      - 'button "थाट: कल्याण" [ref=e24] [cursor=pointer]'
+      - 'button "थाट: भैरव" [ref=e25] [cursor=pointer]'
+      - 'button "रस: शांत" [ref=e26] [cursor=pointer]'
+      - 'button "रस: श्रृंगार" [ref=e27] [cursor=pointer]'
+    - generic [ref=e28]:
+      - link "अहीर भैरव Ahir Bhairav थाट भैरव समय प्रातः वादी मध्यम संवादी षड्ज सा रे॒ ग म प ध नि॒ सां" [ref=e29] [cursor=pointer]:
+        - /url: "#raga-ahir-bhairav"
+        - generic [ref=e30]: अहीर भैरव
+        - generic [ref=e31]: Ahir Bhairav
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: थाट
+            - text: भैरव
+          - generic [ref=e35]:
+            - generic [ref=e36]: समय
+            - text: प्रातः
+          - generic [ref=e37]:
+            - generic [ref=e38]: वादी
+            - text: मध्यम
+          - generic [ref=e39]:
+            - generic [ref=e40]: संवादी
+            - text: षड्ज
+        - generic [ref=e41]: सा रे॒ ग म प ध नि॒ सां
+      - link "यमन Yaman थाट कल्याण समय संध्या वादी गंधार संवादी निषाद नि रे ग म॑ प ध नि सां" [ref=e42] [cursor=pointer]:
+        - /url: "#raga-yaman"
+        - generic [ref=e43]: यमन
+        - generic [ref=e44]: Yaman
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]: थाट
+            - text: कल्याण
+          - generic [ref=e48]:
+            - generic [ref=e49]: समय
+            - text: संध्या
+          - generic [ref=e50]:
+            - generic [ref=e51]: वादी
+            - text: गंधार
+          - generic [ref=e52]:
+            - generic [ref=e53]: संवादी
+            - text: निषाद
+        - generic [ref=e54]: नि रे ग म॑ प ध नि सां
+      - link "मालकौंस Malkauns थाट भैरवी समय रात्रि वादी मध्यम संवादी षड्ज सा ग॒ म ध॒ नि॒ सां" [ref=e55] [cursor=pointer]:
+        - /url: "#raga-malkauns"
+        - generic [ref=e56]: मालकौंस
+        - generic [ref=e57]: Malkauns
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - generic [ref=e60]: थाट
+            - text: भैरवी
+          - generic [ref=e61]:
+            - generic [ref=e62]: समय
+            - text: रात्रि
+          - generic [ref=e63]:
+            - generic [ref=e64]: वादी
+            - text: मध्यम
+          - generic [ref=e65]:
+            - generic [ref=e66]: संवादी
+            - text: षड्ज
+        - generic [ref=e67]: सा ग॒ म ध॒ नि॒ सां
+      - link "दरबारी Darbari Kanada थाट आसावरी समय रात्रि वादी ऋषभ संवादी पंचम सा रे ग॒ म प ध॒ नि॒ सां" [ref=e68] [cursor=pointer]:
+        - /url: "#raga-darbari"
+        - generic [ref=e69]: दरबारी
+        - generic [ref=e70]: Darbari Kanada
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]: थाट
+            - text: आसावरी
+          - generic [ref=e74]:
+            - generic [ref=e75]: समय
+            - text: रात्रि
+          - generic [ref=e76]:
+            - generic [ref=e77]: वादी
+            - text: ऋषभ
+          - generic [ref=e78]:
+            - generic [ref=e79]: संवादी
+            - text: पंचम
+        - generic [ref=e80]: सा रे ग॒ म प ध॒ नि॒ सां
+      - link "भैरव Bhairav थाट भैरव समय प्रातः वादी धैवत संवादी ऋषभ सा रे॒ ग म प ध॒ नि सां" [ref=e81] [cursor=pointer]:
+        - /url: "#raga-bhairav"
+        - generic [ref=e82]: भैरव
+        - generic [ref=e83]: Bhairav
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: थाट
+            - text: भैरव
+          - generic [ref=e87]:
+            - generic [ref=e88]: समय
+            - text: प्रातः
+          - generic [ref=e89]:
+            - generic [ref=e90]: वादी
+            - text: धैवत
+          - generic [ref=e91]:
+            - generic [ref=e92]: संवादी
+            - text: ऋषभ
+        - generic [ref=e93]: सा रे॒ ग म प ध॒ नि सां
+      - link "पूरिया धनाश्री Puriya Dhanashri थाट पूर्वी समय संध्या वादी पंचम संवादी ऋषभ सा रे॒ ग म॑ प ध॒ नि सां" [ref=e94] [cursor=pointer]:
+        - /url: "#raga-puriya"
+        - generic [ref=e95]: पूरिया धनाश्री
+        - generic [ref=e96]: Puriya Dhanashri
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - generic [ref=e99]: थाट
+            - text: पूर्वी
+          - generic [ref=e100]:
+            - generic [ref=e101]: समय
+            - text: संध्या
+          - generic [ref=e102]:
+            - generic [ref=e103]: वादी
+            - text: पंचम
+          - generic [ref=e104]:
+            - generic [ref=e105]: संवादी
+            - text: ऋषभ
+        - generic [ref=e106]: सा रे॒ ग म॑ प ध॒ नि सां
+      - link "मियाँ मल्हार Miyan Malhar थाट काफी समय वर्षा वादी मध्यम संवादी षड्ज सा रे ग॒ म प नि॒ सां" [ref=e107] [cursor=pointer]:
+        - /url: "#raga-malhar"
+        - generic [ref=e108]: मियाँ मल्हार
+        - generic [ref=e109]: Miyan Malhar
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - generic [ref=e112]: थाट
+            - text: काफी
+          - generic [ref=e113]:
+            - generic [ref=e114]: समय
+            - text: वर्षा
+          - generic [ref=e115]:
+            - generic [ref=e116]: वादी
+            - text: मध्यम
+          - generic [ref=e117]:
+            - generic [ref=e118]: संवादी
+            - text: षड्ज
+        - generic [ref=e119]: सा रे ग॒ म प नि॒ सां
+      - link "तोड़ी Todi थाट तोड़ी समय प्रातः वादी धैवत संवादी गंधार सा रे॒ ग॒ म॑ प ध॒ नि सां" [ref=e120] [cursor=pointer]:
+        - /url: "#raga-todi"
+        - generic [ref=e121]: तोड़ी
+        - generic [ref=e122]: Todi
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - generic [ref=e125]: थाट
+            - text: तोड़ी
+          - generic [ref=e126]:
+            - generic [ref=e127]: समय
+            - text: प्रातः
+          - generic [ref=e128]:
+            - generic [ref=e129]: वादी
+            - text: धैवत
+          - generic [ref=e130]:
+            - generic [ref=e131]: संवादी
+            - text: गंधार
+        - generic [ref=e132]: सा रे॒ ग॒ म॑ प ध॒ नि सां
+      - link "बागेश्री Bageshri थाट काफी समय रात्रि वादी मध्यम संवादी षड्ज सा ग॒ म ध नि॒ सां" [ref=e133] [cursor=pointer]:
+        - /url: "#raga-bageshri"
+        - generic [ref=e134]: बागेश्री
+        - generic [ref=e135]: Bageshri
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - generic [ref=e138]: थाट
+            - text: काफी
+          - generic [ref=e139]:
+            - generic [ref=e140]: समय
+            - text: रात्रि
+          - generic [ref=e141]:
+            - generic [ref=e142]: वादी
+            - text: मध्यम
+          - generic [ref=e143]:
+            - generic [ref=e144]: संवादी
+            - text: षड्ज
+        - generic [ref=e145]: सा ग॒ म ध नि॒ सां
+    - generic [ref=e146]:
+      - button "‹" [ref=e147] [cursor=pointer]
+      - button "१" [ref=e148] [cursor=pointer]
+      - button "२" [ref=e149] [cursor=pointer]
+      - button "३" [ref=e150] [cursor=pointer]
+      - button "४" [ref=e151] [cursor=pointer]
+      - button "५" [ref=e152] [cursor=pointer]
+      - button "›" [ref=e153] [cursor=pointer]
+  - contentinfo [ref=e154]:
+    - generic [ref=e155]:
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - generic [ref=e159]: ध्रु
+            - generic [ref=e160]:
+              - generic [ref=e161]: ध्रुपद धरोहर
+              - generic [ref=e162]: Dhrupad Dharohar
+          - paragraph [ref=e163]: उत्तर भारतीय शास्त्रीय संगीत की प्राचीनतम विधा को संरक्षित और प्रसारित करने के लिए समर्पित।
+        - generic [ref=e164]:
+          - heading "अध्ययन" [level=5] [ref=e165]
+          - list [ref=e166]:
+            - listitem [ref=e167]:
+              - link "घराने" [ref=e168] [cursor=pointer]:
+                - /url: घराने.html
+            - listitem [ref=e169]:
+              - link "राग कोश" [ref=e170] [cursor=pointer]:
+                - /url: राग-कोश.html
+            - listitem [ref=e171]:
+              - link "गुरु-शिष्य" [ref=e172] [cursor=pointer]:
+                - /url: गुरु-शिष्य.html
+        - generic [ref=e173]:
+          - heading "संग्रह" [level=5] [ref=e174]
+          - list [ref=e175]:
+            - listitem [ref=e176]:
+              - link "रिकॉर्डिंग्स" [ref=e177] [cursor=pointer]:
+                - /url: अभिलेखागार.html
+            - listitem [ref=e178]:
+              - link "शोध लेख" [ref=e179] [cursor=pointer]:
+                - /url: लेख.html
+        - generic [ref=e180]:
+          - heading "संस्थान" [level=5] [ref=e181]
+          - list [ref=e182]:
+            - listitem [ref=e183]:
+              - link "संपर्क" [ref=e184] [cursor=pointer]:
+                - /url: संपर्क.html
+      - generic [ref=e185]:
+        - generic [ref=e186]: © 2026 ध्रुपद धरोहर · सर्वाधिकार सुरक्षित
+        - generic [ref=e187]:
+          - link "Y" [ref=e188] [cursor=pointer]:
+            - /url: "#"
+          - link "In" [ref=e189] [cursor=pointer]:
+            - /url: "#"
+          - link "X" [ref=e190] [cursor=pointer]:
+            - /url: "#"
+  - navigation [ref=e191]:
+    - link "मु मुख्य" [ref=e192] [cursor=pointer]:
+      - /url: मुख्य-पृष्ठ.html
+      - generic [ref=e193]: मु
+      - generic [ref=e194]: मुख्य
+    - link "घ घराने" [ref=e195] [cursor=pointer]:
+      - /url: घराने.html
+      - generic [ref=e196]: घ
+      - generic [ref=e197]: घराने
+    - link "रा राग" [ref=e198] [cursor=pointer]:
+      - /url: राग-कोश.html
+      - generic [ref=e199]: रा
+      - generic [ref=e200]: राग
+    - link "अ अभिलेख" [ref=e201] [cursor=pointer]:
+      - /url: अभिलेखागार.html
+      - generic [ref=e202]: अ
+      - generic [ref=e203]: अभिलेख
+    - link "≡ मेनू" [ref=e204] [cursor=pointer]:
+      - /url: संपर्क.html
+      - generic [ref=e205]: ≡
+      - generic [ref=e206]: मेनू

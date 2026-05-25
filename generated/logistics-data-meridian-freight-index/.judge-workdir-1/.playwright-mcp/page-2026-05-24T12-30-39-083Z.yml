@@ -1,0 +1,66 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "Meridian.Index" [ref=e5] [cursor=pointer]:
+        - /url: home.html
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: home.html
+        - link "Rates" [ref=e8] [cursor=pointer]:
+          - /url: rates.html
+        - link "Routes" [ref=e9] [cursor=pointer]:
+          - /url: routes.html
+        - link "Analytics" [ref=e10] [cursor=pointer]:
+          - /url: analytics.html
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: pricing.html
+        - link "Methodology" [ref=e12] [cursor=pointer]:
+          - /url: methodology.html
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: contact.html
+      - link "Access" [ref=e14] [cursor=pointer]:
+        - /url: contact.html
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - heading "Methodology" [level=1] [ref=e18]
+      - complementary [ref=e19]:
+        - link "01 Index Scope" [ref=e20] [cursor=pointer]:
+          - /url: "#s1"
+        - link "02 Data Collection" [ref=e21] [cursor=pointer]:
+          - /url: "#s2"
+        - link "03 Normalization" [ref=e22] [cursor=pointer]:
+          - /url: "#s3"
+        - link "API Sample" [ref=e23] [cursor=pointer]:
+          - /url: "#api"
+      - article [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]: "01"
+          - heading "Index Scope and Lane Eligibility" [level=2] [ref=e27]
+          - paragraph [ref=e28]: Meridian observes containerized freight prices across port pairs where quote density, sailing frequency, and equipment availability meet minimum thresholds.
+          - paragraph [ref=e29]: Each lane is evaluated daily against source diversity, timestamp freshness, and movement relevance before entering the composite index.
+          - generic [ref=e30]: “A freight index is only useful when its exclusions are as clear as its headline number.”
+        - generic [ref=e32]:
+          - generic [ref=e33]: "02"
+          - heading "Data Collection Methadology" [level=2] [ref=e34]
+          - paragraph [ref=e35]: Inputs include verified forwarder quotes, carrier tariff filings, booking confirmations, port dwell metrics, schedule reliability, and bunker fuel reference prices.
+          - paragraph [ref=e36]: Outlier observations are quarantined when they diverge from lane-specific volatility envelopes without supporting source corroboration.
+          - figure [ref=e37]:
+            - img "Shipping containers detail" [ref=e38]
+        - generic [ref=e39]:
+          - generic [ref=e40]: "03"
+          - heading "Normalization and Weighting" [level=2] [ref=e41]
+          - paragraph [ref=e42]: Rate observations are converted into comparable USD per FEU values by equipment type, surcharge treatment, and validity window.
+          - paragraph [ref=e43]: Composite values weight dense, recent, multi-source observations above isolated spot quotes that do not reflect executable market depth.
+        - generic [ref=e45]:
+          - generic [ref=e46]: API
+          - heading "JSON Response Sample" [level=2] [ref=e47]
+          - generic [ref=e48]: "{ \"lane_code\": \"SHA-LAX\", \"equipment\": \"40HC\", \"rate_usd_feu\": 2184, \"wow_delta\": 0.031, \"source_density\": 0.92, \"last_updated\": \"2026-05-24T08:45:00Z\" }"
+  - link "Request Index Access →" [ref=e51] [cursor=pointer]:
+    - /url: contact.html
+  - contentinfo [ref=e52]:
+    - generic [ref=e53]:
+      - generic [ref=e54]: Meridian Freight Index
+      - generic [ref=e55]:
+        - generic [ref=e56]: Global rate intelligence
+        - generic [ref=e57]: UTC indexed data
+        - generic [ref=e58]: © 2026

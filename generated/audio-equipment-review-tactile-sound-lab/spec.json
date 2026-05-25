@@ -1,0 +1,112 @@
+{
+  "site_name": "Tactile Sound Lab",
+  "category": "audio-equipment-review",
+  "niche": "independent review platform for vintage analog synthesizers, drum machines, and modular gear with hands-on testing and frequency analysis",
+  "language": "en",
+  "text_direction": "ltr",
+  "design_style": "neumorphism",
+  "dark_mode": true,
+  "nav_style": "tab-navigation",
+  "pages": [
+    "home",
+    "reviews",
+    "gear-database",
+    "lab-tests",
+    "comparisons",
+    "community",
+    "about"
+  ],
+  "design_system": {
+    "color_palette": {
+      "primary": "#2A2D34",
+      "secondary": "#3A3E47",
+      "accent": "#E8A87C",
+      "bg": "#23262C",
+      "text": "#D8DCE3"
+    },
+    "typography": {
+      "heading_font": "sans-serif",
+      "body_font": "sans-serif",
+      "scale": "1.25 modular"
+    },
+    "layout_style": "dark neumorphic surfaces with soft dual shadows (light from top-left, dark to bottom-right), extruded buttons and panels that feel physical, alternating full-bleed gear photography sections with contained card grids",
+    "mood": "tactile, warm, analog, contemplative, gear-nerdy"
+  },
+  "page_descriptions": {
+    "home": "Full-bleed hero with looping video placeholder showing a synthesizer's blinking LEDs in macro detail, overlaid with embossed neumorphic title 'Tactile Sound Lab \u2014 Where Knobs Matter'. Below: tab-navigation bar (Reviews / Database / Lab Tests / Compare / Community / About) styled as extruded pill buttons. Contained section with 'Latest Review' large neumorphic card featuring gear photo, score dial (showing 8.7/10 as an inset circular gauge), and excerpt. Full-width alternating section: 'Editor's Picks' as horizontal scroll of 4 inset cards. Contained '3-column grid of recent lab tests' with waveform thumbnails. Full-bleed quote section from a featured artist. Newsletter signup as recessed input field with raised submit button.",
+    "reviews": "Tab-navigation sub-tabs at top: All / Synthesizers / Drum Machines / Effects / Modular. Filter sidebar (collapsible on mobile) with neumorphic toggle switches for decade (60s/70s/80s/90s), price range slider as inset track with raised handle, and brand checkboxes. Review cards in 2-column grid: each card is a raised neumorphic panel with gear photo top, title, sub-score breakdown (Sound / Build / Value as mini progress arcs), reviewer name, and date. Pagination as numbered pressable buttons at bottom.",
+    "gear-database": "Searchable database with recessed search bar at top featuring magnifying glass icon. Below: filterable masonry grid of gear cards (image + name + year + manufacturer). Each card has hover state where it appears pressed-in. Sidebar of A-Z manufacturer index. Full-width photo gallery section mid-page showing 'Featured This Month' with 6 large gear images in irregular grid. Stats bar showing 'Currently tracking 2,847 instruments across 312 manufacturers'.",
+    "lab-tests": "Dashboard-style page with full-width hero showing the testing studio space. Tab-navigation sub-tabs: Frequency Response / THD Analysis / Noise Floor / Latency / Filter Curves. Each test category displays as a large neumorphic panel containing a placeholder for a chart/spectrogram, the gear under test, methodology notes, and downloadable raw data link. Embedded video placeholder for 'How We Test' explainer. Comparison table at bottom with 5 instruments measured side-by-side, values shown as inset numeric displays.",
+    "comparisons": "Interactive 'Versus' page. Top section: two large neumorphic 'gear slot' panels (left vs right) where users can select instruments \u2014 each slot shows selected gear's photo and key stats. Below: side-by-side spec table with categories (Oscillators, Filter, Envelope, Memory, Connectivity, Price). Audio sample player as embossed playback module with waveform display. Reader votes section as paired progress bars. Related comparisons grid at bottom (3-column).",
+    "community": "Full-width hero of a cluttered home studio. Forum-style layout with tab-navigation: Discussion / Show Your Setup / Buy-Sell-Trade / Repair Help. Thread list as stacked neumorphic rows with title, author avatar (circular inset), reply count badge, and last-activity timestamp. Right sidebar: 'Top Contributors' leaderboard with rank numbers in inset circles, and 'Setup of the Week' featured photo. Sticky compose button as floating raised circle bottom-right.",
+    "about": "Hero section with overhead shot of the lab workbench. Contained section: 'Our Methodology' as 4 numbered neumorphic cards (Acquire / Test / Listen / Publish). Full-width team gallery \u2014 5 portrait photos in a horizontal strip with names and roles embossed below. Equipment list section with categorized gear used for testing (oscilloscopes, audio interfaces, anechoic foam, etc.) as bullet groups. FAQ accordion with chevron icons that flip on expand. Contact form at bottom with recessed text fields and a single large raised 'Send Message' button."
+  },
+  "complexity": "complex",
+  "image_assets": [
+    {
+      "filename": "hero-synth-macro.png",
+      "prompt": "Extreme macro photograph of a vintage analog synthesizer panel with glowing amber LEDs, brushed aluminum knobs casting soft shadows, deep charcoal background, warm peachy-orange accent lighting matching #E8A87C, shallow depth of field, moody and tactile, premium gear photography",
+      "size": "1536x1024",
+      "used_on": "home",
+      "purpose": "hero video placeholder background"
+    },
+    {
+      "filename": "drum-machine-review.png",
+      "prompt": "Top-down studio shot of a classic 1980s drum machine on a dark charcoal felt surface, soft warm rim lighting, exposed circuit traces visible through wear marks, muted orange accent on a few LED indicators, editorial product photography",
+      "size": "1024x1024",
+      "used_on": "reviews, home",
+      "purpose": "featured review card image"
+    },
+    {
+      "filename": "modular-wall.png",
+      "prompt": "Large eurorack modular synthesizer wall with patch cables in tangled chaos, dim ambient lighting from above, multiple glowing displays in muted amber, dark grey panels, atmospheric and inviting, wide architectural photography",
+      "size": "1536x1024",
+      "used_on": "gear-database",
+      "purpose": "full-width feature gallery section"
+    },
+    {
+      "filename": "lab-test-studio.png",
+      "prompt": "Audio measurement lab with oscilloscope screens displaying green waveforms, vintage synthesizer connected via cables to test equipment, anechoic foam panels on walls, low-key dramatic lighting, scientific yet warm atmosphere, dark grey and peach accents",
+      "size": "1536x1024",
+      "used_on": "lab-tests",
+      "purpose": "hero section showing testing methodology"
+    },
+    {
+      "filename": "home-studio.png",
+      "prompt": "Cozy home studio at night, cluttered with synthesizers, drum machines, and tape machines on a wooden desk, single warm desk lamp providing peachy light, deep shadows, lived-in and authentic, photojournalistic style",
+      "size": "1536x1024",
+      "used_on": "community",
+      "purpose": "community page hero banner"
+    },
+    {
+      "filename": "workbench-overhead.png",
+      "prompt": "Overhead flat-lay photograph of a repair workbench with soldering iron, oscilloscope, screwdrivers, capacitors, and a disassembled vintage synthesizer board, dark wood surface, warm focused lighting, organized chaos, knolling style",
+      "size": "1536x1024",
+      "used_on": "about",
+      "purpose": "about page hero, methodology context"
+    },
+    {
+      "filename": "comparison-pair.png",
+      "prompt": "Two vintage synthesizers photographed side by side on a dark seamless backdrop, dramatic split lighting (warm peach on left, neutral cool on right), product comparison aesthetic, sharp detailed",
+      "size": "1536x1024",
+      "used_on": "comparisons",
+      "purpose": "versus page header visual"
+    },
+    {
+      "filename": "team-portrait.png",
+      "prompt": "Casual portrait of an audio engineer in a dark studio space, headphones around neck, soft warm lighting, dark grey background, candid and approachable, editorial portrait photography",
+      "size": "1024x1024",
+      "used_on": "about",
+      "purpose": "team member portrait"
+    }
+  ],
+  "special_elements": [
+    "neumorphic dual-shadow panels (top-left light source, bottom-right dark shadow) throughout all UI",
+    "circular score gauges and progress arcs rendered as inset/recessed elements",
+    "extruded pill-shaped tab navigation that visually presses in when active",
+    "recessed input fields and sliders with raised handles/buttons",
+    "subtle peach accent color used only for active states, scores, and highlights"
+  ],
+  "responsive_notes": "Mobile-first design: tab navigation displays as horizontal scrolling pill row at top of viewport, single-column card stacks throughout, filter sidebars collapse into bottom-sheet drawers triggered by a raised floating filter button, comparison page stacks the two gear slots vertically with a 'VS' divider between. On tablet (768px+): tabs become inline non-scrolling, cards shift to 2-column, sidebars appear as collapsible side panels. On desktop (1200px+): full multi-column layouts engage, comparison page goes side-by-side, sticky tab navigation. Neumorphic shadows are subtly reduced on mobile (smaller blur radius) to avoid muddiness on small screens. Touch targets minimum 44px with adequate spacing between extruded buttons to prevent mis-taps.",
+  "is_broken": false
+}

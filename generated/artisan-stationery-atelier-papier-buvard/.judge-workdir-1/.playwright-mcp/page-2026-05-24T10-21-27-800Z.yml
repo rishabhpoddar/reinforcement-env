@@ -1,0 +1,102 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Atelier Papier Buvard" [ref=e4] [cursor=pointer]:
+        - /url: accueil.html
+      - generic [ref=e5]: Paris · depuis 2014
+    - generic [ref=e6]: Showroom · 12 rue de Charonne
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - text: Le marbrage à la cuve
+      - heading "Quatre gestes, un papier" [level=1] [ref=e9]:
+        - text: Quatre gestes,
+        - text: un papier
+    - paragraph [ref=e11]:
+      - text: Le marbrage à la cuve — ou
+      - emphasis [ref=e12]: papier dominoté
+      - text: dans sa version française la plus ancienne — consiste à faire flotter des encres sur un bain épaissi, puis à capturer le motif sur une feuille déposée délicatement à la surface. Voici les quatre étapes telles que nous les pratiquons.
+    - generic [ref=e13]:
+      - article [ref=e14]:
+        - img "Préparation du bain" [ref=e15]
+        - generic [ref=e16]:
+          - generic [ref=e17]: "01"
+          - heading "Préparer le bain" [level=3] [ref=e18]
+          - paragraph [ref=e19]: Le bain est une eau épaissie au mucilage de carragheen, une algue rouge qui donne à l'eau la viscosité nécessaire pour porter les encres. On le prépare la veille, on le tamise, on le laisse reposer une nuit entière dans la cuve.
+          - paragraph [ref=e20]: "La température compte : entre 18 et 20°C, jamais plus. Trop chaud, les pigments se diluent ; trop froid, ils se figent à la surface sans se laisser peigner."
+      - article [ref=e21]:
+        - img "Dépose des encres" [ref=e22]
+        - generic [ref=e23]:
+          - generic [ref=e24]: "02"
+          - heading "Déposer les encres" [level=3] [ref=e25]
+          - paragraph [ref=e26]: À l'aide de fines baguettes ou de pinceaux en poil de chèvre, on dépose des gouttes d'encre une à une à la surface du bain. Chaque encre est préparée avec un liant spécifique, calibré pour s'étaler sans se mélanger à la précédente.
+          - paragraph [ref=e27]: "L'ordre des couleurs détermine la lisibilité du motif : du plus dilué au plus dense, toujours."
+      - article [ref=e28]:
+        - img "Peignage du motif" [ref=e29]
+        - generic [ref=e30]:
+          - generic [ref=e31]: "03"
+          - heading "Peigner les motifs" [level=3] [ref=e32]
+          - paragraph [ref=e33]: Le peigne — un cadre de bois traversé d'aiguilles régulièrement espacées — vient inscrire dans le bain le motif final. Mouvements lents, perpendiculaires, jamais répétés à l'identique.
+          - paragraph [ref=e34]: "C'est ici que se joue la signature de chaque marbrière : la pression, la cadence, la respiration."
+      - article [ref=e35]:
+        - img "Séchage de la feuille" [ref=e36]
+        - generic [ref=e37]:
+          - generic [ref=e38]: "04"
+          - heading "Sécher la feuille" [level=3] [ref=e39]
+          - paragraph [ref=e40]: La feuille est déposée d'un seul geste à la surface, du coin vers le centre. Elle capte l'encre en moins de deux secondes, puis on la soulève, on la rince à l'eau claire, et on la suspend sur un séchoir de bois.
+          - paragraph [ref=e41]: Quarante-huit heures plus tard, la feuille est plate, sèche, et prête à être numérotée.
+    - generic [ref=e42]:
+      - generic "Vidéo du processus de marbrage" [ref=e43]: ▶
+      - paragraph [ref=e44]: Vidéo — 3 min 42 · tournée à l'atelier
+    - generic [ref=e45]:
+      - text: Vocabulaire
+      - heading "Glossaire" [level=2] [ref=e46]
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - term [ref=e49]: Suminagashi
+          - definition [ref=e50]: Technique japonaise du XIIe siècle, considérée comme l'ancêtre du marbrage. Les encres flottent à la surface de l'eau pure, sans peignage, dessinant des cercles concentriques.
+        - generic [ref=e51]:
+          - term [ref=e52]: Ébru
+          - definition [ref=e53]: Marbrage turc traditionnel, pratiqué depuis le XVe siècle. Caractérisé par des motifs floraux extrêmement précis — tulipes, œillets, jacinthes — tracés à la baguette.
+        - generic [ref=e54]:
+          - term [ref=e55]: Papier dominoté
+          - definition [ref=e56]: Papier décoratif français du XVIIIe siècle, imprimé au bloc de bois ou marbré, utilisé en reliure et pour habiller les boîtes, les coffres et les murs intérieurs.
+        - generic [ref=e57]:
+          - term [ref=e58]: Carragheen
+          - definition [ref=e59]: Mucilage extrait d'une algue rouge irlandaise, utilisé pour épaissir le bain. Remplace les anciens liants à base de gomme adragante.
+        - generic [ref=e60]:
+          - term [ref=e61]: Endpaper
+          - definition [ref=e62]: Papier de garde, collé à l'intérieur de la couverture d'un livre relié. Le marbré y trouve son usage le plus traditionnel.
+        - generic [ref=e63]:
+          - term [ref=e64]: Vague espagnole
+          - definition [ref=e65]: Motif obtenu en imprimant la feuille avec un léger mouvement de bercement, créant une ondulation horizontale caractéristique.
+  - contentinfo [ref=e66]:
+    - generic [ref=e67]:
+      - generic [ref=e68]: Atelier Papier Buvard
+      - generic [ref=e69]: © 2025 · 12 rue de Charonne, 75011 Paris
+      - generic [ref=e70]:
+        - link "Instagram" [ref=e71] [cursor=pointer]:
+          - /url: contact.html
+        - text: ·
+        - link "Are.na" [ref=e72] [cursor=pointer]:
+          - /url: contact.html
+  - navigation "Navigation principale" [ref=e73]:
+    - link "Accueil" [ref=e74] [cursor=pointer]:
+      - /url: accueil.html
+      - img [ref=e75]
+      - generic [ref=e77]: Accueil
+    - link "Collections" [ref=e78] [cursor=pointer]:
+      - /url: collections.html
+      - img [ref=e79]
+      - generic [ref=e84]: Collections
+    - link "Atelier" [ref=e85] [cursor=pointer]:
+      - /url: atelier.html
+      - img [ref=e86]
+      - generic [ref=e88]: Atelier
+    - link "Journal" [ref=e89] [cursor=pointer]:
+      - /url: journal.html
+      - img [ref=e90]
+      - generic [ref=e92]: Journal
+    - link "Commander" [ref=e93] [cursor=pointer]:
+      - /url: commander.html
+      - img [ref=e94]
+      - generic [ref=e96]: Commander

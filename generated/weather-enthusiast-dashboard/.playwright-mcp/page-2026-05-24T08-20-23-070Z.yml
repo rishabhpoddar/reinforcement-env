@@ -1,0 +1,115 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "PixelMétéo 95" [level=1] [ref=e5]
+      - generic [ref=e6]: ANNUAIRE DES CHASSEURS
+    - navigation "Navigation principale" [ref=e7]:
+      - link "Accueil" [ref=e8] [cursor=pointer]:
+        - /url: accueil.html
+      - link "Tableau de bord" [ref=e9] [cursor=pointer]:
+        - /url: tableau-de-bord.html
+      - link "Observations" [ref=e10] [cursor=pointer]:
+        - /url: observations.html
+      - link "Tempêtes" [ref=e11] [cursor=pointer]:
+        - /url: tempetes.html
+      - link "Membres" [ref=e12] [cursor=pointer]:
+        - /url: membres.html
+      - link "Archives" [ref=e13] [cursor=pointer]:
+        - /url: archives.html
+      - link "Forum" [ref=e14] [cursor=pointer]:
+        - /url: forum.html
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+    - generic [ref=e17]: BIENVENUE À RADIOSTRATUS ⚡ 3 MEMBRES PASSENT RANG CUMULONIMBUS ⚡ XP DOUBLÉE CE WEEK-END
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - heading "2 Argent" [level=3] [ref=e21]
+        - paragraph [ref=e22]: RadarFou
+        - paragraph [ref=e23]: 632 obs.
+      - generic [ref=e24]:
+        - heading "1 Or" [level=3] [ref=e25]
+        - paragraph [ref=e26]: NimbusLyon
+        - paragraph [ref=e27]: 804 obs.
+      - generic [ref=e28]:
+        - heading "3 Bronze" [level=3] [ref=e29]
+        - paragraph [ref=e30]: Cévenol95
+        - paragraph [ref=e31]: 591 obs.
+    - generic [ref=e32]:
+      - complementary [ref=e33]:
+        - generic [ref=e34]:
+          - generic [ref=e35]: filtres-region.bmp
+          - generic [ref=e36]:
+            - generic [ref=e37]: _
+            - generic [ref=e38]: □
+            - generic [ref=e39]: ×
+        - generic [ref=e40]:
+          - img "Carte de France pour filtrer les membres" [ref=e41]
+          - generic [ref=e42]:
+            - button "Nord" [ref=e43] [cursor=pointer]
+            - button "Ouest" [ref=e44] [cursor=pointer]
+            - button "Sud" [ref=e45] [cursor=pointer]
+            - button "Est" [ref=e46] [cursor=pointer]
+            - button "Supercellule" [ref=e47] [cursor=pointer]
+      - generic [ref=e48]:
+        - article [ref=e49]:
+          - img "Avatar pixel de NimbusLyon" [ref=e50]
+          - heading "NimbusLyon" [level=3] [ref=e51]
+          - generic [ref=e52]: SUPERCELLULE
+          - paragraph [ref=e53]:
+            - text: Auvergne-Rhône-Alpes
+            - text: 804 observations
+        - article [ref=e56]:
+          - img "Avatar pixel de RadarFou" [ref=e57]
+          - heading "RadarFou" [level=3] [ref=e58]
+          - generic [ref=e59]: CUMULONIMBUS
+          - paragraph [ref=e60]:
+            - text: Bretagne
+            - text: 632 observations
+        - article [ref=e63]:
+          - img "Avatar pixel de Cévenol95" [ref=e64]
+          - heading "Cévenol95" [level=3] [ref=e65]
+          - generic [ref=e66]: CUMULUS
+          - paragraph [ref=e67]:
+            - text: Occitanie
+            - text: 591 observations
+        - article [ref=e70]:
+          - img "Avatar pixel de PixelPluie" [ref=e71]
+          - heading "PixelPluie" [level=3] [ref=e72]
+          - generic [ref=e73]: NIMBUS
+          - paragraph [ref=e74]:
+            - text: Grand Est
+            - text: 203 observations
+        - article [ref=e77]:
+          - img "Avatar pixel de RafaleRose" [ref=e78]
+          - heading "RafaleRose" [level=3] [ref=e79]
+          - generic [ref=e80]: CUMULONIMBUS
+          - paragraph [ref=e81]:
+            - text: PACA
+            - text: 488 observations
+        - article [ref=e84]:
+          - img "Avatar pixel d'ArcusMan" [ref=e85]
+          - heading "ArcusMan" [level=3] [ref=e86]
+          - generic [ref=e87]: CUMULUS
+          - paragraph [ref=e88]:
+            - text: Pays de la Loire
+            - text: 352 observations
+        - article [ref=e91]:
+          - img "Avatar pixel de FoudreDouce" [ref=e92]
+          - heading "FoudreDouce" [level=3] [ref=e93]
+          - generic [ref=e94]: NIMBUS
+          - paragraph [ref=e95]:
+            - text: Normandie
+            - text: 181 observations
+        - article [ref=e98]:
+          - img "Avatar pixel de BrumeKid" [ref=e99]
+          - heading "BrumeKid" [level=3] [ref=e100]
+          - generic [ref=e101]: CUMULUS
+          - paragraph [ref=e102]:
+            - text: Bourgogne
+            - text: 267 observations
+  - contentinfo [ref=e105]:
+    - generic [ref=e106]:
+      - generic [ref=e107]: Best viewed in 1024x768
+      - generic [ref=e108]: Made with ♥ et un anémomètre
+      - generic [ref=e109]: UNDER CONSTRUCTION

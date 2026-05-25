@@ -1,0 +1,134 @@
+- generic [active] [ref=e1]:
+  - checkbox
+  - generic [ref=e7]: ATP / Über uns
+  - complementary [ref=e8]:
+    - generic [ref=e9]:
+      - link "ATP 1957→ Archiv für Typografische Praxis Schweizer Gestaltung 1950–1985" [ref=e10] [cursor=pointer]:
+        - /url: startseite.html
+        - generic [ref=e11]:
+          - generic [ref=e12]: ATP
+          - generic [ref=e13]: 1957→
+        - generic [ref=e14]:
+          - text: Archiv für Typografische Praxis
+          - text: Schweizer Gestaltung 1950–1985
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "01 Startseite" [ref=e18] [cursor=pointer]:
+              - /url: startseite.html
+          - listitem [ref=e19]:
+            - link "02 Sammlung" [ref=e20] [cursor=pointer]:
+              - /url: sammlung.html
+          - listitem [ref=e21]:
+            - link "03 Objekt-Detail" [ref=e22] [cursor=pointer]:
+              - /url: objekt-detail.html
+          - listitem [ref=e23]:
+            - link "04 Essays" [ref=e24] [cursor=pointer]:
+              - /url: essays.html
+          - listitem [ref=e25]:
+            - link "05 Essay-Detail" [ref=e26] [cursor=pointer]:
+              - /url: essay-detail.html
+          - listitem [ref=e27]:
+            - link "06 Raster-System" [ref=e28] [cursor=pointer]:
+              - /url: raster-system.html
+          - listitem [ref=e29]:
+            - link "07 Über uns" [ref=e30] [cursor=pointer]:
+              - /url: uber-uns.html
+          - listitem [ref=e31]:
+            - link "08 Kontakt" [ref=e32] [cursor=pointer]:
+              - /url: kontakt.html
+    - paragraph [ref=e33]:
+      - text: Zürich
+      - text: Di–Fr 10:00–17:00
+      - text: Inv. Gesamt 3.412
+  - main [ref=e34]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - heading "Wir bewahren typografische Praxis als Denkwerkzeug." [level=1] [ref=e37]
+        - list [ref=e38]:
+          - listitem [ref=e39]: Originale vor Reproduktionen lesen.
+          - listitem [ref=e40]: Metadaten als Gestaltung ernst nehmen.
+          - listitem [ref=e41]: Raster sichtbar, nicht mystisch machen.
+          - listitem [ref=e42]: Provenienz lückenlos dokumentieren.
+          - listitem [ref=e43]: Forschung öffentlich zugänglich halten.
+          - listitem [ref=e44]: Fehler und Varianten nicht glätten.
+          - listitem [ref=e45]: Schweizer Moderne kritisch befragen.
+      - img "Lesesaal des Archivs" [ref=e47]
+    - generic [ref=e48]:
+      - heading "Team" [level=2] [ref=e49]
+      - generic [ref=e50]:
+        - article [ref=e51]:
+          - img "Portrait" [ref=e52]
+          - strong [ref=e53]: Anna Meier
+          - paragraph [ref=e54]:
+            - text: Leitung Archiv
+            - text: Provenienz und Ankauf.
+        - article [ref=e55]:
+          - img "Portrait" [ref=e56]
+          - strong [ref=e57]: Jonas Keller
+          - paragraph [ref=e58]:
+            - text: Konservierung
+            - text: Papier und Druck.
+        - article [ref=e59]:
+          - img "Portrait" [ref=e60]
+          - strong [ref=e61]: Mara Vollenweider
+          - paragraph [ref=e62]:
+            - text: Forschung
+            - text: Essays und Seminare.
+        - article [ref=e63]:
+          - img "Portrait" [ref=e64]
+          - strong [ref=e65]: Livia Roth
+          - paragraph [ref=e66]:
+            - text: Digitalisierung
+            - text: Scan und Datenmodell.
+        - article [ref=e67]:
+          - img "Portrait" [ref=e68]
+          - strong [ref=e69]: Samuel Graf
+          - paragraph [ref=e70]:
+            - text: Lesesaal
+            - text: Benutzung und Beratung.
+        - article [ref=e71]:
+          - img "Portrait" [ref=e72]
+          - strong [ref=e73]: Noemi Huber
+          - paragraph [ref=e74]:
+            - text: Vermittlung
+            - text: Workshops und Schulen.
+    - generic [ref=e75]:
+      - heading "1957→2024" [level=2] [ref=e76]
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - paragraph [ref=e79]: "1957"
+          - strong [ref=e80]: Helvetica erscheint
+          - paragraph [ref=e81]: Beginn der Sammlung Schriftmuster.
+        - generic [ref=e82]:
+          - paragraph [ref=e83]: "1968"
+          - strong [ref=e84]: Rasterlehre
+          - paragraph [ref=e85]: Erste Unterrichtsblätter werden archiviert.
+        - generic [ref=e86]:
+          - paragraph [ref=e87]: "1985"
+          - strong [ref=e88]: Depot Zürich
+          - paragraph [ref=e89]: Plakatbestände werden zusammengeführt.
+        - generic [ref=e90]:
+          - paragraph [ref=e91]: "2024"
+          - strong [ref=e92]: Digitales Inventar
+          - paragraph [ref=e93]: Öffnung für Forschung und Lehre.
+    - generic [ref=e94]:
+      - heading "Partnerinstitutionen" [level=2] [ref=e95]
+      - generic [ref=e96]:
+        - generic [ref=e97]: ZHdK
+        - generic [ref=e98]: Museum Zürich
+        - generic [ref=e99]: Basel Schule
+        - generic [ref=e100]: Helvetica Archiv
+    - generic [ref=e101]:
+      - article [ref=e102]:
+        - paragraph [ref=e103]: Mission
+        - strong [ref=e104]: Präzision
+        - paragraph [ref=e105]: Archivarbeit als gestaltete Ordnung.
+      - article [ref=e106]:
+        - paragraph [ref=e107]: Zugang
+        - strong [ref=e108]: Öffentlich
+        - paragraph [ref=e109]: Forschung nach Anmeldung.
+      - article [ref=e110]:
+        - paragraph [ref=e111]: Sammlung
+        - strong [ref=e112]: 1950–1985
+        - paragraph [ref=e113]: Schwerpunkt Schweizer Moderne.

@@ -1,0 +1,193 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - navigation [ref=e7]:
+        - link "HOME" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "REGISTRY" [ref=e9] [cursor=pointer]:
+          - /url: implant-registry.html
+        - link "GUIDES" [ref=e10] [cursor=pointer]:
+          - /url: guides.html
+        - link "SUBMIT" [ref=e11] [cursor=pointer]:
+          - /url: submit-procedure.html
+        - link "MEMBERS" [ref=e12] [cursor=pointer]:
+          - /url: members.html
+        - link "EVENTS" [ref=e13] [cursor=pointer]:
+          - /url: events.html
+        - link "MANIFESTO" [ref=e14] [cursor=pointer]:
+          - /url: manifesto.html
+        - link "CONTACT" [ref=e15] [cursor=pointer]:
+          - /url: contact.html
+      - generic [ref=e17]: NET // LIVE
+  - main [ref=e19]:
+    - generic [ref=e20]: // 05 — THE COLLECTIVE
+    - heading "MEMBERS // 312 MEMBERS // 312 MEMBERS // 312" [level=1] [ref=e21]
+    - paragraph [ref=e22]: Conocé al colectivo. Avatares pixelados, identidades reales protegidas. Pasá el cursor sobre cada miembro para leer su quote.
+    - generic [ref=e23]:
+      - textbox "Buscar por handle, región o tipo de implante..." [ref=e24]
+      - combobox [ref=e25]:
+        - 'option "Ordenar: RECIENTES" [selected]'
+        - option "MÁS AUMENTADOS"
+        - option "POR REGIÓN"
+        - option "POR FECHA DE INGRESO"
+      - button "FILTRAR ▾" [ref=e26] [cursor=pointer]
+    - generic [ref=e27]:
+      - article [ref=e28]:
+        - img "Avatar" [ref=e31]
+        - generic [ref=e32]:
+          - heading "@wirenode_98" [level=3] [ref=e33]
+          - generic [ref=e34]:
+            - generic [ref=e35]: ◦ Lima, Perú
+            - generic [ref=e36]: ◦ 4 implantes activos · desde 2021
+          - generic [ref=e37]: ★ FOUNDER
+      - article [ref=e38]:
+        - img "Avatar" [ref=e39]
+        - generic [ref=e40]:
+          - heading "@subderma.cdmx" [level=3] [ref=e41]
+          - generic [ref=e42]:
+            - generic [ref=e43]: ◦ CDMX
+            - generic [ref=e44]: ◦ 6 implantes · 2020
+          - generic [ref=e45]: CORE
+      - article [ref=e46]:
+        - img "Avatar" [ref=e47]
+        - generic [ref=e48]:
+          - heading "@flux_corazon" [level=3] [ref=e49]
+          - generic [ref=e50]:
+            - generic [ref=e51]: ◦ Buenos Aires
+            - generic [ref=e52]: ◦ 2 implantes · 2023
+          - generic [ref=e53]: CONTRIB
+      - article [ref=e54]:
+        - img "Avatar" [ref=e55]
+        - generic [ref=e56]:
+          - heading "@ndef.writer" [level=3] [ref=e57]
+          - generic [ref=e58]:
+            - generic [ref=e59]: ◦ Madrid, España
+            - generic [ref=e60]: ◦ 3 implantes · 2022
+          - generic [ref=e61]: DEV
+      - article [ref=e62]:
+        - img "Avatar" [ref=e63]
+        - generic [ref=e64]:
+          - heading "@bisturi.libre" [level=3] [ref=e65]
+          - generic [ref=e66]:
+            - generic [ref=e67]: ◦ Bogotá, Colombia
+            - generic [ref=e68]: ◦ 7 implantes activos / 2 explantes · desde 2019
+          - generic [ref=e69]: ★ FOUNDER
+        - blockquote: // QUOTE // "Empezamos cuatro en un departamento. Hoy somos trescientas voces que se cuidan a distancia."
+      - article [ref=e70]:
+        - img "Avatar" [ref=e71]
+        - generic [ref=e72]:
+          - heading "@magnetita" [level=3] [ref=e73]
+          - generic [ref=e74]:
+            - generic [ref=e75]: ◦ Quito, Ecuador
+            - generic [ref=e76]: ◦ 2 implantes · 2024
+          - generic [ref=e77]: NEW
+      - article [ref=e78]:
+        - img "Avatar" [ref=e79]
+        - generic [ref=e80]:
+          - heading "@flexnext.fan" [level=3] [ref=e81]
+          - generic [ref=e82]:
+            - generic [ref=e83]: ◦ Santiago de Chile
+            - generic [ref=e84]: ◦ 5 implantes · 2021
+          - generic [ref=e85]: CONTRIB
+      - article [ref=e86]:
+        - img "Avatar" [ref=e87]
+        - generic [ref=e88]:
+          - heading "@silice.dorada" [level=3] [ref=e89]
+          - generic [ref=e90]:
+            - generic [ref=e91]: ◦ Guadalajara
+            - generic [ref=e92]: ◦ 3 implantes · 2023
+          - generic [ref=e93]: MENTOR
+      - article [ref=e94]:
+        - img "Avatar" [ref=e95]
+        - generic [ref=e96]:
+          - heading "@piel.de.cobre" [level=3] [ref=e97]
+          - generic [ref=e98]:
+            - generic [ref=e99]: ◦ Caracas, Venezuela
+            - generic [ref=e100]: ◦ 4 implantes · 2022
+          - generic [ref=e101]: CORE
+      - article [ref=e102]:
+        - img "Avatar" [ref=e103]
+        - generic [ref=e104]:
+          - heading "@cero.cero.uno" [level=3] [ref=e105]
+          - generic [ref=e106]:
+            - generic [ref=e107]: ◦ Barcelona
+            - generic [ref=e108]: ◦ 2 implantes · 2024
+          - generic [ref=e109]: NEW
+      - article [ref=e110]:
+        - img "Avatar" [ref=e111]
+        - generic [ref=e112]:
+          - heading "@octava.via" [level=3] [ref=e113]
+          - generic [ref=e114]:
+            - generic [ref=e115]: ◦ Montevideo, Uruguay
+            - generic [ref=e116]: ◦ 8 implantes activos · desde 2020
+          - generic [ref=e117]: ★ POLY-AUG
+      - article [ref=e118]:
+        - img "Avatar" [ref=e119]
+        - generic [ref=e120]:
+          - heading "@vena.alfa" [level=3] [ref=e121]
+          - generic [ref=e122]:
+            - generic [ref=e123]: ◦ Asunción, Paraguay
+            - generic [ref=e124]: ◦ 1 implante · 2025
+          - generic [ref=e125]: NEW
+      - article [ref=e126]:
+        - img "Avatar" [ref=e127]
+        - generic [ref=e128]:
+          - heading "@kernel.panic" [level=3] [ref=e129]
+          - generic [ref=e130]:
+            - generic [ref=e131]: ◦ Valparaíso, Chile
+            - generic [ref=e132]: ◦ 3 implantes · 2022
+          - generic [ref=e133]: DEV
+    - link "▾ CARGAR 299 MIEMBROS MÁS" [ref=e135] [cursor=pointer]:
+      - /url: "#"
+  - contentinfo [ref=e136]:
+    - generic [ref=e137]:
+      - generic [ref=e138]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e139]
+        - paragraph [ref=e140]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e141]:
+        - heading "// EXPLORE" [level=5] [ref=e142]
+        - list [ref=e143]:
+          - listitem [ref=e144]:
+            - link "Registry" [ref=e145] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e146]:
+            - link "Guides" [ref=e147] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e148]:
+            - link "Members" [ref=e149] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e150]:
+            - link "Events" [ref=e151] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e152]:
+        - heading "// COLLECTIVE" [level=5] [ref=e153]
+        - list [ref=e154]:
+          - listitem [ref=e155]:
+            - link "Manifesto" [ref=e156] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e157]:
+            - link "Submit" [ref=e158] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e159]:
+            - link "Contact" [ref=e160] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e161]:
+        - heading "// MIRROR" [level=5] [ref=e162]
+        - list [ref=e163]:
+          - listitem [ref=e164]:
+            - link "tor.onion" [ref=e165] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e166]:
+            - link "IPFS" [ref=e167] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e168]:
+            - link "Matrix" [ref=e169] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e170]:
+      - generic [ref=e171]: © 2019—2026 NEONPULSE
+      - generic [ref=e172]: v3.2.7 // 8842

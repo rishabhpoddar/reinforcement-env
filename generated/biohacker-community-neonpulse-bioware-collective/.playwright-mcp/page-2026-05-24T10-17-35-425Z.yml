@@ -1,0 +1,214 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]: // 04 — DATA INPUT
+    - heading "SUBMIT PROCEDURE SUBMIT PROCEDURE SUBMIT PROCEDURE" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Registrá tu procedimiento. Datos anónimos por defecto, encriptados en reposo. Ayudás al colectivo a documentar y a aprender.
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: "01"
+        - text: IDENTITY
+      - generic [ref=e15]:
+        - generic [ref=e16]: "02"
+        - text: PROCEDURE
+      - generic [ref=e17]:
+        - generic [ref=e18]: "03"
+        - text: METRICS
+      - generic [ref=e19]:
+        - generic [ref=e20]: "04"
+        - text: NARRATIVE
+    - generic [ref=e21]:
+      - group "SECTION 01 // IDENTITY" [ref=e22]:
+        - generic [ref=e23]: SECTION 01 // IDENTITY
+        - generic [ref=e24]:
+          - generic [ref=e25]: HANDLE
+          - generic [ref=e26]: Tu alias público dentro del colectivo. No uses tu nombre real.
+          - textbox "HANDLE" [ref=e27]:
+            - /placeholder: ej. @wirenode_98
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e30]: REGION
+            - generic [ref=e31]: Ciudad o área general. No registramos ubicación exacta.
+            - combobox "REGION" [ref=e32]:
+              - option "Selecciona tu región..." [selected]
+              - option "México — Norte"
+              - option "México — Centro / CDMX"
+              - option "Centroamérica"
+              - option "Caribe"
+              - option "Andina (Colombia / Ecuador / Perú)"
+              - option "Cono Sur (Argentina / Chile / Uruguay)"
+              - option "Brasil"
+              - option "Iberia (España / Portugal)"
+              - option "Otro"
+          - generic [ref=e33]:
+            - generic [ref=e34]: YEAR OF BIRTH
+            - generic [ref=e35]: Solo el año, para análisis demográfico anónimo.
+            - spinbutton "YEAR OF BIRTH" [ref=e36]
+        - generic [ref=e37]:
+          - generic [ref=e38]: ANONYMOUS MODE
+          - generic [ref=e39]: Si está activado, tu handle no aparece en el registro público.
+          - text: Modo anónimo activado
+      - group "SECTION 02 // PROCEDURE" [ref=e41]:
+        - generic [ref=e42]: SECTION 02 // PROCEDURE
+        - generic [ref=e43]:
+          - generic [ref=e44]: IMPLANT TYPE
+          - generic [ref=e45]: Selecciona la categoría que mejor describe tu implante.
+          - generic [ref=e46]:
+            - generic [ref=e47] [cursor=pointer]:
+              - text: "[NFC]"
+              - strong [ref=e48]: NFC / RFID
+              - text: chip subdérmico
+            - generic [ref=e49] [cursor=pointer]:
+              - text: "[MAG]"
+              - strong [ref=e50]: MAGNETO
+              - text: en yema del dedo
+            - generic [ref=e51] [cursor=pointer]:
+              - text: "[LED]"
+              - strong [ref=e52]: LED
+              - text: subdérmico luminoso
+            - generic [ref=e53] [cursor=pointer]:
+              - text: "[BIO]"
+              - strong [ref=e54]: BIOMÉTRICO
+              - text: termo / sensor
+            - generic [ref=e55] [cursor=pointer]:
+              - text: "[EXP]"
+              - strong [ref=e56]: EXPERIMENTAL
+              - text: otro / DIY
+        - generic [ref=e57]:
+          - generic [ref=e58]: BODY LOCATION
+          - generic [ref=e59]: Hacé clic en el diagrama o seleccioná la ubicación de la lista.
+          - generic [ref=e60]:
+            - img "Diagrama anatómico de implantes" [ref=e61]
+            - list [ref=e62]:
+              - listitem [ref=e63]: ▸ Web pulgar (L1)
+              - listitem [ref=e64]: ▸ Dorso de la mano (L2)
+              - listitem [ref=e65]: ▸ Yema dedo índice (L3)
+              - listitem [ref=e66]: ▸ Yema anular (L4)
+              - listitem [ref=e67]: ▸ Antebrazo dorsal (L5)
+              - listitem [ref=e68]: ▸ Antebrazo ventral (L6)
+              - listitem [ref=e69]: ▸ Pectoral (L7)
+              - listitem [ref=e70]: ▸ Otra ubicación...
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]: DATE OF INSTALL
+            - generic [ref=e74]: Fecha real del procedimiento.
+            - textbox "DATE OF INSTALL" [ref=e75]
+          - generic [ref=e76]:
+            - generic [ref=e77]: INSTALLED BY
+            - generic [ref=e78]: ¿Profesional o auto-instalación?
+            - combobox "INSTALLED BY" [ref=e79]:
+              - option "Profesional licenciado (body mod artist)" [selected]
+              - option "Médico / profesional sanitario"
+              - option "Otro miembro del colectivo"
+              - option "Auto-instalación (DIY)"
+      - group "SECTION 03 // METRICS" [ref=e80]:
+        - generic [ref=e81]: SECTION 03 // METRICS
+        - generic [ref=e82]:
+          - generic [ref=e83]: PAIN LEVEL (0—10)
+          - generic [ref=e84]: Nivel máximo de dolor durante el procedimiento.
+          - generic [ref=e85]:
+            - slider [ref=e86]: "3"
+            - generic [ref=e87]: "03"
+        - generic [ref=e88]:
+          - generic [ref=e89]: HEALING TIME (días hasta cicatrización completa)
+          - generic [ref=e90]: Tiempo total en días, según tu observación.
+          - generic [ref=e91]:
+            - slider [ref=e92]: "21"
+            - generic [ref=e93]: 21d
+        - generic [ref=e94]:
+          - generic [ref=e95]: SATISFACTION RATING
+          - generic [ref=e96]: ¿Repetirías este procedimiento sabiendo lo que sabés ahora?
+          - generic [ref=e97]:
+            - generic [ref=e98]: ★
+            - generic [ref=e99]: ★
+            - generic [ref=e100]: ★
+            - generic [ref=e101]: ★
+            - generic [ref=e102]: ★
+        - generic [ref=e103]:
+          - generic [ref=e104]: COMPLICATIONS
+          - generic [ref=e105]: ¿Experimentaste complicaciones (infección, migración, rechazo)?
+          - text: Sin complicaciones reportadas
+      - group "SECTION 04 // NARRATIVE" [ref=e107]:
+        - generic [ref=e108]: SECTION 04 // NARRATIVE
+        - generic [ref=e109]:
+          - generic [ref=e110]: YOUR STORY
+          - generic [ref=e111]: "Contanos brevemente: motivación, contexto, lo que aprendiste. Tu testimonio enriquece el archivo colectivo."
+          - textbox "YOUR STORY" [ref=e112]:
+            - /placeholder: Decidí instalarme un magneto después de tres años leyendo en este foro. Lo hicimos en casa de un amigo, con kit esterilizado siguiendo la guía 007. Los primeros días dolió más de lo que esperaba, pero al mes ya podía detectar el motor del subte sin pensarlo...
+        - generic [ref=e113]:
+          - generic [ref=e114]: PHOTO UPLOAD (opcional)
+          - generic [ref=e115]: JPG o PNG, máx 5 MB. Las fotos se procesan localmente y se almacenan encriptadas.
+          - textbox "PHOTO UPLOAD (opcional)" [ref=e116]:
+            - /placeholder: Seleccioná archivo...  [ examinar ]
+        - generic [ref=e117]:
+          - generic [ref=e118]:
+            - checkbox "Confirmo que esta información es auto-reportada y verídica según mi mejor conocimiento." [checked] [ref=e119]
+            - generic [ref=e120]: Confirmo que esta información es auto-reportada y verídica según mi mejor conocimiento.
+          - generic [ref=e121]:
+            - checkbox "Acepto que este reporte se publique de forma anónima y agregada en el registro público." [checked] [ref=e122]
+            - generic [ref=e123]: Acepto que este reporte se publique de forma anónima y agregada en el registro público.
+          - generic [ref=e124]:
+            - checkbox "Acepto recibir un correo encriptado si surgen alertas sanitarias sobre mi tipo de implante." [ref=e125]
+            - generic [ref=e126]: Acepto recibir un correo encriptado si surgen alertas sanitarias sobre mi tipo de implante.
+          - generic [ref=e127]:
+            - checkbox "Doy consentimiento informado y comprendo que esta plataforma no sustituye atención médica profesional." [ref=e128]
+            - generic [ref=e129]: Doy consentimiento informado y comprendo que esta plataforma no sustituye atención médica profesional.
+        - generic [ref=e130]:
+          - button "◂ ATRÁS" [ref=e131] [cursor=pointer]
+          - button "GUARDAR BORRADOR" [ref=e132] [cursor=pointer]
+          - button "ENVIAR // SUBMIT" [ref=e133] [cursor=pointer]
+  - contentinfo [ref=e134]:
+    - generic [ref=e135]:
+      - generic [ref=e136]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e137]
+        - paragraph [ref=e138]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e139]:
+        - heading "// EXPLORE" [level=5] [ref=e140]
+        - list [ref=e141]:
+          - listitem [ref=e142]:
+            - link "Registry" [ref=e143] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e144]:
+            - link "Guides" [ref=e145] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e146]:
+            - link "Members" [ref=e147] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e148]:
+            - link "Events" [ref=e149] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e150]:
+        - heading "// COLLECTIVE" [level=5] [ref=e151]
+        - list [ref=e152]:
+          - listitem [ref=e153]:
+            - link "Manifesto" [ref=e154] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e155]:
+            - link "Submit" [ref=e156] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e157]:
+            - link "Contact" [ref=e158] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e159]:
+        - heading "// MIRROR" [level=5] [ref=e160]
+        - list [ref=e161]:
+          - listitem [ref=e162]:
+            - link "tor.onion" [ref=e163] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e164]:
+            - link "IPFS" [ref=e165] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e166]:
+            - link "Matrix" [ref=e167] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e168]:
+      - generic [ref=e169]: © 2019—2026 NEONPULSE
+      - generic [ref=e170]: v3.2.7 // 8842

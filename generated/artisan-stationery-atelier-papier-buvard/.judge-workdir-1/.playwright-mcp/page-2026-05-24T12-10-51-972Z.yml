@@ -1,0 +1,127 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Atelier Papier Buvard" [ref=e4] [cursor=pointer]:
+        - /url: accueil.html
+      - generic [ref=e5]: Paris · depuis 2014
+  - main [ref=e6]:
+    - generic [ref=e7]:
+      - text: Catalogue · Automne 2025
+      - heading "Collections" [level=1] [ref=e8]
+      - paragraph [ref=e9]: Une cinquantaine de pièces façonnées à la main, certaines uniques, d'autres tirées en séries courtes.
+    - generic [ref=e10]:
+      - button "Tout" [ref=e11] [cursor=pointer]
+      - button "Marbrures" [ref=e12] [cursor=pointer]
+      - button "Carnets" [ref=e13] [cursor=pointer]
+      - button "Papeterie" [ref=e14] [cursor=pointer]
+      - button "Encres" [ref=e15] [cursor=pointer]
+      - button "Buvards" [ref=e16] [cursor=pointer]
+    - generic [ref=e17]:
+      - article [ref=e18]:
+        - img "Marbrure Terra A3" [ref=e19]
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - heading "Marbrure Terra · A3" [level=3] [ref=e22]
+            - generic [ref=e23]: Endpaper · Édition n°12 sur 40
+          - generic [ref=e24]: 68 €
+        - generic [ref=e26]: Édition limitée
+      - article [ref=e27]:
+        - img "Carnet Charonne" [ref=e28]
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - heading "Carnet Charonne" [level=3] [ref=e31]
+            - generic [ref=e32]: Letterpress · 96 pages ivoire
+          - generic [ref=e33]: 42 €
+        - generic [ref=e35]: En stock
+      - article [ref=e36]:
+        - img "Lot buvards sauge" [ref=e37]
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "Buvards sauge · lot de 12" [level=3] [ref=e40]
+            - generic [ref=e41]: 10×10 cm · plume fine
+          - generic [ref=e42]: 24 €
+        - generic [ref=e44]: Édition limitée
+      - complementary [ref=e45]:
+        - generic [ref=e46]: Lot du mois
+        - heading "Trois carnets & un encrier d'octobre" [level=3] [ref=e47]
+        - paragraph [ref=e48]: Sélection mensuelle assemblée par Margaux. Quantité limitée à 25 lots.
+        - generic [ref=e49]: 96 €
+      - article [ref=e50]:
+        - img "Marbrure vague espagnole" [ref=e51]
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - heading "Vague espagnole · A4" [level=3] [ref=e54]
+            - generic [ref=e55]: Pièce unique
+          - generic [ref=e56]: 95 €
+        - generic [ref=e58]: Édition limitée
+      - article [ref=e59]:
+        - img "Marbrure Sienne" [ref=e60]
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - heading "Marbrure Sienne brûlée" [level=3] [ref=e63]
+            - generic [ref=e64]: Endpaper · A4
+          - generic [ref=e65]: 52 €
+        - generic [ref=e67]: Édition limitée
+      - article [ref=e68]:
+        - img "Carnet Buvard" [ref=e69]
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - heading "Carnet Buvard · ivoire" [level=3] [ref=e72]
+            - generic [ref=e73]: Reliure cousue · 144 pages
+          - generic [ref=e74]: 58 €
+        - generic [ref=e76]: Pièce unique
+      - article [ref=e77]:
+        - img "Coffret buvards atelier" [ref=e78]
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - heading "Coffret buvards · Atelier" [level=3] [ref=e81]
+            - generic [ref=e82]: 24 buvards assortis · boîte gravée
+          - generic [ref=e83]: 110 €
+        - generic [ref=e84]:
+          - generic [ref=e85]: Édition limitée
+          - generic [ref=e86]: Numéroté
+      - article [ref=e87]:
+        - img "Marbrure indigo" [ref=e88]
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - heading "Marbrure Indigo" [level=3] [ref=e91]
+            - generic [ref=e92]: Endpaper · A4
+          - generic [ref=e93]: 48 €
+        - generic [ref=e95]: Édition limitée
+      - article [ref=e96]:
+        - img "Papier dominoté" [ref=e97]
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - heading "Papier dominoté · ocre" [level=3] [ref=e100]
+            - generic [ref=e101]: Imprimé au tampon · A5
+          - generic [ref=e102]: 38 €
+        - generic [ref=e104]: En stock
+    - generic [ref=e105]:
+      - blockquote [ref=e106]: Aucune feuille n'est exactement comme la précédente — et c'est très bien ainsi.
+      - generic [ref=e107]: — Note d'atelier
+  - contentinfo [ref=e108]:
+    - generic [ref=e109]:
+      - generic [ref=e110]: Atelier Papier Buvard
+      - generic [ref=e111]: © 2025 · 12 rue de Charonne, 75011 Paris
+      - generic [ref=e112]:
+        - link "Instagram" [ref=e113] [cursor=pointer]:
+          - /url: contact.html
+        - text: ·
+        - link "Are.na" [ref=e114] [cursor=pointer]:
+          - /url: contact.html
+  - navigation "Navigation principale" [ref=e115]:
+    - link [ref=e116] [cursor=pointer]:
+      - /url: accueil.html
+      - img [ref=e117]
+    - link [ref=e119] [cursor=pointer]:
+      - /url: collections.html
+      - img [ref=e120]
+    - link [ref=e125] [cursor=pointer]:
+      - /url: atelier.html
+      - img [ref=e126]
+    - link [ref=e128] [cursor=pointer]:
+      - /url: journal.html
+      - img [ref=e129]
+    - link [ref=e131] [cursor=pointer]:
+      - /url: commander.html
+      - img [ref=e132]

@@ -1,0 +1,96 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Atelier Papier Buvard" [ref=e4] [cursor=pointer]:
+        - /url: accueil.html
+      - generic [ref=e5]: Paris · depuis 2014
+  - main [ref=e6]:
+    - generic [ref=e7]:
+      - text: Le marbrage à la cuve
+      - heading "Quatre gestes, un papier" [level=1] [ref=e8]:
+        - text: Quatre gestes,
+        - text: un papier
+    - paragraph [ref=e10]:
+      - text: Le marbrage à la cuve — ou
+      - emphasis [ref=e11]: papier dominoté
+      - text: dans sa version française la plus ancienne — consiste à faire flotter des encres sur un bain épaissi, puis à capturer le motif sur une feuille déposée délicatement à la surface. Voici les quatre étapes telles que nous les pratiquons.
+    - generic [ref=e12]:
+      - article [ref=e13]:
+        - img "Préparation du bain" [ref=e14]
+        - generic [ref=e15]:
+          - generic [ref=e16]: "01"
+          - heading "Préparer le bain" [level=3] [ref=e17]
+          - paragraph [ref=e18]: Le bain est une eau épaissie au mucilage de carragheen, une algue rouge qui donne à l'eau la viscosité nécessaire pour porter les encres. On le prépare la veille, on le tamise, on le laisse reposer une nuit entière dans la cuve.
+          - paragraph [ref=e19]: "La température compte : entre 18 et 20°C, jamais plus. Trop chaud, les pigments se diluent ; trop froid, ils se figent à la surface sans se laisser peigner."
+      - article [ref=e20]:
+        - img "Dépose des encres" [ref=e21]
+        - generic [ref=e22]:
+          - generic [ref=e23]: "02"
+          - heading "Déposer les encres" [level=3] [ref=e24]
+          - paragraph [ref=e25]: À l'aide de fines baguettes ou de pinceaux en poil de chèvre, on dépose des gouttes d'encre une à une à la surface du bain. Chaque encre est préparée avec un liant spécifique, calibré pour s'étaler sans se mélanger à la précédente.
+          - paragraph [ref=e26]: "L'ordre des couleurs détermine la lisibilité du motif : du plus dilué au plus dense, toujours."
+      - article [ref=e27]:
+        - img "Peignage du motif" [ref=e28]
+        - generic [ref=e29]:
+          - generic [ref=e30]: "03"
+          - heading "Peigner les motifs" [level=3] [ref=e31]
+          - paragraph [ref=e32]: Le peigne — un cadre de bois traversé d'aiguilles régulièrement espacées — vient inscrire dans le bain le motif final. Mouvements lents, perpendiculaires, jamais répétés à l'identique.
+          - paragraph [ref=e33]: "C'est ici que se joue la signature de chaque marbrière : la pression, la cadence, la respiration."
+      - article [ref=e34]:
+        - img "Séchage de la feuille" [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]: "04"
+          - heading "Sécher la feuille" [level=3] [ref=e38]
+          - paragraph [ref=e39]: La feuille est déposée d'un seul geste à la surface, du coin vers le centre. Elle capte l'encre en moins de deux secondes, puis on la soulève, on la rince à l'eau claire, et on la suspend sur un séchoir de bois.
+          - paragraph [ref=e40]: Quarante-huit heures plus tard, la feuille est plate, sèche, et prête à être numérotée.
+    - generic [ref=e41]:
+      - generic "Vidéo du processus de marbrage" [ref=e42]: ▶
+      - paragraph [ref=e43]: Vidéo — 3 min 42 · tournée à l'atelier
+    - generic [ref=e44]:
+      - text: Vocabulaire
+      - heading "Glossaire" [level=2] [ref=e45]
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - term [ref=e48]: Suminagashi
+          - definition [ref=e49]: Technique japonaise du XIIe siècle, considérée comme l'ancêtre du marbrage. Les encres flottent à la surface de l'eau pure, sans peignage, dessinant des cercles concentriques.
+        - generic [ref=e50]:
+          - term [ref=e51]: Ébru
+          - definition [ref=e52]: Marbrage turc traditionnel, pratiqué depuis le XVe siècle. Caractérisé par des motifs floraux extrêmement précis — tulipes, œillets, jacinthes — tracés à la baguette.
+        - generic [ref=e53]:
+          - term [ref=e54]: Papier dominoté
+          - definition [ref=e55]: Papier décoratif français du XVIIIe siècle, imprimé au bloc de bois ou marbré, utilisé en reliure et pour habiller les boîtes, les coffres et les murs intérieurs.
+        - generic [ref=e56]:
+          - term [ref=e57]: Carragheen
+          - definition [ref=e58]: Mucilage extrait d'une algue rouge irlandaise, utilisé pour épaissir le bain. Remplace les anciens liants à base de gomme adragante.
+        - generic [ref=e59]:
+          - term [ref=e60]: Endpaper
+          - definition [ref=e61]: Papier de garde, collé à l'intérieur de la couverture d'un livre relié. Le marbré y trouve son usage le plus traditionnel.
+        - generic [ref=e62]:
+          - term [ref=e63]: Vague espagnole
+          - definition [ref=e64]: Motif obtenu en imprimant la feuille avec un léger mouvement de bercement, créant une ondulation horizontale caractéristique.
+  - contentinfo [ref=e65]:
+    - generic [ref=e66]:
+      - generic [ref=e67]: Atelier Papier Buvard
+      - generic [ref=e68]: © 2025 · 12 rue de Charonne, 75011 Paris
+      - generic [ref=e69]:
+        - link "Instagram" [ref=e70] [cursor=pointer]:
+          - /url: contact.html
+        - text: ·
+        - link "Are.na" [ref=e71] [cursor=pointer]:
+          - /url: contact.html
+  - navigation "Navigation principale" [ref=e72]:
+    - link [ref=e73] [cursor=pointer]:
+      - /url: accueil.html
+      - img [ref=e74]
+    - link [ref=e76] [cursor=pointer]:
+      - /url: collections.html
+      - img [ref=e77]
+    - link [ref=e82] [cursor=pointer]:
+      - /url: atelier.html
+      - img [ref=e83]
+    - link [ref=e85] [cursor=pointer]:
+      - /url: journal.html
+      - img [ref=e86]
+    - link [ref=e88] [cursor=pointer]:
+      - /url: commander.html
+      - img [ref=e89]

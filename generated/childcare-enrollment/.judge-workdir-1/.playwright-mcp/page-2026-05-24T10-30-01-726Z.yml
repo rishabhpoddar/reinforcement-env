@@ -1,0 +1,48 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e5]: ★
+        - generic [ref=e6]: حضانة نجوم الصغار
+      - generic [ref=e7]: ☰
+  - main [ref=e8]:
+    - generic [ref=e10]:
+      - generic [ref=e11]: مركز المساعدة
+      - heading "أسئلة الأهل قبل أول يوم" [level=1] [ref=e12]
+      - paragraph [ref=e13]: "ابحثوا أو تصفحوا حسب الفئة: التسجيل، الرسوم، الأمان، التغذية، والصحة."
+      - generic [ref=e15]:
+        - generic [ref=e16]: 🔎
+        - searchbox "ابحث عن القيلولة، الوجبات، الرسوم..." [ref=e17]
+      - generic [ref=e18]:
+        - generic [ref=e19]: التسجيل
+        - generic [ref=e20]: الرسوم
+        - generic [ref=e21]: الأمان
+        - generic [ref=e22]: التغذية
+        - generic [ref=e23]: الصحة
+    - generic [ref=e24]:
+      - group [ref=e26]:
+        - generic "× ما الوثائق المطلوبة للتسجيل؟" [ref=e27] [cursor=pointer]
+        - paragraph [ref=e28]: صورة شهادة الميلاد، دفتر المطاعيم، صورة ولي الأمر، ونموذج المعلومات الصحية.
+      - group [ref=e30]:
+        - generic "+ هل يمكن اختيار أيام جزئية؟" [ref=e31] [cursor=pointer]
+      - group [ref=e33]:
+        - generic "+ كيف يتم احتساب الرسوم؟" [ref=e34] [cursor=pointer]
+      - group [ref=e36]:
+        - generic "+ ما إجراءات الأمان عند الاستلام؟" [ref=e37] [cursor=pointer]
+      - group [ref=e39]:
+        - generic "+ هل تقدمون وجبات للأطفال ذوي الحساسية؟" [ref=e40] [cursor=pointer]
+      - group [ref=e42]:
+        - generic "+ ماذا يحدث إذا مرض الطفل خلال اليوم؟" [ref=e43] [cursor=pointer]
+  - contentinfo [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - strong [ref=e47]: حضانة نجوم الصغار
+        - paragraph [ref=e48]: إن لم تجدوا جواباً، اكتبوا لنا وسنرد بسرعة.
+      - generic [ref=e49]:
+        - link "التسجيل" [ref=e50] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e51] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "تواصل" [ref=e52] [cursor=pointer]:
+          - /url: تواصل.html

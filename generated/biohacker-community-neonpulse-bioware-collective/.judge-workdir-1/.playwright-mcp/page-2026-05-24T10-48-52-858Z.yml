@@ -1,0 +1,143 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - navigation [ref=e7]:
+        - link "HOME" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "REGISTRY" [ref=e9] [cursor=pointer]:
+          - /url: implant-registry.html
+        - link "GUIDES" [ref=e10] [cursor=pointer]:
+          - /url: guides.html
+        - link "SUBMIT" [ref=e11] [cursor=pointer]:
+          - /url: submit-procedure.html
+        - link "MEMBERS" [ref=e12] [cursor=pointer]:
+          - /url: members.html
+        - link "EVENTS" [ref=e13] [cursor=pointer]:
+          - /url: events.html
+        - link "MANIFESTO" [ref=e14] [cursor=pointer]:
+          - /url: manifesto.html
+        - link "CONTACT" [ref=e15] [cursor=pointer]:
+          - /url: contact.html
+  - main [ref=e16]:
+    - generic [ref=e17]: // 06 — UPCOMING MEETUPS
+    - heading "EVENTS // TIMELINE EVENTS // TIMELINE EVENTS // TIMELINE" [level=1] [ref=e18]
+    - paragraph [ref=e19]: Talleres prácticos, conversatorios y clínicas de mutuo apoyo. Aforos limitados; protocolo de consentimiento y seguridad obligatorio.
+    - generic [ref=e20]:
+      - img "Taller subterráneo de instalación de implantes" [ref=e21]
+      - generic [ref=e23]: // LATAM 2026 · Encuentro anual confirmado · CDMX · 18—20 sept
+    - generic [ref=e24]:
+      - generic [ref=e27]:
+        - generic [ref=e30]:
+          - generic [ref=e31]: "DATE: 12 JUN 2026"
+          - generic [ref=e32]: "LOCATION: CDMX"
+          - generic [ref=e33]: "TYPE: WORKSHOP"
+        - heading "Taller práctico de instalación de imanes — Ciudad de México" [level=3] [ref=e34]
+        - paragraph [ref=e35]: Sesión presencial de 5 horas con dos body modification artists invitados. Práctica con material biocompatible certificado, anestesia tópica legal y kits esterilizados. Incluye sesión de aftercare grupal.
+        - generic [ref=e37]: "CAPACITY: 14 / 16"
+        - button "▸ RSVP // confirmar" [ref=e40] [cursor=pointer]
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]: "DATE: 28 JUN 2026"
+          - generic [ref=e48]: "LOCATION: ONLINE"
+          - generic [ref=e49]: "TYPE: WEBINAR"
+        - 'heading "Conversatorio: marcos legales del biohacking en Latinoamérica" [level=3] [ref=e50]'
+        - paragraph [ref=e51]: "Mesa redonda con abogadas, médicas y dos miembros del colectivo. Comparamos regulación entre México, Argentina, Colombia y Chile. Idioma: español. Streaming privado vía Jitsi."
+        - generic [ref=e53]: "CAPACITY: 48 / 100"
+        - button "▸ RSVP // confirmar" [ref=e56] [cursor=pointer]
+      - generic [ref=e59]:
+        - generic [ref=e60]:
+          - generic [ref=e61]: "DATE: 15 JUL 2026"
+          - generic [ref=e62]: "LOCATION: Buenos Aires"
+          - generic [ref=e63]: "TYPE: CLINIC"
+        - 'heading "Clínica de aftercare: revisión de implantes a 6 meses" [level=3] [ref=e64]'
+        - paragraph [ref=e65]: Espacio gratuito para miembros con implantes recientes. Revisión visual, intercambio de experiencias y sesión de fotografía documental opcional para el archivo colectivo.
+        - generic [ref=e67]: "CAPACITY: 22 / 25"
+        - button "RSVP confirmado ✓" [ref=e70] [cursor=pointer]
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]: "DATE: 02 AGO 2026"
+          - generic [ref=e78]: "LOCATION: Bogotá"
+          - generic [ref=e79]: "TYPE: READING"
+        - heading "Lectura abierta del Manifiesto v3.2 + cena comunitaria" [level=3] [ref=e80]
+        - paragraph [ref=e81]: Encuentro íntimo en espacio cultural autogestivo. Lectura colectiva del manifiesto, conversación libre y cena vegana a la canasta. Abierto al público general, no se requiere ser miembro.
+        - generic [ref=e83]: "CAPACITY: 8 / 40"
+        - button "▸ RSVP // confirmar" [ref=e86] [cursor=pointer]
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e91]: "DATE: 18—20 SEP 2026"
+          - generic [ref=e92]: "LOCATION: CDMX"
+          - generic [ref=e93]: "TYPE: ENCUENTRO"
+        - heading "Encuentro Latinoamericano NEONPULSE 2026" [level=3] [ref=e94]
+        - paragraph [ref=e95]: "Tres días intensivos: 12 talleres, 4 paneles, clínica abierta de mutuo apoyo, feria de herramientas DIY y festival de cine cyberpunk underground. Becas de traslado disponibles por aplicación."
+        - generic [ref=e97]: "CAPACITY: 156 / 200"
+        - button "▸ APLICAR // beca + RSVP" [ref=e100] [cursor=pointer]
+    - generic [ref=e102]:
+      - heading "// PAST EVENTS // ARCHIVE" [level=2] [ref=e103]
+      - group [ref=e104]:
+        - generic "2025 · 14 eventos archivados [+]" [ref=e105] [cursor=pointer]:
+          - generic [ref=e106]: 2025 · 14 eventos archivados
+          - text: "[+]"
+      - group [ref=e107]:
+        - generic "2024 · 18 eventos archivados [+]" [ref=e108] [cursor=pointer]:
+          - generic [ref=e109]: 2024 · 18 eventos archivados
+          - text: "[+]"
+      - group [ref=e110]:
+        - generic "2023 · 12 eventos archivados [+]" [ref=e111] [cursor=pointer]:
+          - generic [ref=e112]: 2023 · 12 eventos archivados
+          - text: "[+]"
+      - group [ref=e113]:
+        - generic "2019—2022 · primeros años · 21 eventos [+]" [ref=e114] [cursor=pointer]:
+          - generic [ref=e115]: 2019—2022 · primeros años · 21 eventos
+          - text: "[+]"
+  - contentinfo [ref=e116]:
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e119]
+        - paragraph [ref=e120]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e121]:
+        - heading "// EXPLORE" [level=5] [ref=e122]
+        - list [ref=e123]:
+          - listitem [ref=e124]:
+            - link "Registry" [ref=e125] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e126]:
+            - link "Guides" [ref=e127] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e128]:
+            - link "Members" [ref=e129] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e130]:
+            - link "Events" [ref=e131] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e132]:
+        - heading "// COLLECTIVE" [level=5] [ref=e133]
+        - list [ref=e134]:
+          - listitem [ref=e135]:
+            - link "Manifesto" [ref=e136] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e137]:
+            - link "Submit" [ref=e138] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e139]:
+            - link "Contact" [ref=e140] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e141]:
+        - heading "// MIRROR" [level=5] [ref=e142]
+        - list [ref=e143]:
+          - listitem [ref=e144]:
+            - link "tor.onion" [ref=e145] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e146]:
+            - link "IPFS" [ref=e147] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e148]:
+            - link "Matrix" [ref=e149] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e150]:
+      - generic [ref=e151]: © 2019—2026 NEONPULSE
+      - generic [ref=e152]: v3.2.7 // 8842

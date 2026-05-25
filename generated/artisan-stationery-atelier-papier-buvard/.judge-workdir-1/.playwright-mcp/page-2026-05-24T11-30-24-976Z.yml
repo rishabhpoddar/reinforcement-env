@@ -1,0 +1,115 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Atelier Papier Buvard" [ref=e4] [cursor=pointer]:
+        - /url: accueil.html
+      - generic [ref=e5]: Paris · depuis 2014
+  - main [ref=e6]:
+    - 'link "Marbrures anciennes d''un livre du XIXe siècle Article vedette · Histoire Vagues espagnoles : itinéraire d''un motif qui voyage depuis 1670 22 octobre 2025 14 min de lecture par Margaux Lefèvre" [ref=e8] [cursor=pointer]':
+      - /url: "#"
+      - img "Marbrures anciennes d'un livre du XIXe siècle" [ref=e9]
+      - text: Article vedette · Histoire
+      - 'heading "Vagues espagnoles : itinéraire d''un motif qui voyage depuis 1670" [level=2] [ref=e10]'
+      - generic [ref=e11]:
+        - generic [ref=e12]: 22 octobre 2025
+        - generic [ref=e13]: 14 min de lecture
+        - generic [ref=e14]: par Margaux Lefèvre
+    - generic [ref=e15]:
+      - navigation [ref=e16]:
+        - link "Tout" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+        - link "Techniques" [ref=e18] [cursor=pointer]:
+          - /url: "#"
+        - link "Histoire" [ref=e19] [cursor=pointer]:
+          - /url: "#"
+        - link "Rencontres" [ref=e20] [cursor=pointer]:
+          - /url: "#"
+        - link "Visites" [ref=e21] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e22]:
+        - article [ref=e23]:
+          - img "Carnet ouvert" [ref=e24]
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]: Techniques
+              - generic [ref=e28]: 15 octobre 2025
+              - generic [ref=e29]: 8 min
+            - heading "Pourquoi nous cousons toujours nos carnets à la main" [level=3] [ref=e30]
+            - paragraph [ref=e31]: La couture à la main demande quarante minutes par carnet. C'est long, mais c'est ce qui permet aux pages de s'ouvrir parfaitement à plat, sans contraindre la plume.
+            - link "Lire l'article →" [ref=e32] [cursor=pointer]:
+              - /url: "#"
+        - article [ref=e33]:
+          - img "Encres flottantes" [ref=e34]
+          - generic [ref=e35]:
+            - generic [ref=e36]:
+              - generic [ref=e37]: Techniques
+              - generic [ref=e38]: 8 octobre 2025
+              - generic [ref=e39]: 12 min
+            - heading "Le bain de carragheen, en cinq questions" [level=3] [ref=e40]
+            - paragraph [ref=e41]: Pourquoi cette algue irlandaise s'est imposée comme support universel du marbrage occidental ? Une petite enquête entre Brest et Galway.
+            - link "Lire l'article →" [ref=e42] [cursor=pointer]:
+              - /url: "#"
+        - article [ref=e43]:
+          - img "Portrait d'artisan" [ref=e44]
+          - generic [ref=e45]:
+            - generic [ref=e46]:
+              - generic [ref=e47]: Rencontres
+              - generic [ref=e48]: 1 octobre 2025
+              - generic [ref=e49]: 10 min
+            - heading "Conversation avec Atsushi Mori, maître suminagashi à Kyoto" [level=3] [ref=e50]
+            - paragraph [ref=e51]: Nous avons passé trois jours dans l'atelier de M. Mori, héritier de la sixième génération d'une lignée de papetiers japonais.
+            - link "Lire l'article →" [ref=e52] [cursor=pointer]:
+              - /url: "#"
+        - article [ref=e53]:
+          - img "Visite atelier" [ref=e54]
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - generic [ref=e57]: Visites
+              - generic [ref=e58]: 24 septembre 2025
+              - generic [ref=e59]: 6 min
+            - heading "Le Moulin Richard de Bas, Auvergne" [level=3] [ref=e60]
+            - paragraph [ref=e61]: Reportage dans le dernier moulin à papier de France à fabriquer du papier chiffon à la cuve, comme au XVIIIe siècle.
+            - link "Lire l'article →" [ref=e62] [cursor=pointer]:
+              - /url: "#"
+        - article [ref=e63]:
+          - img "Buvards anciens" [ref=e64]
+          - generic [ref=e65]:
+            - generic [ref=e66]:
+              - generic [ref=e67]: Histoire
+              - generic [ref=e68]: 17 septembre 2025
+              - generic [ref=e69]: 9 min
+            - heading "Une brève histoire du papier buvard, 1856 — aujourd'hui" [level=3] [ref=e70]
+            - paragraph [ref=e71]: De l'usage scolaire à la disparition presque totale, en passant par les buvards publicitaires des années trente.
+            - link "Lire l'article →" [ref=e72] [cursor=pointer]:
+              - /url: "#"
+  - contentinfo [ref=e73]:
+    - generic [ref=e74]:
+      - generic [ref=e75]: Atelier Papier Buvard
+      - generic [ref=e76]: © 2025 · 12 rue de Charonne, 75011 Paris
+      - generic [ref=e77]:
+        - link "Instagram" [ref=e78] [cursor=pointer]:
+          - /url: contact.html
+        - text: ·
+        - link "Are.na" [ref=e79] [cursor=pointer]:
+          - /url: contact.html
+    - generic [ref=e80]:
+      - text: Lettre mensuelle
+      - heading "Notes d'atelier, une fois par mois" [level=3] [ref=e81]
+      - textbox "votre courriel" [ref=e82]
+      - button "S'inscrire" [ref=e83] [cursor=pointer]
+  - navigation "Navigation principale" [ref=e84]:
+    - link [ref=e85] [cursor=pointer]:
+      - /url: accueil.html
+      - img [ref=e86]
+    - link [ref=e88] [cursor=pointer]:
+      - /url: collections.html
+      - img [ref=e89]
+    - link [ref=e94] [cursor=pointer]:
+      - /url: atelier.html
+      - img [ref=e95]
+    - link [ref=e97] [cursor=pointer]:
+      - /url: journal.html
+      - img [ref=e98]
+    - link [ref=e100] [cursor=pointer]:
+      - /url: commander.html
+      - img [ref=e101]

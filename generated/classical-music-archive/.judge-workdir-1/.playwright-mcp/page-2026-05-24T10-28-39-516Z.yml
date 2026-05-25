@@ -1,0 +1,210 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "ध्रु ध्रुपद धरोहर Dhrupad Dharohar" [ref=e4] [cursor=pointer]:
+        - /url: मुख्य-पृष्ठ.html
+        - generic [ref=e5]: ध्रु
+        - generic [ref=e6]:
+          - generic [ref=e7]: ध्रुपद धरोहर
+          - generic [ref=e8]: Dhrupad Dharohar
+      - navigation [ref=e9]:
+        - link "मुख्य पृष्ठ" [ref=e11] [cursor=pointer]:
+          - /url: मुख्य-पृष्ठ.html
+        - link "घराने" [ref=e13] [cursor=pointer]:
+          - /url: घराने.html
+        - link "राग कोश" [ref=e15] [cursor=pointer]:
+          - /url: राग-कोश.html
+        - link "अभिलेखागार" [ref=e17] [cursor=pointer]:
+          - /url: अभिलेखागार.html
+        - link "लेख" [ref=e19] [cursor=pointer]:
+          - /url: लेख.html
+        - link "कार्यशालाएं" [ref=e21] [cursor=pointer]:
+          - /url: कार्यशालाएं.html
+        - link "संपर्क" [ref=e23] [cursor=pointer]:
+          - /url: संपर्क.html
+  - generic [ref=e25]:
+    - generic [ref=e26]:
+      - img "कार्यशाला" [ref=e27]
+      - generic [ref=e28]:
+        - heading "आगामी कार्यशालाएं एवं गुरुकुल" [level=1] [ref=e29]
+        - paragraph [ref=e30]: विश्व के अग्रणी ध्रुपद गुरुओं के साथ साधना का अवसर — ऑनलाइन एवं वैयक्तिक दोनों प्रारूपों में।
+    - generic [ref=e31]:
+      - button "सभी" [ref=e32] [cursor=pointer]
+      - button "ऑनलाइन" [ref=e33] [cursor=pointer]
+      - button "व्यक्तिगत" [ref=e34] [cursor=pointer]
+      - button "शुरुआती" [ref=e35] [cursor=pointer]
+      - button "मध्यवर्ती" [ref=e36] [cursor=pointer]
+      - button "उन्नत" [ref=e37] [cursor=pointer]
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]: "15"
+          - generic [ref=e42]: जून
+          - generic [ref=e43]: "2026"
+        - generic [ref=e44]:
+          - 'heading "ध्रुपद आलाप साधना: मूल से उन्नत स्तर तक" [level=3] [ref=e45]'
+          - generic [ref=e46]: गुरु पं. उदय भवालकर
+          - generic [ref=e47]:
+            - generic [ref=e48]: 📍 भोपाल गुरुकुल
+            - generic [ref=e49]: ⏱ 7 दिन
+            - generic [ref=e50]: ⚏ उन्नत स्तर
+            - generic [ref=e51]: ○ व्यक्तिगत
+        - generic [ref=e52]:
+          - generic [ref=e53]: ₹ 18,500
+          - link "पंजीकरण करें" [ref=e54] [cursor=pointer]:
+            - /url: "#reg"
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]: "22"
+          - generic [ref=e58]: जून
+          - generic [ref=e59]: "2026"
+        - generic [ref=e60]:
+          - heading "तानपुरा साधना एवं षड्ज-स्थापना" [level=3] [ref=e61]
+          - generic [ref=e62]: गुरु पं. वसीफुद्दीन डागर
+          - generic [ref=e63]:
+            - generic [ref=e64]: 📍 ऑनलाइन (ज़ूम)
+            - generic [ref=e65]: ⏱ 3 दिन
+            - generic [ref=e66]: ⚏ शुरुआती
+            - generic [ref=e67]: ○ ऑनलाइन
+          - paragraph [ref=e68]: तानपुरे की संगति में षड्ज पर बैठने की मूलभूत साधना — श्वास, स्थिति, और ध्यान।
+        - generic [ref=e69]:
+          - generic [ref=e70]: ₹ 4,200
+          - link "पंजीकरण करें" [ref=e71] [cursor=pointer]:
+            - /url: "#reg"
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]: "05"
+          - generic [ref=e75]: जुलाई
+          - generic [ref=e76]: "2026"
+        - generic [ref=e77]:
+          - heading "राग दरबारी एवं रात्रिकालीन राग समूह" [level=3] [ref=e78]
+          - generic [ref=e79]: गुरु पं. ऋत्विक सान्याल
+          - generic [ref=e80]:
+            - generic [ref=e81]: 📍 वाराणसी
+            - generic [ref=e82]: ⏱ 5 दिन
+            - generic [ref=e83]: ⚏ मध्यवर्ती
+            - generic [ref=e84]: ○ व्यक्तिगत
+        - generic [ref=e85]:
+          - generic [ref=e86]: ₹ 12,800
+          - link "पंजीकरण करें" [ref=e87] [cursor=pointer]:
+            - /url: "#reg"
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]: "18"
+          - generic [ref=e91]: जुलाई
+          - generic [ref=e92]: "2026"
+        - generic [ref=e93]:
+          - 'heading "पखावज परिचय: ध्रुपद के साथ संगति" [level=3] [ref=e94]'
+          - generic [ref=e95]: गुरु पं. मोहन श्याम शर्मा
+          - generic [ref=e96]:
+            - generic [ref=e97]: 📍 दिल्ली
+            - generic [ref=e98]: ⏱ 4 दिन
+            - generic [ref=e99]: ⚏ शुरुआती
+            - generic [ref=e100]: ○ व्यक्तिगत
+        - generic [ref=e101]:
+          - generic [ref=e102]: ₹ 8,500
+          - link "पंजीकरण करें" [ref=e103] [cursor=pointer]:
+            - /url: "#reg"
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - generic [ref=e106]: "02"
+          - generic [ref=e107]: अगस्त
+          - generic [ref=e108]: "2026"
+        - generic [ref=e109]:
+          - 'heading "ध्रुपद बंदिश रचना: सात्त्विक भाषा एवं छंद" [level=3] [ref=e110]'
+          - generic [ref=e111]: गुरु पं. अभय नारायण मलिक
+          - generic [ref=e112]:
+            - generic [ref=e113]: 📍 ऑनलाइन
+            - generic [ref=e114]: ⏱ 2 सप्ताह
+            - generic [ref=e115]: ⚏ उन्नत
+            - generic [ref=e116]: ○ ऑनलाइन
+          - paragraph [ref=e117]: पारंपरिक बंदिशों के विषय, छंद और रचना-शास्त्र पर गहन सत्र। संस्कृत एवं ब्रजभाषा का परिचय।
+        - generic [ref=e118]:
+          - generic [ref=e119]: ₹ 9,400
+          - link "पंजीकरण करें" [ref=e120] [cursor=pointer]:
+            - /url: "#reg"
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - generic [ref=e123]: "12"
+          - generic [ref=e124]: अगस्त
+          - generic [ref=e125]: "2026"
+        - generic [ref=e126]:
+          - 'heading "मल्लिक परंपरा: नौहार वाणी की विशेषताएँ" [level=3] [ref=e127]'
+          - generic [ref=e128]: गुरु पं. प्रशांत मलिक
+          - generic [ref=e129]:
+            - generic [ref=e130]: 📍 दरभंगा
+            - generic [ref=e131]: ⏱ 6 दिन
+            - generic [ref=e132]: ⚏ मध्यवर्ती
+            - generic [ref=e133]: ○ व्यक्तिगत
+        - generic [ref=e134]:
+          - generic [ref=e135]: ₹ 14,200
+          - link "पंजीकरण करें" [ref=e136] [cursor=pointer]:
+            - /url: "#reg"
+    - generic [ref=e137]:
+      - heading "पंजीकरण फॉर्म" [level=2] [ref=e138]
+      - paragraph [ref=e139]: अपनी रुचि की कार्यशाला के लिए अग्रिम पंजीकरण करें — स्थान सीमित हैं।
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - generic [ref=e143]: पूरा नाम
+            - textbox "आपका पूरा नाम" [ref=e144]
+          - generic [ref=e145]:
+            - generic [ref=e146]: ईमेल
+            - textbox "name@example.com" [ref=e147]
+          - generic [ref=e148]:
+            - generic [ref=e149]: फ़ोन नंबर
+            - textbox "+91 9XXXX XXXXX" [ref=e150]
+          - generic [ref=e151]:
+            - generic [ref=e152]: अनुभव स्तर
+            - combobox [ref=e153]:
+              - option "शुरुआती (0 - 2 वर्ष)" [selected]
+              - option "मध्यवर्ती (2 - 5 वर्ष)"
+              - option "उन्नत (5+ वर्ष)"
+              - option "पेशेवर"
+          - generic [ref=e154]:
+            - generic [ref=e155]: संदेश / प्रश्न
+            - textbox "कोई विशेष प्रश्न या अनुरोध..." [ref=e156]
+        - button "पंजीकरण भेजें" [ref=e158] [cursor=pointer]
+  - contentinfo [ref=e159]:
+    - generic [ref=e160]:
+      - generic [ref=e161]:
+        - generic [ref=e162]:
+          - generic [ref=e163]:
+            - generic [ref=e164]: ध्रु
+            - generic [ref=e165]:
+              - generic [ref=e166]: ध्रुपद धरोहर
+              - generic [ref=e167]: Dhrupad Dharohar
+          - paragraph [ref=e168]: उत्तर भारतीय शास्त्रीय संगीत की प्राचीनतम विधा को संरक्षित और प्रसारित करने के लिए समर्पित।
+        - generic [ref=e169]:
+          - heading "अध्ययन" [level=5] [ref=e170]
+          - list [ref=e171]:
+            - listitem [ref=e172]:
+              - link "घराने" [ref=e173] [cursor=pointer]:
+                - /url: घराने.html
+            - listitem [ref=e174]:
+              - link "राग कोश" [ref=e175] [cursor=pointer]:
+                - /url: राग-कोश.html
+        - generic [ref=e176]:
+          - heading "संग्रह" [level=5] [ref=e177]
+          - list [ref=e178]:
+            - listitem [ref=e179]:
+              - link "रिकॉर्डिंग्स" [ref=e180] [cursor=pointer]:
+                - /url: अभिलेखागार.html
+            - listitem [ref=e181]:
+              - link "शोध लेख" [ref=e182] [cursor=pointer]:
+                - /url: लेख.html
+        - generic [ref=e183]:
+          - heading "संस्थान" [level=5] [ref=e184]
+          - list [ref=e185]:
+            - listitem [ref=e186]:
+              - link "संपर्क" [ref=e187] [cursor=pointer]:
+                - /url: संपर्क.html
+      - generic [ref=e188]:
+        - generic [ref=e189]: © 2026 ध्रुपद धरोहर · सर्वाधिकार सुरक्षित
+        - generic [ref=e190]:
+          - link "Y" [ref=e191] [cursor=pointer]:
+            - /url: "#"
+          - link "In" [ref=e192] [cursor=pointer]:
+            - /url: "#"
+          - link "X" [ref=e193] [cursor=pointer]:
+            - /url: "#"

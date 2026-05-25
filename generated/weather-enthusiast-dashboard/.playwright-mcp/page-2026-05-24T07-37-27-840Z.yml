@@ -1,0 +1,87 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "PixelMétéo 95" [level=1] [ref=e5]
+      - generic [ref=e6]: BIBLIOTHÈQUE TECHNIQUE
+    - navigation "Navigation principale" [ref=e7]:
+      - link "Accueil" [ref=e8] [cursor=pointer]:
+        - /url: accueil.html
+      - link "Tableau de bord" [ref=e9] [cursor=pointer]:
+        - /url: tableau-de-bord.html
+      - link "Observations" [ref=e10] [cursor=pointer]:
+        - /url: observations.html
+      - link "Tempêtes" [ref=e11] [cursor=pointer]:
+        - /url: tempetes.html
+      - link "Membres" [ref=e12] [cursor=pointer]:
+        - /url: membres.html
+      - link "Archives" [ref=e13] [cursor=pointer]:
+        - /url: archives.html
+      - link "Forum" [ref=e14] [cursor=pointer]:
+        - /url: forum.html
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+    - generic [ref=e17]: "NOUVEAU DOSSIER : LIRE UNE SUPERCELLULE SUR RADAR ⚡ ARCHIVE 2024 OUVERTE ⚡ FICHES TECHNIQUES À IMPRIMER"
+  - main [ref=e18]:
+    - img "Bannière PixelMétéo 95" [ref=e19]
+    - paragraph [ref=e20]: Accueil > Archives > 2024
+    - generic [ref=e21]:
+      - article [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]: articles-2024.html
+          - generic [ref=e25]:
+            - generic [ref=e26]: _
+            - generic [ref=e27]: □
+            - generic [ref=e28]: ×
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - img "Graphique météo" [ref=e31]
+            - generic [ref=e32]:
+              - heading "Décoder une chute de pression" [level=3] [ref=e33]
+              - paragraph [ref=e34]: 12/04/2024
+              - paragraph [ref=e35]: Guide de terrain pour savoir quand sortir le trépied, la radio et le k-way fluorescent.
+          - generic [ref=e36]:
+            - img "Orage" [ref=e37]
+            - generic [ref=e38]:
+              - heading "Structure d'une supercellule française" [level=3] [ref=e39]
+              - paragraph [ref=e40]: 02/06/2024
+              - paragraph [ref=e41]: "Base, inflow, outflow et pièges visuels : notes depuis la Beauce."
+          - generic [ref=e42]:
+            - img "Tornade" [ref=e43]
+            - generic [ref=e44]:
+              - heading "Rapport spécial tuba et tornade" [level=3] [ref=e45]
+              - paragraph [ref=e46]: 18/09/2024
+              - paragraph [ref=e47]: Comment documenter sans gêner les secours ni se mettre au mauvais endroit.
+      - complementary [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]: tags-et-top10.ini
+          - generic [ref=e51]:
+            - generic [ref=e52]: _
+            - generic [ref=e53]: □
+            - generic [ref=e54]: ×
+        - generic [ref=e55]:
+          - heading "Nuage de tags" [level=3] [ref=e56]
+          - generic [ref=e57]:
+            - generic [ref=e58]: orage
+            - generic [ref=e59]: radar
+            - generic [ref=e60]: grêle
+            - generic [ref=e61]: pression
+            - generic [ref=e62]: supercellule
+            - generic [ref=e63]: front froid
+            - generic [ref=e64]: anémomètre
+          - heading "Articles les plus lus" [level=3] [ref=e65]
+          - list [ref=e66]:
+            - listitem [ref=e67]: Ciara minute par minute
+            - listitem [ref=e68]: Fabriquer un abri station
+            - listitem [ref=e69]: Lire les mammatus
+            - listitem [ref=e70]: Photographier la foudre
+            - listitem [ref=e71]: Le guide du pluviomètre
+            - listitem [ref=e72]: Radar sans panique
+            - listitem [ref=e73]: Glossaire des chasseurs
+            - listitem [ref=e74]: Checklist véhicule
+            - listitem [ref=e75]: Archives 1999
+            - listitem [ref=e76]: Quiz nuages
+  - contentinfo [ref=e77]:
+    - generic [ref=e78]:
+      - generic [ref=e79]: Best viewed in 1024x768
+      - generic [ref=e80]: Made with ♥ et un anémomètre
+      - generic [ref=e81]: UNDER CONSTRUCTION

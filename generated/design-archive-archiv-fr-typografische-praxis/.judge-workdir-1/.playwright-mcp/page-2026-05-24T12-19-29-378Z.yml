@@ -1,0 +1,105 @@
+- generic [active] [ref=e1]:
+  - checkbox
+  - complementary [ref=e2]:
+    - generic [ref=e3]:
+      - link "ATP 1957→ Archiv für Typografische Praxis Schweizer Gestaltung 1950–1985" [ref=e4] [cursor=pointer]:
+        - /url: startseite.html
+        - generic [ref=e5]:
+          - generic [ref=e6]: ATP
+          - generic [ref=e7]: 1957→
+        - generic [ref=e8]:
+          - text: Archiv für Typografische Praxis
+          - text: Schweizer Gestaltung 1950–1985
+      - navigation [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "01 Startseite" [ref=e12] [cursor=pointer]:
+              - /url: startseite.html
+          - listitem [ref=e13]:
+            - link "02 Sammlung" [ref=e14] [cursor=pointer]:
+              - /url: sammlung.html
+          - listitem [ref=e15]:
+            - link "03 Objekt-Detail" [ref=e16] [cursor=pointer]:
+              - /url: objekt-detail.html
+          - listitem [ref=e17]:
+            - link "04 Essays" [ref=e18] [cursor=pointer]:
+              - /url: essays.html
+          - listitem [ref=e19]:
+            - link "05 Essay-Detail" [ref=e20] [cursor=pointer]:
+              - /url: essay-detail.html
+          - listitem [ref=e21]:
+            - link "06 Raster-System" [ref=e22] [cursor=pointer]:
+              - /url: raster-system.html
+          - listitem [ref=e23]:
+            - link "07 Über uns" [ref=e24] [cursor=pointer]:
+              - /url: uber-uns.html
+          - listitem [ref=e25]:
+            - link "08 Kontakt" [ref=e26] [cursor=pointer]:
+              - /url: kontakt.html
+    - paragraph [ref=e27]:
+      - text: Zürich
+      - text: Di–Fr 10:00–17:00
+      - text: Inv. Gesamt 3.412
+  - main [ref=e28]:
+    - generic [ref=e29]:
+      - paragraph [ref=e30]: № 042 · Forschung
+      - heading "Raster als Argument" [level=1] [ref=e31]
+      - img "Helvetica Schriftmaterial" [ref=e32]
+      - generic [ref=e33]:
+        - generic [ref=e34]: Autor:in Mara Vollenweider
+        - generic [ref=e35]: Datum 12.05.2026
+        - generic [ref=e36]: Lesedauer 18 Min.
+        - generic [ref=e37]: Kategorie Raster
+    - generic [ref=e38]:
+      - article [ref=e39]:
+        - paragraph [ref=e40]: "Das Raster erscheint in vielen Beschreibungen als neutrales Werkzeug. Im Material des Archivs zeigt es sich jedoch als aktive Behauptung: Es bestimmt, welche Information zuerst gelesen wird, wie Nähe entsteht und an welcher Stelle ein Plakat Widerspruch zulässt."
+        - heading "Ordnung" [level=2] [ref=e41]
+        - paragraph [ref=e42]: Die Schweizer Gestaltung der Nachkriegszeit übersetzt gesellschaftliche Erwartungen an Klarheit in messbare Abstände. Diese Abstände sind nicht dekorativ. Sie bilden eine Grammatik der Zuverlässigkeit.
+        - paragraph [ref=e43]: Ein Raster ist weniger Käfig als Vertrag zwischen Objekt, Leser:in und öffentlichem Raum.
+        - heading "Dichte Passagen" [level=2] [ref=e44]
+        - generic [ref=e45]:
+          - paragraph [ref=e46]: "In Unterrichtsblättern von Ruder und Hofmann wird das Verhältnis von Spalte, Zeilenfall und Weissraum als Übung wiederholt. Die Wiederholung erzeugt Sicherheit, aber auch eine Ethik der Reduktion. Genau dort beginnt die historische Spannung: Was als universell gilt, ist aus konkreten Schulen, Druckereien und Auftraggebern entstanden."
+          - paragraph [ref=e47]: Die Originale zeigen Korrekturen in Bleistift, abgeschnittene Probedrucke und Varianten, in denen eine Achse um wenige Millimeter verschoben wurde. Diese kleinen Entscheidungen verändern die Tonalität des gesamten Entwurfs.
+        - heading "Fussnoten" [level=2] [ref=e48]
+        - list [ref=e49]:
+          - listitem [ref=e50]:
+            - text: Josef Müller-Brockmann,
+            - emphasis [ref=e51]: Grid Systems
+            - text: ", Zürich 1981."
+          - listitem [ref=e52]: Emil Ruder, Unterrichtsnotizen, Basel, undatiert.
+        - generic [ref=e53]:
+          - strong [ref=e54]: Mara Vollenweider
+          - paragraph [ref=e55]: Gestaltungshistorikerin und Kuratorin mit Schwerpunkt visuelle Systeme der Nachkriegsmoderne.
+        - heading "Weiterlesen" [level=2] [ref=e56]
+        - generic [ref=e57]:
+          - article [ref=e58]:
+            - img "Buchdesign" [ref=e59]
+            - paragraph [ref=e60]:
+              - strong [ref=e61]: Helvetica vor Helvetica
+              - text: Essay № 039
+          - article [ref=e62]:
+            - img "Raster" [ref=e63]
+            - paragraph [ref=e64]:
+              - strong [ref=e65]: Ordnung und Ausnahme
+              - text: Essay № 036
+      - complementary [ref=e66]:
+        - strong [ref=e67]: Inhalt
+        - link "Ordnung" [ref=e68] [cursor=pointer]:
+          - /url: "#ordnung"
+        - link "Dichte Passagen" [ref=e69] [cursor=pointer]:
+          - /url: "#dichte"
+        - link "Fussnoten" [ref=e70] [cursor=pointer]:
+          - /url: "#noten"
+    - generic [ref=e71]:
+      - article [ref=e72]:
+        - paragraph [ref=e73]: Lizenz
+        - strong [ref=e74]: Zitieren erlaubt
+        - paragraph [ref=e75]: Bitte Inventarnummer nennen.
+      - article [ref=e76]:
+        - paragraph [ref=e77]: Druck
+        - strong [ref=e78]: PDF im Lesesaal
+        - paragraph [ref=e79]: Archivkopie verfügbar.
+      - article [ref=e80]:
+        - paragraph [ref=e81]: Thema
+        - strong [ref=e82]: Raster
+        - paragraph [ref=e83]: Alle Beiträge anzeigen.

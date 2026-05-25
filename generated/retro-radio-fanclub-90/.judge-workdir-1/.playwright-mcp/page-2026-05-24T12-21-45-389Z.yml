@@ -1,0 +1,112 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: साप्ताहिक प्रसारण पट्टी
+    - generic [ref=e5]: "00042872"
+  - banner [ref=e6]:
+    - img "रेडियो तरंग लोगो" [ref=e7]
+    - generic [ref=e8]:
+      - heading "कार्यक्रम सूची" [level=1] [ref=e9]
+      - generic [ref=e10]: पुरानी टीवी गाइड जैसी रेडियो तालिका
+    - generic [ref=e12]: डायल घुमाइए
+  - navigation "मुख्य नेविगेशन" [ref=e13]:
+    - link "मुख्य पृष्ठ" [ref=e14] [cursor=pointer]:
+      - /url: mukhya-prishth.html
+    - link "कार्यक्रम सूची" [ref=e15] [cursor=pointer]:
+      - /url: kaaryakram-suchi.html
+    - link "जिंगल" [ref=e16] [cursor=pointer]:
+      - /url: jingle-sangrah.html
+    - link "नाटक" [ref=e17] [cursor=pointer]:
+      - /url: redio-natak.html
+    - link "पत्र" [ref=e18] [cursor=pointer]:
+      - /url: shrota-patra.html
+    - link "दीर्घा" [ref=e19] [cursor=pointer]:
+      - /url: tasveer-deergha.html
+    - link "सदस्यता" [ref=e20] [cursor=pointer]:
+      - /url: sadasyata.html
+    - link "संपर्क" [ref=e21] [cursor=pointer]:
+      - /url: sampark.html
+  - main [ref=e22]:
+    - table [ref=e24]:
+      - rowgroup [ref=e25]:
+        - row "समय सोमवार मंगलवार बुधवार गुरुवार शुक्रवार शनिवार रविवार" [ref=e26]:
+          - columnheader "समय" [ref=e27]
+          - columnheader "सोमवार" [ref=e28]
+          - columnheader "मंगलवार" [ref=e29]
+          - columnheader "बुधवार" [ref=e30]
+          - columnheader "गुरुवार" [ref=e31]
+          - columnheader "शुक्रवार" [ref=e32]
+          - columnheader "शनिवार" [ref=e33]
+          - columnheader "रविवार" [ref=e34]
+      - rowgroup [ref=e35]:
+        - row "सुबह 6:00 संगीत सरिता भक्ति गीत सुर संगम नया सवेरा लोक धुन बाल सभा रविवार रंग" [ref=e36]:
+          - cell "सुबह 6:00" [ref=e37]
+          - cell "संगीत सरिता" [ref=e38]
+          - cell "भक्ति गीत" [ref=e39]
+          - cell "सुर संगम" [ref=e40]
+          - cell "नया सवेरा" [ref=e41]
+          - cell "लोक धुन" [ref=e42]
+          - cell "बाल सभा" [ref=e43]
+          - cell "रविवार रंग" [ref=e44]
+        - row "सुबह 8:00 छाया गीत हवा महल जयमाला फिल्मी फुहार छाया गीत पुरानी यादें आपकी फरमाइश" [ref=e45]:
+          - cell "सुबह 8:00" [ref=e46]
+          - cell "छाया गीत" [ref=e47]
+          - cell "हवा महल" [ref=e48]
+          - cell "जयमाला" [ref=e49]
+          - cell "फिल्मी फुहार" [ref=e50]
+          - cell "छाया गीत" [ref=e51]
+          - cell "पुरानी यादें" [ref=e52]
+          - cell "आपकी फरमाइश" [ref=e53]
+        - row "दोपहर 12:00 जयमाला विविध रंग संगीत सरिता नाट्य झरोखा बिनाका स्मृति गजलें सिने तरंग" [ref=e54]:
+          - cell "दोपहर 12:00" [ref=e55]
+          - cell "जयमाला" [ref=e56]
+          - cell "विविध रंग" [ref=e57]
+          - cell "संगीत सरिता" [ref=e58]
+          - cell "नाट्य झरोखा" [ref=e59]
+          - cell "बिनाका स्मृति" [ref=e60]
+          - cell "गजलें" [ref=e61]
+          - cell "सिने तरंग" [ref=e62]
+        - row "शाम 5:00 मन चाहे गीत युवा वाणी छाया गीत फरमाइशी गीत हवा महल गीत माला सितारों से मुलाकात" [ref=e63]:
+          - cell "शाम 5:00" [ref=e64]
+          - cell "मन चाहे गीत" [ref=e65]
+          - cell "युवा वाणी" [ref=e66]
+          - cell "छाया गीत" [ref=e67]
+          - cell "फरमाइशी गीत" [ref=e68]
+          - cell "हवा महल" [ref=e69]
+          - cell "गीत माला" [ref=e70]
+          - cell "सितारों से मुलाकात" [ref=e71]
+        - row "रात 8:00 हवा महल रेडियो नाटक जयमाला हवा महल संगीत सरिता रंगमंच नाटक विशेष" [ref=e72]:
+          - cell "रात 8:00" [ref=e73]
+          - cell "हवा महल" [ref=e74]
+          - cell "रेडियो नाटक" [ref=e75]
+          - cell "जयमाला" [ref=e76]
+          - cell "हवा महल" [ref=e77]
+          - cell "संगीत सरिता" [ref=e78]
+          - cell "रंगमंच" [ref=e79]
+          - cell "नाटक विशेष" [ref=e80]
+        - row "रात 11:00 रात की रागिनी फिल्मी धुन मधुर स्मृति शांत स्वर सप्ताहांत गीत अनमोल तराने विदाई धुन" [ref=e81]:
+          - cell "रात 11:00" [ref=e82]
+          - cell "रात की रागिनी" [ref=e83]
+          - cell "फिल्मी धुन" [ref=e84]
+          - cell "मधुर स्मृति" [ref=e85]
+          - cell "शांत स्वर" [ref=e86]
+          - cell "सप्ताहांत गीत" [ref=e87]
+          - cell "अनमोल तराने" [ref=e88]
+          - cell "विदाई धुन" [ref=e89]
+    - complementary [ref=e90]:
+      - heading "सबसे लोकप्रिय कार्यक्रम" [level=2] [ref=e91]
+      - list [ref=e92]:
+        - listitem [ref=e93]: हवा महल 🔥
+        - listitem [ref=e94]: छाया गीत ⭐
+        - listitem [ref=e95]: जयमाला 🔥
+        - listitem [ref=e96]: संगीत सरिता ⭐
+        - listitem [ref=e97]: आपकी फरमाइश 🔥
+        - listitem [ref=e98]: बिनाका स्मृति ⭐
+        - listitem [ref=e99]: युवा वाणी
+        - listitem [ref=e100]: नाट्य झरोखा
+        - listitem [ref=e101]: पुरानी यादें
+        - listitem [ref=e102]: रात की रागिनी
+  - contentinfo [ref=e103]:
+    - text: © रेडियो तरंग 90 फैन मंडली
+    - generic [ref=e104]:
+      - generic [ref=e105]: 800x600 में सर्वोत्तम दृश्य
+      - generic [ref=e106]: नोटपैड से निर्मित

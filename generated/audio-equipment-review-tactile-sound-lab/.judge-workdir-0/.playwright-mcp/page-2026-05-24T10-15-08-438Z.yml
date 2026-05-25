@@ -1,0 +1,104 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Tactile Sound Lab" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - generic [ref=e6]: Tactile Sound Lab
+      - navigation "Main navigation" [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "Reviews" [ref=e9] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Database" [ref=e10] [cursor=pointer]:
+          - /url: gear-database.html
+        - link "Lab Tests" [ref=e11] [cursor=pointer]:
+          - /url: lab-tests.html
+        - link "Compare" [ref=e12] [cursor=pointer]:
+          - /url: comparisons.html
+        - link "Community" [ref=e13] [cursor=pointer]:
+          - /url: community.html
+        - link "About" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - img "Macro view of a vintage synthesizer with glowing amber LEDs" [ref=e17]
+      - generic [ref=e18]:
+        - generic [ref=e19]: Independent analog instrument reviews
+        - heading "Tactile Sound Lab — Where Knobs Matter" [level=1] [ref=e20]
+        - paragraph [ref=e21]: Hands-on testing, frequency analysis, and long-form listening notes for vintage synthesizers, drum machines, effects, and modular gear.
+    - navigation "Section navigation" [ref=e24]:
+      - link "Reviews" [ref=e25] [cursor=pointer]:
+        - /url: reviews.html
+      - link "Database" [ref=e26] [cursor=pointer]:
+        - /url: gear-database.html
+      - link "Lab Tests" [ref=e27] [cursor=pointer]:
+        - /url: lab-tests.html
+      - link "Compare" [ref=e28] [cursor=pointer]:
+        - /url: comparisons.html
+      - link "Community" [ref=e29] [cursor=pointer]:
+        - /url: community.html
+      - link "About" [ref=e30] [cursor=pointer]:
+        - /url: about.html
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - heading "Latest Review" [level=2] [ref=e34]
+        - paragraph [ref=e35]: Bench measurements meet slow listening sessions, with every scratchy pot and noisy output documented.
+      - article [ref=e36]:
+        - img "Classic drum machine on charcoal felt" [ref=e37]
+        - generic [ref=e38]:
+          - generic [ref=e40]:
+            - text: "8.7"
+            - generic [ref=e41]: /10
+          - 'heading "Rhythm Forge RX-8: brittle hats, heavy swing" [level=3] [ref=e42]'
+          - paragraph [ref=e43]: A charismatic 1980s drum machine with punchy converters, stubborn programming, and a snare transient that still cuts through dense modular patches.
+          - generic [ref=e44]:
+            - generic [ref=e45]: Sound 9.1
+            - generic [ref=e46]: Build 8.3
+            - generic [ref=e47]: Value 8.4
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - heading "Editor's Picks" [level=2] [ref=e51]
+        - paragraph [ref=e52]: Four instruments that reward patient hands.
+      - generic [ref=e53]:
+        - article [ref=e54]:
+          - heading "Juno-60" [level=3] [ref=e55]
+          - paragraph [ref=e56]: Chorus haze, fast envelopes, instant pop gravity.
+        - article [ref=e57]:
+          - heading "MS-20" [level=3] [ref=e58]
+          - paragraph [ref=e59]: Howling dual filters with unruly patch points.
+        - article [ref=e60]:
+          - heading "TR-606" [level=3] [ref=e61]
+          - paragraph [ref=e62]: Tiny silver box, huge rhythmic personality.
+        - article [ref=e63]:
+          - heading "System 100m" [level=3] [ref=e64]
+          - paragraph [ref=e65]: Modular precision with a velvet top end.
+    - generic [ref=e67]:
+      - generic [ref=e68]:
+        - heading "Recent Lab Tests" [level=2] [ref=e69]
+        - paragraph [ref=e70]: Waveform captures, filter sweeps, and noise floor readings from the measurement desk.
+      - generic [ref=e71]:
+        - article [ref=e72]:
+          - heading "OB filter sweep" [level=3] [ref=e74]
+          - paragraph [ref=e75]: 24 dB response plotted across resonance settings.
+        - article [ref=e76]:
+          - heading "MPC output noise" [level=3] [ref=e78]
+          - paragraph [ref=e79]: Balanced and unbalanced outputs compared.
+        - article [ref=e80]:
+          - heading "Bucket brigade delay" [level=3] [ref=e82]
+          - paragraph [ref=e83]: Clock whine and modulation depth mapped.
+    - blockquote [ref=e86]:
+      - text: “They review instruments like they are furniture, sculpture, and electrical weather at the same time.”
+      - generic [ref=e87]: Arden Vale, live hardware artist
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - heading "Patch Notes Weekly" [level=2] [ref=e91]
+        - paragraph [ref=e92]: One email. Three measurements. Zero affiliate pressure.
+      - generic [ref=e93]:
+        - textbox "Email address" [ref=e94]:
+          - /placeholder: you@studio.example
+        - button "Subscribe" [ref=e95] [cursor=pointer]
+  - contentinfo [ref=e96]:
+    - generic [ref=e97]:
+      - strong [ref=e98]: Tactile Sound Lab
+      - generic [ref=e99]: Independent reviews for analog obsessives.
+      - generic [ref=e100]: 2,847 instruments tracked

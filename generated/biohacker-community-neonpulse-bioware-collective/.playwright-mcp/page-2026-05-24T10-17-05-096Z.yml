@@ -1,0 +1,166 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - region "hero" [ref=e9]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: SECTOR // 01_HOME
+          - generic [ref=e15]: BUILD // v3.2.7
+          - generic [ref=e16]: LAT -12.04 / LON -77.02
+        - generic [ref=e17]:
+          - heading "AUGMENT AUGMENT AUGMENT // RESIST // RESIST // RESIST" [level=1] [ref=e18]:
+            - generic [ref=e19]: AUGMENT AUGMENT AUGMENT
+            - generic [ref=e20]: // RESIST // RESIST // RESIST
+          - paragraph [ref=e21]: Comunidad abierta de biohackers y exploradores cibernéticos desde 2019. Documentamos, compartimos y defendemos la soberanía corporal en código abierto.
+          - generic [ref=e22]:
+            - link "▸ Registrar implante" [ref=e23] [cursor=pointer]:
+              - /url: submit-procedure.html
+            - link "Leer manifiesto" [ref=e24] [cursor=pointer]:
+              - /url: manifesto.html
+            - link "Guías DIY" [ref=e25] [cursor=pointer]:
+              - /url: guides.html
+        - generic [ref=e26]:
+          - generic [ref=e27]: 1,847 IMPLANTES
+          - generic [ref=e28]: 312 MIEMBROS
+          - generic [ref=e29]: 28 PAÍSES
+      - generic [ref=e30]:
+        - img "Retrato glitch con implantes LED subdérmicos" [ref=e31]
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: LIVE_FEED//
+            - generic [ref=e35]: // 03:42:18
+          - generic [ref=e36]:
+            - generic [ref=e37]: 03:42
+            - generic [ref=e38]: NFC subdérmico v4 instalado — Lima
+          - generic [ref=e39]:
+            - generic [ref=e40]: 03:38
+            - generic [ref=e41]: Magneto yema dedo índice — CDMX
+          - generic [ref=e42]:
+            - generic [ref=e43]: 03:21
+            - generic [ref=e44]: Reemplazo LED forearm — Buenos Aires
+          - generic [ref=e45]:
+            - generic [ref=e46]: 02:55
+            - generic [ref=e47]: xSIID activado — Bogotá
+          - generic [ref=e48]:
+            - generic [ref=e49]: 02:33
+            - generic [ref=e50]: Termómetro biométrico — Madrid
+          - generic [ref=e51]:
+            - generic [ref=e52]: 02:11
+            - generic [ref=e53]: Explante reportado — Santiago
+          - generic [ref=e54]:
+            - generic [ref=e55]: 01:48
+            - generic [ref=e56]: "Nuevo miembro: @wirenode_98 — Quito"
+          - generic [ref=e57]:
+            - generic [ref=e58]: 01:30
+            - generic [ref=e59]: "Guía publicada: GUIDE_022"
+          - generic [ref=e60]: "> awaiting input_"
+    - generic [ref=e62]: Tu cuerpo es tu laboratorio// El bisturí también escribe código// La soberanía empieza bajo la piel// No pedimos permiso, pedimos esterilización// Tu cuerpo es tu laboratorio// El bisturí también escribe código// La soberanía empieza bajo la piel// No pedimos permiso, pedimos esterilización//
+    - region "sections" [ref=e63]:
+      - article [ref=e64]:
+        - generic [ref=e67]: // 01 — DATABASE
+        - heading "REGISTRY" [level=3] [ref=e68]:
+          - text: REGI
+          - emphasis [ref=e69]: STRY
+        - paragraph [ref=e70]: Base de datos pública y anónima de implantes auto-reportados. Filtrá por región, tipo y estado. Cada entrada es un acto de transparencia radical.
+        - link "▸ Explorar registro" [ref=e71] [cursor=pointer]:
+          - /url: implant-registry.html
+      - article [ref=e72]:
+        - generic [ref=e73]: // 02 — KNOWLEDGE
+        - heading "GUIDES" [level=3] [ref=e74]:
+          - text: GUI
+          - emphasis [ref=e75]: DES
+        - paragraph [ref=e76]: "Más de 47 guías paso a paso revisadas por pares: esterilización, anatomía, protocolos de emergencia. Acceso libre, sin paywalls."
+        - link "▸ Ver biblioteca" [ref=e77] [cursor=pointer]:
+          - /url: guides.html
+      - article [ref=e78]:
+        - generic [ref=e79]: // 03 — PEOPLE
+        - heading "COLLECTIVE" [level=3] [ref=e80]:
+          - text: COLLEC
+          - emphasis [ref=e81]: TIVE
+        - paragraph [ref=e82]: 312 miembros activos en 28 países. Encuentros mensuales, talleres prácticos y red de mutuo cuidado post-procedimiento.
+        - link "▸ Conocé al colectivo" [ref=e83] [cursor=pointer]:
+          - /url: members.html
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - generic [ref=e88]: // ÚLTIMO COMUNICADO
+        - 'heading "Convocatoria abierta: Encuentro Latinoamericano 2026" [level=3] [ref=e89]'
+        - paragraph [ref=e90]: "Tres días de talleres prácticos, paneles abiertos y clínica de mutuo apoyo en Ciudad de México. Inscripciones cerradas: 18 — 20 sept. Cupos limitados; protocolo de seguridad y consentimiento informado obligatorio."
+        - link "▸ Detalles del encuentro" [ref=e91] [cursor=pointer]:
+          - /url: events.html
+      - generic [ref=e92]:
+        - generic [ref=e93]: // SYSTEM // STATS
+        - list [ref=e94]:
+          - listitem [ref=e95]: "> uptime ........ 2,341 días"
+          - listitem [ref=e96]: "> última auditoría ........ 2026-03-12"
+          - listitem [ref=e97]: "> nodos espejo ........ 4 activos"
+          - listitem [ref=e98]: "> PGP fingerprint ........ A3F2 8C91 7B"
+          - listitem [ref=e99]: "> ningún dato vendido ........ CONFIRMADO"
+  - contentinfo [ref=e100]:
+    - generic [ref=e101]:
+      - generic [ref=e102]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e103]
+        - paragraph [ref=e104]: Colectivo abierto de biohackers. Documentación, registro y resistencia. Operando en código abierto desde 2019. La información médica aquí no sustituye atención profesional.
+        - paragraph [ref=e105]:
+          - link "contact@neonpulse.collective" [ref=e106] [cursor=pointer]:
+            - /url: contact.html
+      - generic [ref=e107]:
+        - heading "// EXPLORE" [level=5] [ref=e108]
+        - list [ref=e109]:
+          - listitem [ref=e110]:
+            - link "Registry" [ref=e111] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e112]:
+            - link "Guides" [ref=e113] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e114]:
+            - link "Members" [ref=e115] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e116]:
+            - link "Events" [ref=e117] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e118]:
+        - heading "// COLLECTIVE" [level=5] [ref=e119]
+        - list [ref=e120]:
+          - listitem [ref=e121]:
+            - link "Manifesto" [ref=e122] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e123]:
+            - link "Submit Procedure" [ref=e124] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e125]:
+            - link "Contact" [ref=e126] [cursor=pointer]:
+              - /url: contact.html
+          - listitem [ref=e127]:
+            - link "PGP key" [ref=e128] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e129]:
+        - heading "// MIRROR" [level=5] [ref=e130]
+        - list [ref=e131]:
+          - listitem [ref=e132]:
+            - link "tor.neonpulse.onion" [ref=e133] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e134]:
+            - link "IPFS gateway" [ref=e135] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e136]:
+            - 'link "Matrix: #neonpulse" [ref=e137] [cursor=pointer]':
+              - /url: "#"
+          - listitem [ref=e138]:
+            - 'link "Signal: +52 ··· ····" [ref=e139] [cursor=pointer]':
+              - /url: "#"
+    - generic [ref=e140]:
+      - generic [ref=e141]: © 2019—2026 NEONPULSE COLLECTIVE // CC BY-SA 4.0
+      - generic [ref=e142]: v3.2.7 // build 8842 // last_sync 04:11 UTC
+  - dialog "aviso de cookies" [ref=e143]:
+    - paragraph [ref=e144]: "// AVISO: Esta plataforma usa cookies estrictamente técnicas. No rastreamos, no vendemos, no compartimos. Tu sesión es tu sesión."
+    - generic [ref=e145]:
+      - button "Solo necesarias" [ref=e146] [cursor=pointer]
+      - button "Aceptar // entendido" [ref=e147] [cursor=pointer]

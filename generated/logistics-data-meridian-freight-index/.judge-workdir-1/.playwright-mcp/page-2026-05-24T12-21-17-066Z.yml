@@ -1,0 +1,159 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "Meridian.Index" [ref=e5] [cursor=pointer]:
+        - /url: home.html
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: home.html
+        - link "Rates" [ref=e8] [cursor=pointer]:
+          - /url: rates.html
+        - link "Routes" [ref=e9] [cursor=pointer]:
+          - /url: routes.html
+        - link "Analytics" [ref=e10] [cursor=pointer]:
+          - /url: analytics.html
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: pricing.html
+        - link "Methodology" [ref=e12] [cursor=pointer]:
+          - /url: methodology.html
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: contact.html
+      - link "Access" [ref=e14] [cursor=pointer]:
+        - /url: contact.html
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - heading "Container Rate Index" [level=1] [ref=e18]
+      - generic [ref=e19]:
+        - generic [ref=e20]: 40ft
+        - generic [ref=e21]: 20ft
+        - generic [ref=e22]: Reefer
+        - generic [ref=e23]: Bulk
+      - generic [ref=e24]: More columns hidden on tablet
+      - table [ref=e27]:
+        - rowgroup [ref=e28]:
+          - row "Origin Destination Lane Code Current Rate WoW% MoM% YoY% Volume Index Transit Days Last Updated Trend Sparkline" [ref=e29]:
+            - columnheader "Origin" [ref=e30]
+            - columnheader "Destination" [ref=e31]
+            - columnheader "Lane Code" [ref=e32]
+            - columnheader "Current Rate" [ref=e33]
+            - columnheader "WoW%" [ref=e34]
+            - columnheader "MoM%" [ref=e35]
+            - columnheader "YoY%" [ref=e36]
+            - columnheader "Volume Index" [ref=e37]
+            - columnheader "Transit Days" [ref=e38]
+            - columnheader "Last Updated" [ref=e39]
+            - columnheader "Trend Sparkline" [ref=e40]
+        - rowgroup [ref=e41]:
+          - row "Shanghai Los Angeles SHA-LAX $2,184 +3.1 +8.4 -12.0 91 16 2026-05-24 08:45 UTC" [ref=e42]:
+            - cell "Shanghai" [ref=e43]
+            - cell "Los Angeles" [ref=e44]
+            - cell "SHA-LAX" [ref=e45]
+            - cell "$2,184" [ref=e46]
+            - cell "+3.1" [ref=e47]
+            - cell "+8.4" [ref=e48]
+            - cell "-12.0" [ref=e49]
+            - cell "91" [ref=e50]
+            - cell "16" [ref=e51]
+            - cell "2026-05-24 08:45 UTC" [ref=e52]
+            - cell [ref=e53]:
+              - img [ref=e54]
+          - row "Rotterdam New York RTM-NYC $1,906 -1.8 +2.2 -9.4 77 13 2026-05-24 08:42 UTC" [ref=e56]:
+            - cell "Rotterdam" [ref=e57]
+            - cell "New York" [ref=e58]
+            - cell "RTM-NYC" [ref=e59]
+            - cell "$1,906" [ref=e60]
+            - cell "-1.8" [ref=e61]
+            - cell "+2.2" [ref=e62]
+            - cell "-9.4" [ref=e63]
+            - cell "77" [ref=e64]
+            - cell "13" [ref=e65]
+            - cell "2026-05-24 08:42 UTC" [ref=e66]
+            - cell [ref=e67]:
+              - img [ref=e68]
+          - row "Singapore Hamburg SGP-HAM $2,742 +4.6 +11.1 +3.7 104 22 2026-05-24 08:38 UTC" [ref=e70]:
+            - cell "Singapore" [ref=e71]
+            - cell "Hamburg" [ref=e72]
+            - cell "SGP-HAM" [ref=e73]
+            - cell "$2,742" [ref=e74]
+            - cell "+4.6" [ref=e75]
+            - cell "+11.1" [ref=e76]
+            - cell "+3.7" [ref=e77]
+            - cell "104" [ref=e78]
+            - cell "22" [ref=e79]
+            - cell "2026-05-24 08:38 UTC" [ref=e80]
+            - cell [ref=e81]:
+              - img [ref=e82]
+          - row "Busan Amsterdam BUS-AMS $2,551 +2.4 -1.5 -5.9 86 24 2026-05-24 08:35 UTC" [ref=e84]:
+            - cell "Busan" [ref=e85]
+            - cell "Amsterdam" [ref=e86]
+            - cell "BUS-AMS" [ref=e87]
+            - cell "$2,551" [ref=e88]
+            - cell "+2.4" [ref=e89]
+            - cell "-1.5" [ref=e90]
+            - cell "-5.9" [ref=e91]
+            - cell "86" [ref=e92]
+            - cell "24" [ref=e93]
+            - cell "2026-05-24 08:35 UTC" [ref=e94]
+            - cell [ref=e95]:
+              - img [ref=e96]
+          - row "Jebel Ali Felixstowe JEA-FEL $1,774 -3.7 -6.0 -17.2 63 19 2026-05-24 08:27 UTC" [ref=e98]:
+            - cell "Jebel Ali" [ref=e99]
+            - cell "Felixstowe" [ref=e100]
+            - cell "JEA-FEL" [ref=e101]
+            - cell "$1,774" [ref=e102]
+            - cell "-3.7" [ref=e103]
+            - cell "-6.0" [ref=e104]
+            - cell "-17.2" [ref=e105]
+            - cell "63" [ref=e106]
+            - cell "19" [ref=e107]
+            - cell "2026-05-24 08:27 UTC" [ref=e108]
+            - cell [ref=e109]:
+              - img [ref=e110]
+          - row "Ningbo Santos NGB-SSZ $3,082 +5.8 +13.5 +8.1 72 31 2026-05-24 08:19 UTC" [ref=e112]:
+            - cell "Ningbo" [ref=e113]
+            - cell "Santos" [ref=e114]
+            - cell "NGB-SSZ" [ref=e115]
+            - cell "$3,082" [ref=e116]
+            - cell "+5.8" [ref=e117]
+            - cell "+13.5" [ref=e118]
+            - cell "+8.1" [ref=e119]
+            - cell "72" [ref=e120]
+            - cell "31" [ref=e121]
+            - cell "2026-05-24 08:19 UTC" [ref=e122]
+            - cell [ref=e123]:
+              - img [ref=e124]
+          - row [ref=e126]:
+            - cell [ref=e127]
+      - complementary [ref=e129]:
+        - generic [ref=e130]:
+          - generic [ref=e131]: Top Movers
+          - generic [ref=e132]: WoW
+        - generic [ref=e133]:
+          - generic [ref=e134]: NGB → SSZ
+          - generic [ref=e135]: $3,082
+          - generic [ref=e136]: +5.8%
+        - generic [ref=e137]:
+          - generic [ref=e138]: SGP → HAM
+          - generic [ref=e139]: $2,742
+          - generic [ref=e140]: +4.6%
+        - generic [ref=e141]:
+          - generic [ref=e142]: JEA → FEL
+          - generic [ref=e143]: $1,774
+          - generic [ref=e144]: "-3.7%"
+        - generic [ref=e145]:
+          - generic [ref=e146]: RTM → NYC
+          - generic [ref=e147]: $1,906
+          - generic [ref=e148]: "-1.8%"
+        - generic [ref=e149]:
+          - generic [ref=e150]: BUS → AMS
+          - generic [ref=e151]: $2,551
+          - generic [ref=e152]: +2.4%
+  - link "Request Index Access →" [ref=e155] [cursor=pointer]:
+    - /url: contact.html
+  - contentinfo [ref=e156]:
+    - generic [ref=e157]:
+      - generic [ref=e158]: Meridian Freight Index
+      - generic [ref=e159]:
+        - generic [ref=e160]: Global rate intelligence
+        - generic [ref=e161]: UTC indexed data
+        - generic [ref=e162]: © 2026

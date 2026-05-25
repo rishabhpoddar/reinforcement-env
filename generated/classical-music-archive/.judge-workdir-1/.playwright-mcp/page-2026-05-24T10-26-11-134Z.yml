@@ -1,0 +1,182 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "ध्रु ध्रुपद धरोहर Dhrupad Dharohar" [ref=e4] [cursor=pointer]:
+      - /url: मुख्य-पृष्ठ.html
+      - generic [ref=e5]: ध्रु
+      - generic [ref=e6]:
+        - generic [ref=e7]: ध्रुपद धरोहर
+        - generic [ref=e8]: Dhrupad Dharohar
+  - generic [ref=e10]:
+    - generic [ref=e11]: परंपरा की धाराएँ
+    - heading "ध्रुपद के घराने" [level=1] [ref=e12]
+    - paragraph [ref=e13]: ध्रुपद गायन की चार मूल वाणियाँ — डागर, खंडार, नौहार और गौहर — प्रत्येक की अपनी विशिष्ट शैली, सौंदर्य-बोध और वंश-परंपरा।
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - heading "डागर वाणी" [level=3] [ref=e20]
+          - generic [ref=e21]: Dagar Vani
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]: स्थापना
+              - generic [ref=e25]: 15वीं सदी
+            - generic [ref=e26]:
+              - generic [ref=e27]: वंश पीढ़ियाँ
+              - generic [ref=e28]: 20+
+          - list [ref=e29]:
+            - listitem [ref=e30]: • गंभीर और धीर-गति आलाप शैली
+            - listitem [ref=e31]: • मीड़-प्रधान स्वर-संचालन
+            - listitem [ref=e32]: • शुद्ध स्वरों पर विशेष बल
+            - listitem [ref=e33]: • आध्यात्मिक और ध्यानात्मक रस
+          - link "विस्तार से जानें →" [ref=e34] [cursor=pointer]:
+            - /url: गुरु-शिष्य.html
+        - generic [ref=e35]:
+          - heading "खंडार वाणी" [level=3] [ref=e36]
+          - generic [ref=e37]: Khandar Vani
+          - generic [ref=e38]:
+            - generic [ref=e39]:
+              - generic [ref=e40]: स्थापना
+              - generic [ref=e41]: 16वीं सदी
+            - generic [ref=e42]:
+              - generic [ref=e43]: वंश पीढ़ियाँ
+              - generic [ref=e44]: 15+
+          - list [ref=e45]:
+            - listitem [ref=e46]: • लय एवं अलंकरण प्रधान
+            - listitem [ref=e47]: • गमक, कण-स्पर्श, मुर्की
+            - listitem [ref=e48]: • तानसेन-वंश से जुड़ी
+            - listitem [ref=e49]: • वीर और श्रृंगार रस का सम्मिलन
+          - link "विस्तार से जानें →" [ref=e50] [cursor=pointer]:
+            - /url: गुरु-शिष्य.html
+        - generic [ref=e51]:
+          - heading "नौहार वाणी" [level=3] [ref=e52]
+          - generic [ref=e53]: Nauhar Vani
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - generic [ref=e56]: स्थापना
+              - generic [ref=e57]: 14वीं सदी
+            - generic [ref=e58]:
+              - generic [ref=e59]: वंश पीढ़ियाँ
+              - generic [ref=e60]: 12+
+          - list [ref=e61]:
+            - listitem [ref=e62]: • तीव्र गति और जोरदार गमक
+            - listitem [ref=e63]: • वीर रस की प्रधानता
+            - listitem [ref=e64]: • लयकारी पर विशेष ध्यान
+            - listitem [ref=e65]: • राजपूत-काल से जुड़ी परंपरा
+          - link "विस्तार से जानें →" [ref=e66] [cursor=pointer]:
+            - /url: गुरु-शिष्य.html
+        - generic [ref=e67]:
+          - heading "गौहर वाणी" [level=3] [ref=e68]
+          - generic [ref=e69]: Gauhar Vani
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: स्थापना
+              - generic [ref=e73]: 16वीं सदी
+            - generic [ref=e74]:
+              - generic [ref=e75]: वंश पीढ़ियाँ
+              - generic [ref=e76]: 10+
+          - list [ref=e77]:
+            - listitem [ref=e78]: • कोमल और मधुर स्वर-संचार
+            - listitem [ref=e79]: • श्रृंगार रस से ओतप्रोत
+            - listitem [ref=e80]: • सूक्ष्म अलंकरण की शैली
+            - listitem [ref=e81]: • ग्वालियर-राजस्थान परंपरा
+          - link "विस्तार से जानें →" [ref=e82] [cursor=pointer]:
+            - /url: गुरु-शिष्य.html
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]: कालक्रम
+          - heading "ध्रुपद का विकास" [level=2] [ref=e86]
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - generic [ref=e89]: १
+            - generic [ref=e90]: 12वीं सदी
+            - generic [ref=e91]: प्रबंध से ध्रुवपद
+          - generic [ref=e92]:
+            - generic [ref=e93]: २
+            - generic [ref=e94]: 15वीं सदी
+            - generic [ref=e95]: राजा मानसिंह तोमर
+          - generic [ref=e96]:
+            - generic [ref=e97]: ३
+            - generic [ref=e98]: 16वीं सदी
+            - generic [ref=e99]: तानसेन एवं चार वाणियाँ
+          - generic [ref=e100]:
+            - generic [ref=e101]: ४
+            - generic [ref=e102]: 19वीं सदी
+            - generic [ref=e103]: दरबारी संरक्षण का अंत
+          - generic [ref=e104]:
+            - generic [ref=e105]: ५
+            - generic [ref=e106]: वर्तमान
+            - generic [ref=e107]: वैश्विक पुनर्जागरण
+    - complementary
+  - contentinfo [ref=e108]:
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - generic [ref=e113]: ध्रु
+            - generic [ref=e114]:
+              - generic [ref=e115]: ध्रुपद धरोहर
+              - generic [ref=e116]: Dhrupad Dharohar
+          - paragraph [ref=e117]: उत्तर भारतीय शास्त्रीय संगीत की प्राचीनतम विधा को संरक्षित और प्रसारित करने के लिए समर्पित एक स्वतंत्र शैक्षिक मंच।
+        - generic [ref=e118]:
+          - heading "अध्ययन" [level=5] [ref=e119]
+          - list [ref=e120]:
+            - listitem [ref=e121]:
+              - link "घराने" [ref=e122] [cursor=pointer]:
+                - /url: घराने.html
+            - listitem [ref=e123]:
+              - link "राग कोश" [ref=e124] [cursor=pointer]:
+                - /url: राग-कोश.html
+            - listitem [ref=e125]:
+              - link "गुरु-शिष्य" [ref=e126] [cursor=pointer]:
+                - /url: गुरु-शिष्य.html
+            - listitem [ref=e127]:
+              - link "कार्यशालाएं" [ref=e128] [cursor=pointer]:
+                - /url: कार्यशालाएं.html
+        - generic [ref=e129]:
+          - heading "संग्रह" [level=5] [ref=e130]
+          - list [ref=e131]:
+            - listitem [ref=e132]:
+              - link "रिकॉर्डिंग्स" [ref=e133] [cursor=pointer]:
+                - /url: अभिलेखागार.html
+            - listitem [ref=e134]:
+              - link "शोध लेख" [ref=e135] [cursor=pointer]:
+                - /url: लेख.html
+        - generic [ref=e136]:
+          - heading "संस्थान" [level=5] [ref=e137]
+          - list [ref=e138]:
+            - listitem [ref=e139]:
+              - link "हमारे बारे में" [ref=e140] [cursor=pointer]:
+                - /url: संपर्क.html
+            - listitem [ref=e141]:
+              - link "संपर्क" [ref=e142] [cursor=pointer]:
+                - /url: संपर्क.html
+      - generic [ref=e143]:
+        - generic [ref=e144]: © 2026 ध्रुपद धरोहर · सर्वाधिकार सुरक्षित
+        - generic [ref=e145]:
+          - link "Y" [ref=e146] [cursor=pointer]:
+            - /url: "#"
+          - link "In" [ref=e147] [cursor=pointer]:
+            - /url: "#"
+          - link "X" [ref=e148] [cursor=pointer]:
+            - /url: "#"
+  - navigation [ref=e149]:
+    - link "मु मुख्य" [ref=e150] [cursor=pointer]:
+      - /url: मुख्य-पृष्ठ.html
+      - generic [ref=e151]: मु
+      - generic [ref=e152]: मुख्य
+    - link "घ घराने" [ref=e153] [cursor=pointer]:
+      - /url: घराने.html
+      - generic [ref=e154]: घ
+      - generic [ref=e155]: घराने
+    - link "रा राग" [ref=e156] [cursor=pointer]:
+      - /url: राग-कोश.html
+      - generic [ref=e157]: रा
+      - generic [ref=e158]: राग
+    - link "अ अभिलेख" [ref=e159] [cursor=pointer]:
+      - /url: अभिलेखागार.html
+      - generic [ref=e160]: अ
+      - generic [ref=e161]: अभिलेख
+    - link "≡ मेनू" [ref=e162] [cursor=pointer]:
+      - /url: संपर्क.html
+      - generic [ref=e163]: ≡
+      - generic [ref=e164]: मेनू

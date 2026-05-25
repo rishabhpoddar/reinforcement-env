@@ -1,0 +1,259 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text: "NEW: The 2024 Sauerkraut Census is here! →"
+    - link "Read the findings" [ref=e3] [cursor=pointer]:
+      - /url: recipes.html
+  - navigation [ref=e4]:
+    - link "The Pickle Periodical" [ref=e5] [cursor=pointer]:
+      - /url: home.html
+      - text: The Pickle Periodical
+    - button "Menu" [ref=e7] [cursor=pointer]
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - link "Home" [ref=e10] [cursor=pointer]:
+        - /url: home.html
+      - text: / About
+    - heading "We Believe in Slow Food , Loud Flavors." [level=1] [ref=e11]:
+      - text: We Believe in
+      - generic [ref=e12]: Slow Food
+      - text: ", Loud Flavors."
+    - paragraph [ref=e13]: A magazine and an archive, devoted to the strange, ancient, and stubbornly delicious craft of fermentation.
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - paragraph [ref=e16]: The Pickle Periodical was started in 2016 by three home fermenters who realized that the most exciting cookbooks they owned were paperbacks from the 1970s and the most exciting people they knew were elderly grandmothers in basements. There was a magazine missing from the world — one that took brine seriously without taking itself too seriously, one that documented techniques alongside the people who carried them across continents.
+      - paragraph [ref=e17]: So we made it. Quarterly, in print and online, with a worker-owned co-op and zero outside investment. Every recipe in the vault has been tested at least twice in the same kitchen by the same set of obsessed eaters.
+    - generic [ref=e18]:
+      - paragraph [ref=e19]:
+        - text: "We believe in three things: that"
+        - emphasis [ref=e20]: time
+        - text: is the most overlooked ingredient on earth, that
+        - emphasis [ref=e21]: microbes
+        - text: are collaborators rather than enemies, and that
+        - emphasis [ref=e22]: traditional knowledge
+        - text: deserves more shelf space than the latest grocery-aisle trend. We pay our writers above industry rates and credit every recipe to the person or family who taught us.
+      - paragraph [ref=e23]: If you find a typo, an error, or a story we should be telling, write to us. We are small, we are listening, and we are usually hunched over a jar.
+  - generic [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e27]: — The Masthead —
+      - heading "Meet the Crocks Behind the Magazine" [level=2] [ref=e28]
+    - img "The Pickle Periodical team" [ref=e30]
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - heading "Maris Holm" [level=3] [ref=e34]
+        - generic [ref=e35]: Editor-in-Brine
+        - generic [ref=e36]:
+          - text: "Favorite ferment:"
+          - emphasis [ref=e37]: 3-yr aged doenjang
+        - paragraph [ref=e38]: “If you can fail at sauerkraut, please write me. I want to understand.”
+      - generic [ref=e39]:
+        - heading "Toby Reece" [level=3] [ref=e41]
+        - generic [ref=e42]: Senior Krautographer
+        - generic [ref=e43]:
+          - text: "Favorite ferment:"
+          - emphasis [ref=e44]: Hungarian solyanka
+        - paragraph [ref=e45]: “The crock is the first cookbook anyone ever owned.”
+      - generic [ref=e46]:
+        - heading "Sasha Vong" [level=3] [ref=e48]
+        - generic [ref=e49]: Features Editor
+        - generic [ref=e50]:
+          - text: "Favorite ferment:"
+          - emphasis [ref=e51]: Cambodian prahok
+        - paragraph [ref=e52]: “Smelly food is just food that’s confident.”
+      - generic [ref=e53]:
+        - heading "Ivan Cortez" [level=3] [ref=e55]
+        - generic [ref=e56]: Hot Sauce Correspondent
+        - generic [ref=e57]:
+          - text: "Favorite ferment:"
+          - emphasis [ref=e58]: aji amarillo paste
+        - paragraph [ref=e59]: “Capsaicin is a hug from the universe.”
+      - generic [ref=e60]:
+        - heading "Dr. Elena Park" [level=3] [ref=e62]
+        - generic [ref=e63]: Microbiology Editor
+        - generic [ref=e64]:
+          - text: "Favorite ferment:"
+          - emphasis [ref=e65]: any with L. brevis
+        - paragraph [ref=e66]: “I would trade my PhD for a perfect kimchi.”
+      - generic [ref=e67]:
+        - heading "Yuki Tanaka" [level=3] [ref=e69]
+        - generic [ref=e70]: Field Notes & Wild Yeast
+        - generic [ref=e71]:
+          - text: "Favorite ferment:"
+          - emphasis [ref=e72]: nuka pickles
+        - paragraph [ref=e73]: “Every village has a ferment. Most have a recipe. Few have written it down.”
+  - generic [ref=e75]:
+    - generic [ref=e76]:
+      - generic [ref=e77]: — Our History —
+      - heading "From Zine to Periodical" [level=2] [ref=e78]:
+        - generic [ref=e79]: From Zine to Periodical
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]: ’16
+        - generic [ref=e83]:
+          - heading "Issue No. 1" [level=4] [ref=e84]
+          - paragraph [ref=e85]: "Stapled, photocopied, distributed at three Brooklyn food co-ops. 240 copies. Topic: sauerkraut."
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - heading "The Co-op Forms" [level=4] [ref=e88]
+          - paragraph [ref=e89]: Six contributors pool savings to formally found a worker-owned publication. First paid issue ships.
+        - generic [ref=e90]: ’18
+      - generic [ref=e91]:
+        - generic [ref=e92]: ’19
+        - generic [ref=e93]:
+          - heading "Ask the Brinemaster Launches" [level=4] [ref=e94]
+          - paragraph [ref=e95]: What begins as a single column becomes the magazine’s most-read feature, with reader letters from 38 countries.
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - heading "The Ferment Atlas" [level=4] [ref=e98]
+          - paragraph [ref=e99]: Launched as a print insert; expanded into an ongoing digital archive of global pickling traditions.
+        - generic [ref=e100]: ’21
+      - generic [ref=e101]:
+        - generic [ref=e102]: ’22
+        - generic [ref=e103]:
+          - heading "The Shop Opens" [level=4] [ref=e104]
+          - paragraph [ref=e105]: We start selling jars, crocks, salt, and books from a tiny Brooklyn storefront on Greene Avenue.
+      - generic [ref=e106]:
+        - generic [ref=e107]:
+          - heading "Issue No. 47" [level=4] [ref=e108]
+          - paragraph [ref=e109]: Eight years on. Forty-seven issues. One Sauerkraut Census. Tens of thousands of jars.
+        - generic [ref=e110]: ’24
+  - generic [ref=e111]:
+    - heading "As Featured In" [level=3] [ref=e112]
+    - generic [ref=e113]:
+      - generic [ref=e114]: Bon Appétit
+      - generic [ref=e115]: Lucky Peach
+      - generic [ref=e116]: The New Yorker
+      - generic [ref=e117]: Cherry Bombe
+      - generic [ref=e118]: Saveur
+  - generic [ref=e120]:
+    - generic [ref=e121]:
+      - generic [ref=e122]: — Get In Touch —
+      - heading "Letters, Pitches, & Visits" [level=2] [ref=e123]
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - paragraph [ref=e126]:
+          - strong [ref=e127]: "Editorial:"
+          - link "letters@picklepub.co" [ref=e128] [cursor=pointer]:
+            - /url: mailto:letters@picklepub.co
+        - paragraph [ref=e129]:
+          - strong [ref=e130]: "Pitches:"
+          - link "pitches@picklepub.co" [ref=e131] [cursor=pointer]:
+            - /url: mailto:pitches@picklepub.co
+        - paragraph [ref=e132]:
+          - strong [ref=e133]: "Shop / Orders:"
+          - link "shop@picklepub.co" [ref=e134] [cursor=pointer]:
+            - /url: mailto:shop@picklepub.co
+        - group [ref=e135]:
+          - generic "Pitch guidelines & rates +" [ref=e136] [cursor=pointer]
+        - group [ref=e137]:
+          - generic "Submit a family recipe +" [ref=e138] [cursor=pointer]
+        - group [ref=e139]:
+          - generic "Visit the shop +" [ref=e140] [cursor=pointer]
+      - generic [ref=e141]:
+        - heading "Our Brooklyn Shop" [level=4] [ref=e142]
+        - img [ref=e143]:
+          - generic [ref=e149]: Ft. Greene
+          - generic [ref=e151]: ●
+          - generic [ref=e152]: 312 Greene Ave
+          - generic [ref=e153]: DEKALB AVE
+          - generic [ref=e154]: GREENE AVE
+          - generic [ref=e155]: CARLTON
+          - generic [ref=e158]: "N"
+        - paragraph [ref=e159]:
+          - text: 312 Greene Ave · Brooklyn NY 11238
+          - text: Wed–Sun · 11am–6pm
+  - contentinfo [ref=e160]:
+    - generic [ref=e161]:
+      - generic [ref=e162]:
+        - link "The Pickle Periodical" [ref=e163] [cursor=pointer]:
+          - /url: home.html
+          - text: The Pickle Periodical
+        - paragraph [ref=e165]:
+          - text: A quarterly devotion to fermentation, brine, and slow flavor.
+          - text: Brooklyn, NY · Est. 2016
+        - generic [ref=e166]:
+          - link "IG" [ref=e167] [cursor=pointer]:
+            - /url: "#"
+          - link "TW" [ref=e168] [cursor=pointer]:
+            - /url: "#"
+          - link "YT" [ref=e169] [cursor=pointer]:
+            - /url: "#"
+          - link "RSS" [ref=e170] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e172]:
+        - heading "Sections" [level=4] [ref=e173]
+        - list [ref=e174]:
+          - listitem [ref=e175]:
+            - link "Recipes" [ref=e176] [cursor=pointer]:
+              - /url: recipes.html
+          - listitem [ref=e177]:
+            - link "Techniques" [ref=e178] [cursor=pointer]:
+              - /url: techniques.html
+          - listitem [ref=e179]:
+            - link "Atlas" [ref=e180] [cursor=pointer]:
+              - /url: ferment-atlas.html
+          - listitem [ref=e181]:
+            - link "Brinemaster" [ref=e182] [cursor=pointer]:
+              - /url: ask-the-brinemaster.html
+      - generic [ref=e183]:
+        - heading "About" [level=4] [ref=e184]
+        - list [ref=e185]:
+          - listitem [ref=e186]:
+            - link "Our story" [ref=e187] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e188]:
+            - link "Masthead" [ref=e189] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e190]:
+            - link "Pitch us" [ref=e191] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e192]:
+            - link "Press" [ref=e193] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e194]:
+        - heading "Shop" [level=4] [ref=e195]
+        - list [ref=e196]:
+          - listitem [ref=e197]:
+            - link "All Goods" [ref=e198] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e199]:
+            - link "Beginner Kits" [ref=e200] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e201]:
+            - link "Subscriptions" [ref=e202] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e203]:
+            - link "Gift Cards" [ref=e204] [cursor=pointer]:
+              - /url: shop.html
+      - generic [ref=e205]:
+        - heading "Community" [level=4] [ref=e206]
+        - list [ref=e207]:
+          - listitem [ref=e208]:
+            - link "Forums" [ref=e209] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e210]:
+            - link "Events" [ref=e211] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e212]:
+            - link "Workshops" [ref=e213] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e214]:
+            - link "Submitted" [ref=e215] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e216]:
+        - heading "Legal" [level=4] [ref=e217]
+        - list [ref=e218]:
+          - listitem [ref=e219]:
+            - link "Privacy" [ref=e220] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e221]:
+            - link "Terms" [ref=e222] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e223]:
+            - link "Cookies" [ref=e224] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e225]:
+            - link "Accessibility" [ref=e226] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e227]:
+      - generic [ref=e228]: © 2024 The Pickle Periodical · A worker-owned cooperative.
+      - generic [ref=e229]: Letterpress aesthetic since vol. 1

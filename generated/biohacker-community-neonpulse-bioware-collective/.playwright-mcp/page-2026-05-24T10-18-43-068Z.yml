@@ -1,0 +1,122 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: // DOCUMENT // v3.2
+          - heading "MANIFIESTO // v3.2" [level=2] [ref=e15]
+        - generic [ref=e16]:
+          - generic [ref=e17]: "timestamp: 2026-01-14 // 03:21:08 UTC"
+          - generic [ref=e18]: "hash: a3f28c917b · cc-by-sa 4.0"
+          - generic [ref=e19]: ratificado por 312 miembros
+          - link "⤓ DESCARGAR .TXT" [ref=e21] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e22]:
+        - paragraph [ref=e23]:
+          - text: 01 Somos un colectivo abierto de biohackers, ingenieras, artistas y curiosas. Vivimos en cuerpos que nadie eligió por nosotras y, sin embargo,
+          - mark [ref=e24]: el cuerpo es el último territorio donde la soberanía sigue siendo posible
+          - text: . Este manifiesto es un mapa, no un dogma.
+        - paragraph [ref=e25]: 02 Rechazamos la idea de que la tecnología corporal pertenece a las corporaciones, a los gobiernos o a las clínicas que cobran un salario completo por una incisión de tres milímetros. La carne es código abierto y siempre lo fue.
+        - paragraph [ref=e26]:
+          - text: 03 No celebramos el dolor, ni el riesgo, ni la cicatriz como estética. Celebramos el conocimiento que las precede y el cuidado que las sigue.
+          - mark [ref=e27]: "Antes del bisturí: la lectura. Después del bisturí: la comunidad."
+        - paragraph [ref=e28]: 04 Documentar es resistir. Cada implante que se registra en nuestra base de datos pública es una pequeña victoria contra la opacidad médica y un acto de generosidad hacia quienes vendrán después.
+        - paragraph [ref=e29]: 05 No vendemos datos. No los compartimos con aseguradoras, anunciantes ni estados. La encriptación no es una característica, es una postura ética.
+        - paragraph [ref=e30]:
+          - text: 06 Reconocemos que el biohacking en Latinoamérica e Iberia no puede copiar acríticamente al norte global.
+          - mark [ref=e31]: Nuestra precariedad es también nuestra escuela
+          - text: ": improvisamos con esterilización casera, intercambiamos materiales escasos y cuidamos cuando los sistemas de salud no llegan o llegan tarde."
+        - paragraph [ref=e32]: "07 Distinguimos firmemente entre la autonomía corporal y el solucionismo tecnológico. Ningún chip te va a salvar de la soledad. Ningún imán te va a dar una identidad que no construyas. La tecnología subdérmica no es magia: es una herramienta más en un cuerpo histórico."
+        - paragraph [ref=e33]:
+          - text: "08 Nos oponemos a toda forma de coerción para implantar: jefes que exijan chips de acceso, parejas que pidan rastreadores, estados que normalicen marcas corporales obligatorias."
+          - mark [ref=e34]: El consentimiento informado, libre y revocable, es innegociable.
+        - paragraph [ref=e35]: 09 Apoyamos a miembros menores de edad solo en su derecho a informarse. No instalamos, no asesoramos sobre procedimientos y derivamos a redes especializadas en derechos de infancias.
+        - paragraph [ref=e36]: "10 Cuidamos a quienes deciden explantarse. Quitar un implante no es un fracaso: es un acto válido del mismo derecho que lo instaló. Mantenemos guías de explante con el mismo rigor que las de instalación."
+        - paragraph [ref=e37]: 11 Construimos este colectivo en mutuo apoyo, sin liderazgos vitalicios, sin marcas registradas, sin monetización. Las personas que coordinan rotan cada dos años. Las cuentas son públicas, auditables y modestas.
+        - paragraph [ref=e38]:
+          - text: 12 Si algún día este manifiesto deja de servir, lo reescribiremos.
+          - mark [ref=e39]: La versión 3.2 es solo una pausa en una conversación que empezó antes de nosotras y seguirá después.
+      - complementary [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]: // COMMENT
+          - text: Reaffirms bodily sovereignty as foundational axis. — Revision board, 2026-01.
+        - generic [ref=e43]:
+          - generic [ref=e44]: // REF
+          - text: Compare with v2.8 paragraph 03, which framed pain aesthetically.
+        - generic [ref=e45]:
+          - generic [ref=e46]: // EDIT
+          - text: Paragraph 06 added in v3.0 to address regional specificity.
+        - generic [ref=e47]:
+          - generic [ref=e48]: // LEGAL
+          - text: Paragraph 08 — see jurisdictional disclaimer on contact page.
+        - generic [ref=e49]:
+          - generic [ref=e50]: // POLICY
+          - text: Paragraph 09 implemented as moderation rule on all forums.
+        - generic [ref=e51]:
+          - generic [ref=e52]: // FORK
+          - text: "Translations: EN, PT-BR and CA available via mirror."
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - text: "// SIGNED BY FOUNDING MEMBERS:"
+          - paragraph [ref=e55]: "@wirenode_98 · @bisturi.libre · @subderma.cdmx · @octava.via · @flux.iniciada · @cero.norte · @sangre.optica"
+        - generic [ref=e56]:
+          - generic [ref=e57]: v3.2 · ratificado el 14 ene 2026
+          - generic [ref=e58]: "hash sha256: a3f28c91...7b9d4e"
+          - link "▸ historial de versiones" [ref=e60] [cursor=pointer]:
+            - /url: "#"
+  - contentinfo [ref=e61]:
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e64]
+        - paragraph [ref=e65]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e66]:
+        - heading "// EXPLORE" [level=5] [ref=e67]
+        - list [ref=e68]:
+          - listitem [ref=e69]:
+            - link "Registry" [ref=e70] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e71]:
+            - link "Guides" [ref=e72] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e73]:
+            - link "Members" [ref=e74] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e75]:
+            - link "Events" [ref=e76] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e77]:
+        - heading "// COLLECTIVE" [level=5] [ref=e78]
+        - list [ref=e79]:
+          - listitem [ref=e80]:
+            - link "Manifesto" [ref=e81] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e82]:
+            - link "Submit" [ref=e83] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e84]:
+            - link "Contact" [ref=e85] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e86]:
+        - heading "// MIRROR" [level=5] [ref=e87]
+        - list [ref=e88]:
+          - listitem [ref=e89]:
+            - link "tor.onion" [ref=e90] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e91]:
+            - link "IPFS" [ref=e92] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e93]:
+            - link "Matrix" [ref=e94] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e95]:
+      - generic [ref=e96]: © 2019—2026 NEONPULSE
+      - generic [ref=e97]: v3.2.7 // 8842

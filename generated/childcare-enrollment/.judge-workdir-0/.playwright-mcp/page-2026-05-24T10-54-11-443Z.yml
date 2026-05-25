@@ -1,0 +1,62 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e6]: ★
+        - generic [ref=e7]: حضانة نجوم الصغار
+      - navigation [ref=e8]:
+        - link "الرئيسية" [ref=e9] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "البرامج" [ref=e10] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "التسجيل" [ref=e11] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e12] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "المعلمات" [ref=e13] [cursor=pointer]:
+          - /url: المعلمات.html
+        - link "الأسئلة" [ref=e14] [cursor=pointer]:
+          - /url: الأسئلة.html
+        - link "تواصل" [ref=e15] [cursor=pointer]:
+          - /url: تواصل.html
+        - link "سجّل الآن" [ref=e16] [cursor=pointer]:
+          - /url: التسجيل.html
+  - main [ref=e17]:
+    - radio "التسجيل" [checked] [ref=e18]
+    - radio "الرسوم" [ref=e19]
+    - radio "الأمان" [ref=e20]
+    - radio "التغذية" [ref=e21]
+    - radio "الصحة" [ref=e22]
+    - generic [ref=e24]:
+      - generic [ref=e25]: مركز المساعدة
+      - heading "أسئلة الأهل قبل أول يوم" [level=1] [ref=e26]
+      - paragraph [ref=e27]: ابحثوا أو اضغطوا على تبويب ملوّن لتبديل فئة الأسئلة بدون مغادرة الصفحة.
+      - generic [ref=e29]:
+        - generic [ref=e30]: 🔎
+        - searchbox "ابحث عن القيلولة، الوجبات، الرسوم..." [ref=e31]
+      - generic [ref=e32]:
+        - generic [ref=e33] [cursor=pointer]: التسجيل
+        - generic [ref=e34] [cursor=pointer]: الرسوم
+        - generic [ref=e35] [cursor=pointer]: الأمان
+        - generic [ref=e36] [cursor=pointer]: التغذية
+        - generic [ref=e37] [cursor=pointer]: الصحة
+    - generic [ref=e38]:
+      - group [ref=e40]:
+        - generic "× ما الوثائق المطلوبة للتسجيل؟" [ref=e41] [cursor=pointer]
+        - paragraph [ref=e42]: صورة شهادة الميلاد، دفتر المطاعيم، صورة ولي الأمر، ونموذج المعلومات الصحية.
+      - group [ref=e44]:
+        - generic "+ هل يمكن اختيار أيام جزئية؟" [ref=e45] [cursor=pointer]
+      - text: × + × × ×
+  - contentinfo [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - strong [ref=e49]: حضانة نجوم الصغار
+        - paragraph [ref=e50]: إن لم تجدوا جواباً، اكتبوا لنا وسنرد بسرعة.
+      - generic [ref=e51]:
+        - link "التسجيل" [ref=e52] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e53] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "تواصل" [ref=e54] [cursor=pointer]:
+          - /url: تواصل.html

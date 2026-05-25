@@ -1,0 +1,89 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "PixelMétéo 95" [level=1] [ref=e5]
+      - generic [ref=e6]: GALERIE COMMUNAUTAIRE
+    - navigation "Navigation principale" [ref=e7]:
+      - link "Accueil" [ref=e8] [cursor=pointer]:
+        - /url: accueil.html
+      - link "Tableau de bord" [ref=e9] [cursor=pointer]:
+        - /url: tableau-de-bord.html
+      - link "Observations" [ref=e10] [cursor=pointer]:
+        - /url: observations.html
+      - link "Tempêtes" [ref=e11] [cursor=pointer]:
+        - /url: tempetes.html
+      - link "Membres" [ref=e12] [cursor=pointer]:
+        - /url: membres.html
+      - link "Archives" [ref=e13] [cursor=pointer]:
+        - /url: archives.html
+      - link "Forum" [ref=e14] [cursor=pointer]:
+        - /url: forum.html
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+    - generic [ref=e17]: "NOUVELLE PHOTO VALIDÉE : TORNADE PRÈS DE CHARTRES ⚡ BROUILLARD DENSE EN BRESSE ⚡ ARC-EN-CIEL DOUBLE À NANTES"
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - button "Tous" [ref=e20] [cursor=pointer]
+      - button "Orages" [ref=e21] [cursor=pointer]
+      - button "Neige" [ref=e22] [cursor=pointer]
+      - button "Brouillard" [ref=e23] [cursor=pointer]
+      - button "Arc-en-ciel" [ref=e24] [cursor=pointer]
+      - button "Rare" [ref=e25] [cursor=pointer]
+    - region "Rapports d'observation" [ref=e26]:
+      - article [ref=e27]:
+        - img "Tornade pixelisée" [ref=e28]
+        - paragraph [ref=e29]: "@TubaRadar - 14/05/2026"
+        - paragraph [ref=e30]: Entonnoir au sol, rotation nette, poussières visibles et trajectoire documentée depuis la route de Chartres.
+        - generic [ref=e31]: ★★★★★
+      - article [ref=e32]:
+        - img "Ciel orageux" [ref=e33]
+        - paragraph [ref=e34]: "@BreizhCell - 12/05"
+        - paragraph [ref=e35]: Rideau de pluie cyan sur le Finistère avec coups de foudre intranuageux pendant vingt minutes.
+        - generic [ref=e36]: ★★★★☆
+      - article [ref=e37]:
+        - img "Graphique météo" [ref=e38]
+        - paragraph [ref=e39]: "@ThermoGeek - 11/05"
+        - paragraph [ref=e40]: Chute de 8°C en 20 minutes après passage du front de rafales.
+        - generic [ref=e41]: ★★★☆☆
+      - article [ref=e42]:
+        - img "Carte station" [ref=e43]
+        - paragraph [ref=e44]: "@StationLyon - 10/05"
+        - paragraph [ref=e45]: Point chaud détecté dans le Rhône, pression instable et ciel vert à l'ouest.
+        - generic [ref=e46]: ★★★★☆
+      - article [ref=e47]:
+        - img "Bannière PixelMétéo" [ref=e48]
+        - paragraph [ref=e49]: "@ArcusMan - 09/05"
+        - paragraph [ref=e50]: Arcus interminable, validé par 12 membres, visible sur trois départements.
+        - generic [ref=e51]: ★★★★★
+      - article [ref=e52]:
+        - img "Orage au crépuscule" [ref=e53]
+        - paragraph [ref=e54]: "@GrêleNet - 08/05"
+        - paragraph [ref=e55]: Grêlons 2 cm, jardin sacrifié, pluviomètre héroïque.
+        - generic [ref=e56]: ★★★★☆
+      - article [ref=e57]:
+        - img "Tuba au loin" [ref=e58]
+        - paragraph [ref=e59]: "@Cévenol95 - 07/05"
+        - paragraph [ref=e60]: Tuba photographié sous base sombre, sans contact au sol confirmé.
+        - generic [ref=e61]: ★★★★☆
+      - article [ref=e62]:
+        - img "Carte d'alerte" [ref=e63]
+        - paragraph [ref=e64]: "@Orage95 - 06/05"
+        - paragraph [ref=e65]: Cellule isolée sur le Val-d'Oise, rafales brèves et très photogéniques.
+        - generic [ref=e66]: ★★★☆☆
+      - article [ref=e67]:
+        - img "Supercellule au coucher du soleil" [ref=e68]
+        - paragraph [ref=e69]: "@FoudreDouce - 05/05"
+        - paragraph [ref=e70]: Enclume massive au coucher du soleil, cinq impacts ramifiés capturés au retardateur.
+        - generic [ref=e71]: ★★★★★
+      - article [ref=e72]:
+        - img "Courbe de pluie" [ref=e73]
+        - paragraph [ref=e74]: "@PluvioMax - 04/05"
+        - paragraph [ref=e75]: 42 mm en une heure dans le pluviomètre bricolé maison.
+        - generic [ref=e76]: ★★★★☆
+    - link "POSTER UNE OBSERVATION" [ref=e77] [cursor=pointer]:
+      - /url: contact.html
+  - contentinfo [ref=e78]:
+    - generic [ref=e79]:
+      - generic [ref=e80]: Best viewed in 1024x768
+      - generic [ref=e81]: Made with ♥ et un anémomètre
+      - generic [ref=e82]: UNDER CONSTRUCTION

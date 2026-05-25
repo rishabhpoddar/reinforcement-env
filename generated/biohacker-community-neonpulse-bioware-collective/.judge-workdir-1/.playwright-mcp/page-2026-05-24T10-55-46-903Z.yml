@@ -1,0 +1,136 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - navigation [ref=e7]:
+        - link "HOME" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "REGISTRY" [ref=e9] [cursor=pointer]:
+          - /url: implant-registry.html
+        - link "GUIDES" [ref=e10] [cursor=pointer]:
+          - /url: guides.html
+        - link "SUBMIT" [ref=e11] [cursor=pointer]:
+          - /url: submit-procedure.html
+        - link "MEMBERS" [ref=e12] [cursor=pointer]:
+          - /url: members.html
+        - link "EVENTS" [ref=e13] [cursor=pointer]:
+          - /url: events.html
+        - link "MANIFESTO" [ref=e14] [cursor=pointer]:
+          - /url: manifesto.html
+        - link "CONTACT" [ref=e15] [cursor=pointer]:
+          - /url: contact.html
+  - main [ref=e16]:
+    - generic [ref=e17]: // 08 — REACH US
+    - heading "CONTACT // 0x00 CONTACT // 0x00 CONTACT // 0x00" [level=1] [ref=e18]
+    - paragraph [ref=e19]: Comunicación encriptada por defecto. Si tu inquietud es delicada, usá Signal o nuestra clave PGP antes de enviar nada en claro.
+    - generic [ref=e20]:
+      - generic [ref=e23]:
+        - heading "FORMULARIO // CONTACT" [level=3] [ref=e24]
+        - generic [ref=e25]:
+          - button "PRESS" [ref=e26] [cursor=pointer]
+          - button "JOIN" [ref=e27] [cursor=pointer]
+          - button "SECURITY" [ref=e28] [cursor=pointer]
+          - button "OTHER" [ref=e29] [cursor=pointer]
+        - generic [ref=e30]:
+          - generic [ref=e31]: HANDLE / NAME
+          - textbox "Tu alias o nombre profesional..." [ref=e32]
+        - generic [ref=e33]:
+          - generic [ref=e34]: EMAIL
+          - textbox "Dirección de correo (preferentemente Protonmail / Tuta)..." [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]: ORGANIZATION
+          - textbox "Medio, colectivo o institución (opcional)..." [ref=e38]
+        - generic [ref=e39]:
+          - generic [ref=e40]: SUBJECT
+          - textbox "Asunto breve, una línea..." [ref=e41]
+        - generic [ref=e42]:
+          - generic [ref=e43]: MESSAGE
+          - textbox "Contanos qué necesitás. Si vas a enviar info sensible, considerá cifrar este mensaje con nuestra clave PGP antes de copiarlo aquí..." [ref=e44]
+        - generic [ref=e45]:
+          - checkbox "Acepto que mi mensaje sea revisado por dos miembros del comité de comunicaciones antes de respuesta." [ref=e46]
+          - generic [ref=e47]: Acepto que mi mensaje sea revisado por dos miembros del comité de comunicaciones antes de respuesta.
+        - generic [ref=e48]:
+          - checkbox "Prefiero recibir respuesta cifrada con mi clave PGP pública (la adjunto en el cuerpo del mensaje)." [checked] [ref=e49]
+          - generic [ref=e50]: Prefiero recibir respuesta cifrada con mi clave PGP pública (la adjunto en el cuerpo del mensaje).
+        - generic [ref=e51]:
+          - button "ENVIAR // SEND" [ref=e52] [cursor=pointer]
+          - link "⤓ DESCARGAR PGP KEY (4096-bit)" [ref=e53] [cursor=pointer]:
+            - /url: "#"
+        - paragraph [ref=e54]:
+          - text: "// Fingerprint:"
+          - code [ref=e55]: A3F2 8C91 7B9D 4E62 · 3812 F4AC · 0E1B 2D87 · 9C00 5511
+      - generic [ref=e56]:
+        - heading "CANALES ENCRIPTADOS" [level=3] [ref=e57]
+        - paragraph [ref=e58]: Toda comunicación sensible debe pasar por canales con cifrado de extremo a extremo. No respondemos consultas médicas urgentes por estos medios — para emergencias contactá a tu sistema de salud local.
+        - generic [ref=e59]:
+          - heading "// SIGNAL" [level=4] [ref=e60]
+          - paragraph [ref=e61]: Número operativo rotativo. Pedí el actual vía Matrix antes de mensajear.
+          - code [ref=e62]: +52 ··· ··· ····
+        - generic [ref=e63]:
+          - heading "// MATRIX" [level=4] [ref=e64]
+          - paragraph [ref=e65]: Sala pública para preguntas generales y onboarding de nuevos miembros.
+          - code [ref=e66]: "#neonpulse:matrix.org"
+        - generic [ref=e67]:
+          - heading "// EMAIL // PGP-ONLY" [level=4] [ref=e68]
+          - paragraph [ref=e69]: Mensajes sin cifrar serán ignorados y borrados a las 24h.
+          - code [ref=e70]: contact@neonpulse.collective
+        - generic [ref=e71]:
+          - heading "// MIRROR // TOR" [level=4] [ref=e72]
+          - paragraph [ref=e73]: Para acceso desde redes vigiladas.
+          - code [ref=e74]: neonpulse5xq2...4r.onion
+        - heading "// LOGO" [level=3] [ref=e75]
+        - generic [ref=e76]: ███▄ █ ▓█████ ▒█████ ███▄ █ ██ ▀█ █ ▓█ ▀ ▒██▒ ██▒ ██ ▀█ █ ▓██ ▀█ ██▒▒███ ▒██░ ██▒▓██ ▀█ ██▒ ▓██▒ ▐▌██▒▒▓█ ▄ ▒██ ██░▓██▒ ▐▌██▒ ▒██░ ▓██░░▒████▒░ ████▓▒░▒██░ ▓██░ ░ ▒░ ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░ ░ ▒░ ▒ ▒ ░ ░░ ░ ▒░ ░ ░ ░ ░ ▒ ▒░ ░ ░░ ░ ▒░ ░ ░ ░ ░ ░ ░ ░ ▒ ░ ░ ░ ░ ░ ░ ░ ░ ░ p u l s e // b i o w a r e
+        - generic [ref=e77]:
+          - heading "// JURISDICTIONAL DISCLAIMER" [level=4] [ref=e78]
+          - paragraph [ref=e79]: NEONPULSE opera como colectivo descentralizado sin sede legal. Nuestra documentación tiene fines informativos y no constituye consejo médico ni jurídico. La práctica del biohacking puede estar regulada o prohibida en tu jurisdicción; consultá la legislación local antes de cualquier procedimiento.
+  - contentinfo [ref=e80]:
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e83]
+        - paragraph [ref=e84]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e85]:
+        - heading "// EXPLORE" [level=5] [ref=e86]
+        - list [ref=e87]:
+          - listitem [ref=e88]:
+            - link "Registry" [ref=e89] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e90]:
+            - link "Guides" [ref=e91] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e92]:
+            - link "Members" [ref=e93] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e94]:
+            - link "Events" [ref=e95] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e96]:
+        - heading "// COLLECTIVE" [level=5] [ref=e97]
+        - list [ref=e98]:
+          - listitem [ref=e99]:
+            - link "Manifesto" [ref=e100] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e101]:
+            - link "Submit" [ref=e102] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e103]:
+            - link "Contact" [ref=e104] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e105]:
+        - heading "// MIRROR" [level=5] [ref=e106]
+        - list [ref=e107]:
+          - listitem [ref=e108]:
+            - link "tor.onion" [ref=e109] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e110]:
+            - link "IPFS" [ref=e111] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e112]:
+            - link "Matrix" [ref=e113] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e114]:
+      - generic [ref=e115]: © 2019—2026 NEONPULSE
+      - generic [ref=e116]: v3.2.7 // 8842

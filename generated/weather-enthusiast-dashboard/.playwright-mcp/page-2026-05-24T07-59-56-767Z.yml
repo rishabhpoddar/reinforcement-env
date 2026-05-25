@@ -1,0 +1,101 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "PixelMétéo 95" [level=1] [ref=e5]
+      - generic [ref=e6]: FORUM phpBB RÉTRO
+    - navigation "Navigation principale" [ref=e7]:
+      - link "Accueil" [ref=e8] [cursor=pointer]:
+        - /url: accueil.html
+      - link "Tableau de bord" [ref=e9] [cursor=pointer]:
+        - /url: tableau-de-bord.html
+      - link "Observations" [ref=e10] [cursor=pointer]:
+        - /url: observations.html
+      - link "Tempêtes" [ref=e11] [cursor=pointer]:
+        - /url: tempetes.html
+      - link "Membres" [ref=e12] [cursor=pointer]:
+        - /url: membres.html
+      - link "Archives" [ref=e13] [cursor=pointer]:
+        - /url: archives.html
+      - link "Forum" [ref=e14] [cursor=pointer]:
+        - /url: forum.html
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+    - generic [ref=e17]: 42 NOUVEAUX MESSAGES ⚡ LE SUJET "ORAGE CE SOIR ?" EXPLOSE ⚡ MERCI DE POSTER VOS PHOTOS EN 800x600
+  - main [ref=e18]:
+    - article [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: forum-categories.php
+        - generic [ref=e22]:
+          - generic [ref=e23]: _
+          - generic [ref=e24]: □
+          - generic [ref=e25]: ×
+      - table [ref=e27]:
+        - rowgroup [ref=e28]:
+          - row "ICÔNE CATÉGORIE SUJETS MESSAGES DERNIER POST" [ref=e29]:
+            - columnheader "ICÔNE" [ref=e30]
+            - columnheader "CATÉGORIE" [ref=e31]
+            - columnheader "SUJETS" [ref=e32]
+            - columnheader "MESSAGES" [ref=e33]
+            - columnheader "DERNIER POST" [ref=e34]
+        - rowgroup [ref=e35]:
+          - row "✉ Alertes météo en direct Orages / Vent / Neige 812 12 904 21:57 par BreizhCell" [ref=e36]:
+            - cell "✉" [ref=e37]
+            - cell "Alertes météo en direct Orages / Vent / Neige" [ref=e38]:
+              - strong [ref=e39]: Alertes météo en direct
+              - text: Orages / Vent / Neige
+            - cell "812" [ref=e40]
+            - cell "12 904" [ref=e41]
+            - cell "21:57 par BreizhCell" [ref=e42]
+          - row "✉ Rapports de chasse Photos, cartes, récits terrain 544 8 201 20:44 par ArcusMan" [ref=e43]:
+            - cell "✉" [ref=e44]
+            - cell "Rapports de chasse Photos, cartes, récits terrain" [ref=e45]:
+              - strong [ref=e46]: Rapports de chasse
+              - text: Photos, cartes, récits terrain
+            - cell "544" [ref=e47]
+            - cell "8 201" [ref=e48]
+            - cell "20:44 par ArcusMan" [ref=e49]
+          - row "□ Matériel amateur Stations, radios, anémomètres 233 3 190 19:12 par DataMistral" [ref=e50]:
+            - cell "□" [ref=e51]
+            - cell "Matériel amateur Stations, radios, anémomètres" [ref=e52]:
+              - strong [ref=e53]: Matériel amateur
+              - text: Stations, radios, anémomètres
+            - cell "233" [ref=e54]
+            - cell "3 190" [ref=e55]
+            - cell "19:12 par DataMistral" [ref=e56]
+          - row "✉ Prévisions collaboratives Modèles, cartes maison, débats 391 6 002 18:33 par NimbusLyon" [ref=e57]:
+            - cell "✉" [ref=e58]
+            - cell "Prévisions collaboratives Modèles, cartes maison, débats" [ref=e59]:
+              - strong [ref=e60]: Prévisions collaboratives
+              - text: Modèles, cartes maison, débats
+            - cell "391" [ref=e61]
+            - cell "6 002" [ref=e62]
+            - cell "18:33 par NimbusLyon" [ref=e63]
+          - row "□ Café des nuages Hors-sujet, entraide, annonces 179 2 048 17:01 par RadioStratus" [ref=e64]:
+            - cell "□" [ref=e65]
+            - cell "Café des nuages Hors-sujet, entraide, annonces" [ref=e66]:
+              - strong [ref=e67]: Café des nuages
+              - text: Hors-sujet, entraide, annonces
+            - cell "179" [ref=e68]
+            - cell "2 048" [ref=e69]
+            - cell "17:01 par RadioStratus" [ref=e70]
+    - generic [ref=e71]:
+      - article [ref=e72]:
+        - heading "Statistiques du forum" [level=3] [ref=e73]
+        - paragraph [ref=e74]:
+          - text: 1 842 membres
+          - text: 32 345 messages
+          - text: "Dernier inscrit : RadioStratus"
+      - article [ref=e75]:
+        - heading "Connectés" [level=3] [ref=e76]
+        - paragraph [ref=e77]: 58 chasseurs, 12 invités, 4 robots météo imaginaires.
+      - article [ref=e78]:
+        - heading "Avatar du mois" [level=3] [ref=e79]
+        - img "Avatar pixel du mois" [ref=e80]
+      - article [ref=e81]:
+        - heading "Règle flash" [level=3] [ref=e82]
+        - paragraph [ref=e83]: Pas de mise en danger pour une photo, même si le ciel est rose fluo.
+  - contentinfo [ref=e84]:
+    - generic [ref=e85]:
+      - generic [ref=e86]: Best viewed in 1024x768
+      - generic [ref=e87]: Made with ♥ et un anémomètre
+      - generic [ref=e88]: UNDER CONSTRUCTION

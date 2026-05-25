@@ -1,0 +1,61 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: रात का रंगमंच ऑन एयर
+    - generic [ref=e5]: "00042874"
+  - banner [ref=e6]:
+    - img "रेडियो तरंग लोगो" [ref=e7]
+    - generic [ref=e8]:
+      - heading "रेडियो नाटक" [level=1] [ref=e9]
+      - generic [ref=e10]: हवा महल और आवाजों का सुनहरा मंच
+    - img "रेडियो उद्घोषक चित्र" [ref=e12]
+  - navigation [ref=e13]:
+    - link "मुख्य पृष्ठ" [ref=e14] [cursor=pointer]:
+      - /url: mukhya-prishth.html
+    - link "कार्यक्रम सूची" [ref=e15] [cursor=pointer]:
+      - /url: kaaryakram-suchi.html
+    - link "जिंगल" [ref=e16] [cursor=pointer]:
+      - /url: jingle-sangrah.html
+    - link "नाटक" [ref=e17] [cursor=pointer]:
+      - /url: redio-natak.html
+    - link "पत्र" [ref=e18] [cursor=pointer]:
+      - /url: shrota-patra.html
+    - link "दीर्घा" [ref=e19] [cursor=pointer]:
+      - /url: tasveer-deergha.html
+    - link "सदस्यता" [ref=e20] [cursor=pointer]:
+      - /url: sadasyata.html
+    - link "संपर्क" [ref=e21] [cursor=pointer]:
+      - /url: sampark.html
+  - generic [ref=e22]:
+    - img "रेट्रो माइक्रोफोन" [ref=e23]
+    - generic [ref=e24]:
+      - heading "हवा महल — विविध भारती का सदाबहार रेडियो नाटक" [level=2] [ref=e25]
+      - paragraph [ref=e26]: लकड़ी की कुर्सी, लाल बल्ब, और कलाकारों की सांस तक सुनाई देने वाली रातें। यहां उन्हीं नाटकों का छोटा अभिलेख है।
+  - generic [ref=e28]: सुनिए हर रात 8 बजे — कहानी, संवाद, संगीत और ठहराव
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - article [ref=e31]:
+        - heading "धुंध में स्टेशन" [level=2] [ref=e32]
+        - paragraph [ref=e33]:
+          - strong [ref=e34]: "प्रसारण:"
+          - text: 14-08-1995 |
+          - strong [ref=e35]: "अवधि:"
+          - text: 28 मिनट
+        - paragraph [ref=e36]: "एक छोटे स्टेशन पर रुकी ट्रेन और अजनबी मुसाफिर की रहस्यमय कहानी। कलाकार: शारदा, विनोद, कुसुम।"
+      - article [ref=e37]:
+        - heading "बरामदे की आहट" [level=2] [ref=e38]
+        - paragraph [ref=e39]:
+          - strong [ref=e40]: "प्रसारण:"
+          - text: 03-11-1996 |
+          - strong [ref=e41]: "अवधि:"
+          - text: 31 मिनट
+        - paragraph [ref=e42]: "पुरानी हवेली में लौटे परिवार को हर रात वही पायल सुनाई देती है। कलाकार: राघव, मीरा, अनवर।"
+    - complementary [ref=e43]:
+      - heading "इस सप्ताह का नाटक" [level=2] [ref=e44]
+      - paragraph [ref=e45]: बरसाती रात का रहस्य, शुक्रवार रात आठ बजे।
+      - heading "श्रोता रेटिंग" [level=2] [ref=e46]
+      - generic [ref=e47]: ★★★★
+  - contentinfo [ref=e48]:
+    - text: © रेडियो तरंग 90 फैन मंडली
+    - generic [ref=e49]:
+      - generic [ref=e50]: 800x600 में सर्वोत्तम दृश्य
+      - generic [ref=e51]: नोटपैड से निर्मित

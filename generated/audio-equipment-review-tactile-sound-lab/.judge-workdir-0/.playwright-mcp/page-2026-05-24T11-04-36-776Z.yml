@@ -1,0 +1,88 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Tactile Sound Lab" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - generic [ref=e6]: Tactile Sound Lab
+      - navigation "Main navigation" [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "Reviews" [ref=e9] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Database" [ref=e10] [cursor=pointer]:
+          - /url: gear-database.html
+        - link "Lab Tests" [ref=e11] [cursor=pointer]:
+          - /url: lab-tests.html
+        - link "Compare" [ref=e12] [cursor=pointer]:
+          - /url: comparisons.html
+        - link "Community" [ref=e13] [cursor=pointer]:
+          - /url: community.html
+        - link "About" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - img "Two synthesizers side by side" [ref=e17]
+      - generic [ref=e18]:
+        - generic [ref=e19]: Versus desk
+        - heading "Comparisons" [level=1] [ref=e20]
+        - paragraph [ref=e21]: Choose two instruments and inspect the specifications, measurements, samples, and reader sentiment side by side.
+    - generic [ref=e23]:
+      - article [ref=e24]:
+        - img "Left synthesizer" [ref=e25]
+        - heading "Mono Lab 101" [level=2] [ref=e26]
+        - paragraph [ref=e27]: 1978 · single oscillator · rubbery bass
+      - generic [ref=e28]: VS
+      - article [ref=e29]:
+        - img "Right drum machine" [ref=e30]
+        - heading "Rhythm RX-8" [level=2] [ref=e31]
+        - paragraph [ref=e32]: 1984 · PCM percussion · tight swing
+    - table [ref=e35]:
+      - rowgroup [ref=e36]:
+        - row "Category Mono Lab 101 Rhythm RX-8" [ref=e37]:
+          - columnheader "Category" [ref=e38]
+          - columnheader "Mono Lab 101" [ref=e39]
+          - columnheader "Rhythm RX-8" [ref=e40]
+        - row "Oscillators 1 VCO + sub PCM voices" [ref=e41]:
+          - cell "Oscillators" [ref=e42]
+          - cell "1 VCO + sub" [ref=e43]
+          - cell "PCM voices" [ref=e44]
+        - row "Filter 24 dB low-pass Analog output tone" [ref=e45]:
+          - cell "Filter" [ref=e46]
+          - cell "24 dB low-pass" [ref=e47]
+          - cell "Analog output tone" [ref=e48]
+        - row "Envelope ADSR Per-voice decay" [ref=e49]:
+          - cell "Envelope" [ref=e50]
+          - cell "ADSR" [ref=e51]
+          - cell "Per-voice decay" [ref=e52]
+        - row "Memory None 64 patterns" [ref=e53]:
+          - cell "Memory" [ref=e54]
+          - cell "None" [ref=e55]
+          - cell "64 patterns" [ref=e56]
+        - row "Connectivity CV/Gate MIDI + DIN sync" [ref=e57]:
+          - cell "Connectivity" [ref=e58]
+          - cell "CV/Gate" [ref=e59]
+          - cell "MIDI + DIN sync" [ref=e60]
+        - row "Price $1,250 used $890 used" [ref=e61]:
+          - cell "Price" [ref=e62]
+          - cell "$1,250 used" [ref=e63]
+          - cell "$890 used" [ref=e64]
+    - generic [ref=e66]:
+      - generic [ref=e67]: ▶
+      - strong [ref=e69]: "A/B sample: dry output, no normalization"
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - heading "Reader Votes" [level=3] [ref=e73]
+        - generic [ref=e74]:
+          - generic [ref=e75]: Mono Lab
+          - generic [ref=e78]: 62%
+        - generic [ref=e79]:
+          - generic [ref=e80]: RX-8
+          - generic [ref=e83]: 38%
+      - generic [ref=e84]:
+        - heading "Related Comparisons" [level=3] [ref=e85]
+        - paragraph [ref=e86]: Juno-60 vs Polysix · TR-606 vs CR-78 · MS-20 vs Odyssey
+  - contentinfo [ref=e87]:
+    - generic [ref=e88]:
+      - strong [ref=e89]: Tactile Sound Lab
+      - generic [ref=e90]: Independent reviews for analog obsessives.
+      - generic [ref=e91]: Compare by ear and meter

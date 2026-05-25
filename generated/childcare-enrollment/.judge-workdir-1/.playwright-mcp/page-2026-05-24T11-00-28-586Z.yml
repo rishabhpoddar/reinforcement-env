@@ -1,0 +1,87 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e6]: ★
+        - generic [ref=e7]: حضانة نجوم الصغار
+      - generic [ref=e8]: ☰
+  - main [ref=e9]:
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e12]: ✦ حي دافئ في عمّان للأطفال من ١-٥ سنوات
+        - heading "مكان يكبر فيه الفضول" [level=1] [ref=e13]
+        - paragraph [ref=e14]: نمزج اللعب، الحنان، والروتين الآمن في حضانة قريبة من البيت. التسجيل، نماذج الأهل، وخطة الرعاية الخاصة بطفلك كلها مصممة لتكون سهلة ومبهجة.
+        - generic [ref=e15]:
+          - link "ابدأ طلب التسجيل" [ref=e16] [cursor=pointer]:
+            - /url: التسجيل.html
+          - link "احجز جولة" [ref=e17] [cursor=pointer]:
+            - /url: تواصل.html
+        - generic [ref=e18]: ☁️ تحديثات يومية للأهل وصور نشاطات آمنة داخل الصف
+      - generic [ref=e19]:
+        - img "أطفال يلعبون داخل فقاعة مرحة" [ref=e21]
+        - generic [ref=e22]: ⭐
+        - generic [ref=e23]: ☁️
+        - generic [ref=e24]: 🎈
+    - region "أرقام الحضانة" [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: ٤٢
+        - paragraph [ref=e28]: معلمة ومساعدة رعاية
+      - generic [ref=e29]:
+        - generic [ref=e30]: ٨
+        - paragraph [ref=e31]: سنوات خبرة في عمّان
+      - generic [ref=e32]:
+        - generic [ref=e33]: ٣٠٠
+        - paragraph [ref=e34]: طفل سعيد تخرّجوا من نجومنا
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]: برامجنا
+          - heading "ثلاث رحلات صغيرة، كل واحدة على مقاس العمر" [level=2] [ref=e39]
+        - link "شاهد البرامج" [ref=e40] [cursor=pointer]:
+          - /url: البرامج.html
+      - generic [ref=e41]:
+        - article [ref=e42]:
+          - img "برنامج الرضع" [ref=e43]
+          - heading "نجمة الصغيرة" [level=3] [ref=e44]
+          - paragraph [ref=e45]: رعاية ناعمة، قيلولات منظمة، ولعب حسي آمن لعمر ١-٢.
+        - article [ref=e46]:
+          - img "برنامج المستكشف" [ref=e47]
+          - heading "نجمة المستكشف" [level=3] [ref=e48]
+          - paragraph [ref=e49]: اكتشاف، حركة، ومفردات جديدة لعمر ٢-٣ مع روتين واضح.
+        - article [ref=e50]:
+          - img "برنامج المبدع" [ref=e51]
+          - heading "نجمة المبدع" [level=3] [ref=e52]
+          - paragraph [ref=e53]: فن، قصص، ومهارات اجتماعية استعداداً للروضة لعمر ٤-٥.
+    - generic [ref=e55]:
+      - generic [ref=e57]:
+        - generic [ref=e58]: قالوا عنا
+        - heading "أهل مطمئنون، أطفال يروون قصصهم بحماس" [level=2] [ref=e59]
+      - generic [ref=e60]:
+        - blockquote [ref=e61]:
+          - text: “ابنتي صارت تنتظر الصباح لتذهب إلى صف الفن.”
+          - strong [ref=e62]: والدة لانا
+        - blockquote [ref=e63]:
+          - text: “التقارير اليومية جعلتنا نتابع أكله ونومه بسهولة.”
+          - strong [ref=e64]: والد آدم
+        - blockquote [ref=e65]:
+          - text: “المعلمات يعرفن شخصية كل طفل، وهذا أهم شيء.”
+          - strong [ref=e66]: والدة سارة
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - heading "تعالوا نشوف الصفوف معاً" [level=2] [ref=e70]
+        - paragraph [ref=e71]: احجزوا جولة صباحية، جرّبوا ركن القراءة، وتعرّفوا على معلمات طفلكم قبل التسجيل.
+      - link "حجز جولة الآن" [ref=e72] [cursor=pointer]:
+        - /url: تواصل.html
+  - contentinfo [ref=e73]:
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - strong [ref=e76]: حضانة نجوم الصغار
+        - paragraph [ref=e77]: حي عائلي آمن في عمّان، من الأحد إلى الخميس.
+      - generic [ref=e78]:
+        - link "البرامج" [ref=e79] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "التسجيل" [ref=e80] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "تواصل" [ref=e81] [cursor=pointer]:
+          - /url: تواصل.html

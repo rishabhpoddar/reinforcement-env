@@ -1,0 +1,215 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text: "NEW: The 2024 Sauerkraut Census is here! →"
+    - link "Read the findings" [ref=e3] [cursor=pointer]:
+      - /url: recipes.html
+  - navigation [ref=e4]:
+    - link "The Pickle Periodical" [ref=e5] [cursor=pointer]:
+      - /url: home.html
+      - text: The Pickle Periodical
+    - button "Menu" [ref=e7] [cursor=pointer]
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - link "Home" [ref=e10] [cursor=pointer]:
+        - /url: home.html
+      - text: / Ask the Brinemaster
+    - generic [ref=e11]:
+      - img "The Brinemaster, illustrated" [ref=e13]
+      - generic [ref=e14]:
+        - text: A WEEKLY COLUMN SINCE 2019
+        - heading "Ask the Brinemaster" [level=1] [ref=e15]
+        - paragraph [ref=e16]: Sandor reads every letter. Some he answers with a paragraph; some require a small essay and a portrait of the offending jar. Submit your fermentation crisis below — anonymously if your friends are watching.
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: 1,247
+            - text: questions answered
+          - generic [ref=e20]:
+            - generic [ref=e21]: "2019"
+            - text: column launched
+          - generic [ref=e22]:
+            - generic [ref=e23]: "38"
+            - text: countries asked
+  - generic [ref=e25]:
+    - main [ref=e26]:
+      - article [ref=e27]:
+        - text: FEATURED THIS WEEK
+        - generic [ref=e28]: “My jar is hissing at me. Loudly. The lid bulges, the smell is sharp, and my partner has banned it from the kitchen. Should I be excited or terrified?”
+        - generic [ref=e29]: — Priya R., Toronto · 4 days ago
+        - paragraph [ref=e30]:
+          - strong [ref=e31]: Excited.
+          - text: What you’re describing is a healthy, vigorously fermenting lacto-vegetable in stage two of its lifecycle. Hissing means CO₂ is escaping faster than your seal can release it, which is normal between days 3–7 of a kraut or kimchi ferment. The sharp smell is hydrogen sulfide and lactic acid — pungent but harmless.
+        - paragraph [ref=e32]: "That said: a bulging lid is not optional. Either “burp” the jar daily by opening it briefly to release pressure, or switch to an airlock lid that does this automatically. Bulging jars can shatter in rare cases, and nobody wants kraut grenades."
+        - paragraph [ref=e33]: A hissing jar is a jar making its rent. Pay attention, but trust the process.
+        - generic [ref=e34]: "VERDICT: PROCEED, WITH BURPING"
+      - generic [ref=e35]:
+        - generic [ref=e36]: — Recently Answered —
+        - heading "The Archive" [level=2] [ref=e37]
+      - generic [ref=e38]:
+        - article [ref=e39]:
+          - generic [ref=e40]: “Can I ferment in plastic, or am I poisoning my family?”
+          - generic [ref=e41]:
+            - generic [ref=e42]: Equipment
+            - generic [ref=e43]: 620 words
+        - article [ref=e44]:
+          - generic [ref=e45]: “White fluffy stuff on the brine — kahm or mold?”
+          - generic [ref=e46]:
+            - generic [ref=e47]: Troubleshoot
+            - generic [ref=e48]: 410 words
+        - article [ref=e49]:
+          - generic [ref=e50]: “My kombucha SCOBY looks like a horror film. Normal?”
+          - generic [ref=e51]:
+            - generic [ref=e52]: SCOBY
+            - generic [ref=e53]: 880 words
+        - article [ref=e54]:
+          - generic [ref=e55]: “Salt percentage for pickling oysters in Brittany?”
+          - generic [ref=e56]:
+            - generic [ref=e57]: Seafood
+            - generic [ref=e58]: 320 words
+        - article [ref=e59]:
+          - generic [ref=e60]: “Will iodized salt ruin my kraut? Asking for a 70-yr-old.”
+          - generic [ref=e61]:
+            - generic [ref=e62]: Beginner
+            - generic [ref=e63]: 540 words
+        - article [ref=e64]:
+          - generic [ref=e65]: “Apartment is 82°F in summer. What ferments survive?”
+          - generic [ref=e66]:
+            - generic [ref=e67]: Climate
+            - generic [ref=e68]: 720 words
+    - complementary [ref=e69]:
+      - heading "Submit Your Question" [level=3] [ref=e70]
+      - paragraph [ref=e71]: Sandor reads every submission. Featured letters get a print copy.
+      - generic [ref=e72]: Your name (or alias)
+      - textbox "Anon. of Anywhere" [ref=e73]
+      - generic [ref=e74]: Location
+      - textbox "City, country" [ref=e75]
+      - generic [ref=e76]: Your ferment situation
+      - 'textbox "Tell us everything: what, how long, what salt, what container, what scares you…" [ref=e77]'
+      - generic [ref=e78]: Photo of the offender
+      - generic [ref=e79] [cursor=pointer]: 📷 Drop a JPG or PNG here
+      - generic [ref=e80]: Urgency
+      - slider [ref=e81]: "3"
+      - generic [ref=e82]:
+        - generic [ref=e83]: Curious
+        - generic [ref=e84]: Help, hissing
+      - button "Send the Letter" [ref=e85] [cursor=pointer]
+  - generic [ref=e87]:
+    - generic [ref=e88]:
+      - generic [ref=e89]: — Top 10 of All Time —
+      - heading "The Eternal Questions" [level=2] [ref=e90]
+    - group [ref=e91]:
+      - generic "Is my ferment safe? How do I really know? −" [ref=e92] [cursor=pointer]
+      - generic [ref=e93]: "Lacto-fermentation is among the safest food preservation methods on earth. Properly salted vegetables submerged in their own brine drop to pH 3.5–4.0 within days, an environment in which dangerous pathogens cannot survive. Trust your senses: pleasant sour = good; rotten/putrid = bad. When in doubt, throw it out."
+    - group [ref=e94]:
+      - generic "Why does my brine cloud after a few days? +" [ref=e95] [cursor=pointer]
+    - group [ref=e96]:
+      - generic "Can I use tap water? +" [ref=e97] [cursor=pointer]
+    - group [ref=e98]:
+      - generic "Glass jar vs ceramic crock — which is better? +" [ref=e99] [cursor=pointer]
+    - group [ref=e100]:
+      - generic "How do I store a ferment once it’s done? +" [ref=e101] [cursor=pointer]
+    - group [ref=e102]:
+      - generic "Why did my kimchi turn into liquid? +" [ref=e103] [cursor=pointer]
+    - group [ref=e104]:
+      - generic "Can I add honey to a ferment for sweetness? +" [ref=e105] [cursor=pointer]
+    - group [ref=e106]:
+      - generic "Is the white film mold? My grandmother says skim it. +" [ref=e107] [cursor=pointer]
+    - group [ref=e108]:
+      - generic "What’s the easiest first ferment for a beginner? +" [ref=e109] [cursor=pointer]
+    - group [ref=e110]:
+      - generic "How long can a ferment really last? +" [ref=e111] [cursor=pointer]
+  - contentinfo [ref=e112]:
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - link "The Pickle Periodical" [ref=e115] [cursor=pointer]:
+          - /url: home.html
+          - text: The Pickle Periodical
+        - paragraph [ref=e117]:
+          - text: A quarterly devotion to fermentation, brine, and slow flavor.
+          - text: Brooklyn, NY · Est. 2016
+        - generic [ref=e118]:
+          - link "IG" [ref=e119] [cursor=pointer]:
+            - /url: "#"
+          - link "TW" [ref=e120] [cursor=pointer]:
+            - /url: "#"
+          - link "YT" [ref=e121] [cursor=pointer]:
+            - /url: "#"
+          - link "RSS" [ref=e122] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e124]:
+        - heading "Sections" [level=4] [ref=e125]
+        - list [ref=e126]:
+          - listitem [ref=e127]:
+            - link "Recipes" [ref=e128] [cursor=pointer]:
+              - /url: recipes.html
+          - listitem [ref=e129]:
+            - link "Techniques" [ref=e130] [cursor=pointer]:
+              - /url: techniques.html
+          - listitem [ref=e131]:
+            - link "Atlas" [ref=e132] [cursor=pointer]:
+              - /url: ferment-atlas.html
+          - listitem [ref=e133]:
+            - link "Brinemaster" [ref=e134] [cursor=pointer]:
+              - /url: ask-the-brinemaster.html
+      - generic [ref=e135]:
+        - heading "About" [level=4] [ref=e136]
+        - list [ref=e137]:
+          - listitem [ref=e138]:
+            - link "Our story" [ref=e139] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e140]:
+            - link "Masthead" [ref=e141] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e142]:
+            - link "Pitch us" [ref=e143] [cursor=pointer]:
+              - /url: about.html
+          - listitem [ref=e144]:
+            - link "Press" [ref=e145] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e146]:
+        - heading "Shop" [level=4] [ref=e147]
+        - list [ref=e148]:
+          - listitem [ref=e149]:
+            - link "All Goods" [ref=e150] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e151]:
+            - link "Beginner Kits" [ref=e152] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e153]:
+            - link "Subscriptions" [ref=e154] [cursor=pointer]:
+              - /url: shop.html
+          - listitem [ref=e155]:
+            - link "Gift Cards" [ref=e156] [cursor=pointer]:
+              - /url: shop.html
+      - generic [ref=e157]:
+        - heading "Community" [level=4] [ref=e158]
+        - list [ref=e159]:
+          - listitem [ref=e160]:
+            - link "Forums" [ref=e161] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e162]:
+            - link "Events" [ref=e163] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e164]:
+            - link "Workshops" [ref=e165] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e166]:
+            - link "Submitted" [ref=e167] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e168]:
+        - heading "Legal" [level=4] [ref=e169]
+        - list [ref=e170]:
+          - listitem [ref=e171]:
+            - link "Privacy" [ref=e172] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e173]:
+            - link "Terms" [ref=e174] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e175]:
+            - link "Cookies" [ref=e176] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e177]:
+            - link "Accessibility" [ref=e178] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e179]:
+      - generic [ref=e180]: © 2024 The Pickle Periodical · A worker-owned cooperative.
+      - generic [ref=e181]: Letterpress aesthetic since vol. 1

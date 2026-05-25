@@ -1,0 +1,102 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: Atelier Papier Buvard
+      - generic [ref=e4]: Paris · depuis 2014
+  - main [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - text: Édition d'automne 2025
+        - heading "Le papier, lentement." [level=1] [ref=e9]:
+          - emphasis [ref=e10]: Le papier,
+          - text: lentement.
+        - paragraph [ref=e11]: Marbrures à la cuve, carnets typographiés, buvards pour plumes de stylo — façonnés feuille après feuille, rue de Charonne.
+        - link "Voir les collections" [ref=e12] [cursor=pointer]:
+          - /url: collections.html
+        - generic [ref=e13]:
+          - generic [ref=e14]: —Hand-marbled
+          - generic [ref=e15]: —Made in France
+      - img "Feuille de papier marbré sur lin crème" [ref=e17]
+    - complementary [ref=e18]:
+      - generic [ref=e19]:
+        - text: Nouveau
+        - generic [ref=e20]: Collection — Automne
+      - generic [ref=e21]:
+        - heading "Six marbrures inspirées des feuillages tardifs" [level=3] [ref=e22]
+        - paragraph [ref=e23]: Ocre brûlé, terre de Sienne, vert sauge — tirages limités à 40 feuilles par motif, numérotés à la main.
+      - link "Découvrir" [ref=e24] [cursor=pointer]:
+        - /url: collections.html
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]: Trois familles
+          - heading "Le geste, le grain, le silence" [level=2] [ref=e29]
+        - link "Tout voir →" [ref=e30] [cursor=pointer]:
+          - /url: collections.html
+      - generic [ref=e31]:
+        - article [ref=e32]:
+          - img "Marbrures" [ref=e33]
+          - generic [ref=e34]: "01"
+          - heading "Marbrures" [level=3] [ref=e35]
+          - paragraph [ref=e36]: Feuilles d'endpaper marbrées à la cuve, motifs peignés à la main — format A4, A3 ou sur mesure.
+          - link "Découvrir" [ref=e37] [cursor=pointer]:
+            - /url: collections.html
+        - article [ref=e38]:
+          - img "Carnets letterpress" [ref=e39]
+          - generic [ref=e40]: "02"
+          - heading "Carnets" [level=3] [ref=e41]
+          - paragraph [ref=e42]: Reliures cousues, couvertures typographiées au plomb, papier ivoire 90g pensé pour la plume.
+          - link "Découvrir" [ref=e43] [cursor=pointer]:
+            - /url: collections.html
+        - article [ref=e44]:
+          - img "Buvards" [ref=e45]
+          - generic [ref=e46]: "03"
+          - heading "Buvards" [level=3] [ref=e47]
+          - paragraph [ref=e48]: Carrés de papier buvard pour stylos-plume, teintés à l'encre végétale — vendus par lot de douze.
+          - link "Découvrir" [ref=e49] [cursor=pointer]:
+            - /url: collections.html
+    - generic [ref=e50]:
+      - blockquote [ref=e51]: Faire un beau papier, c'est accepter que le bain décide aussi.
+      - generic [ref=e52]: — Margaux Lefèvre, fondatrice
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - img [ref=e56]
+        - generic [ref=e58]:
+          - heading "Fait à la mein" [level=4] [ref=e59]
+          - paragraph [ref=e60]: Chaque feuille marbrée à l'atelier parisien
+      - generic [ref=e61]:
+        - img [ref=e62]
+        - generic [ref=e64]:
+          - heading "Papier français" [level=4] [ref=e65]
+          - paragraph [ref=e66]: Fabriqué dans une papeterie d'Auvergne
+      - generic [ref=e67]:
+        - img [ref=e68]
+        - generic [ref=e70]:
+          - heading "Expédition sous 5 jours" [level=4] [ref=e71]
+          - paragraph [ref=e72]: Préparée et signée à la main
+  - contentinfo [ref=e73]:
+    - generic [ref=e74]:
+      - generic [ref=e75]: Atelier Papier Buvard
+      - generic [ref=e76]: © 2025 · 12 rue de Charonne, 75011 Paris
+      - generic [ref=e77]:
+        - link "Instagram" [ref=e78] [cursor=pointer]:
+          - /url: contact.html
+        - text: ·
+        - link "Are.na" [ref=e79] [cursor=pointer]:
+          - /url: contact.html
+  - navigation "Navigation principale" [ref=e80]:
+    - link [ref=e81] [cursor=pointer]:
+      - /url: accueil.html
+      - img [ref=e82]
+    - link [ref=e84] [cursor=pointer]:
+      - /url: collections.html
+      - img [ref=e85]
+    - link [ref=e90] [cursor=pointer]:
+      - /url: atelier.html
+      - img [ref=e91]
+    - link [ref=e93] [cursor=pointer]:
+      - /url: journal.html
+      - img [ref=e94]
+    - link [ref=e96] [cursor=pointer]:
+      - /url: commander.html
+      - img [ref=e97]

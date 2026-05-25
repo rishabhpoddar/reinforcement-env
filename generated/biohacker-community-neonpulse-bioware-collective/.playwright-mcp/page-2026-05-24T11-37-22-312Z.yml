@@ -1,0 +1,137 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]: // 04 — DATA INPUT
+    - heading "SUBMIT PROCEDURE SUBMIT PROCEDURE SUBMIT PROCEDURE" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Registrá tu procedimiento. Datos anónimos por defecto, encriptados en reposo. Ayudás al colectivo a documentar y a aprender.
+    - generic [ref=e12]:
+      - link "01 IDENTITY" [ref=e13] [cursor=pointer]:
+        - /url: "#section-1"
+        - generic [ref=e14]: "01"
+        - text: IDENTITY
+      - link "02 PROCEDURE" [ref=e15] [cursor=pointer]:
+        - /url: "#section-2"
+        - generic [ref=e16]: "02"
+        - text: PROCEDURE
+      - link "03 METRICS" [ref=e17] [cursor=pointer]:
+        - /url: "#section-3"
+        - generic [ref=e18]: "03"
+        - text: METRICS
+      - link "04 NARRATIVE" [ref=e19] [cursor=pointer]:
+        - /url: "#section-4"
+        - generic [ref=e20]: "04"
+        - text: NARRATIVE
+    - group "SECTION 02 // PROCEDURE" [ref=e81]:
+      - generic [ref=e82]: SECTION 02 // PROCEDURE
+      - generic [ref=e83]:
+        - generic [ref=e84]: IMPLANT TYPE
+        - generic [ref=e85]: Selecciona la categoría que mejor describe tu implante.
+        - generic [ref=e86]:
+          - generic [ref=e87] [cursor=pointer]:
+            - text: "[NFC]"
+            - strong [ref=e88]: NFC / RFID
+            - text: chip subdérmico
+          - generic [ref=e89] [cursor=pointer]:
+            - text: "[MAG]"
+            - strong [ref=e90]: MAGNETO
+            - text: en yema del dedo
+          - generic [ref=e91] [cursor=pointer]:
+            - text: "[LED]"
+            - strong [ref=e92]: LED
+            - text: subdérmico luminoso
+          - generic [ref=e93] [cursor=pointer]:
+            - text: "[BIO]"
+            - strong [ref=e94]: BIOMÉTRICO
+            - text: termo / sensor
+          - generic [ref=e95] [cursor=pointer]:
+            - text: "[EXP]"
+            - strong [ref=e96]: EXPERIMENTAL
+            - text: otro / DIY
+      - generic [ref=e97]:
+        - generic [ref=e98]: BODY LOCATION
+        - generic [ref=e99]: Hacé clic en el diagrama o seleccioná la ubicación de la lista.
+        - generic [ref=e100]:
+          - img "Diagrama anatómico de implantes" [ref=e101]
+          - list [ref=e102]:
+            - listitem [ref=e103]: ▸ Web pulgar (L1)
+            - listitem [ref=e104]: ▸ Dorso de la mano (L2)
+            - listitem [ref=e105]: ▸ Yema dedo índice (L3)
+            - listitem [ref=e106]: ▸ Yema anular (L4)
+            - listitem [ref=e107]: ▸ Antebrazo dorsal (L5)
+            - listitem [ref=e108]: ▸ Antebrazo ventral (L6)
+            - listitem [ref=e109]: ▸ Pectoral (L7)
+            - listitem [ref=e110]: ▸ Otra ubicación...
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - generic [ref=e113]: DATE OF INSTALL
+          - generic [ref=e114]: Fecha real del procedimiento.
+          - textbox "DATE OF INSTALL" [ref=e115]
+        - generic [ref=e116]:
+          - generic [ref=e117]: INSTALLED BY
+          - generic [ref=e118]: ¿Profesional o auto-instalación?
+          - combobox "INSTALLED BY" [ref=e119]:
+            - option "Profesional licenciado (body mod artist)" [selected]
+            - option "Médico / profesional sanitario"
+            - option "Otro miembro del colectivo"
+            - option "Auto-instalación (DIY)"
+      - generic [ref=e120]:
+        - link "◂ ATRÁS" [ref=e121] [cursor=pointer]:
+          - /url: "#section-1"
+        - generic [ref=e122]: PASO 02 / 04
+        - link "CONTINUAR ▸" [ref=e123] [cursor=pointer]:
+          - /url: "#section-3"
+  - contentinfo [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e47]
+        - paragraph [ref=e48]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e49]:
+        - heading "// EXPLORE" [level=5] [ref=e50]
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Registry" [ref=e53] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e54]:
+            - link "Guides" [ref=e55] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e56]:
+            - link "Members" [ref=e57] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e58]:
+            - link "Events" [ref=e59] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e60]:
+        - heading "// COLLECTIVE" [level=5] [ref=e61]
+        - list [ref=e62]:
+          - listitem [ref=e63]:
+            - link "Manifesto" [ref=e64] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e65]:
+            - link "Submit" [ref=e66] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e67]:
+            - link "Contact" [ref=e68] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e69]:
+        - heading "// MIRROR" [level=5] [ref=e70]
+        - list [ref=e71]:
+          - listitem [ref=e72]:
+            - link "tor.onion" [ref=e73] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e74]:
+            - link "IPFS" [ref=e75] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e76]:
+            - link "Matrix" [ref=e77] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e78]:
+      - generic [ref=e79]: © 2019—2026 NEONPULSE
+      - generic [ref=e80]: v3.2.7 // 8842

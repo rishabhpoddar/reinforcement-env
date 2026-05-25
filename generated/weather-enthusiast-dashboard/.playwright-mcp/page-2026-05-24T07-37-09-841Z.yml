@@ -1,0 +1,69 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "PixelMétéo 95" [level=1] [ref=e5]
+      - generic [ref=e6]: GALERIE COMMUNAUTAIRE
+    - navigation "Navigation principale" [ref=e7]:
+      - link "Accueil" [ref=e8] [cursor=pointer]:
+        - /url: accueil.html
+      - link "Tableau de bord" [ref=e9] [cursor=pointer]:
+        - /url: tableau-de-bord.html
+      - link "Observations" [ref=e10] [cursor=pointer]:
+        - /url: observations.html
+      - link "Tempêtes" [ref=e11] [cursor=pointer]:
+        - /url: tempetes.html
+      - link "Membres" [ref=e12] [cursor=pointer]:
+        - /url: membres.html
+      - link "Archives" [ref=e13] [cursor=pointer]:
+        - /url: archives.html
+      - link "Forum" [ref=e14] [cursor=pointer]:
+        - /url: forum.html
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+    - generic [ref=e17]: "NOUVELLE PHOTO VALIDÉE : TORNade près de Chartres ⚡ BROUILLARD DENSE EN BRESSE ⚡ ARC-EN-CIEL DOUBLE À NANTES"
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - button "Tous" [ref=e20] [cursor=pointer]
+      - button "Orages" [ref=e21] [cursor=pointer]
+      - button "Neige" [ref=e22] [cursor=pointer]
+      - button "Brouillard" [ref=e23] [cursor=pointer]
+      - button "Arc-en-ciel" [ref=e24] [cursor=pointer]
+      - button "Rare" [ref=e25] [cursor=pointer]
+    - region "Rapports d'observation" [ref=e26]:
+      - article [ref=e27]:
+        - img "Tornade pixelisée" [ref=e28]
+        - paragraph [ref=e29]: "@TubaRadar - 14/05/2026"
+        - paragraph [ref=e30]: Entonnoir au sol, rotation nette.
+        - text: ★★★★★
+      - article [ref=e31]:
+        - img "Ciel orageux" [ref=e32]
+        - paragraph [ref=e33]: "@BreizhCell - 12/05"
+        - paragraph [ref=e34]: Rideau de pluie cyan sur le Finistère.
+        - text: ★★★★☆
+      - article [ref=e35]:
+        - img "Graphique météo" [ref=e36]
+        - paragraph [ref=e37]: "@ThermoGeek - 11/05"
+        - paragraph [ref=e38]: Chute de 8°C en 20 minutes.
+        - text: ★★★☆☆
+      - article [ref=e39]:
+        - img "Carte station" [ref=e40]
+        - paragraph [ref=e41]: "@StationLyon - 10/05"
+        - paragraph [ref=e42]: Point chaud détecté dans le Rhône.
+        - text: ★★★★☆
+      - article [ref=e43]:
+        - img "Bannière PixelMétéo" [ref=e44]
+        - paragraph [ref=e45]: "@ArcusMan - 09/05"
+        - paragraph [ref=e46]: Arcus interminable, validé par 12 membres.
+        - text: ★★★★★
+      - article [ref=e47]:
+        - img "Orage au crépuscule" [ref=e48]
+        - paragraph [ref=e49]: "@GrêleNet - 08/05"
+        - paragraph [ref=e50]: Grêlons 2 cm, jardin sacrifié.
+        - text: ★★★★☆
+    - link "POSTER UNE OBSERVATION" [ref=e51] [cursor=pointer]:
+      - /url: contact.html
+  - contentinfo [ref=e52]:
+    - generic [ref=e53]:
+      - generic [ref=e54]: Best viewed in 1024x768
+      - generic [ref=e55]: Made with ♥ et un anémomètre
+      - generic [ref=e56]: UNDER CONSTRUCTION

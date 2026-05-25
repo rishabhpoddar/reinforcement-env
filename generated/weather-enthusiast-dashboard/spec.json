@@ -1,0 +1,108 @@
+{
+  "site_name": "PixelM\u00e9t\u00e9o 95",
+  "category": "weather-enthusiast-dashboard",
+  "niche": "French amateur storm chasers and weather observation community with live data dashboards",
+  "language": "fr",
+  "text_direction": "ltr",
+  "design_style": "retro-90s",
+  "dark_mode": true,
+  "nav_style": "top-bar",
+  "pages": [
+    "accueil",
+    "tableau-de-bord",
+    "observations",
+    "tempetes",
+    "membres",
+    "archives",
+    "forum",
+    "contact"
+  ],
+  "design_system": {
+    "color_palette": {
+      "primary": "#2A0E5C",
+      "secondary": "#FF00AA",
+      "accent": "#00FFD1",
+      "bg": "#0D0221",
+      "text": "#E8E1FF"
+    },
+    "typography": {
+      "heading_font": "pixel/bitmap display font (e.g. 'Press Start 2P' style)",
+      "body_font": "monospace (VT323 / Courier New style)",
+      "scale": "1.333 perfect fourth with chunky line-heights"
+    },
+    "layout_style": "asymmetric 90s GeoCities-revival grid with visible 2px outset borders, beveled buttons, blinking marquees, and chunky window-chrome panels stacked on a dark cosmic background",
+    "mood": "nostalgic, geeky, enthusiast-driven, slightly chaotic, fun"
+  },
+  "page_descriptions": {
+    "accueil": "Banni\u00e8re sup\u00e9rieure anim\u00e9e 'PIXELM\u00c9T\u00c9O 95 \u2014 LE QG DES CHASSEURS D'ORAGES' en gros pixels rose n\u00e9on sur fond violet profond. Sous le titre, un marquee d\u00e9filant en cyan : 'ALERTE ORAGE EN COURS : MASSIF CENTRAL \u26a1 3 NOUVEAUX MEMBRES AUJOURD'HUI \u26a1 TEMP\u00caTE NOMM\u00c9E CIARA ARCHIV\u00c9E'. Mise en page asym\u00e9trique en 3 colonnes in\u00e9gales : \u00e0 gauche (40%) une grosse 'fen\u00eatre' style Windows 95 contenant l'image h\u00e9ro (ciel orageux pixelis\u00e9) avec barre de titre 'm\u00e9t\u00e9o-live.exe'. Au centre (35%) un compteur visiteurs fa\u00e7on hit-counter 'Vous \u00eates le visiteur n\u00b0 084 521', boutons en relief 'REJOINDRE LE CLUB' et 'VOIR LES TEMP\u00caTES'. \u00c0 droite (25%) une colonne \u00e9troite avec mini-carte de France clignotante et 'Ph\u00e9nom\u00e8ne du jour : Supercellule en Bretagne'. En dessous, grille 4 colonnes de cartes carr\u00e9es (Observations r\u00e9centes, Top contributeurs, Dernier podcast, Quiz du jour). Footer avec banni\u00e8res 'Best viewed in 1024x768' et badges 'Made with \u2764\ufe0f et un an\u00e9mom\u00e8tre'",
+    "tableau-de-bord": "Page dashboard asym\u00e9trique : sidebar gauche \u00e9troite (220px) avec arborescence de stations m\u00e9t\u00e9o membres en style explorateur Windows 95 (ic\u00f4nes dossiers pixelis\u00e9s). Zone principale en grille 12 colonnes irr\u00e9guli\u00e8res \u2014 une grosse carte 'Carte de France en direct' (8 col) avec placeholder de carte pixel art et points clignotants roses/cyans pour les alertes. \u00c0 droite (4 col) pile de petits widgets : jauge de pression atmosph\u00e9rique style cadran r\u00e9tro, thermom\u00e8tre vertical pixelis\u00e9, vitesse du vent en gros chiffres LED verts. En dessous, deux placeholders de graphiques (courbes temp\u00e9ratures 7 jours / barres pr\u00e9cipitations) dans des fen\u00eatres avec barre de titre et boutons _ \u25a1 \u2715. Table de donn\u00e9es en bas listant les 20 derni\u00e8res observations (colonnes : HEURE, STATION, TEMP, VENT, PRESSION, OBSERVATEUR) avec lignes altern\u00e9es violet fonc\u00e9/violet plus clair, en-t\u00eates roses",
+    "observations": "Galerie asym\u00e9trique de rapports d'observation soumis par les membres. Filtres en haut sous forme de boutons 3D pressables (TOUS / ORAGES / NEIGE / BROUILLARD / ARC-EN-CIEL / RARE). Grille masonry intentionnellement irr\u00e9guli\u00e8re : certaines cartes 1x1, d'autres 2x1 ou 1x2, chaque carte avec bordure outset 3px cyan, photo pixelis\u00e9e du ph\u00e9nom\u00e8ne, pseudo de l'observateur en rose, date en monospace, mini-\u00e9toiles de validation par la communaut\u00e9. Bouton flottant en bas \u00e0 droite 'POSTER UNE OBSERVATION' rose clignotant",
+    "tempetes": "Catalogue des temp\u00eates archiv\u00e9es. Tableau de donn\u00e9es massif occupant 70% de la largeur (colonnes : N\u00b0, NOM, DATE, R\u00c9GION, VENT MAX, PRESSION MIN, D\u00c9G\u00c2TS, RAPPORTS) avec tri cliquable sur en-t\u00eates. Encart lat\u00e9ral droit (30%) avec 'Temp\u00eate en vedette' : grosse fiche style carte Pok\u00e9mon avec image, stats pixel, et bouton 'LIRE LE DOSSIER COMPLET'. En haut, frise chronologique horizontale scrollable des temp\u00eates majeures depuis 1999",
+    "membres": "Annuaire des chasseurs. Grille de 'cartes de membre' style trombinoscope r\u00e9tro : avatar pixel 96x96, pseudo en gros, badge de rang (NIMBUS / CUMULUS / CUMULONIMBUS / SUPERCELLULE), r\u00e9gion fran\u00e7aise, nombre d'observations valid\u00e9es, mini barre de progression XP. Filtres par r\u00e9gion (carte de France cliquable en pixel art) et par rang. Top 3 en haut sur podium pixelis\u00e9 or/argent/bronze",
+    "archives": "Biblioth\u00e8que d'articles et de dossiers techniques. Mise en page \u00e9ditoriale asym\u00e9trique : colonne principale (60%) avec liste d'articles (titre pixel, date, extrait monospace, vignette), colonne secondaire (40%) avec nuage de tags color\u00e9 et 'Articles les plus lus' num\u00e9rot\u00e9s 1-10. En-t\u00eate de section avec breadcrumb 'Accueil > Archives > 2024'",
+    "forum": "Liste de cat\u00e9gories de discussion fa\u00e7on phpBB r\u00e9tro : tableau avec colonnes IC\u00d4NE / CAT\u00c9GORIE / SUJETS / MESSAGES / DERNIER POST. Sous-forums imbriqu\u00e9s avec indentation. Indicateurs de nouveaux messages (ic\u00f4ne enveloppe rose qui clignote). Encadr\u00e9 'Statistiques du forum' en bas : nombre total de membres, messages, dernier inscrit",
+    "contact": "Formulaire de contact dans une grosse fen\u00eatre centrale style bo\u00eete de dialogue Windows 95 (titre 'envoyer-message.exe'), champs Nom / Email / Sujet (menu d\u00e9roulant) / Message avec bordures inset. Bouton 'ENVOYER' en relief avec ic\u00f4ne disquette. \u00c0 droite, panneau d'infos : adresse postale de l'association (Lyon), email en lien mailto cyan soulign\u00e9, lien Discord, et une petite animation GIF placeholder d'un \u00e9clair qui frappe"
+  },
+  "complexity": "complex",
+  "image_assets": [
+    {
+      "filename": "hero-orage-pixel.png",
+      "prompt": "Pixel art illustration of a dramatic supercell thunderstorm over a French countryside at dusk, chunky visible pixels in 16-bit style, deep purple sky with hot pink lightning bolts and cyan rain streaks, retro 90s video game aesthetic, dark navy background, glowing horizon",
+      "size": "1536x1024",
+      "used_on": "accueil",
+      "purpose": "hero image inside the main window frame"
+    },
+    {
+      "filename": "carte-france-pixel.png",
+      "prompt": "Pixel art map of France in 8-bit style on dark purple background, regions outlined in cyan, blinking pink dots representing weather stations, retro video game map aesthetic, chunky pixels visible, small pixel icons of clouds and lightning scattered",
+      "size": "1024x1024",
+      "used_on": "tableau-de-bord, membres",
+      "purpose": "interactive weather station map placeholder"
+    },
+    {
+      "filename": "observation-tornade.png",
+      "prompt": "Pixel art depiction of a tornado funnel touching down in a wheat field, vibrant pink and purple tornado swirl, cyan sky with pixelated clouds, retro 16-bit game style, dark moody atmosphere, visible chunky pixels",
+      "size": "1024x1024",
+      "used_on": "observations, tempetes",
+      "purpose": "featured observation card image"
+    },
+    {
+      "filename": "fenetre-graphique.png",
+      "prompt": "Pixelated chart placeholder showing a temperature curve over 7 days inside a Windows 95 style window frame, neon pink line on dark purple grid background, cyan axis labels in pixel font, retro computing aesthetic",
+      "size": "1536x1024",
+      "used_on": "tableau-de-bord, archives",
+      "purpose": "data visualization placeholder"
+    },
+    {
+      "filename": "avatar-pixel-pack.png",
+      "prompt": "Sheet of sixteen 96x96 pixel art avatars of storm chasers with various hats, goggles, weather radios, and rain gear, retro 90s video game character portrait style, vibrant pink, cyan and purple palette on dark background",
+      "size": "1024x1024",
+      "used_on": "membres, forum",
+      "purpose": "member directory avatars"
+    },
+    {
+      "filename": "banniere-marquee.png",
+      "prompt": "Horizontal retro 90s web banner with chunky pixel text 'PIXELM\u00c9T\u00c9O 95' in hot pink with cyan drop shadow, lightning bolt icons and animated star sparkles, dark purple background, GeoCities revival aesthetic",
+      "size": "1536x1024",
+      "used_on": "accueil, archives",
+      "purpose": "decorative section banner"
+    },
+    {
+      "filename": "tempete-vedette.png",
+      "prompt": "Trading card style pixel art portrait of a named storm 'CIARA' with swirling cloud formation, statistics frame around it, holographic foil effect simulated in pink and cyan pixels, dark purple background, retro collectible card aesthetic",
+      "size": "1024x1536",
+      "used_on": "tempetes",
+      "purpose": "featured storm card"
+    }
+  ],
+  "special_elements": [
+    "blinking pink marquee text scrolling across the top",
+    "Windows 95 style window chrome with title bars and _ \u25a1 \u2715 buttons around content panels",
+    "beveled 3D buttons with outset/inset borders that visually depress on click",
+    "visitor hit counter with LED-style digits",
+    "asymmetric masonry grids with intentionally uneven cell sizes",
+    "animated GIF placeholders (lightning, spinning globe, under construction sign in footer)"
+  ],
+  "responsive_notes": "Desktop (1200px+): full asymmetric multi-column layout with sidebars and window panels side-by-side, marquees visible. Tablet (768-1199px): columns collapse to 2 with the dashboard sidebar moving above the main map, window-chrome panels remain but stack vertically, marquee still scrolls. Mobile (<768px): single column stack, top-bar nav converts to a horizontally-scrolling pixel button row (no hamburger to preserve 90s feel), data tables become horizontally scrollable with sticky first column, window panels go full-width, marquee text speed slows. All viewports retain pixel fonts, neon clashing colors, and chunky borders \u2014 no softening or modernization for mobile.",
+  "is_broken": false
+}

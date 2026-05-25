@@ -1,0 +1,85 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Tactile Sound Lab" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - generic [ref=e6]: Tactile Sound Lab
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: home.html
+        - link "Reviews" [ref=e9] [cursor=pointer]:
+          - /url: reviews.html
+        - link "Database" [ref=e10] [cursor=pointer]:
+          - /url: gear-database.html
+        - link "Lab Tests" [ref=e11] [cursor=pointer]:
+          - /url: lab-tests.html
+        - link "Compare" [ref=e12] [cursor=pointer]:
+          - /url: comparisons.html
+        - link "Community" [ref=e13] [cursor=pointer]:
+          - /url: community.html
+        - link "About" [ref=e14] [cursor=pointer]:
+          - /url: about.html
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - heading "Gear Database" [level=1] [ref=e18]
+      - textbox "Search database" [ref=e19]:
+        - /placeholder: ⌕ Search 2,847 instruments, modules, and machines
+    - generic [ref=e21]:
+      - complementary [ref=e22]:
+        - heading "A-Z Manufacturers" [level=3] [ref=e23]
+        - generic [ref=e24]:
+          - generic [ref=e25]: A
+          - generic [ref=e26]: B
+          - generic [ref=e27]: C
+          - generic [ref=e28]: D
+          - generic [ref=e29]: E
+          - generic [ref=e30]: F
+          - generic [ref=e31]: G
+          - generic [ref=e32]: K
+          - generic [ref=e33]: M
+          - generic [ref=e34]: O
+          - generic [ref=e35]: R
+          - generic [ref=e36]: S
+      - generic [ref=e37]:
+        - article [ref=e38]:
+          - img "Synth closeup" [ref=e39]
+          - generic [ref=e40]:
+            - heading "Mono Lab 101" [level=3] [ref=e41]
+            - paragraph [ref=e42]: 1978 · Roland
+        - article [ref=e43]:
+          - img "Drum machine" [ref=e44]
+          - generic [ref=e45]:
+            - heading "RX-8" [level=3] [ref=e46]
+            - paragraph [ref=e47]: 1984 · Kawai
+        - article [ref=e48]:
+          - img "Modular gear" [ref=e49]
+          - generic [ref=e50]:
+            - heading "Maths MkII" [level=3] [ref=e51]
+            - paragraph [ref=e52]: 2013 · Make Noise
+        - article [ref=e53]:
+          - img "Synth pair" [ref=e54]
+          - generic [ref=e55]:
+            - heading "CS Pair" [level=3] [ref=e56]
+            - paragraph [ref=e57]: 1979 · Yamaha
+        - article [ref=e58]:
+          - img "Lab equipment" [ref=e59]
+          - generic [ref=e60]:
+            - heading "Filter Lab" [level=3] [ref=e61]
+            - paragraph [ref=e62]: 1992 · Oberheim
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - heading "Featured This Month" [level=2] [ref=e66]
+        - paragraph [ref=e67]: Six current obsessions from the archive shelves.
+      - generic [ref=e68]:
+        - img "Modular wall" [ref=e69]
+        - img "Synth macro" [ref=e70]
+        - img "Drum machine" [ref=e71]
+        - img "Synth pair" [ref=e72]
+        - img "Testing lab" [ref=e73]
+        - img "Workbench" [ref=e74]
+    - paragraph [ref=e77]: Currently tracking 2,847 instruments across 312 manufacturers
+  - contentinfo [ref=e78]:
+    - generic [ref=e79]:
+      - strong [ref=e80]: Tactile Sound Lab
+      - generic [ref=e81]: Independent reviews for analog obsessives.
+      - generic [ref=e82]: Database updated weekly

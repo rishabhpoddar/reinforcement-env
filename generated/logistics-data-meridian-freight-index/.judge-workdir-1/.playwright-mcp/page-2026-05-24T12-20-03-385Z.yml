@@ -1,0 +1,122 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "Meridian.Index" [ref=e5] [cursor=pointer]:
+        - /url: home.html
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: home.html
+        - link "Rates" [ref=e8] [cursor=pointer]:
+          - /url: rates.html
+        - link "Routes" [ref=e9] [cursor=pointer]:
+          - /url: routes.html
+        - link "Analytics" [ref=e10] [cursor=pointer]:
+          - /url: analytics.html
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: pricing.html
+        - link "Methodology" [ref=e12] [cursor=pointer]:
+          - /url: methodology.html
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: contact.html
+      - link "Access" [ref=e14] [cursor=pointer]:
+        - /url: contact.html
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - img "Aerial container port at night" [ref=e18]
+      - generic [ref=e19]:
+        - heading "The Global Shipping Index, Recalibrated." [level=1] [ref=e20]
+        - paragraph [ref=e21]: Daily container rate intelligence and supply chain analytics built for forwarders who price lanes before the market catches up.
+        - complementary [ref=e22]:
+          - generic [ref=e24]: Live Lane Ticker
+          - generic [ref=e26]:
+            - strong [ref=e27]: SHA → LAX
+            - generic [ref=e28]: $2,184
+            - generic [ref=e29]: +3.1%
+          - generic [ref=e30]:
+            - strong [ref=e31]: RTM → NYC
+            - generic [ref=e32]: $1,906
+            - generic [ref=e33]: "-1.8%"
+          - generic [ref=e34]:
+            - strong [ref=e35]: SGP → HAM
+            - generic [ref=e36]: $2,742
+            - generic [ref=e37]: +4.6%
+          - generic [ref=e38]:
+            - strong [ref=e39]: YTN → LGB
+            - generic [ref=e40]: $2,230
+            - generic [ref=e41]: "-0.9%"
+          - generic [ref=e42]:
+            - strong [ref=e43]: BUS → AMS
+            - generic [ref=e44]: $2,551
+            - generic [ref=e45]: +2.4%
+          - generic [ref=e46]:
+            - strong [ref=e47]: JEA → FEL
+            - generic [ref=e48]: $1,774
+            - generic [ref=e49]: "-3.7%"
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - text: Global Index
+        - strong [ref=e54]: 2,847
+      - generic [ref=e55]:
+        - text: WoW Change
+        - strong [ref=e56]: +2.8%
+      - generic [ref=e57]:
+        - text: Active Lanes Tracked
+        - strong [ref=e58]: "431"
+      - generic [ref=e59]:
+        - text: Data Sources
+        - strong [ref=e60]: 18.2k
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - heading "Featured Lanes" [level=2] [ref=e64]
+        - generic [ref=e65]: 30 day view
+      - generic [ref=e66]:
+        - article [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: SHA-LAX
+            - generic [ref=e70]: +6.2%
+          - heading "Shanghai → LA" [level=3] [ref=e71]
+          - img [ref=e72]
+          - generic [ref=e75]: $2,184
+        - article [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e78]: RTM-NYC
+            - generic [ref=e79]: "-1.9%"
+          - heading "Rotterdam → NY" [level=3] [ref=e80]
+          - img [ref=e81]
+          - generic [ref=e84]: $1,906
+        - article [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]: SGP-HAM
+            - generic [ref=e88]: +4.1%
+          - heading "Singapore → Hamburg" [level=3] [ref=e89]
+          - img [ref=e90]
+          - generic [ref=e93]: $2,742
+    - generic [ref=e95]:
+      - heading "Methodology built for forwarders, not headlines" [level=2] [ref=e96]
+      - generic [ref=e97]:
+        - paragraph [ref=e98]: Meridian normalizes forwarder quotes, carrier filings, port-level congestion data, bunker fuel movements, and schedule reliability into lane-level signals.
+        - paragraph [ref=e99]: Rates are weighted by verified movement density, contract timing, and equipment type rather than headline spot outliers.
+        - paragraph [ref=e100]: Every index point is auditable through source class, timestamp, corridor, and volatility band for procurement teams.
+        - paragraph [ref=e101]: Our editorial layer explains market structure without flattening regional trade complexity into a single noisy number.
+    - generic [ref=e104]:
+      - generic [ref=e105]: Atlas
+      - generic [ref=e106]: K-Line
+      - generic [ref=e107]: Northstar
+      - generic [ref=e108]: Vector
+      - generic [ref=e109]: Triton
+      - generic [ref=e110]: Dover
+      - generic [ref=e111]: Maersk
+      - generic [ref=e112]: Hansa
+      - generic [ref=e113]: Fjord
+      - generic [ref=e114]: Cobalt
+      - generic [ref=e115]: Beacon
+      - generic [ref=e116]: Ardent
+  - link "Request Index Access →" [ref=e119] [cursor=pointer]:
+    - /url: contact.html
+  - contentinfo [ref=e120]:
+    - generic [ref=e121]:
+      - generic [ref=e122]: Meridian Freight Index
+      - generic [ref=e123]:
+        - generic [ref=e124]: Global rate intelligence
+        - generic [ref=e125]: UTC indexed data
+        - generic [ref=e126]: © 2026

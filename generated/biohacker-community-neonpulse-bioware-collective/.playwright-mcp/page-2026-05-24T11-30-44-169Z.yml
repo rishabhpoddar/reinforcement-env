@@ -1,0 +1,111 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "NEONPULSE // BIOWARE" [ref=e4] [cursor=pointer]:
+        - /url: home.html
+        - text: NEONPULSE
+        - generic [ref=e6]: //
+        - text: BIOWARE
+      - link "MENU//" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+  - main [ref=e8]:
+    - generic [ref=e9]: // 04 — DATA INPUT
+    - heading "SUBMIT PROCEDURE SUBMIT PROCEDURE SUBMIT PROCEDURE" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Registrá tu procedimiento. Datos anónimos por defecto, encriptados en reposo. Ayudás al colectivo a documentar y a aprender.
+    - generic [ref=e12]:
+      - link "01 IDENTITY" [ref=e13] [cursor=pointer]:
+        - /url: "#section-1"
+        - generic [ref=e14]: "01"
+        - text: IDENTITY
+      - link "02 PROCEDURE" [ref=e15] [cursor=pointer]:
+        - /url: "#section-2"
+        - generic [ref=e16]: "02"
+        - text: PROCEDURE
+      - link "03 METRICS" [ref=e17] [cursor=pointer]:
+        - /url: "#section-3"
+        - generic [ref=e18]: "03"
+        - text: METRICS
+      - link "04 NARRATIVE" [ref=e19] [cursor=pointer]:
+        - /url: "#section-4"
+        - generic [ref=e20]: "04"
+        - text: NARRATIVE
+    - generic [ref=e21]:
+      - text: ▸ ▸ ▸ ▸ ▸ ▸ ▸ ▸
+      - group "SECTION 04 // NARRATIVE" [ref=e124]:
+        - generic [ref=e125]: SECTION 04 // NARRATIVE
+        - generic [ref=e126]:
+          - generic [ref=e127]: YOUR STORY
+          - generic [ref=e128]: "Contanos brevemente: motivación, contexto, lo que aprendiste. Tu testimonio enriquece el archivo colectivo."
+          - textbox "YOUR STORY" [ref=e129]:
+            - /placeholder: Decidí instalarme un magneto después de tres años leyendo en este foro. Lo hicimos en casa de un amigo, con kit esterilizado siguiendo la guía 007. Los primeros días dolió más de lo que esperaba, pero al mes ya podía detectar el motor del subte sin pensarlo...
+        - generic [ref=e130]:
+          - generic [ref=e131]: PHOTO UPLOAD (opcional)
+          - generic [ref=e132]: JPG o PNG, máx 5 MB. Las fotos se procesan localmente y se almacenan encriptadas.
+          - textbox "PHOTO UPLOAD (opcional)" [ref=e133]:
+            - /placeholder: Seleccioná archivo...  [ examinar ]
+        - generic [ref=e134]:
+          - generic [ref=e135]:
+            - checkbox "Confirmo que esta información es auto-reportada y verídica según mi mejor conocimiento." [checked] [ref=e136]
+            - generic [ref=e137]: Confirmo que esta información es auto-reportada y verídica según mi mejor conocimiento.
+          - generic [ref=e138]:
+            - checkbox "Acepto que este reporte se publique de forma anónima y agregada en el registro público." [checked] [ref=e139]
+            - generic [ref=e140]: Acepto que este reporte se publique de forma anónima y agregada en el registro público.
+          - generic [ref=e141]:
+            - checkbox "Acepto recibir un correo encriptado si surgen alertas sanitarias sobre mi tipo de implante." [ref=e142]
+            - generic [ref=e143]: Acepto recibir un correo encriptado si surgen alertas sanitarias sobre mi tipo de implante.
+          - generic [ref=e144]:
+            - checkbox "Doy consentimiento informado y comprendo que esta plataforma no sustituye atención médica profesional." [ref=e145]
+            - generic [ref=e146]: Doy consentimiento informado y comprendo que esta plataforma no sustituye atención médica profesional.
+        - generic [ref=e147]:
+          - link "◂ ATRÁS" [ref=e148] [cursor=pointer]:
+            - /url: "#section-3"
+          - generic [ref=e149]: PASO 04 / 04 — FINAL
+          - button "ENVIAR // SUBMIT" [ref=e150] [cursor=pointer]
+        - button "GUARDAR BORRADOR" [ref=e152] [cursor=pointer]
+  - contentinfo [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - heading "NEONPULSE // BIOWARE" [level=5] [ref=e47]
+        - paragraph [ref=e48]: Colectivo abierto. CC BY-SA 4.0.
+      - generic [ref=e49]:
+        - heading "// EXPLORE" [level=5] [ref=e50]
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Registry" [ref=e53] [cursor=pointer]:
+              - /url: implant-registry.html
+          - listitem [ref=e54]:
+            - link "Guides" [ref=e55] [cursor=pointer]:
+              - /url: guides.html
+          - listitem [ref=e56]:
+            - link "Members" [ref=e57] [cursor=pointer]:
+              - /url: members.html
+          - listitem [ref=e58]:
+            - link "Events" [ref=e59] [cursor=pointer]:
+              - /url: events.html
+      - generic [ref=e60]:
+        - heading "// COLLECTIVE" [level=5] [ref=e61]
+        - list [ref=e62]:
+          - listitem [ref=e63]:
+            - link "Manifesto" [ref=e64] [cursor=pointer]:
+              - /url: manifesto.html
+          - listitem [ref=e65]:
+            - link "Submit" [ref=e66] [cursor=pointer]:
+              - /url: submit-procedure.html
+          - listitem [ref=e67]:
+            - link "Contact" [ref=e68] [cursor=pointer]:
+              - /url: contact.html
+      - generic [ref=e69]:
+        - heading "// MIRROR" [level=5] [ref=e70]
+        - list [ref=e71]:
+          - listitem [ref=e72]:
+            - link "tor.onion" [ref=e73] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e74]:
+            - link "IPFS" [ref=e75] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e76]:
+            - link "Matrix" [ref=e77] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e78]:
+      - generic [ref=e79]: © 2019—2026 NEONPULSE
+      - generic [ref=e80]: v3.2.7 // 8842

@@ -1,0 +1,95 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "★ حضانة نجوم الصغار" [ref=e4] [cursor=pointer]:
+        - /url: الرئيسية.html
+        - generic [ref=e5]: ★
+        - generic [ref=e6]: حضانة نجوم الصغار
+      - navigation [ref=e7]:
+        - link "الرئيسية" [ref=e8] [cursor=pointer]:
+          - /url: الرئيسية.html
+        - link "البرامج" [ref=e9] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "التسجيل" [ref=e10] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "خطة طفلي" [ref=e11] [cursor=pointer]:
+          - /url: خطة-طفلي.html
+        - link "المعلمات" [ref=e12] [cursor=pointer]:
+          - /url: المعلمات.html
+        - link "الأسئلة" [ref=e13] [cursor=pointer]:
+          - /url: الأسئلة.html
+        - link "تواصل" [ref=e14] [cursor=pointer]:
+          - /url: تواصل.html
+        - link "سجّل الآن" [ref=e15] [cursor=pointer]:
+          - /url: التسجيل.html
+  - main [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: فريق الرعاية
+      - heading "وجوه تعرف الأطفال بالاسم والطباع" [level=1] [ref=e20]
+      - paragraph [ref=e21]: معلمات مؤهلات، ممرضة حاضرة، وأخصائية نفسية تتابع الانتقال، اللعب، والروتين الاجتماعي.
+    - generic [ref=e23]:
+      - article [ref=e24]:
+        - img "المعلمة مريم" [ref=e25]
+        - heading "مريم الخطيب" [level=2] [ref=e26]
+        - paragraph [ref=e27]: قائدة برنامج الصغيرة، ٩ سنوات خبرة.
+        - generic [ref=e28]:
+          - generic [ref=e29]: 🎵 موسيقى
+          - generic [ref=e30]: 🍼 رعاية الرضع
+      - article [ref=e31]:
+        - img "المعلمة سارة" [ref=e32]
+        - heading "سارة النجار" [level=2] [ref=e33]
+        - paragraph [ref=e34]: معلمة المستكشفين، ٦ سنوات خبرة.
+        - generic [ref=e35]:
+          - generic [ref=e36]: 🌿 طبيعة
+          - generic [ref=e37]: 🇬🇧 إنجليزي
+      - article [ref=e38]:
+        - img "المعلمة هبة" [ref=e39]
+        - heading "هبة عودة" [level=2] [ref=e40]
+        - paragraph [ref=e41]: معلمة الروضة والفن، ٨ سنوات خبرة.
+        - generic [ref=e42]:
+          - generic [ref=e43]: 🎨 فن
+          - generic [ref=e44]: 📚 قصص
+      - article [ref=e45]:
+        - img "المعلمة دينا" [ref=e46]
+        - heading "دينا مراد" [level=2] [ref=e47]
+        - paragraph [ref=e48]: مساعدة صف وحركة إبداعية، ٥ سنوات.
+        - generic [ref=e49]:
+          - generic [ref=e50]: 🏃 حركة
+          - generic [ref=e51]: 🧩 لعب
+      - article [ref=e52]:
+        - img "المعلمة ندى" [ref=e53]
+        - heading "ندى سالم" [level=2] [ref=e54]
+        - paragraph [ref=e55]: معلمة لغة وتهيئة مدرسية، ٧ سنوات.
+        - generic [ref=e56]:
+          - generic [ref=e57]: ✏️ كتابة
+          - generic [ref=e58]: 🇬🇧 إنجليزي
+      - article [ref=e59]:
+        - img "المعلمة ريم" [ref=e60]
+        - heading "ريم حسن" [level=2] [ref=e61]
+        - paragraph [ref=e62]: رعاية صباحية وتنظيم الروتين، ٤ سنوات.
+        - generic [ref=e63]:
+          - generic [ref=e64]: ☀️ صباح
+          - generic [ref=e65]: 🍎 تغذية
+    - generic [ref=e67]:
+      - article [ref=e68]:
+        - generic [ref=e69]: 🩺
+        - generic [ref=e70]:
+          - heading "الممرضة عبير" [level=2] [ref=e71]
+          - paragraph [ref=e72]: فحص صباحي، متابعة حرارة، وتواصل مباشر في الحالات الصحية.
+      - article [ref=e73]:
+        - generic [ref=e74]: 💬
+        - generic [ref=e75]:
+          - heading "الأخصائية ليلى" [level=2] [ref=e76]
+          - paragraph [ref=e77]: دعم الانتقال، ملاحظة اللعب الاجتماعي، وخطط تهدئة فردية.
+  - contentinfo [ref=e78]:
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - strong [ref=e81]: حضانة نجوم الصغار
+        - paragraph [ref=e82]: كل صف له مسؤولة تواصل ثابتة مع الأهل.
+      - generic [ref=e83]:
+        - link "البرامج" [ref=e84] [cursor=pointer]:
+          - /url: البرامج.html
+        - link "التسجيل" [ref=e85] [cursor=pointer]:
+          - /url: التسجيل.html
+        - link "تواصل" [ref=e86] [cursor=pointer]:
+          - /url: تواصل.html
